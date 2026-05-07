@@ -18,19 +18,31 @@ export default function BlogIndexPage() {
       <div className="space-y-8">
         <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
           <h2 className="text-2xl font-bold mb-3">
+            <Link href="/blog/save-sticker-someone-sent-imessage" className="text-slate-900 hover:text-blue-600 transition-colors">
+              How to save an iMessage sticker someone sent you
+            </Link>
+          </h2>
+          <p className="text-slate-600 mb-4 line-clamp-2">
+            iOS hides the Save button on third-party iMessage stickers. Here is the one supported gesture for keeping a sticker your friend sent you, animation and all, plus why every common workaround fails.
+          </p>
+          <Link href="/blog/save-sticker-someone-sent-imessage" className="text-blue-600 font-medium hover:text-blue-700">
+            Read article &rarr;
+          </Link>
+        </article>
+
+        <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
+          <h2 className="text-2xl font-bold mb-3">
             <Link href="/blog/turn-photos-into-imessage-stickers" className="text-slate-900 hover:text-blue-600 transition-colors">
               How to turn photos into iMessage stickers in 2026
             </Link>
           </h2>
           <p className="text-slate-600 mb-4 line-clamp-2">
-            A quick tutorial on bringing your favorite photos and videos directly into iMessage conversations using MemePouch. Learn how to import via clipboard, share sheet, or from your camera roll.
+            A walkthrough of making custom iMessage stickers from your photos, GIFs, and short videos with MemePouch — plus how to drag stickers others send you into your own library.
           </p>
           <Link href="/blog/turn-photos-into-imessage-stickers" className="text-blue-600 font-medium hover:text-blue-700">
             Read article &rarr;
           </Link>
         </article>
-        
-        {/* Placeholder for future posts */}
       </div>
     </div>
   );
