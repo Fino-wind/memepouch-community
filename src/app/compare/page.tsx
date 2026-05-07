@@ -29,14 +29,14 @@ export default function ComparePage() {
       {
         "@type": "SoftwareApplication",
         "position": 3,
-        "name": "StickerWiz",
+        "name": "WA Sticker Maker",
         "operatingSystem": "iOS",
         "applicationCategory": "UtilitiesApplication"
       },
       {
         "@type": "SoftwareApplication",
         "position": 4,
-        "name": "Sticker Maker Studio",
+        "name": "iOS 17 Built-in Stickers",
         "operatingSystem": "iOS",
         "applicationCategory": "UtilitiesApplication"
       }
