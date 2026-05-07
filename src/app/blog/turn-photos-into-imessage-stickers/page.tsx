@@ -84,13 +84,16 @@ export default function ArticlePage() {
           <li>
             <strong>From Photos:</strong> tap &quot;Import from Photos&quot; on the home screen,
             pick up to 30 images or GIFs at once, and they&apos;re added to your library. HEIC
-            photos taken on your iPhone are converted to PNG automatically.
+            photos taken on your iPhone are decoded and re-encoded into a sticker-compatible
+            format (PNG when possible, JPEG if the PNG would exceed iMessage&apos;s 500 KB
+            cap).
           </li>
           <li>
             <strong>From a video:</strong> tap &quot;Turn a video into a GIF&quot;, pick a clip
             from your library, trim up to 5 seconds, and MemePouch saves it as an animated GIF
-            sticker. Anything beyond 3 seconds is auto-compressed (lower frame rate and smaller
-            dimensions) to fit the 500 KB iMessage limit.
+            sticker. The encoder steps through frame rates (12 fps down to 4 fps) and
+            dimensions (480 px down to 160 px on the longest side) until the result fits the
+            500 KB iMessage limit — so longer or busier clips end up at lower fidelity.
           </li>
           <li>
             <strong>From the clipboard:</strong> copy an image in Safari, Twitter/X, or any
@@ -110,8 +113,9 @@ export default function ArticlePage() {
           Open any chat in Messages, tap the apps icon to the left of the text field, and select
           MemePouch. Your library appears as a grid. Tap a sticker to drop it in the message
           field, or long-press and drag it onto a specific chat bubble to peel-and-place it as a
-          reaction. The iMessage extension reads the same library as the main app, so anything
-          you import shows up immediately — no syncing or refreshing required.
+          reaction. The iMessage extension and the main app share the same on-device library
+          via an App Group, and the extension automatically reloads when the manifest changes,
+          so anything you import shows up the next time you open the drawer.
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
