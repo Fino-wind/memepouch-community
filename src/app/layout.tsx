@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s · MemePouch",
   },
   description:
-    "MemePouch is a free iPhone app that turns photos, GIFs, and short videos into custom stickers for iMessage. Import from Photos, Share Sheet, clipboard, or iMessage drag and drop.",
+    "MemePouch is a free-to-try iPhone app that turns photos, GIFs, and short videos into custom stickers for iMessage. Import from Photos, Share Sheet, clipboard, or iMessage drag and drop.",
   applicationName: "MemePouch",
   keywords: [
     "custom stickers",
