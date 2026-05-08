@@ -56,7 +56,7 @@ export default function Home() {
             </div>
             <div>
               <h3 className="text-2xl font-bold text-slate-900 mb-3">Video to GIF</h3>
-              <p className="text-slate-500 text-lg leading-relaxed max-w-md">Choose a short video, trim up to 3 seconds of the best moment, and turn it into a looping animated GIF sticker instantly.</p>
+              <p className="text-slate-500 text-lg leading-relaxed max-w-md">Choose a short video, trim up to 5 seconds of the best moment, and turn it into a looping animated GIF sticker instantly.</p>
             </div>
           </div>
 
