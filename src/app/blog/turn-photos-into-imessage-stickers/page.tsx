@@ -123,11 +123,13 @@ export default function ArticlePage() {
           How to save stickers other people send you
         </h2>
         <p className="text-slate-700 leading-relaxed mb-6">
-          This is the part most people don&apos;t realize is even possible. iOS does not show a
-          Save or Share menu when you long-press a third-party sticker someone sent you — Apple
-          only built that flow for stickers from its own system drawer. Drag-and-drop is the
-          only path the system actually exposes for third-party sticker apps to receive an
-          incoming sticker. Here is the exact gesture:
+          This is the part most people don&apos;t realize is even possible. iOS 17+ does have an
+          Emoji Details view (long-press the sticker, scroll the menu) — but for third-party
+          stickers it shows an App Store link to the sender&apos;s sticker pack, not a Save
+          button. Apple only built the save flow for its own system stickers. Drag-and-drop into
+          a sticker app&apos;s iMessage extension is the only path the system exposes for
+          putting an incoming third-party sticker into your own library. Here is the exact
+          gesture:
         </p>
         <ol className="list-decimal pl-6 space-y-3 mb-6 text-slate-700 leading-relaxed">
           <li>
@@ -145,9 +147,9 @@ export default function ArticlePage() {
         </ol>
         <p className="text-slate-700 leading-relaxed mb-6">
           If your finger slips and the long-press cancels, you&apos;ll just see the regular
-          context menu (Reply / Attach Sticker / Copy / More) — that&apos;s iMessage&apos;s
-          standard menu and there is no third-party hook inside it. The two-finger drag is the
-          only reliable way.
+          context menu (Reply / Attach Sticker / Emoji Details / More). The Emoji Details entry
+          there is what links you out to the App Store, not a Save button — the two-finger drag
+          is the only path that drops the sticker into your own library.
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
