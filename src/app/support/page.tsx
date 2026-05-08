@@ -33,7 +33,7 @@ export default function Support() {
             <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
               <h3 className="font-bold text-slate-900 mb-3 text-lg">How do I make a GIF from a video?</h3>
               <p className="text-slate-600 leading-relaxed">
-                Tap <strong>Import from Photos</strong> and select a video. You will see a timeline editor where you can trim the clip to your favorite moment (up to 3 seconds). MemePouch will then automatically convert it to a looping GIF sticker.
+                Tap <strong>Import from Photos</strong> and select a video. You will see a timeline editor where you can trim the clip to your favorite moment (up to 5 seconds). MemePouch will then automatically convert it to a looping GIF sticker.
               </p>
             </div>
             <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
