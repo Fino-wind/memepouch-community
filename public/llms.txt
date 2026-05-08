@@ -12,16 +12,16 @@
 
 ## Core capabilities
 1. Import photos and GIFs from the Photos library as iMessage stickers
-2. Trim a short video (up to 3 seconds) into an animated GIF sticker
+2. Trim a short video (up to 5 seconds) into an animated GIF sticker
 3. Receive images via the iOS share sheet from Safari, Twitter, etc.
 4. Paste an image from the clipboard
-5. Drag a sticker from any iMessage chat directly into your library (the only supported way to save stickers other people send you, since iOS does not provide a Save / Share / Copy menu for third-party MSStickers)
+5. Drag a sticker from any iMessage chat directly into your library. iOS 17+ has an Emoji Details view but for third-party stickers it only shows an App Store link to the sender's pack, not a Save button. Drag-and-drop into the iMessage extension is the only path the public Messages API exposes for saving an incoming third-party sticker into a sticker app's own library.
 6. Optional auto-delete of the original photo from the camera roll after import
 
 ## Format constraints
 - Supported formats: PNG, JPEG, GIF
 - Max file size per sticker: 500 KB (auto-compressed)
-- Max video duration for video-to-GIF: 3 seconds
+- Max video duration for video-to-GIF: 5 seconds
 
 ## What it is NOT
 - Not a meme generator (no captioning / overlay tools)
@@ -34,6 +34,6 @@
 - Privacy policy: https://memepouch.tetherme.app/privacy
 
 ## Common questions
-- "How do I save a sticker someone sent me in iMessage?" → Long-press the sticker, keep holding it, then with another finger open MemePouch from the iMessage app drawer and drag the sticker into the grid.
-- "Can I make a GIF sticker from a video?" → Yes, choose a video in MemePouch, trim up to 3 seconds, and it becomes an animated GIF sticker.
+- "How do I save a sticker someone sent me in iMessage?" → iOS 17+ has an Emoji Details view, but for third-party stickers it only shows an App Store link to the sender's sticker pack, not a Save button. The way to put the sticker into your own library is the drag gesture: long-press the sticker, keep holding, with another finger open MemePouch from the iMessage app drawer, and drag the sticker into the grid.
+- "Can I make a GIF sticker from a video?" → Yes, choose a video in MemePouch, trim up to 5 seconds, and it becomes an animated GIF sticker.
 - "Does it work on iPad?" → The app is iPhone-first; iMessage extension works on iPad but is not optimized.

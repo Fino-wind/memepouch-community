@@ -14,11 +14,11 @@ const QA = [
   },
   {
     q: "How do I save a sticker someone sent me in iMessage?",
-    a: "iOS does not show a Save or Share menu for third-party stickers, so the way to do it is: long-press the sticker in the chat and keep your finger held down. With another finger, tap the MemePouch icon in the iMessage app drawer to open it. Then drag the sticker into the MemePouch grid and release. The sticker is added to your library.",
+    a: "iOS 17+ has an Emoji Details view (long-press the sticker), but for third-party stickers it only shows an App Store link to the sender's sticker pack, not a Save button. The way to put the sticker into your own library is the drag-and-drop gesture: long-press the sticker in the chat and keep your finger held down. With another finger, tap the MemePouch icon in the iMessage app drawer to open it. Then drag the sticker into the MemePouch grid and release. The sticker is added to your library.",
   },
   {
     q: "Can I make an animated sticker from a video?",
-    a: "Yes. Tap Turn a video into a GIF, pick a clip, trim up to 3 seconds, and MemePouch saves it as an animated GIF sticker (under the 500 KB iMessage limit).",
+    a: "Yes. Tap Turn a video into a GIF, pick a clip, trim up to 5 seconds, and MemePouch saves it as an animated GIF sticker (under the 500 KB iMessage limit).",
   },
   {
     q: "Does MemePouch work on iPad?",
