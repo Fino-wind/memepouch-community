@@ -1,6 +1,6 @@
 # MemePouch — Marketing Site
 
-> MemePouch is a free iPhone app (iOS 16+) that turns your photos, GIFs, and short videos into reusable iMessage stickers, and lets you save stickers other people send you in iMessage by dragging them into your library.
+> MemePouch is a free-to-try iPhone app (iOS 16+) that turns your photos, GIFs, and short videos into reusable iMessage stickers, and lets you save stickers other people send you in iMessage by dragging them into your library. The first 10 stickers are free; a one-time unlock removes the cap.
 
 This repository is the public marketing website for **MemePouch**.
 

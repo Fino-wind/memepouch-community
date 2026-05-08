@@ -36,9 +36,10 @@ export default function ArticlePage() {
         </h1>
 
         <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-          MemePouch is a free iPhone app (iOS 16+) that turns your photos, GIFs, and short
+          MemePouch is a free-to-try iPhone app (iOS 16+) that turns your photos, GIFs, and short
           videos into reusable iMessage stickers, and lets you save stickers other people send
-          you in iMessage by dragging them into your library.
+          you in iMessage by dragging them into your library. The first 10 stickers are free; a
+          one-time unlock removes the cap.
         </p>
 
         <p className="text-slate-700 leading-relaxed mb-12">
