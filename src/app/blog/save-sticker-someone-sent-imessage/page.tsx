@@ -161,19 +161,8 @@ export default function ArticlePage() {
         <p className="text-slate-700 leading-relaxed mb-6">
           Most third-party iMessage sticker apps were built before this gesture existed and
           never added a drop target — so even though iOS would let them receive stickers, they
-          don&apos;t. MemePouch&apos;s iMessage extension installs a UIDropInteraction on the
-          extension&apos;s root view and accepts the full range of type identifiers iOS uses for
-          sticker payloads: plain image formats (PNG, JPEG, GIF), Apple&apos;s private{" "}
-          <code className="text-sm bg-slate-100 px-1 py-0.5 rounded">com.apple.uikit.image</code>
-          , and the rich-text wrappers (
-          <code className="text-sm bg-slate-100 px-1 py-0.5 rounded">com.apple.uikit.attributedstring</code>
-          ,{" "}
-          <code className="text-sm bg-slate-100 px-1 py-0.5 rounded">com.apple.flat-rtfd</code>
-          ) that iOS actually uses for static stickers on real devices — the image is embedded as
-          an{" "}
-          <code className="text-sm bg-slate-100 px-1 py-0.5 rounded">NSTextAttachment</code>{" "}
-          inside the attributed string, which is why apps that only register for image UTIs silently
-          drop static stickers while GIFs work fine. Drop a sticker in and it
+          don&apos;t. MemePouch is built specifically to accept drops from the iMessage chat
+          window, including both animated GIFs and static stickers. Drop a sticker in and it
           goes through the same import pipeline as a Photos picker import: animated GIFs stay
           animated (when they fit the 500 KB cap), static stickers are auto-compressed if
           needed, and the sticker shows up in your MemePouch library — visible from both the
