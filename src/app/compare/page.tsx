@@ -29,7 +29,7 @@ export default function ComparePage() {
       {
         "@type": "SoftwareApplication",
         "position": 3,
-        "name": "WA Sticker Maker",
+        "name": "Generic Sticker Maker Apps",
         "operatingSystem": "iOS",
         "applicationCategory": "UtilitiesApplication"
       },
@@ -61,7 +61,7 @@ export default function ComparePage() {
               <th className="py-4 px-6 font-semibold text-slate-900 bg-slate-50">Feature</th>
               <th className="py-4 px-6 font-bold text-blue-600 bg-blue-50 border-x border-slate-200">MemePouch</th>
               <th className="py-4 px-6 font-semibold text-slate-500">Sticker Drop</th>
-              <th className="py-4 px-6 font-semibold text-slate-500">WA Sticker Maker</th>
+              <th className="py-4 px-6 font-semibold text-slate-500">Generic Sticker Apps</th>
               <th className="py-4 px-6 font-semibold text-slate-500">iOS 17 Built-in</th>
             </tr>
           </thead>
@@ -114,9 +114,9 @@ export default function ComparePage() {
         </section>
         
         <section>
-          <h2 className="text-2xl font-semibold mb-4">MemePouch vs WA Sticker Maker</h2>
+          <h2 className="text-2xl font-semibold mb-4">MemePouch vs Generic Sticker Apps</h2>
           <p className="text-slate-600 leading-relaxed">
-            Most generic &quot;sticker maker&quot; apps focus heavily on WhatsApp export and text-overlay meme generation. MemePouch is completely optimized for native Apple iMessage extension experiences—no web servers, no ads, and purely focused on the iOS visual design language.
+            Most generic sticker maker apps on the App Store focus heavily on WhatsApp export or text-overlay meme generation — they are not built around the native iMessage extension API. MemePouch is designed from the ground up for iMessage: no web servers, no ads, and an interface that follows iOS visual conventions.
           </p>
         </section>
       </div>
