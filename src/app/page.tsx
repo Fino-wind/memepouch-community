@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { APP_STORE_URL } from "./site";
 
 export default function Home() {
@@ -35,6 +36,36 @@ export default function Home() {
             </a>
           </div>
         </div>
+      </section>
+
+      {/* Hero Feature Band — save iMessage stickers people send you */}
+      <section className="max-w-6xl mx-auto px-6 pb-20">
+        <Link
+          href="/blog/save-sticker-someone-sent-imessage"
+          className="block group rounded-[2.5rem] border border-slate-200/60 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-10 md:p-14 shadow-sm hover:shadow-lg transition-all"
+        >
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-wide text-blue-300 mb-3">
+                New · iOS doesn&apos;t expose a Save button
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-4">
+                Save the stickers your friends send you in iMessage.
+              </h2>
+              <p className="text-slate-300 text-lg leading-relaxed">
+                There&apos;s no Save, no Share Sheet, no Copy on third-party stickers. The only path
+                iOS actually exposes is a two-finger drag into a sticker app — and MemePouch is
+                built for it. Animated GIFs and static stickers, real-device tested.
+              </p>
+            </div>
+            <span className="inline-flex items-center gap-2 text-base font-semibold text-white whitespace-nowrap group-hover:translate-x-1 transition-transform">
+              See how it works
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
+        </Link>
       </section>
 
       {/* Bento Grid Features */}
