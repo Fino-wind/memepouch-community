@@ -17,11 +17,47 @@ export default function ArticlePage() {
     description:
       "iOS 17+ added an Emoji Details view, but for third-party iMessage stickers it shows an App Store icon instead of a Save button — there is no public API for sticker apps to register as a save destination. The only path the system exposes is dragging the sticker into a sticker app's iMessage extension.",
     datePublished: "2026-05-07",
-    dateModified: "2026-05-08",
+    dateModified: "2026-05-13",
     author: { "@type": "Organization", name: "MemePouch" },
     publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
     image: siteUrl("/opengraph-image"),
     mainEntityOfPage: siteUrl("/blog/save-sticker-someone-sent-imessage"),
+  };
+
+  const HOWTO_LD = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "Save an iMessage sticker someone sent you",
+    description:
+      "iOS does not expose a Save button for third-party iMessage stickers. The only Apple-supported path is dragging the sticker into a sticker app's iMessage extension using a two-finger gesture.",
+    totalTime: "PT15S",
+    tool: [
+      { "@type": "HowToTool", name: "iPhone running iOS 16 or later" },
+      { "@type": "HowToTool", name: "MemePouch (free on the App Store)" },
+    ],
+    step: [
+      {
+        "@type": "HowToStep",
+        position: 1,
+        name: "Long-press the sticker",
+        text: "With one finger, tap and hold the sticker in the iMessage chat. Keep holding until it detaches from the bubble and follows your finger as a small floating preview.",
+        url: siteUrl("/blog/save-sticker-someone-sent-imessage#step-long-press"),
+      },
+      {
+        "@type": "HowToStep",
+        position: 2,
+        name: "Open MemePouch with another finger",
+        text: "While still holding the sticker, use a different finger to tap the apps icon left of the iMessage text field, then tap MemePouch to open it.",
+        url: siteUrl("/blog/save-sticker-someone-sent-imessage#step-open-memepouch"),
+      },
+      {
+        "@type": "HowToStep",
+        position: 3,
+        name: "Drop the sticker onto the grid",
+        text: "Drag the floating sticker onto MemePouch's sticker grid and release. The sticker is added to your library and can be sent from any chat going forward.",
+        url: siteUrl("/blog/save-sticker-someone-sent-imessage#step-drop"),
+      },
+    ],
   };
 
   return (
@@ -30,17 +66,67 @@ export default function ArticlePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(HOWTO_LD) }}
+      />
       <article>
         <h1 className="text-4xl font-bold mb-6 text-slate-900">
           How to save an iMessage sticker someone sent you
         </h1>
 
-        <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+        <p className="text-lg text-slate-600 mb-8 leading-relaxed">
           MemePouch is a free-to-try iPhone app (iOS 16+) that turns your photos, GIFs, and short
           videos into reusable iMessage stickers, and lets you save stickers other people send
           you in iMessage by dragging them into your library. The first 10 stickers are free; a
           one-time unlock removes the cap.
         </p>
+
+        <aside className="not-prose mb-12 rounded-3xl border border-slate-200 bg-gradient-to-br from-blue-50 via-white to-purple-50 p-6 sm:p-8 shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-wide text-slate-500 mb-3">
+            The short version
+          </p>
+          <p className="text-lg sm:text-xl font-medium text-slate-900 leading-snug mb-6">
+            iOS doesn&apos;t give you a Save button for stickers people send you. The only
+            Apple-supported workaround is a two-finger drag into MemePouch.
+          </p>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+            <a
+              href={APP_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download MemePouch on the App Store"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-slate-800 hover:scale-[1.02] transition-all active:scale-95"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true">
+                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+              </svg>
+              Download MemePouch — Free
+            </a>
+            <span className="text-sm text-slate-500">iPhone · iOS 16+ · One-time unlock, no subscription</span>
+          </div>
+        </aside>
+
+        <section aria-labelledby="three-step-summary" className="not-prose mb-12">
+          <h2 id="three-step-summary" className="sr-only">The three-step summary</h2>
+          <ol className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <li id="step-long-press" className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div className="w-9 h-9 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center mb-3">1</div>
+              <h3 className="font-semibold text-slate-900 mb-1">Long-press the sticker</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">Hold it with one finger until it detaches into a floating preview. Don&apos;t release.</p>
+            </li>
+            <li id="step-open-memepouch" className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div className="w-9 h-9 rounded-full bg-purple-100 text-purple-700 font-bold flex items-center justify-center mb-3">2</div>
+              <h3 className="font-semibold text-slate-900 mb-1">Open MemePouch</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">With your other hand, tap the apps icon, then MemePouch in the iMessage drawer.</p>
+            </li>
+            <li id="step-drop" className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div className="w-9 h-9 rounded-full bg-pink-100 text-pink-700 font-bold flex items-center justify-center mb-3">3</div>
+              <h3 className="font-semibold text-slate-900 mb-1">Drop on the grid</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">Release the sticker over MemePouch&apos;s grid. It&apos;s saved to your library.</p>
+            </li>
+          </ol>
+        </section>
 
         <p className="text-slate-700 leading-relaxed mb-12">
           A friend sends you the perfect sticker. You long-press it expecting a Save button. iOS
@@ -206,20 +292,11 @@ export default function ArticlePage() {
         </ul>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">Wrapping up</h2>
-        <p className="text-slate-700 leading-relaxed mb-6">
+        <p className="text-slate-700 leading-relaxed mb-8">
           Short version: iOS 17+ does have an Emoji Details view, but for third-party stickers
           it only links to the sender&apos;s App Store page rather than offering a Save button.
           Drag-and-drop into a sticker app&apos;s iMessage extension is the only path the system
-          actually exposes for putting a friend&apos;s sticker into your own library.{" "}
-          <a
-            href={APP_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:underline font-medium"
-          >
-            Download MemePouch
-          </a>{" "}
-          if you want to try it. The{" "}
+          actually exposes for putting a friend&apos;s sticker into your own library. The{" "}
           <Link
             href="/blog/turn-photos-into-imessage-stickers"
             className="text-blue-600 hover:underline font-medium"
@@ -233,6 +310,25 @@ export default function ArticlePage() {
           </Link>{" "}
           collects the smaller questions like supported formats and the free-tier limit.
         </p>
+
+        <div className="not-prose mt-10 rounded-3xl bg-slate-900 text-white p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+          <div>
+            <p className="text-xl font-bold mb-1">Save the next sticker your friend sends you.</p>
+            <p className="text-slate-400 text-sm">Free with a 10-sticker tier. One-time unlock for unlimited. No subscription.</p>
+          </div>
+          <a
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download MemePouch on the App Store"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-md hover:bg-slate-100 hover:scale-[1.02] transition-all active:scale-95 self-start sm:self-auto whitespace-nowrap"
+          >
+            <svg className="w-5 h-5" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true">
+              <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+            </svg>
+            Get MemePouch
+          </a>
+        </div>
       </article>
     </div>
   );
