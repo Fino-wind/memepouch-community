@@ -14,5 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: siteUrl("/blog"),    lastModified, changeFrequency: "weekly",  priority: 0.6 },
     { url: siteUrl("/blog/turn-photos-into-imessage-stickers"), lastModified, changeFrequency: "monthly", priority: 0.5 },
     { url: siteUrl("/blog/save-sticker-someone-sent-imessage"), lastModified, changeFrequency: "monthly", priority: 0.5 },
+    { url: siteUrl("/blog/turn-screenshots-into-imessage-stickers"), lastModified, changeFrequency: "monthly", priority: 0.6 },
+    { url: siteUrl("/blog/make-gif-stickers-for-imessage"), lastModified, changeFrequency: "monthly", priority: 0.6 },
   ];
 }
