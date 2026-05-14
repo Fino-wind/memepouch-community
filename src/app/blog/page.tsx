@@ -32,6 +32,34 @@ export default function BlogIndexPage() {
 
         <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
           <h2 className="text-2xl font-bold mb-3">
+            <Link href="/blog/turn-screenshots-into-imessage-stickers" className="text-slate-900 hover:text-blue-600 transition-colors">
+              A better way to turn screenshots into iMessage stickers (without Apple&apos;s auto-cutout)
+            </Link>
+          </h2>
+          <p className="text-slate-600 mb-4 line-clamp-2">
+            Apple&apos;s long-press &quot;lift subject&quot; often clips away the punchline of a meme — the text overlay, the half-cropped hand, the background that IS the joke. Here&apos;s how to keep the whole image.
+          </p>
+          <Link href="/blog/turn-screenshots-into-imessage-stickers" className="text-blue-600 font-medium hover:text-blue-700">
+            Read article &rarr;
+          </Link>
+        </article>
+
+        <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
+          <h2 className="text-2xl font-bold mb-3">
+            <Link href="/blog/make-gif-stickers-for-imessage" className="text-slate-900 hover:text-blue-600 transition-colors">
+              How to make GIF stickers for iMessage from any video or Live Photo
+            </Link>
+          </h2>
+          <p className="text-slate-600 mb-4 line-clamp-2">
+            iMessage doesn&apos;t ship a way to turn arbitrary videos into GIF stickers. This guide covers the 30-second flow with MemePouch — up to 10 seconds long, full quality, with or without a Live Photo source.
+          </p>
+          <Link href="/blog/make-gif-stickers-for-imessage" className="text-blue-600 font-medium hover:text-blue-700">
+            Read article &rarr;
+          </Link>
+        </article>
+
+        <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
+          <h2 className="text-2xl font-bold mb-3">
             <Link href="/blog/turn-photos-into-imessage-stickers" className="text-slate-900 hover:text-blue-600 transition-colors">
               How to turn photos into iMessage stickers in 2026
             </Link>
