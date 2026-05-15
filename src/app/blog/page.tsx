@@ -32,6 +32,34 @@ export default function BlogIndexPage() {
 
         <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
           <h2 className="text-2xl font-bold mb-3">
+            <Link href="/blog/best-imessage-sticker-apps-compared" className="text-slate-900 hover:text-blue-600 transition-colors">
+              Best iMessage sticker apps in 2026 — honest comparison
+            </Link>
+          </h2>
+          <p className="text-slate-600 mb-4 line-clamp-2">
+            Three categories of iMessage sticker apps cover the actual landscape: Apple&apos;s built-in tool, generic cross-platform sticker makers, and iMessage-native sticker apps. What each does well, what each gets wrong — written by a developer who built one of them.
+          </p>
+          <Link href="/blog/best-imessage-sticker-apps-compared" className="text-blue-600 font-medium hover:text-blue-700">
+            Read article &rarr;
+          </Link>
+        </article>
+
+        <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
+          <h2 className="text-2xl font-bold mb-3">
+            <Link href="/blog/why-apple-stickers-cannot-be-saved" className="text-slate-900 hover:text-blue-600 transition-colors">
+              Why iMessage Save to Stickers hangs on third-party stickers
+            </Link>
+          </h2>
+          <p className="text-slate-600 mb-4 line-clamp-2">
+            iOS shows a Save to Stickers button on third-party iMessage stickers but tapping it stalls. What&apos;s actually happening inside iOS (StickersUltraExtension, stickersd), why Apple can&apos;t easily fix it, and the drag-import workaround that bypasses the broken system flow.
+          </p>
+          <Link href="/blog/why-apple-stickers-cannot-be-saved" className="text-blue-600 font-medium hover:text-blue-700">
+            Read article &rarr;
+          </Link>
+        </article>
+
+        <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
+          <h2 className="text-2xl font-bold mb-3">
             <Link href="/blog/turn-screenshots-into-imessage-stickers" className="text-slate-900 hover:text-blue-600 transition-colors">
               A better way to turn screenshots into iMessage stickers (without Apple&apos;s auto-cutout)
             </Link>

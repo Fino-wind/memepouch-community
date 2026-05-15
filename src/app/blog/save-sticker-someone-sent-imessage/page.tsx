@@ -5,7 +5,7 @@ import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
 export const metadata: Metadata = {
   title: "How to save an iMessage sticker someone sent you (2026 guide)",
   description:
-    "iOS 17+ shows an Emoji Details view for stickers, but for third-party stickers it only links to the sender's App Store page — there is no Save button. Here is the one supported way to actually keep a sticker your friend sent you.",
+    "iOS shows a Save to Stickers button for third-party stickers, but tapping it hangs — the system sticker daemon stalls. Here are the two drag flows in MemePouch that actually work, plus why every screenshot/forward workaround fails.",
   alternates: { canonical: "/blog/save-sticker-someone-sent-imessage" },
 };
 
@@ -15,9 +15,9 @@ export default function ArticlePage() {
     "@type": "Article",
     headline: "How to save an iMessage sticker someone sent you",
     description:
-      "iOS 17+ added an Emoji Details view, but for third-party iMessage stickers it shows an App Store icon instead of a Save button — there is no public API for sticker apps to register as a save destination. The only path the system exposes is dragging the sticker into a sticker app's iMessage extension.",
+      "iOS's Save to Stickers button hangs on third-party stickers in 2026. The two reliable ways to save a friend's iMessage sticker are both drag flows into MemePouch — two-finger drag if MemePouch isn't open yet, or single-finger drag if it is.",
     datePublished: "2026-05-07",
-    dateModified: "2026-05-13",
+    dateModified: "2026-05-15",
     author: { "@type": "Organization", name: "MemePouch" },
     publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
     image: siteUrl("/opengraph-image"),
@@ -29,7 +29,7 @@ export default function ArticlePage() {
     "@type": "HowTo",
     name: "Save an iMessage sticker someone sent you",
     description:
-      "iOS does not expose a Save button for third-party iMessage stickers. The only Apple-supported path is dragging the sticker into a sticker app's iMessage extension using a two-finger gesture.",
+      "Drag a third-party iMessage sticker your friend sent into MemePouch's library. Works around iOS's broken Save to Stickers backend.",
     totalTime: "PT15S",
     tool: [
       { "@type": "HowToTool", name: "iPhone running iOS 16 or later" },
@@ -47,39 +47,82 @@ export default function ArticlePage() {
         "@type": "HowToStep",
         position: 2,
         name: "Open MemePouch with another finger",
-        text: "While still holding the sticker, use a different finger to tap the apps icon left of the iMessage text field, then tap MemePouch to open it.",
+        text: "While still holding the sticker, use a different finger to tap the apps icon left of the iMessage text field, then tap MemePouch. (If MemePouch is already open in the drawer below the chat, you can skip this step and drag the sticker straight down — one finger is enough.)",
         url: siteUrl("/blog/save-sticker-someone-sent-imessage#step-open-memepouch"),
       },
       {
         "@type": "HowToStep",
         position: 3,
         name: "Drop the sticker onto the grid",
-        text: "Drag the floating sticker onto MemePouch's sticker grid and release. The sticker is added to your library and can be sent from any chat going forward.",
+        text: "Drag the floating sticker onto MemePouch's sticker grid and release. The sticker is added to your library. Animation and full quality are preserved.",
         url: siteUrl("/blog/save-sticker-someone-sent-imessage#step-drop"),
+      },
+    ],
+  };
+
+  const FAQ_LD = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Why does Save to Stickers hang when I tap it on a friend's sticker?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "iOS shows the Save to Stickers / Emoji Details button on third-party stickers, but tapping it launches Apple's StickersUltraExtension and the system sticker daemon (stickersd) drops its XPC connection. The action stalls indefinitely. This is a system-level iOS bug — third-party sticker apps can't fix it because we have no public API access to the sticker save pipeline. The drag-to-MemePouch path is the working alternative.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Do I always need two fingers?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Only if MemePouch isn't already open. If you open MemePouch in the iMessage drawer first, you can long-press a sticker with one finger and drag it straight down onto the MemePouch grid. The two-finger version is for the case where MemePouch isn't open yet — one finger holds the sticker, the other switches the drawer to MemePouch.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does the animation survive the drag?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. The sticker arrives as raw GIF data; MemePouch stores it without re-encoding. Frame timing and quality match what your friend sent.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "After I save it, how do I send the sticker?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Open any iMessage chat, tap the MemePouch icon in the iMessage drawer, tap the sticker. The keyboard automatically collapses back to the chat with the sticker in your message bar — hit send. Static stickers can still be dragged onto a message bubble like Apple's system stickers. GIFs send as full-quality attachments.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Will the screenshot trick work?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No, not really. Screenshots capture the chat bubble, timestamp, sometimes keyboard chrome. Animated stickers become a single still frame. And the result is a Photos image, not a sticker — sending it in another chat means going through Photos picker every time. The drag flow keeps animation and gives you a real sticker.",
+        },
       },
     ],
   };
 
   return (
     <div className="max-w-3xl mx-auto px-6 pt-32 pb-24">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(HOWTO_LD) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(HOWTO_LD) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
       <article>
         <h1 className="text-4xl font-bold mb-6 text-slate-900">
           How to save an iMessage sticker someone sent you
         </h1>
+        <p className="text-sm text-slate-500 mb-8">Last updated 2026-05-15 · iOS 16+</p>
 
         <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-          MemePouch is a free-to-try iPhone app (iOS 16+) that turns your photos, GIFs, and short
-          videos into reusable iMessage stickers, and lets you save stickers other people send
-          you in iMessage by dragging them into your library. The first 10 stickers are free; a
-          one-time unlock removes the cap.
+          MemePouch is a free-to-try iPhone app (iOS 16+) that turns your photos, GIFs, and Live
+          Photos into reusable iMessage stickers, and gives you two reliable drag flows for
+          saving stickers other people send you in iMessage. The first 10 stickers are free; a
+          one-time $2.99 unlock removes the cap. No subscription.
         </p>
 
         <aside className="not-prose mb-12 rounded-3xl border border-slate-200 bg-gradient-to-br from-blue-50 via-white to-purple-50 p-6 sm:p-8 shadow-sm">
@@ -87,8 +130,9 @@ export default function ArticlePage() {
             The short version
           </p>
           <p className="text-lg sm:text-xl font-medium text-slate-900 leading-snug mb-6">
-            iOS doesn&apos;t give you a Save button for stickers people send you. The only
-            Apple-supported workaround is a two-finger drag into MemePouch.
+            iOS&apos;s Save to Stickers button hangs when you tap it on a third-party sticker. The
+            two reliable ways are both drag flows into MemePouch — two fingers if MemePouch
+            isn&apos;t open yet, one finger if it is.
           </p>
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             <a
@@ -117,8 +161,8 @@ export default function ArticlePage() {
             </li>
             <li id="step-open-memepouch" className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="w-9 h-9 rounded-full bg-purple-100 text-purple-700 font-bold flex items-center justify-center mb-3">2</div>
-              <h3 className="font-semibold text-slate-900 mb-1">Open MemePouch</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">With your other hand, tap the apps icon, then MemePouch in the iMessage drawer.</p>
+              <h3 className="font-semibold text-slate-900 mb-1">Open (or already-open) MemePouch</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">If MemePouch isn&apos;t open, use a second finger to swipe to it in the iMessage drawer. If it&apos;s already open below, skip ahead.</p>
             </li>
             <li id="step-drop" className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="w-9 h-9 rounded-full bg-pink-100 text-pink-700 font-bold flex items-center justify-center mb-3">3</div>
@@ -128,131 +172,155 @@ export default function ArticlePage() {
           </ol>
         </section>
 
+        <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
+          What happens when you tap Save to Stickers
+        </h2>
+        <p className="text-slate-700 leading-relaxed mb-6">
+          On iOS 17 and 18, long-pressing a third-party sticker opens the system context menu and,
+          on the Emoji Details / Sticker Details view, you&apos;ll see a Save to Stickers button.
+          The button looks like the same one Apple shows for native Photos cutout stickers. So
+          you tap it.
+        </p>
+        <p className="text-slate-700 leading-relaxed mb-6">
+          Nothing happens. The view stalls. Sometimes you can dismiss it with a swipe; sometimes
+          you have to force-quit Messages. The sticker never lands in your iOS sticker drawer.
+        </p>
+        <p className="text-slate-700 leading-relaxed mb-6">
+          On the system level, tapping that button launches{" "}
+          <code className="text-sm bg-slate-100 px-1 py-0.5 rounded">StickersUltraExtension</code>{" "}
+          (Apple&apos;s internal user-generated stickers extension), which talks to{" "}
+          <code className="text-sm bg-slate-100 px-1 py-0.5 rounded">stickersd</code> (the iOS
+          sticker daemon). For third-party sticker payloads, the XPC connection between those two
+          processes drops repeatedly. The save action never completes. It&apos;s a system bug, not
+          something MemePouch (or any other sticker app) has access to fix — Apple owns the
+          entire save pipeline.
+        </p>
         <p className="text-slate-700 leading-relaxed mb-12">
-          A friend sends you the perfect sticker. You long-press it expecting a Save button. iOS
-          17+ does have an &quot;Emoji Details&quot; option (it&apos;s called &quot;Sticker
-          Details&quot; on iOS 17, renamed in iOS 18) that opens a detail view — but for
-          third-party stickers, the icon you find in the corner of that view is not a download
-          button. It&apos;s an App Store link to the sender&apos;s sticker pack. There is no Save
-          button. This guide explains exactly why, why every workaround you might think of
-          fails, and the one supported path that actually puts the sticker into your own
-          library.
+          That&apos;s the real reason you need a workaround. iOS&apos;s Save to Stickers <em>exists</em>;
+          it just doesn&apos;t <em>work</em> on third-party stickers.
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
-          What Emoji Details actually does (and doesn&apos;t)
+          Method 1 — two-finger drag (MemePouch not open yet)
         </h2>
         <p className="text-slate-700 leading-relaxed mb-6">
-          Long-pressing a sticker in iOS 17 or later does open an Emoji Details / Sticker Details
-          view. What that view contains depends entirely on where the sticker came from:
+          This is the path that&apos;ll come up most — you&apos;re in any chat, your friend sends a
+          sticker, you decide on the spot to save it. MemePouch isn&apos;t open in the iMessage
+          drawer yet. The two-finger gesture handles the &quot;open MemePouch&quot; step without
+          dropping the sticker.
         </p>
-        <ul className="list-disc pl-6 space-y-3 mb-6 text-slate-700 leading-relaxed">
+        <ol className="list-decimal pl-6 space-y-3 mb-6 text-slate-700 leading-relaxed">
           <li>
-            <strong>Apple system stickers</strong> — the cutouts you (or the sender) made via
-            Photos app subject lift, or stickers already saved into the iOS system Stickers
-            drawer — get a real <strong>Save / download button</strong> in the corner of Emoji
-            Details. Tap it and the sticker is added to your own system Stickers drawer or saved
-            as an image to Photos.
+            <strong>Long-press the sticker with one finger.</strong> Keep holding — wait for the
+            sticker to detach from the bubble and follow your finger as a small floating preview.
+            (If you let go too early, you get the system context menu instead. Start over.)
           </li>
           <li>
-            <strong>Third-party stickers</strong> — anything sent from MemePouch, LINE, Sticker
-            Drop, Persona, or any other app that ships an iMessage sticker pack via{" "}
-            <code className="text-sm bg-slate-100 px-1 py-0.5 rounded">MSStickerBrowserView</code>{" "}
-            — get an <strong>App Store icon</strong> instead. Tapping it opens the App Store page
-            for the sender&apos;s sticker app so you can install it. It does not save the sticker
-            you&apos;re looking at.
+            <strong>With another finger, swipe up the iMessage app drawer and tap MemePouch.</strong>
+            The drawer switches; your first finger is still holding the sticker preview.
           </li>
-        </ul>
+          <li>
+            <strong>Drop the sticker onto MemePouch&apos;s grid.</strong> Release. The grid shows a
+            plus-sign indicator while you&apos;re hovering, and the sticker pops into your library
+            when you release.
+          </li>
+        </ol>
+
+        <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
+          Method 2 — single-finger drag (MemePouch already open)
+        </h2>
         <p className="text-slate-700 leading-relaxed mb-6">
-          That distinction is intentional, not an oversight. Apple&apos;s public Messages
-          framework (the one all third-party sticker apps use) does not expose any way for a
-          sticker app to register as a save destination. The Apple-controlled iOS system
-          Stickers drawer is the only sink, and only stickers Apple itself classifies as system
-          stickers can be written to it. For third-party stickers, Apple&apos;s answer is
-          &quot;just download the same pack the sender used&quot; — hence the App Store link.
+          If you anticipate saving stickers, just open MemePouch in the iMessage drawer before
+          your friend sends them. With MemePouch&apos;s grid visible below the chat, the save
+          gesture collapses to one finger:
+        </p>
+        <ol className="list-decimal pl-6 space-y-3 mb-6 text-slate-700 leading-relaxed">
+          <li>
+            <strong>Long-press the sticker.</strong> Same as above — wait for the floating
+            preview.
+          </li>
+          <li>
+            <strong>Drag straight down onto the MemePouch grid.</strong> No second finger
+            required, because the destination is already visible. Release on the grid.
+          </li>
+        </ol>
+        <p className="text-slate-700 leading-relaxed mb-6">
+          Both methods land the sticker in the MemePouch library with full animation and quality
+          intact. Pick whichever fits your situation.
+        </p>
+
+        <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
+          Send it back — the auto-collapse trick
+        </h2>
+        <p className="text-slate-700 leading-relaxed mb-6">
+          Once a sticker is in MemePouch, sending it is faster than most sticker keyboards. Tap
+          it in MemePouch&apos;s grid and the iMessage extension <strong>automatically collapses
+          back to the chat</strong> — the keyboard returns, the sticker is already in your input
+          bar, you just hit send. Most sticker keyboard apps stay open after a tap and force you
+          to swipe them away manually; MemePouch&apos;s extension closes itself, so the chat is
+          visible immediately.
+        </p>
+        <p className="text-slate-700 leading-relaxed mb-12">
+          Static stickers can also be dragged onto a message bubble (the iMessage &quot;stick onto
+          a message&quot; effect) like Apple&apos;s system stickers. GIF stickers send as
+          full-quality attachments — too rich to fit Apple&apos;s 500 KB sticker file cap, so they
+          take the Messages attachment path instead.
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
           What does <em>not</em> work
         </h2>
         <p className="text-slate-700 leading-relaxed mb-6">
-          A few common attempts that you&apos;ll see suggested in old forum posts — none of them
-          actually save a third-party sticker as a usable sticker:
+          A few common attempts that won&apos;t actually save a third-party sticker as a usable
+          sticker:
         </p>
         <ul className="list-disc pl-6 space-y-3 mb-6 text-slate-700 leading-relaxed">
           <li>
-            <strong>Tapping the App Store icon inside Emoji Details.</strong> This sends you to
-            install the sender&apos;s sticker pack — useful only if you actually want their
-            entire pack, not the single sticker you saw. If you don&apos;t want to install yet
-            another sticker app per friend, this is a dead end.
+            <strong>Tap Save to Stickers in Emoji / Sticker Details.</strong> The button is
+            there, looks legitimate, and stalls when you tap it on third-party stickers — see
+            above.
+          </li>
+          <li>
+            <strong>Tap the App Store icon in Emoji Details.</strong> Some sticker packs put one
+            there as well. This installs the sender&apos;s entire sticker pack — useful if you
+            want the whole pack, dead-end if you just want that one sticker.
           </li>
           <li>
             <strong>Screenshot the chat and crop.</strong> You capture chat-bubble background,
-            the timestamp, sometimes the keyboard. Animated GIFs become a single still frame.
-            And the result is a static image, not a sticker — meaning sending it in another
-            conversation requires going through Photos picker every time.
+            the timestamp, sometimes the keyboard. Animated stickers collapse to a single still
+            frame. The result is a Photos image, not a sticker — sending it again means Photos
+            picker every time.
           </li>
           <li>
-            <strong>Looking for &quot;Save Image&quot; in the long-press menu.</strong> That
-            option only appears for true image attachments (photos sent as files). It does not
-            appear for sticker payloads, regardless of iOS version.
+            <strong>Look for &quot;Save Image&quot; in the long-press menu.</strong> That option
+            only appears for true image attachments (photos sent as files). It doesn&apos;t appear
+            for sticker payloads regardless of iOS version.
           </li>
           <li>
-            <strong>Forwarding the message to yourself.</strong> The forwarded message is still
-            a sticker payload. You end up with the same sticker in another chat, still without a
-            Save button.
+            <strong>Forward the message to yourself.</strong> The forwarded message is still a
+            sticker payload — same sticker in another chat, still no working Save button.
           </li>
           <li>
-            <strong>Pulling up the system Share Sheet.</strong> Long-pressing or hitting
-            &quot;More…&quot; on a third-party sticker doesn&apos;t open a
-            UIActivityViewController. The share sheet you can launch from Photos or Safari is not
-            exposed for sticker payloads.
+            <strong>Pull up the system Share Sheet.</strong> Long-press / More… on a third-party
+            sticker doesn&apos;t open <code className="text-sm bg-slate-100 px-1 py-0.5 rounded">
+            UIActivityViewController</code>. The Share Sheet you can launch from Photos or Safari
+            isn&apos;t exposed for sticker payloads.
           </li>
         </ul>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
-          The one supported method: drag into a sticker app
+          Why MemePouch supports the drag
         </h2>
         <p className="text-slate-700 leading-relaxed mb-6">
-          Apple does expose exactly one way for a third-party sticker app to receive an
-          incoming sticker: the iOS drag-and-drop API. If a sticker app installs a{" "}
+          Most third-party iMessage sticker apps were built before this drag gesture existed and
+          never wired up a drop target — so even though iOS would let them receive stickers, they
+          don&apos;t. MemePouch installs a{" "}
           <code className="text-sm bg-slate-100 px-1 py-0.5 rounded">UIDropInteraction</code> on
-          its iMessage extension, you can long-press a sticker in any chat and drag it there.
-          Same gesture as moving photos between apps in Split View on iPad. On iPhone it&apos;s a
-          two-finger gesture, which is the part most people miss:
-        </p>
-        <ol className="list-decimal pl-6 space-y-3 mb-6 text-slate-700 leading-relaxed">
-          <li>
-            With one finger, long-press the sticker in the chat. <strong>Keep holding</strong>
-            {" "}— it should detach from the bubble and follow your finger as a small floating
-            preview.
-          </li>
-          <li>
-            With your other hand (or another finger), tap the apps icon to the left of the
-            iMessage text field and open a sticker app that supports drag import.
-          </li>
-          <li>
-            Drag the floating sticker onto the app&apos;s sticker grid and release. The sticker
-            is now in that app&apos;s library and you can send it to anyone going forward.
-          </li>
-        </ol>
-        <p className="text-slate-700 leading-relaxed mb-6">
-          If you let go before step 3, the long-press collapses into the regular context menu
-          (Reply / Attach Sticker / Emoji Details / etc.) and you have to start over.
-        </p>
-
-        <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
-          Why MemePouch handles this
-        </h2>
-        <p className="text-slate-700 leading-relaxed mb-6">
-          Most third-party iMessage sticker apps were built before this gesture existed and
-          never added a drop target — so even though iOS would let them receive stickers, they
-          don&apos;t. MemePouch is built specifically to accept drops from the iMessage chat
-          window, including both animated GIFs and static stickers. Drop a sticker in and it
-          goes through the same import pipeline as a Photos picker import: animated GIFs stay
-          animated (when they fit the 500 KB cap), static stickers are auto-compressed if
-          needed, and the sticker shows up in your MemePouch library — visible from both the
-          iMessage extension and the main app, separate from the iOS system Stickers drawer.
+          its iMessage extension specifically to accept stickers dragged from the chat. The
+          import pipeline matches the one used by Photos picker import: animated GIFs stay
+          animated (when they fit), static stickers are normalized, the sticker shows up in your
+          MemePouch library — visible from both the iMessage extension and the main app, separate
+          from the iOS system Stickers drawer.
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
@@ -260,10 +328,10 @@ export default function ArticlePage() {
         </h2>
         <p className="text-slate-700 leading-relaxed mb-6">
           Yes, in nearly every case. iMessage&apos;s 500 KB sticker cap applies on both ends —
-          your friend&apos;s sticker had to fit it to be sent in the first place, so by
-          definition it will fit on import. The sticker arrives as raw GIF data and MemePouch
-          stores it as-is without re-encoding, which means the animation, frame timing, and
-          original quality are exactly what your friend sent.
+          your friend&apos;s sticker had to fit it to be sent in the first place, so by definition
+          it will fit on import. The sticker arrives as raw GIF data and MemePouch stores it
+          as-is without re-encoding, which means animation, frame timing, and original quality
+          match what your friend sent.
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
@@ -274,29 +342,30 @@ export default function ArticlePage() {
         </p>
         <ul className="list-disc pl-6 space-y-3 mb-6 text-slate-700 leading-relaxed">
           <li>
-            <strong>The long-press collapsed into a menu.</strong> Your finger moved too far,
-            too quickly, or you released. The fix is just to try again, holding more steady
-            until the sticker visibly detaches into a floating preview.
+            <strong>The long-press collapsed into a menu.</strong> Your finger moved too far, too
+            quickly, or you released. Try again, holding more steady until the sticker visibly
+            detaches into a floating preview.
           </li>
           <li>
             <strong>You released the sticker outside the grid.</strong> Drop has to land inside
-            the receiving app&apos;s extension area. If you drop it on the chat or anywhere
-            outside, nothing happens.
+            MemePouch&apos;s extension area. If you drop it on the chat or anywhere outside,
+            nothing happens — the sticker snaps back to the bubble.
           </li>
           <li>
-            <strong>The receiving app doesn&apos;t support drop.</strong> The iOS system
-            Stickers drawer doesn&apos;t accept third-party drops, and most older third-party
-            sticker apps were shipped before Apple normalized the gesture and never wired up a
-            drop target. You need a sticker app that explicitly registered for it.
+            <strong>The receiving app doesn&apos;t support drop.</strong> The iOS system Stickers
+            drawer doesn&apos;t accept third-party drops, and most older third-party sticker apps
+            were shipped before Apple normalized the gesture and never wired up a drop target.
+            You need an app that explicitly registered for it — MemePouch does.
           </li>
         </ul>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">Wrapping up</h2>
         <p className="text-slate-700 leading-relaxed mb-8">
-          Short version: iOS 17+ does have an Emoji Details view, but for third-party stickers
-          it only links to the sender&apos;s App Store page rather than offering a Save button.
-          Drag-and-drop into a sticker app&apos;s iMessage extension is the only path the system
-          actually exposes for putting a friend&apos;s sticker into your own library. The{" "}
+          Short version: iOS shows a Save to Stickers button on third-party stickers, but it
+          hangs — the system sticker daemon can&apos;t complete the save. The two reliable ways
+          are both drag flows into MemePouch&apos;s iMessage extension: two-finger if MemePouch
+          isn&apos;t open yet, one finger if it is. After it&apos;s saved, tap to send and the
+          keyboard collapses back to the chat automatically. The{" "}
           <Link
             href="/blog/turn-photos-into-imessage-stickers"
             className="text-blue-600 hover:underline font-medium"
@@ -308,13 +377,13 @@ export default function ArticlePage() {
           <Link href="/faq" className="text-blue-600 hover:underline font-medium">
             FAQ
           </Link>{" "}
-          collects the smaller questions like supported formats and the free-tier limit.
+          collects smaller questions like supported formats and the free-tier limit.
         </p>
 
         <div className="not-prose mt-10 rounded-3xl bg-slate-900 text-white p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
           <div>
             <p className="text-xl font-bold mb-1">Save the next sticker your friend sends you.</p>
-            <p className="text-slate-400 text-sm">Free with a 10-sticker tier. One-time unlock for unlimited. No subscription.</p>
+            <p className="text-slate-400 text-sm">Free with a 10-sticker tier. One-time $2.99 unlock for unlimited. No subscription.</p>
           </div>
           <a
             href={APP_STORE_URL}
