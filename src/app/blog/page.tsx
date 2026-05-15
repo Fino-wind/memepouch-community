@@ -16,6 +16,22 @@ export default function BlogIndexPage() {
       </p>
 
       <div className="space-y-8">
+        <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white" lang="zh-Hans">
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">中文</p>
+          <h2 className="text-2xl font-bold mb-3">
+            <Link href="/blog/zh/save-imessage-sticker-friend" className="text-slate-900 hover:text-blue-600 transition-colors">
+              朋友发的 iMessage 贴纸怎么保存?
+            </Link>
+          </h2>
+          <p className="text-slate-600 mb-4 line-clamp-2">
+            iMessage 里收到一张超好笑的贴纸,长按点「保存到贴纸」会卡住没反应——这是 Apple 系统 Bug,
+            不是你操作错了。本文讲清楚背后原理,以及真正能用的双指拖拽操作步骤。
+          </p>
+          <Link href="/blog/zh/save-imessage-sticker-friend" className="text-blue-600 font-medium hover:text-blue-700">
+            阅读文章 &rarr;
+          </Link>
+        </article>
+
         <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
           <h2 className="text-2xl font-bold mb-3">
             <Link href="/blog/save-sticker-someone-sent-imessage" className="text-slate-900 hover:text-blue-600 transition-colors">
