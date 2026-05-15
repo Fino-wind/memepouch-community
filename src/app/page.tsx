@@ -14,14 +14,14 @@ export default function Home() {
 
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-8 leading-[1.1]">
-            Make custom stickers <br/>
+            Apple cuts your stickers in half.<br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              for iMessage.
+              MemePouch doesn&apos;t.
             </span>
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-500 font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
-            Turn photos, GIFs, and short videos into reusable iMessage stickers. MemePouch keeps your meme library private, easy to send, and separate from your camera roll.
+            Custom iMessage stickers that keep the whole frame — text, background, hands, reaction context, all intact. No auto-cutout, no background removal. Free to try, $2.99 one-time unlock.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
