@@ -91,10 +91,11 @@ export default function ArticlePage() {
           </li>
           <li>
             <strong>From a video:</strong> tap &quot;Turn a video into a GIF&quot;, pick a clip
-            from your library, trim up to 5 seconds, and MemePouch saves it as an animated GIF
-            sticker. The encoder steps through frame rates (12 fps down to 4 fps) and
-            dimensions (480 px down to 160 px on the longest side) until the result fits the
-            500 KB iMessage limit — so longer or busier clips end up at lower fidelity.
+            from your library, trim up to 10 seconds, and MemePouch saves it as an animated GIF
+            sticker. GIF stickers ship as full-quality Messages attachments (no 500 KB cap) — you
+            get sharper, longer clips than Apple&apos;s MSSticker route allows. Trade-off: GIF
+            stickers send as their own message bubble, not stuck onto someone&apos;s existing
+            bubble like a static sticker.
           </li>
           <li>
             <strong>From the clipboard:</strong> copy an image in Safari, Twitter/X, or any
@@ -160,13 +161,12 @@ export default function ArticlePage() {
           Format and size limits to know
         </h2>
         <p className="text-slate-700 leading-relaxed mb-6">
-          Apple&apos;s iMessage sticker spec hasn&apos;t changed in years:{" "}
-          <strong>PNG, JPEG, or GIF, with a hard 500 KB cap per sticker</strong>. MemePouch
-          handles this transparently — static images are auto-compressed by progressively
-          reducing dimensions and JPEG quality until they fit, and animated GIFs from videos are
-          encoded with adaptive frame rates (down to 4 fps if needed) and dimensions (down to
-          160 px on the longest side). Up to 3 seconds of video usually gives you the best
-          quality; 3 to 5 seconds is allowed but may show visible compression on busy footage.
+          Apple&apos;s MSSticker spec caps static stickers (PNG / JPEG) at <strong>500 KB</strong>{" "}
+          — MemePouch auto-compresses by progressively reducing dimensions and JPEG quality until
+          the file fits. For GIFs, MemePouch ships them as Messages attachments instead of
+          MSStickers, so they&apos;re not subject to the 500 KB cap and can be up to{" "}
+          <strong>10 MB</strong> and <strong>10 seconds</strong>. Shorter clips (around 3 seconds)
+          still feel snappiest in chat and loop most naturally, but longer is supported.
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">

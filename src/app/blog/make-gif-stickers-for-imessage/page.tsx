@@ -235,7 +235,7 @@ export default function ArticlePage() {
             <strong>Save GIF stickers friends send you.</strong> If a friend sent you a GIF
             sticker in iMessage and you want to reuse it, long-press it with one finger and use
             another finger to swipe up the iMessage app drawer, then drop it onto MemePouch.
-            Apple keeps the animation intact. See the{" "}
+            MemePouch keeps the animation intact. See the{" "}
             <Link href="/blog/save-sticker-someone-sent-imessage" className="text-blue-600 hover:underline">
               save-sticker guide
             </Link>

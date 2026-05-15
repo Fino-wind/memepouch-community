@@ -92,7 +92,7 @@ export default function ArticlePage() {
         name: "Does this work for screenshots of stickers other people sent me?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "It works, but there's a better way for that specific case. Instead of screenshotting and re-importing (which loses animation for GIF stickers), long-press the sticker in iMessage with one finger, keep holding, and with another finger swipe up the iMessage app drawer and drop the sticker directly onto the MemePouch grid. Apple keeps it intact — animation included.",
+          text: "It works, but there's a better way for that specific case. Instead of screenshotting and re-importing (which loses animation for GIF stickers), long-press the sticker in iMessage with one finger, keep holding, and with another finger swipe up the iMessage app drawer and drop the sticker directly onto the MemePouch grid. MemePouch keeps it intact — animation included.",
         },
       },
     ],

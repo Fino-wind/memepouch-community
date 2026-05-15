@@ -14,11 +14,11 @@ const QA = [
   },
   {
     q: "How do I save a sticker someone sent me in iMessage?",
-    a: "iOS 17+ has an Emoji Details view (long-press the sticker), but for third-party stickers it only shows an App Store link to the sender's sticker pack, not a Save button. The way to put the sticker into your own library is the drag-and-drop gesture: long-press the sticker in the chat and keep your finger held down. With another finger, tap the MemePouch icon in the iMessage app drawer to open it. Then drag the sticker into the MemePouch grid and release. The sticker is added to your library.",
+    a: "iOS 17+ shows a Save to Stickers button in the Emoji Details view, but tapping it on third-party stickers hangs — Apple's system sticker daemon drops the connection and the sticker never lands in your sticker drawer. The reliable path is a drag gesture into MemePouch: long-press the sticker in the chat and keep your finger held down. With another finger, tap the MemePouch icon in the iMessage app drawer to open it, then drag the sticker into the MemePouch grid and release. If MemePouch is already open in the drawer below the chat, you can drag straight down with one finger.",
   },
   {
     q: "Can I make an animated sticker from a video?",
-    a: "Yes. Tap Turn a video into a GIF, pick a clip, trim up to 5 seconds, and MemePouch saves it as an animated GIF sticker (under the 500 KB iMessage limit).",
+    a: "Yes. Tap Turn a video into a GIF, pick a clip, trim up to 10 seconds, and MemePouch saves it as a GIF sticker. GIFs send as full-quality iMessage attachments (no 500 KB cap).",
   },
   {
     q: "Does MemePouch work on iPad?",
@@ -38,7 +38,7 @@ const QA = [
   },
   {
     q: "How big can a sticker file be?",
-    a: "Apple's iMessage limit is 500 KB per sticker. MemePouch auto-compresses static images to fit; for animated GIFs, the original file must already be under 500 KB to keep the animation.",
+    a: "Static stickers go through Apple's MSSticker API and have a 500 KB cap — MemePouch auto-compresses to fit. GIF stickers in MemePouch route through Messages attachments instead, so they're not subject to the 500 KB cap and can be up to 10 MB. The trade: GIFs send as their own bubble in the chat, while static stickers can still stick onto someone's message bubble like Apple's system stickers.",
   },
 ];
 

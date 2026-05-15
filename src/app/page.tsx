@@ -47,15 +47,15 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
             <div className="max-w-2xl">
               <p className="text-sm font-semibold uppercase tracking-wide text-blue-300 mb-3">
-                New · iOS doesn&apos;t expose a Save button
+                New · iMessage&apos;s Save to Stickers button hangs on third-party stickers
               </p>
               <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-4">
                 Save the stickers your friends send you in iMessage.
               </h2>
               <p className="text-slate-300 text-lg leading-relaxed">
-                There&apos;s no Save, no Share Sheet, no Copy on third-party stickers. The only path
-                iOS actually exposes is a two-finger drag into a sticker app — and MemePouch is
-                built for it. Animated GIFs and static stickers, real-device tested.
+                iOS shows the button, but tapping it stalls — Apple&apos;s system sticker daemon
+                drops the connection. The path that actually works: drag the sticker into MemePouch.
+                Animated GIFs and static stickers, real-device tested.
               </p>
             </div>
             <span className="inline-flex items-center gap-2 text-base font-semibold text-white whitespace-nowrap group-hover:translate-x-1 transition-transform">
@@ -87,7 +87,7 @@ export default function Home() {
             </div>
             <div>
               <h3 className="text-2xl font-bold text-slate-900 mb-3">Video to GIF</h3>
-              <p className="text-slate-500 text-lg leading-relaxed max-w-md">Choose a short video, trim up to 5 seconds of the best moment, and turn it into a looping animated GIF sticker instantly.</p>
+              <p className="text-slate-500 text-lg leading-relaxed max-w-md">Choose a short video, trim up to 10 seconds of the best moment, and turn it into a looping animated GIF sticker instantly.</p>
             </div>
           </div>
 
