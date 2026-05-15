@@ -50,6 +50,20 @@ export default function BlogIndexPage() {
 
         <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
           <h2 className="text-2xl font-bold mb-3">
+            <Link href="/blog/imessage-stickers-without-auto-cutout" className="text-slate-900 hover:text-blue-600 transition-colors">
+              iMessage stickers without auto-cutout: keep the whole image
+            </Link>
+          </h2>
+          <p className="text-slate-600 mb-4 line-clamp-2">
+            Apple&apos;s Add Sticker auto-removes the background and breaks memes with text overlays, hands, and intentional context. Why iOS does the cutout, why you can&apos;t disable it, and the workflow that imports the whole frame as a real iMessage sticker.
+          </p>
+          <Link href="/blog/imessage-stickers-without-auto-cutout" className="text-blue-600 font-medium hover:text-blue-700">
+            Read article &rarr;
+          </Link>
+        </article>
+
+        <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
+          <h2 className="text-2xl font-bold mb-3">
             <Link href="/blog/save-sticker-someone-sent-imessage" className="text-slate-900 hover:text-blue-600 transition-colors">
               How to save an iMessage sticker someone sent you
             </Link>

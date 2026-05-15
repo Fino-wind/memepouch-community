@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: siteUrl("/blog/make-gif-stickers-for-imessage"), lastModified, changeFrequency: "monthly", priority: 0.6 },
     { url: siteUrl("/blog/best-imessage-sticker-apps-compared"), lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: siteUrl("/blog/why-apple-stickers-cannot-be-saved"), lastModified, changeFrequency: "monthly", priority: 0.6 },
+    { url: siteUrl("/blog/imessage-stickers-without-auto-cutout"), lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: siteUrl("/blog/zh/save-imessage-sticker-friend"), lastModified, changeFrequency: "monthly", priority: 0.6 },
     { url: siteUrl("/blog/zh-Hant/save-imessage-sticker-friend"), lastModified, changeFrequency: "monthly", priority: 0.6 },
   ];
