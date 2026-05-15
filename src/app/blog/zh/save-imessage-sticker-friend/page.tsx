@@ -6,7 +6,14 @@ export const metadata: Metadata = {
   title: "朋友发的 iMessage 贴纸怎么保存？(2026 完整教程)",
   description:
     "iMessage 里收到一张超好笑的贴纸,想保存下来自己用?长按贴纸点「保存到贴纸」会卡住没反应。这是为什么,以及真正能用的「双指拖拽」操作步骤——iOS 唯一开放的第三方贴纸保存路径。",
-  alternates: { canonical: "/blog/zh/save-imessage-sticker-friend" },
+  alternates: {
+    canonical: "/blog/zh/save-imessage-sticker-friend",
+    languages: {
+      en: "/blog/save-sticker-someone-sent-imessage",
+      "zh-Hans": "/blog/zh/save-imessage-sticker-friend",
+      "x-default": "/blog/save-sticker-someone-sent-imessage",
+    },
+  },
 };
 
 export default function ArticlePage() {
@@ -117,7 +124,16 @@ export default function ArticlePage() {
         <h1 className="text-4xl font-bold mb-6 text-slate-900 leading-tight">
           朋友发的 iMessage 贴纸,怎么保存到自己的贴纸库?
         </h1>
-        <p className="text-sm text-slate-500 mb-8">更新于 2026-05-15 · iOS 16+ · 适用于 iPhone</p>
+        <p className="text-sm text-slate-500 mb-8">
+          更新于 2026-05-15 · iOS 16+ · 适用于 iPhone ·{" "}
+          <Link
+            href="/blog/save-sticker-someone-sent-imessage"
+            hrefLang="en"
+            className="text-blue-600 hover:underline"
+          >
+            English
+          </Link>
+        </p>
 
         <p className="text-lg text-slate-700 mb-6 leading-relaxed">
           朋友在 iMessage 里发来一张超好笑的贴纸。你长按它,等着看到「保存到贴纸」按钮——

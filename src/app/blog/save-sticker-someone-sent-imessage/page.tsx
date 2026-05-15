@@ -6,7 +6,14 @@ export const metadata: Metadata = {
   title: "How to save an iMessage sticker someone sent you (2026 guide)",
   description:
     "iOS shows a Save to Stickers button for third-party stickers, but tapping it hangs — the system sticker daemon stalls. Here are the two drag flows in MemePouch that actually work, plus why every screenshot/forward workaround fails.",
-  alternates: { canonical: "/blog/save-sticker-someone-sent-imessage" },
+  alternates: {
+    canonical: "/blog/save-sticker-someone-sent-imessage",
+    languages: {
+      en: "/blog/save-sticker-someone-sent-imessage",
+      "zh-Hans": "/blog/zh/save-imessage-sticker-friend",
+      "x-default": "/blog/save-sticker-someone-sent-imessage",
+    },
+  },
 };
 
 export default function ArticlePage() {
@@ -116,7 +123,16 @@ export default function ArticlePage() {
         <h1 className="text-4xl font-bold mb-6 text-slate-900">
           How to save an iMessage sticker someone sent you
         </h1>
-        <p className="text-sm text-slate-500 mb-8">Last updated 2026-05-15 · iOS 16+</p>
+        <p className="text-sm text-slate-500 mb-8">
+          Last updated 2026-05-15 · iOS 16+ ·{" "}
+          <Link
+            href="/blog/zh/save-imessage-sticker-friend"
+            hrefLang="zh-Hans"
+            className="text-blue-600 hover:underline"
+          >
+            中文版
+          </Link>
+        </p>
 
         <p className="text-lg text-slate-600 mb-8 leading-relaxed">
           MemePouch is a free-to-try iPhone app (iOS 16+) that turns your photos, GIFs, and Live
