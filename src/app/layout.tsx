@@ -18,23 +18,23 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "MemePouch - Custom iMessage Stickers from Photos & GIFs",
+    default: "MemePouch — iMessage Stickers Without Auto-Cutout",
     template: "%s · MemePouch",
   },
   description:
-    "MemePouch is a free-to-try iPhone app that turns photos, GIFs, and short videos into custom stickers for iMessage. Import from Photos, Share Sheet, clipboard, or iMessage drag and drop.",
+    "Apple's built-in sticker tool auto-removes backgrounds and butchers memes. MemePouch keeps the full photo, GIF, or short video as-is — no auto-cutout — and lets you save the third-party stickers friends send you. Free to try, $2.99 one-time unlock.",
   applicationName: "MemePouch",
   keywords: [
-    "custom stickers",
+    "iMessage stickers without auto-cutout",
+    "no background removal stickers",
+    "save iMessage stickers someone sent",
+    "save third-party stickers iMessage",
     "custom iMessage stickers",
-    "iMessage stickers",
-    "gif to sticker",
-    "make iMessage stickers",
-    "photo to sticker",
-    "video to GIF sticker",
+    "iMessage sticker app no cutout",
+    "gif to sticker iMessage",
+    "make iMessage stickers from photos",
     "iPhone sticker app",
     "MemePouch",
-    "custom sticker pack iOS",
   ],
   authors: [{ name: "MemePouch" }],
   creator: "MemePouch",
@@ -49,16 +49,16 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE_URL,
     siteName: "MemePouch",
-    title: "MemePouch - Custom iMessage Stickers from Photos & GIFs",
+    title: "MemePouch — iMessage Stickers Without Auto-Cutout",
     description:
-      "Free iPhone app to turn photos, GIFs, and short videos into reusable custom stickers for iMessage.",
+      "Apple's sticker tool removes backgrounds and chops up your memes. MemePouch keeps the full photo, GIF, or video as-is — and lets you save the stickers friends send you.",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MemePouch - Custom Stickers for iMessage",
+    title: "MemePouch — iMessage Stickers Without Auto-Cutout",
     description:
-      "Free iPhone app to turn photos, GIFs, and short videos into reusable custom iMessage stickers.",
+      "Apple's sticker tool butchers memes by auto-removing backgrounds. MemePouch keeps the whole frame, and lets you save the stickers friends send you.",
   },
   category: "utilities",
   appleWebApp: {
@@ -83,7 +83,7 @@ export default function RootLayout({
     operatingSystem: "iOS 16, iOS 17, iOS 18",
     applicationCategory: "UtilitiesApplication",
     description:
-      "Turn photos, GIFs, and short videos into iMessage stickers. Import from Photos, share sheet, clipboard, or by dragging a sticker from any iMessage chat.",
+      "Custom iMessage sticker app that keeps the full image as-is — no auto-cutout, no background removal — and lets you save the third-party stickers friends send you in iMessage. Imports from Photos, share sheet, clipboard, or by dragging a sticker straight from a chat.",
     url: SITE_URL,
     downloadUrl: APP_STORE_URL,
     offers: {
@@ -99,9 +99,10 @@ export default function RootLayout({
     },
     inLanguage: ["en", "zh-Hans"],
     featureList: [
+      "Keep full image as-is — no auto-cutout or background removal",
+      "Save third-party iMessage stickers friends send you (drag into MemePouch)",
       "Import photos and GIFs as iMessage stickers",
       "Trim short videos into animated GIF stickers",
-      "Drag stickers from any iMessage chat into your library",
       "Auto-clean originals from Photos after import",
       "Paste from clipboard",
       "Receive shared images via the iOS share sheet",

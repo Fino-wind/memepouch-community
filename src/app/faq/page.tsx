@@ -13,6 +13,10 @@ const QA = [
     a: "Open MemePouch, tap Import from Photos, pick a photo, GIF, or short video, and it becomes a reusable custom sticker in your iMessage sticker drawer.",
   },
   {
+    q: "Does MemePouch remove the background like Apple's built-in sticker tool?",
+    a: "No — MemePouch keeps the original image exactly as you import it, with no background removal. iOS 17+'s built-in Add Sticker feature runs Apple's foreground-object detection and auto-cuts what it thinks is the main subject; for memes with text overlays, reaction faces, hands, or intentional backgrounds, that detection often removes the context you wanted to keep. MemePouch imports the full frame as-is — photo, GIF, or short video — and registers it as a regular iMessage sticker, so what you import is what your friends see.",
+  },
+  {
     q: "How do I save a sticker someone sent me in iMessage?",
     a: "iOS 17+ shows a Save to Stickers button in the Emoji Details view, but tapping it on third-party stickers hangs — Apple's system sticker daemon drops the connection and the sticker never lands in your sticker drawer. The reliable path is a drag gesture into MemePouch: long-press the sticker in the chat and keep your finger held down. With another finger, tap the MemePouch icon in the iMessage app drawer to open it, then drag the sticker into the MemePouch grid and release. If MemePouch is already open in the drawer below the chat, you can drag straight down with one finger.",
   },
