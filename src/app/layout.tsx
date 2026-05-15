@@ -60,10 +60,6 @@ export const metadata: Metadata = {
     description:
       "Free iPhone app to turn photos, GIFs, and short videos into reusable custom iMessage stickers.",
   },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-icon",
-  },
   category: "utilities",
   appleWebApp: {
     title: "MemePouch",
