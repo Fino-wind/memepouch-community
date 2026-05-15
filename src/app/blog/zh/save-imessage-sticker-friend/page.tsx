@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     languages: {
       en: "/blog/save-sticker-someone-sent-imessage",
       "zh-Hans": "/blog/zh/save-imessage-sticker-friend",
+      "zh-Hant": "/blog/zh-Hant/save-imessage-sticker-friend",
       "x-default": "/blog/save-sticker-someone-sent-imessage",
     },
   },
@@ -132,6 +133,14 @@ export default function ArticlePage() {
             className="text-blue-600 hover:underline"
           >
             English
+          </Link>{" "}
+          ·{" "}
+          <Link
+            href="/blog/zh-Hant/save-imessage-sticker-friend"
+            hrefLang="zh-Hant"
+            className="text-blue-600 hover:underline"
+          >
+            繁體
           </Link>
         </p>
 

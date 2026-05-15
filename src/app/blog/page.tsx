@@ -16,8 +16,24 @@ export default function BlogIndexPage() {
       </p>
 
       <div className="space-y-8">
+        <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white" lang="zh-Hant">
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">繁體中文</p>
+          <h2 className="text-2xl font-bold mb-3">
+            <Link href="/blog/zh-Hant/save-imessage-sticker-friend" className="text-slate-900 hover:text-blue-600 transition-colors">
+              朋友傳的 iMessage 貼圖怎麼存?
+            </Link>
+          </h2>
+          <p className="text-slate-600 mb-4 line-clamp-2">
+            iMessage 收到一張超好笑的貼圖,長按點「儲存至貼圖」會卡住沒反應——這是 Apple 系統 Bug,
+            不是你操作錯了。本文講清楚背後原理,以及真正能用的雙指拖曳操作步驟。
+          </p>
+          <Link href="/blog/zh-Hant/save-imessage-sticker-friend" className="text-blue-600 font-medium hover:text-blue-700">
+            閱讀文章 &rarr;
+          </Link>
+        </article>
+
         <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white" lang="zh-Hans">
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">中文</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">简体中文</p>
           <h2 className="text-2xl font-bold mb-3">
             <Link href="/blog/zh/save-imessage-sticker-friend" className="text-slate-900 hover:text-blue-600 transition-colors">
               朋友发的 iMessage 贴纸怎么保存?
