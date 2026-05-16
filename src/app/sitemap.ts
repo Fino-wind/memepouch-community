@@ -21,5 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: siteUrl("/blog/imessage-stickers-without-auto-cutout"), lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: siteUrl("/blog/zh/save-imessage-sticker-friend"), lastModified, changeFrequency: "monthly", priority: 0.6 },
     { url: siteUrl("/blog/zh-Hant/save-imessage-sticker-friend"), lastModified, changeFrequency: "monthly", priority: 0.6 },
+    { url: siteUrl("/blog/zh/imessage-stickers-without-auto-cutout"), lastModified, changeFrequency: "monthly", priority: 0.6 },
+    { url: siteUrl("/blog/zh-Hant/imessage-stickers-without-auto-cutout"), lastModified, changeFrequency: "monthly", priority: 0.6 },
   ];
 }
