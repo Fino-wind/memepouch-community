@@ -6,7 +6,15 @@ export const metadata: Metadata = {
   title: "iMessage stickers without auto-cutout — keep the whole image",
   description:
     "iOS 17+'s Add Sticker tool auto-removes the background and ruins memes with text overlays, reaction faces, or intentional context. Here's why Apple does it, why you can't disable it, and the workflow for making whole-image iMessage stickers — text, hands, and all — using MemePouch.",
-  alternates: { canonical: "/blog/imessage-stickers-without-auto-cutout" },
+  alternates: {
+    canonical: "/blog/imessage-stickers-without-auto-cutout",
+    languages: {
+      en: "/blog/imessage-stickers-without-auto-cutout",
+      "zh-Hans": "/blog/zh/imessage-stickers-without-auto-cutout",
+      "zh-Hant": "/blog/zh-Hant/imessage-stickers-without-auto-cutout",
+      "x-default": "/blog/imessage-stickers-without-auto-cutout",
+    },
+  },
 };
 
 export default function ArticlePage() {
@@ -131,7 +139,24 @@ export default function ArticlePage() {
         <h1 className="text-4xl font-bold mb-6 text-slate-900">
           iMessage stickers without auto-cutout: keep the whole image
         </h1>
-        <p className="text-sm text-slate-500 mb-8">Last updated 2026-05-16 · iOS 16+</p>
+        <p className="text-sm text-slate-500 mb-8">
+          Last updated 2026-05-16 · iOS 16+ ·{" "}
+          <Link
+            href="/blog/zh-Hant/imessage-stickers-without-auto-cutout"
+            hrefLang="zh-Hant"
+            className="text-blue-600 hover:underline"
+          >
+            繁體
+          </Link>{" "}
+          ·{" "}
+          <Link
+            href="/blog/zh/imessage-stickers-without-auto-cutout"
+            hrefLang="zh-Hans"
+            className="text-blue-600 hover:underline"
+          >
+            简体
+          </Link>
+        </p>
 
         <p className="text-lg text-slate-700 mb-6 leading-relaxed">
           You long-press a meme in Photos. You tap Add Sticker. iOS does its little subject-detection

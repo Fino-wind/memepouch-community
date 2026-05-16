@@ -48,6 +48,38 @@ export default function BlogIndexPage() {
           </Link>
         </article>
 
+        <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white" lang="zh-Hant">
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">繁體中文</p>
+          <h2 className="text-2xl font-bold mb-3">
+            <Link href="/blog/zh-Hant/imessage-stickers-without-auto-cutout" className="text-slate-900 hover:text-blue-600 transition-colors">
+              不自動去背的 iMessage 貼圖：保留整張原圖
+            </Link>
+          </h2>
+          <p className="text-slate-600 mb-4 line-clamp-2">
+            Apple 的「加入貼圖」會自動把背景摳掉，毀掉迷因的字、手、反應臉。為什麼 iOS 一定要去背、
+            為什麼沒有設定可關，以及保留整張原圖的 iMessage 貼圖做法。
+          </p>
+          <Link href="/blog/zh-Hant/imessage-stickers-without-auto-cutout" className="text-blue-600 font-medium hover:text-blue-700">
+            閱讀文章 &rarr;
+          </Link>
+        </article>
+
+        <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white" lang="zh-Hans">
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">简体中文</p>
+          <h2 className="text-2xl font-bold mb-3">
+            <Link href="/blog/zh/imessage-stickers-without-auto-cutout" className="text-slate-900 hover:text-blue-600 transition-colors">
+              不自动去背的 iMessage 贴纸：保留整张原图
+            </Link>
+          </h2>
+          <p className="text-slate-600 mb-4 line-clamp-2">
+            Apple 的「添加贴纸」会自动把背景抠掉，毁掉表情包的字、手、反应脸。为什么 iOS 一定要抠图、
+            为什么没有设置可关，以及保留整张原图的 iMessage 贴纸做法。
+          </p>
+          <Link href="/blog/zh/imessage-stickers-without-auto-cutout" className="text-blue-600 font-medium hover:text-blue-700">
+            阅读文章 &rarr;
+          </Link>
+        </article>
+
         <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
           <h2 className="text-2xl font-bold mb-3">
             <Link href="/blog/imessage-stickers-without-auto-cutout" className="text-slate-900 hover:text-blue-600 transition-colors">
