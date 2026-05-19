@@ -41,7 +41,7 @@ export default function ArticlePage() {
         name: "Should I use a cross-platform sticker app or an iMessage-native one?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "If you actually send stickers in WhatsApp and Telegram a lot, a cross-platform app is the right pick — they're built for sticker pack export to those platforms. If your sticker life is mostly inside iMessage, an iMessage-native app like MemePouch gives a smoother native feel (stickers in the iMessage app drawer, static stickers can attach to message bubbles, auto-collapse to send) and avoids the cross-platform compromises like subscription billing and WhatsApp-first UI.",
+          text: "If you actually send stickers in WhatsApp and Telegram a lot, a cross-platform app is the right pick — they're built for sticker pack export to those platforms. Sticker.ly leans into community + AI + subscription; Sticker Maker Studio is free and pack-based. If your sticker life is mostly inside iMessage, an iMessage-native app like MemePouch gives a smoother native feel (stickers in the iMessage app drawer, static stickers can attach to message bubbles, auto-collapse to send) and avoids the cross-platform compromises like pack ceremony, community feeds, and subscription billing.",
         },
       },
       {
@@ -57,7 +57,7 @@ export default function ArticlePage() {
         name: "Are any sticker apps free?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Apple's built-in tool is free. Most third-party apps run a free tier with limits and either a subscription or one-time unlock above that. MemePouch is free for the first 10 stickers and $2.99 one-time for unlimited (no subscription). Cross-platform sticker apps tend to subscription-bill premium features (background removal, watermark removal, AI assists).",
+          text: "Apple's built-in tool is free. Most third-party apps run a free tier with limits and either a subscription or one-time unlock above that. MemePouch is free for the first 10 stickers and $2.99 one-time for unlimited (no subscription). Cross-platform sticker apps vary: Sticker.ly subscription-bills its premium features (smart search, AI creation, watermark removal, ~$0.80/wk or $41.99/yr with a 3-day trial that requires a card on file); Sticker Maker Studio is free on the App Store.",
         },
       },
       {
@@ -146,43 +146,57 @@ export default function ArticlePage() {
         </h2>
         <p className="text-slate-700 leading-relaxed mb-4">
           What they are: apps designed primarily for <strong>WhatsApp and Telegram sticker
-          packs</strong>, with iMessage as a secondary export. Names you&apos;ll see include
-          Sticker.ly, Sticker Maker Studio, and a long tail of similar offerings.
+          packs</strong>, with iMessage as a secondary export. The two most-installed examples
+          have very different business models, so it&apos;s worth splitting them out:
         </p>
-        <p className="text-slate-700 leading-relaxed mb-4"><strong>What they get right:</strong></p>
+        <ul className="list-disc pl-6 space-y-3 mb-4 text-slate-700 leading-relaxed">
+          <li>
+            <strong>Sticker.ly</strong> (by NAVER Z Corporation) — community-and-AI-first.
+            Subscription billing: roughly $0.80/week or $41.99/year, with a 3-day trial that
+            requires a card on file. The PLUS tier unlocks smart search, exclusive sticker
+            packs, AI sticker / video / image generation, watermark removal, GIPHY library
+            access, and iMessage sticker support. Built around a social feed with verified
+            profiles and pack discovery.
+          </li>
+          <li>
+            <strong>Sticker Maker Studio</strong> (by Tamara Vardanyan) — free, pack-creation
+            utility. You name a pack first, add stickers to that pack, then push the pack to
+            WhatsApp, iMessage, or other messengers. Includes background removal, photo / GIF /
+            video conversion, and a community where users browse packs other people built.
+          </li>
+        </ul>
+        <p className="text-slate-700 leading-relaxed mb-4"><strong>What both get right:</strong></p>
         <ul className="list-disc pl-6 space-y-2 mb-4 text-slate-700 leading-relaxed">
-          <li>Built-in subject cutout / background removal (often AI-assisted)</li>
+          <li>Built-in subject cutout / background removal (Sticker.ly: PLUS tier; Sticker Maker Studio: free)</li>
           <li>Sticker pack creation and export to WhatsApp / Telegram is their core flow</li>
           <li>Add text, frames, decorations, watermarks</li>
-          <li>Discover other users&apos; sticker packs (community-driven)</li>
+          <li>Community pack discovery — browse and download packs other users built</li>
         </ul>
         <p className="text-slate-700 leading-relaxed mb-4"><strong>Where they fall apart for iMessage-first users:</strong></p>
         <ul className="list-disc pl-6 space-y-2 mb-6 text-slate-700 leading-relaxed">
           <li>
-            UI optimized for WhatsApp/Telegram conventions, which feel off on iMessage
+            UI optimized for WhatsApp / Telegram conventions, with pack-based ceremony (name
+            a pack first) that feels heavy when you just want to drop one sticker into iMessage
           </li>
           <li>
-            Most run subscription billing for the features you actually want (premium cutout,
-            watermark removal, AI assists)
+            Saving stickers friends send you in iMessage isn&apos;t a documented feature in
+            either app
           </li>
           <li>
-            iMessage integration is often as a share-sheet target, not a native iMessage app
-            extension — meaning stickers don&apos;t live in the iMessage drawer
+            Community / social discovery is core to both — not always what you want if you
+            just need a private sticker library
           </li>
           <li>
-            Saving stickers friends send you in iMessage typically isn&apos;t supported (most
-            don&apos;t register a drop target for iMessage drags)
-          </li>
-          <li>
-            Static-stickers-attach-to-bubble (the iMessage native trick) usually doesn&apos;t work
-            because they don&apos;t use{" "}
-            <code className="text-sm bg-slate-100 px-1 rounded">MSSticker</code>
+            iMessage attach-to-bubble support varies: Sticker.ly&apos;s PLUS page claims it;
+            Sticker Maker Studio integrates by adding a pack to iMessage
           </li>
         </ul>
         <p className="text-slate-700 leading-relaxed mb-6">
-          <strong>Best for:</strong> WhatsApp/Telegram users who want a sticker pack to share with
-          friends in those platforms. If you&apos;re willing to pay a monthly subscription for
-          background removal and AI features, the cutout quality is often very good.
+          <strong>Best for:</strong> WhatsApp / Telegram users who want a sticker pack to share
+          with friends in those platforms. Pick Sticker.ly if you want the community + AI
+          features and don&apos;t mind the subscription / card-on-file trial. Pick Sticker Maker
+          Studio if you just want a free pack-creation utility and don&apos;t mind the
+          pack-based workflow.
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
@@ -337,7 +351,9 @@ export default function ArticlePage() {
             <h3 className="text-lg font-semibold text-slate-900 mb-2">Any free sticker apps?</h3>
             <p className="text-slate-700 leading-relaxed">
               Apple Photos is free. MemePouch is free for the first 10 stickers, $2.99 one-time
-              for unlimited. Most Category 2 apps subscription-bill the features you actually want.
+              for unlimited. Among Category 2: Sticker Maker Studio is free; Sticker.ly is
+              subscription-billed for its premium features (~$0.80/wk or $41.99/yr after a
+              3-day card-on-file trial).
             </p>
           </div>
           <div>
