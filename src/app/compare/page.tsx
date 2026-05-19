@@ -117,10 +117,13 @@ export default function ComparePage() {
       <aside className="my-10 p-6 bg-slate-50 border border-slate-200 rounded-2xl text-slate-700">
         <p className="text-sm uppercase tracking-wider text-slate-500 font-semibold mb-2">In one line</p>
         <p className="text-base leading-relaxed">
-          <strong>MemePouch is iMessage-only and library-first.</strong> Whole-image stickers
-          (no auto-cutout), one-time $2.99 (no subscription), one shared sticker grid (no pack
-          ceremony), and one of the few iMessage sticker apps that wires up both drag flows for
-          saving stickers your friends send you. If you primarily chat on WhatsApp or Telegram,
+          <strong>MemePouch is iMessage-only and library-first.</strong> One shared sticker
+          grid (no pack ceremony), private library (no community feed), one-time $2.99 (no
+          subscription), and one of the few iMessage sticker apps that wires up both drag
+          flows for saving the stickers your friends send you. The whole-frame import (no
+          auto-cutout) sets MemePouch apart from Apple&apos;s built-in tool; against other
+          sticker apps the bigger differences are <em>workflow shape</em> and{" "}
+          <em>what the app is built around</em>. If you primarily chat on WhatsApp or Telegram,
           or you want a sticker community, MemePouch is not the right app — pick a
           cross-platform sticker maker (Sticker.ly or Sticker Maker Studio) instead.
         </p>
@@ -144,10 +147,10 @@ export default function ComparePage() {
           <tbody className="divide-y divide-slate-200">
             <tr>
               <td className="py-3 px-3 text-slate-900 font-medium">Whole frame is the default (no cutout required)</td>
-              <td className="py-3 px-3 text-emerald-700 bg-blue-50 border-x border-slate-200 font-semibold">✓ Whole frame, every time</td>
+              <td className="py-3 px-3 text-emerald-700 bg-blue-50 border-x border-slate-200 font-semibold">✓ Whole frame, every time (no cutout UI anywhere)</td>
               <td className="py-3 px-3 text-rose-600">✗ Auto-cuts subject</td>
-              <td className="py-3 px-3 text-rose-600">Auto Cut (SenseTime segmentation) is the documented flow</td>
-              <td className="py-3 px-3 text-rose-600">Finger-trace cutout is the documented flow</td>
+              <td className="py-3 px-3 text-rose-600">Auto Cut documented as the default flow<sup className="text-slate-400 text-[10px] font-normal ml-0.5">[2]</sup></td>
+              <td className="py-3 px-3 text-emerald-600">✓ Whole frame on import; cutout is optional</td>
               <td className="py-3 px-3 text-slate-500">Varies</td>
             </tr>
             <tr>
@@ -226,8 +229,13 @@ export default function ComparePage() {
         </table>
         <p className="text-xs text-slate-500 mt-3 leading-relaxed">
           <sup>[1]</sup> Competitor descriptions reflect their App Store listings, in-app PLUS
-          pages, and reported behavior as of 2026-05. Sticker apps update frequently; if a row is
-          wrong or out of date, please email{" "}
+          pages, and hands-on use where possible, as of 2026-05.{" "}
+          <sup>[2]</sup> Sticker.ly&apos;s PLUS subscription requires a card-on-file 3-day trial
+          to access, so we describe Sticker.ly&apos;s cutout flow based on its public App Store
+          documentation (&quot;cut out stickers from your photos&quot;, &quot;Auto Cut
+          technology&quot;, &quot;image segmentation by SenseTime&quot;) rather than personal
+          hands-on use. Sticker apps update frequently; if a row is wrong or out of date, please
+          email{" "}
           <a href="mailto:memepouch@tetherme.app" className="underline hover:text-slate-700">memepouch@tetherme.app</a>{" "}
           and we&apos;ll fix it.
         </p>
@@ -313,23 +321,24 @@ export default function ComparePage() {
             </a>{" "}
             (by Tamara Vardanyan) is a <strong>free</strong>, long-running sticker-creation
             utility. Its flow is <em>pack-based</em>: name a pack first, add stickers to that
-            pack, then add the whole pack to WhatsApp, iMessage, or other messengers. Sticker
-            creation runs through a <strong>finger-trace cutout</strong> editor (the documented
-            App Store description says &quot;cut out stickers from your photos&quot;; user
-            reviews on the listing explicitly ask the developer to add a no-crop import path,
-            which currently isn&apos;t a documented feature). It also has photo / GIF / video
-            conversion and a community where users browse and share packs other people built.
+            pack, then add the whole pack to WhatsApp, iMessage, or other messengers. In recent
+            versions Sticker Maker Studio defaults to importing the whole frame (cutout is an
+            optional manual step), so &quot;whole-image sticker&quot; isn&apos;t a feature that
+            sets MemePouch apart from it — the real differences are <strong>workflow
+            shape</strong> and <strong>what each app is built around</strong>.
           </p>
           <p className="text-slate-700 leading-relaxed mb-4">
             <strong>Pick Sticker Maker Studio if:</strong> you want a free way to build named
-            sticker packs for WhatsApp and don&apos;t mind organizing stickers into packs and
-            naming each one before you can use them.
+            sticker packs for WhatsApp; you like browsing community packs other people built;
+            and you don&apos;t mind naming and organizing each pack before adding stickers to it.
           </p>
           <p className="text-slate-700 leading-relaxed">
-            <strong>Pick MemePouch if:</strong> you prefer a <strong>single library-first
-            grid</strong> — every sticker you import lands in one shared library, no pack
-            ceremony, no community feed — and you want the drag-import flow for saving friends&apos;
-            iMessage stickers, which Sticker Maker Studio doesn&apos;t document.
+            <strong>Pick MemePouch if:</strong> you want a{" "}
+            <strong>single library-first grid</strong> instead of named packs (every sticker you
+            import lands in one shared library with no pack ceremony), a <strong>private</strong>{" "}
+            library (no community feed, no profile, no shared discovery), and the drag-import
+            flow for <strong>saving stickers your friends send you in iMessage</strong> —
+            something Sticker Maker Studio doesn&apos;t document.
           </p>
         </section>
 
