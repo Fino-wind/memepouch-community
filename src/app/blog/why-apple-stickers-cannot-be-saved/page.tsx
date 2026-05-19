@@ -125,6 +125,20 @@ export default function ArticlePage() {
           iOS 17.0 — and as of iOS 18, it hasn&apos;t been fixed.
         </p>
 
+        <aside className="my-6 p-4 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-600 leading-relaxed">
+          <p className="font-semibold text-slate-700 mb-1">How this was observed</p>
+          <p>
+            The bundle id and XPC peer behavior above were derived from real-device system logs
+            (iPhone tethered to a Mac, unified logs streamed during a tap on the Save to Stickers
+            button on a third-party sticker). Apple has not published documentation of this
+            failure mode; the description above is what the system itself reports in its own
+            logs, not a guess at internals. If you reproduce different behavior on a newer iOS
+            point release, please email{" "}
+            <a href="mailto:memepouch@tetherme.app" className="underline">memepouch@tetherme.app</a>{" "}
+            so we can update the article.
+          </p>
+        </aside>
+
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
           Why third-party sticker apps can&apos;t fix this
         </h2>

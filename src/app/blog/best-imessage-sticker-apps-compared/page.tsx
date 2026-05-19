@@ -122,8 +122,8 @@ export default function ArticlePage() {
           </li>
           <li>
             No animated stickers from arbitrary videos. iOS 17 added Live Stickers from Live
-            Photos, but only one Live Photo at a time, with auto-cutout, and capped at the 500 KB
-            sticker file limit.
+            Photos, but only one Live Photo at a time, with auto-cutout, and system-compressed
+            for in-line use (Apple has not published the exact size cap for system Live Stickers).
           </li>
           <li>
             No organization beyond Recents. No folders, no library separation, no filtering.

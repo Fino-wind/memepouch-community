@@ -218,7 +218,10 @@ export default function ArticlePage() {
           sticker daemon). For third-party sticker payloads, the XPC connection between those two
           processes drops repeatedly. The save action never completes. It&apos;s a system bug, not
           something MemePouch (or any other sticker app) has access to fix — Apple owns the
-          entire save pipeline.
+          entire save pipeline.{" "}
+          <Link href="/blog/why-apple-stickers-cannot-be-saved" className="text-blue-600 hover:underline">
+            Full breakdown of the system bug (with how the behavior was observed) →
+          </Link>
         </p>
         <p className="text-slate-700 leading-relaxed mb-12">
           That&apos;s the real reason you need a workaround. iOS&apos;s Save to Stickers <em>exists</em>;

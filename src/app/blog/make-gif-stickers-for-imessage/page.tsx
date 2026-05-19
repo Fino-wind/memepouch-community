@@ -68,7 +68,7 @@ export default function ArticlePage() {
         name: "Why doesn't iMessage have a built-in way to make GIF stickers?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "iOS 17 added Live Sticker support — Live Photos can be made into animated stickers — but the built-in feature is locked to subject-cutout Live Photos only, capped at the 500 KB sticker file limit, and gives no trimming UI for video sources. For arbitrary videos, longer GIFs, or full-image animations (no auto-cutout), you need a separate sticker-maker app. MemePouch is built specifically for this.",
+          text: "iOS 17 added Live Sticker support — Live Photos can be made into animated stickers — but the built-in feature is locked to subject-cutout Live Photos only, system-compressed for in-line use, and gives no trimming UI for video sources. For arbitrary videos, longer GIFs, or full-image animations (no auto-cutout), you need a separate sticker-maker app. MemePouch is built specifically for this.",
         },
       },
       {
@@ -121,7 +121,7 @@ export default function ArticlePage() {
         <p className="text-lg text-slate-700 mb-6 leading-relaxed">
           iMessage doesn&apos;t have a built-in way to turn an arbitrary video into a GIF sticker. iOS
           17 added &quot;Live Stickers&quot; from Live Photos, but it auto-cuts out the subject (often
-          wrong), caps the file at 500 KB (so quality collapses), and won&apos;t touch a regular
+          wrong), heavily compresses the result so quality collapses, and won&apos;t touch a regular
           video. If you want a sharp, full-image GIF sticker from <em>any</em> short clip — a
           screen recording, a movie clip, a Live Photo, a downloaded video — you need a
           dedicated app.
@@ -256,9 +256,9 @@ export default function ArticlePage() {
             </h3>
             <p className="text-slate-700 leading-relaxed">
               iOS 17 added Live Sticker support — Live Photos can become animated stickers — but
-              it auto-cuts out the subject, is capped at 500 KB, and gives no trimming UI for
-              video sources. For arbitrary videos, longer clips, or full-image animations,
-              you need a dedicated app.
+              it auto-cuts out the subject, is system-compressed for in-line use, and gives no
+              trimming UI for video sources. For arbitrary videos, longer clips, or full-image
+              animations, you need a dedicated app.
             </p>
           </div>
           <div>
@@ -275,7 +275,7 @@ export default function ArticlePage() {
             <p className="text-slate-700 leading-relaxed">
               No — GIFs send as full-quality attachments, not as MSSticker objects. Static
               stickers do attach to bubbles. The trade is conscious: GIFs send sharp instead of
-              smeared down to 500 KB.
+              smeared down by aggressive compression.
             </p>
           </div>
           <div>

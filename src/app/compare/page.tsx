@@ -77,7 +77,7 @@ export default function ComparePage() {
         name: "Why is MemePouch one-time price instead of subscription?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "MemePouch is built by a solo developer who chose a $2.99 one-time unlock instead of a subscription. There's no recurring fee, no ads, and no tier upsell. Most cross-platform sticker apps subscription-bill the features you actually want (background removal, watermark removal, AI assists) — MemePouch's whole-image approach doesn't need any of those, so there's nothing to gate.",
+          text: "MemePouch is built by a solo developer who chose a $2.99 one-time unlock instead of a subscription. There's no recurring fee, no ads, and no tier upsell. Many cross-platform sticker apps subscription-bill the features you actually want (background removal, watermark removal, AI assists) — MemePouch's whole-image approach doesn't need any of those, so there's nothing to gate.",
         },
       },
     ],
@@ -103,10 +103,10 @@ export default function ComparePage() {
         <p className="text-sm uppercase tracking-wider text-slate-500 font-semibold mb-2">In one line</p>
         <p className="text-base leading-relaxed">
           <strong>MemePouch is iMessage-only.</strong> Whole-image stickers (no auto-cutout),
-          one-time $2.99 (no subscription), and the only iMessage sticker app that supports both
-          drag flows for saving stickers your friends send you. If you primarily chat on WhatsApp
-          or Telegram, MemePouch is not the right app — use a cross-platform sticker maker
-          instead.
+          one-time $2.99 (no subscription), and one of the few iMessage sticker apps that wires up
+          both drag flows for saving stickers your friends send you. If you primarily chat on
+          WhatsApp or Telegram, MemePouch is not the right app — use a cross-platform sticker
+          maker instead.
         </p>
       </aside>
 
@@ -119,9 +119,9 @@ export default function ComparePage() {
             <tr className="border-b-2 border-slate-300">
               <th className="py-3 px-3 font-semibold text-slate-900 bg-slate-50">Feature</th>
               <th className="py-3 px-3 font-bold text-blue-700 bg-blue-50 border-x border-slate-200">MemePouch</th>
-              <th className="py-3 px-3 font-semibold text-slate-700">Apple built-in</th>
-              <th className="py-3 px-3 font-semibold text-slate-700">Cross-platform (Sticker.ly etc.)</th>
-              <th className="py-3 px-3 font-semibold text-slate-700">Other iMessage-native</th>
+              <th className="py-3 px-3 font-semibold text-slate-700">Apple built-in<sup className="text-slate-400 text-[10px] font-normal ml-0.5">[1]</sup></th>
+              <th className="py-3 px-3 font-semibold text-slate-700">Cross-platform (Sticker.ly etc.)<sup className="text-slate-400 text-[10px] font-normal ml-0.5">[1]</sup></th>
+              <th className="py-3 px-3 font-semibold text-slate-700">Other iMessage-native<sup className="text-slate-400 text-[10px] font-normal ml-0.5">[1]</sup></th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-200">
@@ -142,7 +142,7 @@ export default function ComparePage() {
             <tr>
               <td className="py-3 px-3 text-slate-900 font-medium">Video / Live Photo → GIF sticker</td>
               <td className="py-3 px-3 text-emerald-700 bg-blue-50 border-x border-slate-200 font-semibold">✓ Up to 10 s, 10 MB</td>
-              <td className="py-3 px-3 text-rose-600">Live Photo only, 500 KB cap</td>
+              <td className="py-3 px-3 text-rose-600">Live Photo only, system-compressed</td>
               <td className="py-3 px-3 text-emerald-600">✓ Often supported</td>
               <td className="py-3 px-3 text-slate-500">Varies</td>
             </tr>
@@ -171,7 +171,7 @@ export default function ComparePage() {
               <td className="py-3 px-3 text-slate-900 font-medium">Pricing</td>
               <td className="py-3 px-3 text-emerald-700 bg-blue-50 border-x border-slate-200 font-semibold">$2.99 one-time, no ads</td>
               <td className="py-3 px-3 text-emerald-600">Free</td>
-              <td className="py-3 px-3 text-rose-600">Subscription + ads typical</td>
+              <td className="py-3 px-3 text-rose-600">Free with ads typical; some apps subscription</td>
               <td className="py-3 px-3 text-slate-500">Varies</td>
             </tr>
             <tr>
@@ -183,6 +183,11 @@ export default function ComparePage() {
             </tr>
           </tbody>
         </table>
+        <p className="text-xs text-slate-500 mt-3 leading-relaxed">
+          <sup>[1]</sup> Competitor descriptions reflect their App Store listings and in-app
+          behavior as of 2026-05. Sticker apps update frequently; if a row is wrong or out of
+          date, please email <a href="mailto:memepouch@tetherme.app" className="underline hover:text-slate-700">memepouch@tetherme.app</a>.
+        </p>
       </div>
 
       <div className="space-y-12">
