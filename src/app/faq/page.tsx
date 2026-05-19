@@ -14,7 +14,7 @@ const QA = [
   },
   {
     q: "Does MemePouch remove the background like Apple's built-in sticker tool?",
-    a: "No — MemePouch keeps the original image exactly as you import it, with no background removal. iOS 17+'s built-in Add Sticker feature runs Apple's foreground-object detection and auto-cuts what it thinks is the main subject; for memes with text overlays, reaction faces, hands, or intentional backgrounds, that detection often removes the context you wanted to keep. MemePouch imports the full frame as-is — photo, GIF, or short video — and registers it as a regular iMessage sticker, so what you import is what your friends see.",
+    a: "No — MemePouch keeps the framing and content exactly as you import it, with no background removal and no subject detection. iOS 17+'s built-in Add Sticker feature runs Apple's foreground-object detection and auto-cuts what it thinks is the main subject; for memes with text overlays, reaction faces, hands, or intentional backgrounds, that detection often removes the context you wanted to keep. MemePouch imports the full frame — photo, GIF, or short video — and registers it as a regular iMessage sticker; static stickers may be auto-compressed to fit Apple's 500 KB MSSticker cap, but framing and content stay intact, so what you import is what your friends see.",
   },
   {
     q: "How do I save a sticker someone sent me in iMessage?",
