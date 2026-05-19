@@ -98,9 +98,9 @@ export function createSocialImage() {
               style={{
                 width: 58,
                 height: 58,
-                borderRadius: 18,
-                background: "#111827",
-                color: "white",
+                borderRadius: 13,
+                background: "#FDC433",
+                color: "#0f172a",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -196,60 +196,3 @@ export function createSocialImage() {
   );
 }
 
-export function createAppleIcon() {
-  return new ImageResponse(
-    (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          borderRadius: 38,
-          background: "#111827",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 18,
-            borderRadius: 42,
-            background: "linear-gradient(135deg, #fb923c 0%, #a855f7 52%, #38bdf8 100%)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            left: 34,
-            bottom: 34,
-            width: 48,
-            height: 48,
-            transform: "rotate(32deg)",
-            background: "#ffffff",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 33,
-            borderRadius: 45,
-            border: "7px solid rgba(255,255,255,0.94)",
-          }}
-        />
-        <div
-          style={{
-            color: "#ffffff",
-            fontSize: 68,
-            fontWeight: 950,
-          }}
-        >
-          M
-        </div>
-      </div>
-    ),
-    { width: 180, height: 180 },
-  );
-}
