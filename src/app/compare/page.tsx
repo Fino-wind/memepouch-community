@@ -143,11 +143,11 @@ export default function ComparePage() {
           </thead>
           <tbody className="divide-y divide-slate-200">
             <tr>
-              <td className="py-3 px-3 text-slate-900 font-medium">Keeps the whole image (no auto-cutout)</td>
-              <td className="py-3 px-3 text-emerald-700 bg-blue-50 border-x border-slate-200 font-semibold">✓ By design</td>
+              <td className="py-3 px-3 text-slate-900 font-medium">Whole frame is the default (no cutout required)</td>
+              <td className="py-3 px-3 text-emerald-700 bg-blue-50 border-x border-slate-200 font-semibold">✓ Whole frame, every time</td>
               <td className="py-3 px-3 text-rose-600">✗ Auto-cuts subject</td>
-              <td className="py-3 px-3 text-rose-600">Remove-background is PLUS feature</td>
-              <td className="py-3 px-3 text-rose-600">Has background removal</td>
+              <td className="py-3 px-3 text-rose-600">Auto Cut (SenseTime segmentation) is the documented flow</td>
+              <td className="py-3 px-3 text-rose-600">Finger-trace cutout is the documented flow</td>
               <td className="py-3 px-3 text-slate-500">Varies</td>
             </tr>
             <tr>
@@ -252,8 +252,9 @@ export default function ComparePage() {
             either get the auto-extracted subject or you don&apos;t make a sticker.
           </p>
           <p className="text-slate-700 leading-relaxed">
-            MemePouch&apos;s approach is the opposite: <strong>no cutout, ever.</strong> Import a
-            photo, GIF, video, or Live Photo and the whole frame becomes a sticker. Read more in{" "}
+            MemePouch&apos;s approach is the opposite: <strong>whole frame is the default — no
+            cutout step at all.</strong> Import a photo, GIF, video, or Live Photo and the whole
+            frame becomes a sticker. Read more in{" "}
             <Link href="/blog/turn-screenshots-into-imessage-stickers" className="text-blue-600 hover:underline">
               the screenshots guide
             </Link>
@@ -278,9 +279,12 @@ export default function ComparePage() {
             $0.80/week or $41.99/year, with a 3-day trial that requires a card on file. The
             product is built around social discovery: search, verified profiles, exclusive
             sticker packs, GIPHY integration, AI sticker generation, and WhatsApp pack
-            publishing. Its PLUS page does claim iMessage sticker support (&quot;Send stickers
-            on iMessage or stick them on bubbles&quot;), but Sticker.ly is not designed around the
-            &quot;save the sticker a friend just sent you in iMessage&quot; workflow.
+            publishing. Sticker creation runs through an <strong>Auto Cut</strong> pipeline
+            (image segmentation by SenseTime) — the documented flow is &quot;select photo →
+            auto-cut subject → caption → export.&quot; Its PLUS page does claim iMessage sticker
+            support (&quot;Send stickers on iMessage or stick them on bubbles&quot;), but
+            Sticker.ly isn&apos;t designed around the &quot;save the sticker a friend just sent
+            you in iMessage&quot; workflow.
           </p>
           <p className="text-slate-700 leading-relaxed mb-4">
             <strong>Pick Sticker.ly if:</strong> you want a sticker community, AI-assisted
@@ -308,10 +312,13 @@ export default function ComparePage() {
               Sticker Maker Studio
             </a>{" "}
             (by Tamara Vardanyan) is a <strong>free</strong>, long-running sticker-creation
-            utility. Its flow is <em>pack-based</em>: you give a pack a name first, add stickers
-            to that pack, then add the whole pack to WhatsApp, iMessage, or other messengers.
-            It has background removal, photo/GIF/video → sticker conversion, and a community
-            where users browse and share packs other people built.
+            utility. Its flow is <em>pack-based</em>: name a pack first, add stickers to that
+            pack, then add the whole pack to WhatsApp, iMessage, or other messengers. Sticker
+            creation runs through a <strong>finger-trace cutout</strong> editor (the documented
+            App Store description says &quot;cut out stickers from your photos&quot;; user
+            reviews on the listing explicitly ask the developer to add a no-crop import path,
+            which currently isn&apos;t a documented feature). It also has photo / GIF / video
+            conversion and a community where users browse and share packs other people built.
           </p>
           <p className="text-slate-700 leading-relaxed mb-4">
             <strong>Pick Sticker Maker Studio if:</strong> you want a free way to build named
@@ -404,6 +411,22 @@ export default function ComparePage() {
         >
           Download MemePouch →
         </a>
+      </div>
+
+      <div className="mt-12 pt-6 border-t border-slate-200 text-xs text-slate-500 leading-relaxed space-y-2">
+        <p>
+          <strong className="text-slate-600">Trademarks &amp; comparison disclosure.</strong>{" "}
+          Sticker.ly is a trademark of NAVER Z Corporation. Sticker Maker Studio is a product of
+          Tamara Vardanyan. Apple, iMessage, iOS, iPhone, and related marks are trademarks of
+          Apple Inc. MemePouch is not affiliated with, sponsored by, or endorsed by NAVER Z
+          Corporation, Tamara Vardanyan, or Apple Inc. This comparison reflects publicly
+          available App Store descriptions, official developer documentation, and hands-on use
+          as of 2026-05-19; sticker apps update frequently, so verify pricing and features in
+          each app&apos;s App Store listing before deciding. If you believe any statement here
+          is inaccurate, please email{" "}
+          <a href="mailto:memepouch@tetherme.app" className="underline hover:text-slate-700">memepouch@tetherme.app</a>{" "}
+          and we&apos;ll review and correct it within one business day.
+        </p>
       </div>
     </div>
   );
