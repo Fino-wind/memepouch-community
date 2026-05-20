@@ -44,6 +44,42 @@ const QA = [
     q: "How big can a sticker file be?",
     a: "Static stickers go through Apple's MSSticker API and have a 500 KB cap — MemePouch auto-compresses to fit. GIF stickers in MemePouch route through Messages attachments instead, so they're not subject to the 500 KB cap and can be up to 10 MB. The trade: GIFs send as their own bubble in the chat, while static stickers can still stick onto someone's message bubble like Apple's system stickers.",
   },
+  {
+    q: "Can I import multiple photos at once?",
+    a: "Yes. The Photos picker lets you select up to 30 images or GIFs at a time, in any order, and they're imported into your sticker library preserving the selection order. Each one goes through the same dedup + auto-compress pipeline as a single import.",
+  },
+  {
+    q: "Can I make a GIF from the entire video instead of trimming?",
+    a: "Yes. In the trim view, tap Use whole clip to expand the trim to the full length of the imported clip (capped at MemePouch's 10-second maximum) in one tap. The button only appears when the trim isn't already full, so the UI stays clean when you do want to shorten a longer video.",
+  },
+  {
+    q: "Can I turn a Live Photo into a sticker in one tap?",
+    a: "Yes. The Live Photo flow gives you two choices: Save GIF now (skip the trim view, ship the full motion as a GIF immediately) or Trim before saving (open the trim + Smart loop pipeline for fine control). MemePouch sets the iCloud network-access flag, so Live Photos that live only in iCloud still convert.",
+  },
+  {
+    q: "Can I share an image from Safari, Files, or another app into MemePouch?",
+    a: "Yes. MemePouch installs an iOS Share Sheet extension. From Safari, Files, Photos, WhatsApp, Mail, or any app with the standard Share button, tap Share → MemePouch. Static images import straight into your sticker library. If you share a video, MemePouch hands it off to the main app and opens the trim view directly so you can turn it into a GIF sticker.",
+  },
+  {
+    q: "How do I restore my MemePouch purchase on a new iPhone?",
+    a: "Open MemePouch → Settings → Restore Purchase. As long as you're signed into the same Apple ID that bought the unlock, the app re-verifies the entitlement through StoreKit and immediately removes the 10-sticker limit. No account, no email, no extra steps.",
+  },
+  {
+    q: "Can I change MemePouch's language? Does it support Chinese?",
+    a: "Yes. Open Settings → Language and choose System (follow iOS), English, 简体中文, or 繁體中文. The choice is written into the App Group container so both the main app and the iMessage extension switch together — no relaunch needed.",
+  },
+  {
+    q: "Does MemePouch support dark mode?",
+    a: "Yes. Settings → Appearance lets you pick Follow System, Light, or Dark. The setting applies to both the main app and the iMessage extension drawer.",
+  },
+  {
+    q: "Does the iMessage drawer stay open after I send a sticker?",
+    a: "No — MemePouch auto-collapses the keyboard back to compact mode the moment you tap a sticker, so the chat field is immediately usable. Most older iMessage sticker apps leave the keyboard expanded, blocking the chat; MemePouch closes itself, which is a small but constant UX win.",
+  },
+  {
+    q: "Can I drop an image from another app (Safari, Files, etc.) onto MemePouch's home screen?",
+    a: "Yes. In Stage Manager or split view on iPad, or with the iOS multi-touch drag gesture on iPhone, drag any image onto the MemePouch home screen — a dashed-blue highlight appears confirming the drop target. The image imports into your library. This is the main-app drop target, separate from the iMessage extension's drop target (which is for saving stickers your friends send you).",
+  },
 ];
 
 const FAQ_LD = {

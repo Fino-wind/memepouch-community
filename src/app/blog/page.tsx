@@ -81,6 +81,36 @@ export default function BlogIndexPage() {
         </article>
 
         <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600 mb-2">New · 2026-05-20</p>
+          <h2 className="text-2xl font-bold mb-3">
+            <Link href="/blog/trim-video-into-looping-gif-sticker" className="text-slate-900 hover:text-blue-600 transition-colors">
+              Trim a video into a perfectly looping GIF sticker (Smart loop walkthrough)
+            </Link>
+          </h2>
+          <p className="text-slate-600 mb-4 line-clamp-2">
+            How MemePouch&apos;s Smart loop finds the cleanest seam for your GIF sticker using perceptual frame matching (dHash) — plus the &quot;Use whole clip&quot; shortcut, Boomerang fallback, and the encoder cascade that keeps your GIF under iMessage&apos;s 10 MB attachment limit.
+          </p>
+          <Link href="/blog/trim-video-into-looping-gif-sticker" className="text-blue-600 font-medium hover:text-blue-700">
+            Read article &rarr;
+          </Link>
+        </article>
+
+        <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600 mb-2">New · 2026-05-20</p>
+          <h2 className="text-2xl font-bold mb-3">
+            <Link href="/blog/organize-imessage-sticker-library" className="text-slate-900 hover:text-blue-600 transition-colors">
+              How to organize your iMessage sticker library: filter, reorder, deduplicate
+            </Link>
+          </h2>
+          <p className="text-slate-600 mb-4 line-clamp-2">
+            Once you&apos;ve imported 30+ stickers into MemePouch, you need to organize them. How to filter image vs GIF, drag-reorder the library, preview animated stickers before sending, and how SHA-256 content hashing prevents duplicate imports.
+          </p>
+          <Link href="/blog/organize-imessage-sticker-library" className="text-blue-600 font-medium hover:text-blue-700">
+            Read article &rarr;
+          </Link>
+        </article>
+
+        <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
           <h2 className="text-2xl font-bold mb-3">
             <Link href="/blog/imessage-stickers-without-auto-cutout" className="text-slate-900 hover:text-blue-600 transition-colors">
               iMessage stickers without auto-cutout: keep the whole image
