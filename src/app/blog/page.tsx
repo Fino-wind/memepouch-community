@@ -83,6 +83,51 @@ export default function BlogIndexPage() {
         <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
           <p className="text-xs font-semibold uppercase tracking-wide text-blue-600 mb-2">New · 2026-05-20</p>
           <h2 className="text-2xl font-bold mb-3">
+            <Link href="/blog/import-stickers-five-ways" className="text-slate-900 hover:text-blue-600 transition-colors">
+              5 ways to add a sticker to MemePouch (Photos, paste, Share Sheet, drag, iMessage)
+            </Link>
+          </h2>
+          <p className="text-slate-600 mb-4 line-clamp-2">
+            Every input path: multi-select up to 30 from Photos, one-tap paste from clipboard, Share Sheet from any app (including the video handoff to the trim view), drag-drop into the main app, and drag-import from an iMessage chat to save stickers your friends sent you.
+          </p>
+          <Link href="/blog/import-stickers-five-ways" className="text-blue-600 font-medium hover:text-blue-700">
+            Read article &rarr;
+          </Link>
+        </article>
+
+        <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600 mb-2">New · 2026-05-20</p>
+          <h2 className="text-2xl font-bold mb-3">
+            <Link href="/blog/auto-delete-photos-after-sticker-import" className="text-slate-900 hover:text-blue-600 transition-colors">
+              Auto-delete original photos after sticker import (keep your camera roll clean)
+            </Link>
+          </h2>
+          <p className="text-slate-600 mb-4 line-clamp-2">
+            MemePouch&apos;s optional Auto-delete setting removes the source meme from Photos the moment it&apos;s a sticker — so your camera roll stays photos of your life, not a junk drawer. Routes through iOS&apos;s Recently Deleted (30-day grace period), handles iCloud, skips read-only Shared Library items.
+          </p>
+          <Link href="/blog/auto-delete-photos-after-sticker-import" className="text-blue-600 font-medium hover:text-blue-700">
+            Read article &rarr;
+          </Link>
+        </article>
+
+        <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600 mb-2">New · 2026-05-20</p>
+          <h2 className="text-2xl font-bold mb-3">
+            <Link href="/blog/live-photo-to-gif-sticker" className="text-slate-900 hover:text-blue-600 transition-colors">
+              Turn a Live Photo into a looping GIF sticker for iMessage
+            </Link>
+          </h2>
+          <p className="text-slate-600 mb-4 line-clamp-2">
+            Live Photos are already 1.5–3 s of motion — ideal sticker material. How MemePouch converts them with one tap (or trim first), handles iCloud-only Live Photos automatically, runs Smart loop on the paired motion video, and how this compares to Apple&apos;s iOS 17 Live Stickers (cutout-forced vs full-frame).
+          </p>
+          <Link href="/blog/live-photo-to-gif-sticker" className="text-blue-600 font-medium hover:text-blue-700">
+            Read article &rarr;
+          </Link>
+        </article>
+
+        <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600 mb-2">New · 2026-05-20</p>
+          <h2 className="text-2xl font-bold mb-3">
             <Link href="/blog/trim-video-into-looping-gif-sticker" className="text-slate-900 hover:text-blue-600 transition-colors">
               Trim a video into a perfectly looping GIF sticker (Smart loop walkthrough)
             </Link>
