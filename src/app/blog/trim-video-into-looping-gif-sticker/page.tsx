@@ -222,13 +222,14 @@ export default function ArticlePage() {
       </h2>
       <p className="text-slate-700 leading-relaxed">
         iMessage attachments cap at roughly 10 MB. To send a sharp GIF at that ceiling,
-        MemePouch tries four recipes in order:
+        MemePouch tries four recipes in order, stepping down both framerate and resolution
+        in tandem so quality degrades smoothly instead of falling off a cliff:
       </p>
       <ol className="list-decimal pl-6 space-y-1 text-slate-700 leading-relaxed">
         <li><strong>15 fps</strong>, max 300 px on the longest edge — sharp, smooth motion</li>
-        <li><strong>8 fps</strong>, max 300 px — same resolution, half the frames</li>
-        <li><strong>15 fps</strong>, max 180 px — smaller, smoother</li>
-        <li><strong>8 fps</strong>, max 180 px — last resort, still sends</li>
+        <li><strong>12 fps</strong>, max 260 px — small step down for slightly heavier clips</li>
+        <li><strong>10 fps</strong>, max 220 px — for longer / more visually complex clips</li>
+        <li><strong>8 fps</strong>, max 180 px — last resort, still sends, still recognizable</li>
       </ol>
       <p className="text-slate-700 leading-relaxed">
         The first recipe that produces a file under 10 MB ships. Most 1–3 second clips fit
