@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import ClarityAnalytics from "./_components/ClarityAnalytics";
 import SiteFooter from "./_components/SiteFooter";
 import SiteNav from "./_components/SiteNav";
 import { APP_STORE_URL, SITE_URL } from "./site";
@@ -119,6 +120,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(APP_LD) }}
         />
+        <ClarityAnalytics />
         <SiteNav />
         <main className="flex-1">{children}</main>
         <SiteFooter />
