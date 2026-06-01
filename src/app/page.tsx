@@ -169,6 +169,34 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Feature: Pin to Top */}
+        <div className="mt-8 rounded-[2.5rem] bg-gradient-to-br from-amber-50 to-yellow-100 border border-amber-100 p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10">
+          <div className="max-w-xl">
+             <div className="w-14 h-14 rounded-2xl bg-white/60 shadow-sm flex items-center justify-center mb-6">
+              <svg className="w-7 h-7 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 4h6l-1.2 5.2 3.2 3.3H7L10.2 9.2 9 4zM12 15.5V21" />
+              </svg>
+            </div>
+            <h3 className="text-3xl font-bold text-slate-900 mb-4">Pin Your Go-To Stickers to the Top</h3>
+            <p className="text-amber-900/70 text-lg leading-relaxed">Long-press a sticker and tap <strong>Pin to Top</strong> to keep your most-used reactions front and center — they stay above the rest, marked with a small pin badge. Drag the pinned ones to put them in exactly the order you want, and that order sticks in both the app and the iMessage drawer.</p>
+          </div>
+          <div className="w-full md:w-auto relative">
+             <div className="bg-white/60 backdrop-blur-xl border border-white/40 shadow-xl rounded-3xl p-6 w-full md:w-80 flex flex-col gap-4 transform -rotate-3">
+                <div className="flex items-center gap-3">
+                   <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center text-2xl">😂</div>
+                   <span className="font-semibold text-slate-900">Pinned</span>
+                   <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-amber-500 px-2 py-0.5 text-xs font-semibold text-white">
+                      <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 4h6l-1.2 5.2 3.2 3.3H7L10.2 9.2 9 4zM12 15.5V21" />
+                      </svg>
+                      Pin
+                   </span>
+                </div>
+                <p className="text-sm text-slate-500">Long-press any sticker and choose Pin to Top. Drag the pinned ones to reorder.</p>
+             </div>
+          </div>
+        </div>
+
       </section>
 
     </div>

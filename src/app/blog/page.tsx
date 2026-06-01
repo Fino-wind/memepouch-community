@@ -148,7 +148,7 @@ export default function BlogIndexPage() {
             </Link>
           </h2>
           <p className="text-slate-600 mb-4 line-clamp-2">
-            Once you&apos;ve imported 30+ stickers into MemePouch, you need to organize them. How to filter image vs GIF, drag-reorder the library, preview animated stickers before sending, and how SHA-256 content hashing prevents duplicate imports.
+            Once you&apos;ve imported 30+ stickers into MemePouch, you need to organize them. How to pin your go-to stickers to the top, filter image vs GIF, drag-reorder the library, preview animated stickers before sending, and how SHA-256 content hashing prevents duplicate imports.
           </p>
           <Link href="/blog/organize-imessage-sticker-library" className="text-blue-600 font-medium hover:text-blue-700">
             Read article &rarr;
