@@ -43,6 +43,11 @@ export default function ArticlePage() {
       },
       {
         "@type": "HowToStep",
+        name: "Let smart sorting do the work",
+        text: "The library auto-sorts by how often you use each sticker, so the ones you send most rise to the top on their own. Newly imported stickers stay at the top for 24 hours. There's nothing to turn on.",
+      },
+      {
+        "@type": "HowToStep",
         name: "Pin your favorites",
         text: "Long-press a sticker and tap Pin to Top to keep your most-used reactions above the rest. Pinned stickers carry a pin badge and stay at the front in both the app and the iMessage drawer. Drag the pinned ones to set their order.",
       },
@@ -68,6 +73,14 @@ export default function ArticlePage() {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
+      {
+        "@type": "Question",
+        name: "How does MemePouch order the stickers in my library?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Automatically, by how often you use each sticker. The ones you send most rise to the top; ones you haven't used in weeks fade down without disappearing. A freshly imported sticker stays at the top for 24 hours so it's easy to find. The same order appears in both the main app and the iMessage drawer, and there's no setting to configure. You can override it any time by pinning stickers to the top or drag-reordering.",
+        },
+      },
       {
         "@type": "Question",
         name: "Can MemePouch filter image stickers from GIF stickers?",
@@ -126,8 +139,28 @@ export default function ArticlePage() {
         The moment a sticker library crosses 20 or 30 items, &quot;just scroll until you find it&quot;
         stops being a strategy. MemePouch was built around the idea that a sticker keyboard should
         feel like a chat-speed tool — pull up the right reaction in under a second. This post
-        walks through the library features that get you there: pin your go-to stickers to the
-        top, filter, preview, reorder, and deduplicate.
+        walks through the library features that get you there: smart sorting that floats your
+        most-used stickers to the top on its own, pinning your go-to stickers to the front,
+        filtering, previewing, reordering, and deduplicating.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900 not-prose">
+        Smart sorting — the stickers you use most rise to the top
+      </h2>
+      <p className="text-slate-700 leading-relaxed">
+        Before you touch a single setting, MemePouch is already organizing for you. The library
+        sorts itself by <strong>how often you actually use each sticker</strong> — the ones you
+        send the most rise to the top automatically, so your go-to reactions stay within
+        thumb&apos;s reach. Old favorites you haven&apos;t sent in weeks slowly fade down without
+        disappearing. The same order shows up in both the main app and the iMessage drawer.
+      </p>
+      <p className="text-slate-700 leading-relaxed">
+        Just imported something new? It stays parked at the top for the first 24 hours so
+        it&apos;s easy to find while it&apos;s fresh, then it settles into the usage-based order
+        like everything else. It all happens invisibly — there&apos;s no setting to fiddle with
+        and no &quot;frequently used&quot; tab to switch into. The two tools below let you take
+        manual control on top of this: pin a handful of favorites to the very front, and
+        drag-reorder to break ties exactly how you like.
       </p>
 
       <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900 not-prose">

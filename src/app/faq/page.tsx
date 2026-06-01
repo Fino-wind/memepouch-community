@@ -65,6 +65,10 @@ const QA = [
     a: "Open MemePouch → Settings → Restore Purchase. As long as you're signed into the same Apple ID that bought the unlock, the app re-verifies the entitlement through StoreKit and immediately removes the 10-sticker limit. No account, no email, no extra steps.",
   },
   {
+    q: "How does MemePouch decide the order my stickers appear in?",
+    a: "Your library sorts itself by how often you actually use each sticker — the ones you send the most rise to the top automatically, so your go-to reactions stay within thumb's reach. Old favorites you haven't sent in weeks slowly fade down without disappearing. Just imported something new? It stays at the top for 24 hours so it's easy to find. It all happens invisibly — there's no setting to fiddle with and no 'frequently used' tab to switch into. The same order shows up in both the main app and the iMessage drawer. Want a few stickers locked to the very front regardless of usage? Long-press and Pin to Top — pinned stickers always sit above the auto-sorted ones.",
+  },
+  {
     q: "Can I change MemePouch's language? Does it support Chinese?",
     a: "Yes. Open Settings → Language and choose System (follow iOS), English, 简体中文, or 繁體中文. The choice is written into the App Group container so both the main app and the iMessage extension switch together — no relaunch needed.",
   },
