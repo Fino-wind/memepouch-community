@@ -15,7 +15,7 @@ export default function ArticlePage() {
     "@type": "Article",
     headline: "How to organize your iMessage sticker library in MemePouch",
     description:
-      "Filter image vs GIF, drag-to-reorder, preview animated stickers before sending, and how content-hash deduplication keeps duplicates out.",
+      "Pin your go-to stickers to the top, filter image vs GIF, drag-to-reorder, preview animated stickers before sending, and how content-hash deduplication keeps duplicates out.",
     datePublished: "2026-05-20",
     dateModified: "2026-05-20",
     author: { "@type": "Organization", name: "MemePouch" },
@@ -40,6 +40,11 @@ export default function ArticlePage() {
         "@type": "HowToStep",
         name: "Open the library",
         text: "Launch MemePouch from your Home Screen, or tap the MemePouch icon in any iMessage chat's app drawer.",
+      },
+      {
+        "@type": "HowToStep",
+        name: "Pin your favorites",
+        text: "Long-press a sticker and tap Pin to Top to keep your most-used reactions above the rest. Pinned stickers carry a pin badge and stay at the front in both the app and the iMessage drawer. Drag the pinned ones to set their order.",
       },
       {
         "@type": "HowToStep",
@@ -73,10 +78,18 @@ export default function ArticlePage() {
       },
       {
         "@type": "Question",
+        name: "Can I pin my favorite stickers to the top in MemePouch?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Long-press a sticker and tap Pin to Top — it moves above the rest of the grid and gets a small pin badge. Pinned stickers stay at the front in both the main app and the iMessage extension drawer, and you can drag the pinned ones to set their exact order. Long-press again and tap Unpin to send a sticker back to the regular library.",
+        },
+      },
+      {
+        "@type": "Question",
         name: "Can I reorder my stickers in MemePouch?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes — long-press any sticker and drag to move it. The reorder is saved and used in both the main app and the iMessage extension drawer, so your most-used reactions can live at the top.",
+          text: "Yes — long-press any sticker and drag to move it. The reorder is saved and used in both the main app and the iMessage extension drawer. Pair it with Pin to Top to lock your most-used reactions at the front, then drag the pinned ones into the order you want.",
         },
       },
       {
@@ -113,8 +126,25 @@ export default function ArticlePage() {
         The moment a sticker library crosses 20 or 30 items, &quot;just scroll until you find it&quot;
         stops being a strategy. MemePouch was built around the idea that a sticker keyboard should
         feel like a chat-speed tool — pull up the right reaction in under a second. This post
-        walks through the four library features that get you there: filter, preview, reorder,
-        and deduplicate.
+        walks through the library features that get you there: pin your go-to stickers to the
+        top, filter, preview, reorder, and deduplicate.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900 not-prose">
+        Pin your go-to stickers to the top
+      </h2>
+      <p className="text-slate-700 leading-relaxed">
+        You probably reach for the same handful of reactions over and over. Long-press a sticker
+        and tap <strong>Pin to Top</strong> — it jumps above the rest of the grid and gets a small
+        pin badge so you can spot it at a glance. Pinned stickers stay put at the front whether
+        you&apos;re in the main app or the iMessage drawer, so your most-used reactions are always
+        the first thing you see.
+      </p>
+      <p className="text-slate-700 leading-relaxed">
+        Pinned more than one? Drag them around to set the exact order you want — your favorite
+        in slot one, the runner-up next to it. The order you set sticks across launches and across
+        both surfaces. To unpin, long-press again and tap <strong>Unpin</strong>; the sticker drops
+        back into the regular library below.
       </p>
 
       <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900 not-prose">
@@ -153,8 +183,9 @@ export default function ArticlePage() {
         extension drawer.
       </p>
       <p className="text-slate-700 leading-relaxed">
-        Practical workflow: your top three or four reactions go to the front of the grid, and
-        you can hit them from the iMessage drawer without scrolling. Everything else sits below.
+        Practical workflow: pin your top three or four reactions so they always sit at the front,
+        then drag-reorder the pinned set into the exact order you want. Everything else stays in
+        the auto-sorted grid below, one swipe away.
       </p>
 
       <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900 not-prose">
