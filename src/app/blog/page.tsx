@@ -81,6 +81,21 @@ export default function BlogIndexPage() {
         </article>
 
         <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600 mb-2">New · 2026-06-10</p>
+          <h2 className="text-2xl font-bold mb-3">
+            <Link href="/blog/save-stickers-to-camera-roll" className="text-slate-900 hover:text-blue-600 transition-colors">
+              How to save stickers to your camera roll on iPhone (and a cleaner way)
+            </Link>
+          </h2>
+          <p className="text-slate-600 mb-4 line-clamp-2">
+            The fastest answer is a screenshot — works for TikTok stickers, iMessage stickers, anything on screen. Plus the flow most people miss: share the screenshot into MemePouch straight from the preview and delete it, so the sticker lands in your iMessage keyboard and your camera roll stays clean.
+          </p>
+          <Link href="/blog/save-stickers-to-camera-roll" className="text-blue-600 font-medium hover:text-blue-700">
+            Read article &rarr;
+          </Link>
+        </article>
+
+        <article className="border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow bg-white">
           <p className="text-xs font-semibold uppercase tracking-wide text-blue-600 mb-2">New · 2026-05-20</p>
           <h2 className="text-2xl font-bold mb-3">
             <Link href="/blog/import-stickers-five-ways" className="text-slate-900 hover:text-blue-600 transition-colors">
