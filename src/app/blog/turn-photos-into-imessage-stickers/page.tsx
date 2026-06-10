@@ -38,7 +38,7 @@ export default function ArticlePage() {
         <p className="text-lg text-slate-600 mb-6 leading-relaxed">
           MemePouch is a free-to-try iPhone app (iOS 16+) that turns your photos, GIFs, and short
           videos into reusable iMessage stickers, and lets you save stickers other people send you
-          in iMessage by dragging them into your library. The first 10 stickers are free; a
+          in iMessage by dragging them into your library. The first 5 stickers are free; a
           one-time unlock removes the cap.
         </p>
 
