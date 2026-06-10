@@ -30,7 +30,7 @@ const QA = [
   },
   {
     q: "Is MemePouch free?",
-    a: "Yes, with a 10-sticker free tier. A one-time in-app purchase unlocks unlimited stickers permanently — no subscription.",
+    a: "Yes, with a 5-sticker free tier. A one-time in-app purchase unlocks unlimited stickers permanently — no subscription.",
   },
   {
     q: "Does MemePouch upload my photos anywhere?",
@@ -62,7 +62,7 @@ const QA = [
   },
   {
     q: "How do I restore my MemePouch purchase on a new iPhone?",
-    a: "Open MemePouch → Settings → Restore Purchase. As long as you're signed into the same Apple ID that bought the unlock, the app re-verifies the entitlement through StoreKit and immediately removes the 10-sticker limit. No account, no email, no extra steps.",
+    a: "Open MemePouch → Settings → Restore Purchase. As long as you're signed into the same Apple ID that bought the unlock, the app re-verifies the entitlement through StoreKit and immediately removes the 5-sticker limit. No account, no email, no extra steps.",
   },
   {
     q: "How does MemePouch decide the order my stickers appear in?",

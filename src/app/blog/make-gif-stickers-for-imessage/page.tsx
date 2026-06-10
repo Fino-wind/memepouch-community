@@ -5,7 +5,7 @@ import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
 export const metadata: Metadata = {
   title: "How to make GIF stickers for iMessage from any video or Live Photo (2026)",
   description:
-    "Turn a Live Photo or short video into an animated iMessage GIF sticker with MemePouch — up to 10 seconds, full quality. iPhone only, iOS 16+. Free for 10 stickers, $2.99 one-time unlock.",
+    "Turn a Live Photo or short video into an animated iMessage GIF sticker with MemePouch — up to 10 seconds, full quality. iPhone only, iOS 16+. Free for 5 stickers, $2.99 one-time unlock.",
   alternates: { canonical: "/blog/make-gif-stickers-for-imessage" },
 };
 
@@ -100,7 +100,7 @@ export default function ArticlePage() {
         name: "How much does it cost?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "The first 10 stickers are free. A one-time $2.99 unlock removes the limit forever. No ads, no recurring subscription.",
+          text: "The first 5 stickers are free. A one-time $2.99 unlock removes the limit forever. No ads, no recurring subscription.",
         },
       },
     ],
@@ -129,14 +129,14 @@ export default function ArticlePage() {
         <p className="text-lg text-slate-700 mb-10 leading-relaxed">
           <strong>MemePouch makes this a 30-second job.</strong> Pick a source, trim up to 10
           seconds, save. The GIF goes straight into your iMessage sticker library and sends as a
-          high-quality attachment to any chat. The first 10 stickers are free; $2.99 one-time
+          high-quality attachment to any chat. The first 5 stickers are free; $2.99 one-time
           unlocks unlimited.
         </p>
 
         <div className="my-10 p-6 bg-slate-50 border border-slate-200 rounded-2xl">
           <div className="text-sm uppercase tracking-wider text-slate-500 font-semibold mb-2">Get it</div>
           <h2 className="text-2xl font-semibold text-slate-900 mb-2">MemePouch on the App Store</h2>
-          <p className="text-slate-600 mb-4">iPhone only · iOS 16+ · Free for 10 stickers · $2.99 one-time unlock</p>
+          <p className="text-slate-600 mb-4">iPhone only · iOS 16+ · Free for 5 stickers · $2.99 one-time unlock</p>
           <a
             href={APP_STORE_URL}
             className="inline-flex items-center gap-2 bg-slate-900 text-white px-5 py-3 rounded-xl font-semibold hover:bg-slate-700 transition"
@@ -288,7 +288,7 @@ export default function ArticlePage() {
           <div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">How much does it cost?</h3>
             <p className="text-slate-700 leading-relaxed">
-              First 10 stickers free. $2.99 one-time unlock removes the limit forever. No ads, no
+              First 5 stickers free. $2.99 one-time unlock removes the limit forever. No ads, no
               subscription.
             </p>
           </div>
@@ -297,7 +297,7 @@ export default function ArticlePage() {
         <div className="my-12 p-6 bg-blue-50 border border-blue-200 rounded-2xl">
           <h3 className="text-xl font-semibold text-slate-900 mb-2">Make your first GIF sticker</h3>
           <p className="text-slate-700 mb-4">
-            Download MemePouch on the App Store. Free for the first 10 stickers, then $2.99
+            Download MemePouch on the App Store. Free for the first 5 stickers, then $2.99
             one-time to unlock unlimited.
           </p>
           <a

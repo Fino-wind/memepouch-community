@@ -219,7 +219,7 @@ export default function ComparePage() {
             </tr>
             <tr>
               <td className="py-3 px-3 text-slate-900 font-medium">Free tier</td>
-              <td className="py-3 px-3 text-emerald-700 bg-blue-50 border-x border-slate-200 font-semibold">10 stickers free</td>
+              <td className="py-3 px-3 text-emerald-700 bg-blue-50 border-x border-slate-200 font-semibold">5 stickers free</td>
               <td className="py-3 px-3 text-emerald-600">Unlimited (free)</td>
               <td className="py-3 px-3 text-rose-600">Free tier limited; core features behind PLUS</td>
               <td className="py-3 px-3 text-emerald-600">Free</td>
@@ -410,7 +410,7 @@ export default function ComparePage() {
       <div className="not-prose mt-16 rounded-3xl bg-slate-900 text-white p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
         <div>
           <p className="text-xl font-bold mb-1">If you primarily chat in iMessage, give MemePouch a try.</p>
-          <p className="text-slate-400 text-sm">Free for the first 10 stickers. $2.99 one-time unlock for unlimited. No subscription.</p>
+          <p className="text-slate-400 text-sm">Free for the first 5 stickers. $2.99 one-time unlock for unlimited. No subscription.</p>
         </div>
         <a
           href={APP_STORE_URL}
