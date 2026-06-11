@@ -6,7 +6,7 @@ export default function SiteFooter() {
     <footer className="mt-24">
       {/* Closing CTA band */}
       <div className="max-w-6xl mx-auto px-6 pb-20">
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-ink text-paper px-8 py-14 md:px-16 md:py-20 text-center">
+        <div data-reveal className="relative overflow-hidden rounded-[2.5rem] bg-ink text-paper px-8 py-14 md:px-16 md:py-20 text-center">
           <span aria-hidden="true" className="sticker-chip absolute left-[4%] top-[10%] w-14 h-14 text-3xl hidden md:flex" style={{ "--tilt": "-9deg" } as React.CSSProperties}>😂</span>
           <span aria-hidden="true" className="sticker-chip absolute right-[4%] top-[14%] w-12 h-12 text-2xl hidden md:flex" style={{ "--tilt": "7deg" } as React.CSSProperties}>🔥</span>
           <span aria-hidden="true" className="sticker-chip absolute left-[9%] bottom-[12%] w-12 h-12 text-2xl hidden md:flex" style={{ "--tilt": "5deg" } as React.CSSProperties}>🐸</span>

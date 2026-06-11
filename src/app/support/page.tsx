@@ -11,13 +11,33 @@ export default function Support() {
 
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-slate-900 border-b border-line pb-4 mb-6">Contact Us</h2>
-          <div className="pouch-card p-8">
-            <p className="text-slate-600 mb-4">
-              If you are experiencing any issues, have a feature request, or just want to say hi, please reach out to us at:
-            </p>
-            <a href="mailto:memepouch@tetherme.app" className="text-xl font-semibold text-blue-600 hover:text-blue-700 transition">
-              memepouch@tetherme.app
-            </a>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div data-reveal className="pouch-card p-8 hover:-translate-y-0.5 hover:shadow-lifted transition-all">
+              <div className="sticker-chip w-12 h-12 text-2xl mb-4" style={{ "--tilt": "-4deg" } as React.CSSProperties}>✉️</div>
+              <h3 className="font-bold text-ink text-lg mb-2">Email the developer</h3>
+              <p className="text-ink-soft mb-4 text-sm leading-relaxed">
+                Issues, feature requests, or just saying hi — replies come from the person who built the app.
+              </p>
+              <a
+                href="mailto:memepouch@tetherme.app"
+                className="inline-flex items-center gap-2 rounded-full bg-ink text-paper px-5 py-2.5 text-sm font-bold hover:bg-pouch transition-colors"
+              >
+                memepouch@tetherme.app
+              </a>
+            </div>
+            <div data-reveal style={{ "--reveal-delay": "0.06s" } as React.CSSProperties} className="pouch-card p-8 hover:-translate-y-0.5 hover:shadow-lifted transition-all">
+              <div className="sticker-chip w-12 h-12 text-2xl mb-4" style={{ "--tilt": "4deg" } as React.CSSProperties}>💬</div>
+              <h3 className="font-bold text-ink text-lg mb-2">Ask the community</h3>
+              <p className="text-ink-soft mb-4 text-sm leading-relaxed">
+                Public questions, bug reports, and ideas live on GitHub — searchable, so others benefit too.
+              </p>
+              <a
+                href="https://github.com/Fino-wind/memepouch-community/issues"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-ink text-ink px-5 py-2.5 text-sm font-bold hover:bg-ink hover:text-paper transition-colors"
+              >
+                Open GitHub Issues →
+              </a>
+            </div>
           </div>
         </section>
 

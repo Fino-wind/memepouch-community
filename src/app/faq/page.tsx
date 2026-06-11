@@ -98,18 +98,36 @@ const FAQ_LD = {
 
 export default function FAQPage() {
   return (
-    <div className="max-w-3xl mx-auto px-6 pt-32 pb-24">
+    <div className="max-w-3xl mx-auto px-6 pt-36 pb-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }}
       />
-      <h1 className="text-4xl font-bold mb-12">Frequently asked questions</h1>
-      <div className="space-y-10">
-        {QA.map(({ q, a }) => (
-          <section key={q}>
-            <h2 className="text-xl font-semibold mb-2">{q}</h2>
-            <p className="text-slate-600 leading-relaxed">{a}</p>
-          </section>
+      <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-ink mb-4">
+        Frequently asked questions
+      </h1>
+      <p className="text-lg text-ink-soft mb-12">
+        Everything about importing, saving, formats, and pricing — straight answers, no fluff.
+      </p>
+      <div className="space-y-4">
+        {QA.map(({ q, a }, i) => (
+          <details
+            key={q}
+            data-reveal
+            style={{ "--reveal-delay": `${Math.min(i, 6) * 0.04}s` } as React.CSSProperties}
+            className="pouch-card group px-7 py-5 open:shadow-lifted transition-shadow"
+          >
+            <summary className="list-none [&::-webkit-details-marker]:hidden cursor-pointer flex items-start justify-between gap-4 font-bold text-ink text-lg leading-snug">
+              <h2 className="text-lg font-bold">{q}</h2>
+              <span
+                className="text-ink-faint text-2xl leading-none group-open:rotate-45 transition-transform shrink-0 mt-0.5"
+                aria-hidden="true"
+              >
+                +
+              </span>
+            </summary>
+            <p className="mt-3 text-ink-soft leading-relaxed">{a}</p>
+          </details>
         ))}
       </div>
     </div>
