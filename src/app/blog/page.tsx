@@ -151,7 +151,7 @@ export default function BlogIndexPage() {
         {POSTS.map((post) => (
           <article
             key={post.href}
-            className="pouch-card p-8 hover:shadow-lifted hover:-translate-y-0.5 transition-all"
+            data-reveal className="group pouch-card p-8 hover:shadow-lifted hover:-translate-y-0.5 transition-all"
             lang={post.lang}
           >
             {post.badge && (
@@ -170,7 +170,7 @@ export default function BlogIndexPage() {
             </h2>
             <p className="text-ink-soft mb-4 line-clamp-2">{post.description}</p>
             <Link href={post.href} className="font-semibold text-pouch hover:text-pouch-deep transition-colors">
-              {post.cta ?? "Read article"} &rarr;
+              {post.cta ?? "Read article"} <span className="inline-block group-hover:translate-x-1 transition-transform">&rarr;</span>
             </Link>
           </article>
         ))}

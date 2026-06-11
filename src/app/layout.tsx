@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import ClarityAnalytics from "./_components/ClarityAnalytics";
+import ScrollFX from "./_components/ScrollFX";
 import SiteFooter from "./_components/SiteFooter";
 import SiteNav from "./_components/SiteNav";
 import { APP_STORE_URL, SITE_URL } from "./site";
@@ -121,6 +122,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(APP_LD) }}
         />
         <ClarityAnalytics />
+        <ScrollFX />
         <SiteNav />
         <main className="flex-1">{children}</main>
         <SiteFooter />

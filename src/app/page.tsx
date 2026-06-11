@@ -92,7 +92,7 @@ export default function Home() {
 
       {/* ─────────────── Before / After cutout demo ─────────────── */}
       <section id="cutout-demo" className="max-w-6xl mx-auto px-6 pb-24 scroll-mt-24">
-        <div className="pouch-card p-8 md:p-12">
+        <div data-reveal className="pouch-card p-8 md:p-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8 items-stretch">
             {/* Apple side */}
             <div className="flex flex-col">
@@ -145,6 +145,7 @@ export default function Home() {
       <section className="max-w-6xl mx-auto px-6 pb-24">
         <Link
           href="/blog/save-sticker-someone-sent-imessage"
+          data-reveal
           className="block group relative overflow-hidden rounded-[2.5rem] bg-ink text-paper p-10 md:p-14 shadow-lifted hover:scale-[1.005] transition-transform"
         >
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 items-center">
@@ -197,7 +198,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1: Video to GIF (Large) */}
-          <div className="md:col-span-2 pouch-card relative overflow-hidden p-10 flex flex-col justify-between min-h-[320px] hover:-translate-y-1 transition-transform">
+          <div data-reveal className="md:col-span-2 pouch-card relative overflow-hidden p-10 flex flex-col justify-between min-h-[320px] hover:-translate-y-1 transition-transform">
             <div aria-hidden="true" className="absolute -top-10 -right-10 w-56 h-56 rounded-full bg-grape/10" />
             <div aria-hidden="true" className="absolute top-10 right-10 hidden sm:flex items-end gap-1.5">
               {[28, 44, 36, 56, 40].map((h, i) => (
@@ -212,7 +213,7 @@ export default function Home() {
           </div>
 
           {/* Card 2: Photos */}
-          <div className="relative overflow-hidden rounded-[1.75rem] bg-ink shadow-lifted p-10 flex flex-col justify-between min-h-[320px] hover:-translate-y-1 transition-transform">
+          <div data-reveal style={{ "--reveal-delay": "0.06s" } as React.CSSProperties} className="relative overflow-hidden rounded-[1.75rem] bg-ink shadow-lifted p-10 flex flex-col justify-between min-h-[320px] hover:-translate-y-1 transition-transform">
             <div className="sticker-chip w-16 h-16 text-3xl mb-6" style={tilt(6)}>🖼️</div>
             <div>
               <h3 className="text-2xl font-bold text-paper mb-3">Photos</h3>
@@ -221,7 +222,7 @@ export default function Home() {
           </div>
 
           {/* Card 3: Clipboard */}
-          <div className="pouch-card relative overflow-hidden p-10 flex flex-col justify-between min-h-[300px] hover:-translate-y-1 transition-transform">
+          <div data-reveal className="pouch-card relative overflow-hidden p-10 flex flex-col justify-between min-h-[300px] hover:-translate-y-1 transition-transform">
             <div className="sticker-chip w-16 h-16 text-3xl mb-6" style={tilt(-4)}>📋</div>
             <div>
               <h3 className="text-xl font-bold text-ink mb-2">Clipboard</h3>
@@ -230,7 +231,7 @@ export default function Home() {
           </div>
 
           {/* Card 4: Share Sheet */}
-          <div className="pouch-card relative overflow-hidden p-10 flex flex-col justify-between min-h-[300px] hover:-translate-y-1 transition-transform">
+          <div data-reveal className="pouch-card relative overflow-hidden p-10 flex flex-col justify-between min-h-[300px] hover:-translate-y-1 transition-transform">
             <div className="sticker-chip w-16 h-16 text-3xl mb-6" style={tilt(5)}>📤</div>
             <div>
               <h3 className="text-xl font-bold text-ink mb-2">Share Sheet</h3>
@@ -239,7 +240,7 @@ export default function Home() {
           </div>
 
           {/* Card 5: Drag and Drop — styled as a drop zone */}
-          <div className="relative overflow-hidden rounded-[1.75rem] border-2 border-dashed border-pouch/40 bg-pouch/5 p-10 flex flex-col justify-between min-h-[300px] hover:-translate-y-1 hover:border-pouch/70 transition-all">
+          <div data-reveal style={{ "--reveal-delay": "0.06s" } as React.CSSProperties} className="relative overflow-hidden rounded-[1.75rem] border-2 border-dashed border-pouch/40 bg-pouch/5 p-10 flex flex-col justify-between min-h-[300px] hover:-translate-y-1 hover:border-pouch/70 transition-all">
             <div className="sticker-chip w-16 h-16 text-3xl mb-6" style={tilt(-7)}>👆</div>
             <div>
               <h3 className="text-xl font-bold text-ink mb-2">Drag &amp; Drop</h3>
@@ -249,7 +250,7 @@ export default function Home() {
         </div>
 
         {/* Feature: Auto-Delete */}
-        <div className="mt-6 pouch-card p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10 overflow-hidden relative">
+        <div data-reveal className="mt-6 pouch-card p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10 overflow-hidden relative">
           <div aria-hidden="true" className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-mint/10" />
           <div className="max-w-xl relative">
             <div className="sticker-chip w-16 h-16 text-3xl mb-6" style={tilt(4)}>🧹</div>
@@ -300,7 +301,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto items-stretch">
-          <div className="pouch-card p-10 flex flex-col">
+          <div data-reveal className="pouch-card p-10 flex flex-col">
             <p className="text-sm font-bold uppercase tracking-wide text-ink-faint mb-2">Free</p>
             <p className="text-5xl font-bold font-display text-ink mb-6">$0</p>
             <ul className="space-y-3 text-ink-soft mb-8 flex-1">
@@ -314,7 +315,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="relative rounded-[1.75rem] bg-ink text-paper p-10 flex flex-col shadow-lifted">
+          <div data-reveal style={{ "--reveal-delay": "0.08s" } as React.CSSProperties} className="relative rounded-[1.75rem] bg-ink text-paper p-10 flex flex-col shadow-lifted">
             <span className="absolute -top-3.5 right-8 rounded-full bg-sun text-ink px-4 py-1.5 text-sm font-bold rotate-2 shadow-md">pay once, keep forever</span>
             <p className="text-sm font-bold uppercase tracking-wide text-paper/50 mb-2">Full unlock</p>
             <p className="text-5xl font-bold font-display mb-1">$2.99</p>
@@ -350,7 +351,7 @@ export default function Home() {
               a: "Yes — pick a clip, trim up to 10 seconds, and MemePouch turns it into a looping GIF sticker that sends at full quality.",
             },
           ].map((item) => (
-            <details key={item.q} className="pouch-card group px-7 py-5 open:shadow-lifted transition-shadow">
+            <details key={item.q} data-reveal className="pouch-card group px-7 py-5 open:shadow-lifted transition-shadow">
               <summary className="list-none [&::-webkit-details-marker]:hidden cursor-pointer flex items-center justify-between gap-4 font-bold text-ink text-lg">
                 {item.q}
                 <span className="text-ink-faint text-2xl leading-none group-open:rotate-45 transition-transform shrink-0" aria-hidden="true">+</span>

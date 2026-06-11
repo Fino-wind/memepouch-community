@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import { APP_STORE_URL } from "../site";
 
 const LINKS = [
@@ -9,8 +13,27 @@ const LINKS = [
 ];
 
 export default function SiteNav() {
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+  const menuRef = useRef<HTMLDetailsElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
+  const closeMenu = () => menuRef.current?.removeAttribute("open");
+
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 bg-paper/80 backdrop-blur-xl border-b border-line">
+    <nav
+      className={`fixed top-0 inset-x-0 z-50 bg-paper/80 backdrop-blur-xl border-b transition-shadow ${
+        scrolled ? "border-line shadow-[0_8px_30px_-18px_rgba(35,32,28,0.4)]" : "border-transparent"
+      }`}
+    >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
         <Link href="/" aria-label="MemePouch home" className="flex items-center gap-2.5 group">
           <img
@@ -30,7 +53,12 @@ export default function SiteNav() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-ink-soft hover:text-ink transition-colors"
+              aria-current={isActive(l.href) ? "page" : undefined}
+              className={`relative text-sm font-medium transition-colors ${
+                isActive(l.href)
+                  ? "text-ink after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-1.5 after:h-1.5 after:rounded-full after:bg-sun"
+                  : "text-ink-soft hover:text-ink"
+              }`}
             >
               {l.label}
             </Link>
@@ -48,8 +76,8 @@ export default function SiteNav() {
             Download
           </a>
 
-          {/* CSS-only mobile menu — works in the static export with zero JS */}
-          <details className="relative md:hidden group">
+          {/* CSS-only fallback; JS closes it after navigation */}
+          <details ref={menuRef} className="relative md:hidden group">
             <summary
               className="list-none [&::-webkit-details-marker]:hidden cursor-pointer w-10 h-10 -mr-2 flex items-center justify-center rounded-full text-ink"
               aria-label="Open menu"
@@ -66,13 +94,18 @@ export default function SiteNav() {
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="rounded-xl px-4 py-3 text-sm font-semibold text-ink hover:bg-paper transition-colors"
+                  onClick={closeMenu}
+                  aria-current={isActive(l.href) ? "page" : undefined}
+                  className={`rounded-xl px-4 py-3 text-sm font-semibold transition-colors ${
+                    isActive(l.href) ? "text-ink bg-paper" : "text-ink hover:bg-paper"
+                  }`}
                 >
                   {l.label}
                 </Link>
               ))}
               <Link
                 href="/privacy"
+                onClick={closeMenu}
                 className="rounded-xl px-4 py-3 text-sm font-semibold text-ink hover:bg-paper transition-colors"
               >
                 Privacy
