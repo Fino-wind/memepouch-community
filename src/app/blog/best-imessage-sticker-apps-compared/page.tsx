@@ -89,7 +89,7 @@ export default function ArticlePage() {
           mentioned here. I&apos;ll try to be honest about what mine doesn&apos;t do.
         </p>
 
-        <aside className="my-10 p-6 bg-slate-50 border border-slate-200 rounded-2xl text-slate-700">
+        <aside className="my-10 p-6 bg-cream border border-slate-200 rounded-2xl text-slate-700">
           <p className="text-sm uppercase tracking-wider text-slate-500 font-semibold mb-2">TL;DR</p>
           <ul className="list-disc pl-5 space-y-1 leading-relaxed">
             <li>Apple Photos cutout — free, fast, but breaks memes</li>

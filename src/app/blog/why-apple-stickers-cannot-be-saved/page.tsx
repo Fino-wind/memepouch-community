@@ -125,7 +125,7 @@ export default function ArticlePage() {
           iOS 17.0 — and as of iOS 18, it hasn&apos;t been fixed.
         </p>
 
-        <aside className="my-6 p-4 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-600 leading-relaxed">
+        <aside className="my-6 p-4 bg-cream border border-slate-200 rounded-xl text-sm text-slate-600 leading-relaxed">
           <p className="font-semibold text-slate-700 mb-1">How this was observed</p>
           <p>
             The bundle id and XPC peer behavior above were derived from real-device system logs
@@ -226,7 +226,7 @@ export default function ArticlePage() {
         </p>
         <div className="overflow-x-auto my-4">
           <table className="w-full text-sm text-left border border-slate-200">
-            <thead className="bg-slate-50">
+            <thead className="bg-cream">
               <tr>
                 <th className="px-3 py-2 border-b border-slate-200"></th>
                 <th className="px-3 py-2 border-b border-slate-200">System stickers</th>
