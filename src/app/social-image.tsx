@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 
 export const socialImageSize = {
   width: 1200,
@@ -6,79 +8,50 @@ export const socialImageSize = {
 };
 
 export const socialImageAlt =
-  "MemePouch custom iMessage sticker maker for photos, GIFs, and short videos";
+  "MemePouch keeps the whole meme intact — Apple's sticker tool cuts it apart";
 
-function StickerBubble({ label, color, left, top, rotate }: { label: string; color: string; left: number; top: number; rotate: number }) {
-  return (
-    <div
-      style={{
-        position: "absolute",
-        left,
-        top,
-        width: 168,
-        height: 128,
-        borderRadius: 38,
-        background: color,
-        border: "6px solid rgba(255,255,255,0.92)",
-        boxShadow: "0 22px 55px rgba(15, 23, 42, 0.24)",
-        transform: `rotate(${rotate}deg)`,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        color: "white",
-        fontSize: 48,
-        fontWeight: 900,
-      }}
-    >
-      {label}
-    </div>
-  );
-}
+const asDataUri = (file: string) =>
+  `data:image/png;base64,${readFileSync(
+    join(process.cwd(), "src/app/_og", file)
+  ).toString("base64")}`;
 
 export function createSocialImage() {
+  const cutout = asDataUri("cutout.png");
+  const full = asDataUri("full.png");
+
   return new ImageResponse(
     (
       <div
         style={{
           width: "100%",
           height: "100%",
-          background: "#f8fafc",
+          background: "#faf5ec",
           display: "flex",
           position: "relative",
           overflow: "hidden",
-          color: "#0f172a",
-          fontFamily: "Inter, Arial, sans-serif",
+          color: "#23201c",
+          fontFamily: "Arial, sans-serif",
         }}
       >
+        {/* warm glow */}
         <div
           style={{
             position: "absolute",
-            left: -120,
-            top: -160,
-            width: 520,
-            height: 520,
-            borderRadius: 520,
-            background: "#bfdbfe",
-            opacity: 0.72,
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            right: -120,
-            bottom: -170,
-            width: 600,
-            height: 600,
-            borderRadius: 600,
-            background: "#fbcfe8",
-            opacity: 0.76,
+            right: -160,
+            top: -200,
+            width: 640,
+            height: 640,
+            borderRadius: 640,
+            background: "#ffc531",
+            opacity: 0.22,
           }}
         />
 
+        {/* Left: claim */}
         <div
           style={{
-            width: 650,
-            padding: "76px 0 76px 84px",
+            width: 620,
+            padding: "56px 0 56px 76px",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -88,24 +61,25 @@ export function createSocialImage() {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: 18,
-              marginBottom: 34,
-              fontSize: 34,
-              fontWeight: 900,
+              gap: 16,
+              marginBottom: 38,
+              fontSize: 33,
+              fontWeight: 800,
             }}
           >
             <div
               style={{
-                width: 58,
-                height: 58,
-                borderRadius: 13,
-                background: "#FDC433",
-                color: "#0f172a",
+                width: 56,
+                height: 56,
+                borderRadius: 14,
+                background: "#ffc531",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: 31,
+                fontSize: 30,
                 fontWeight: 900,
+                transform: "rotate(-4deg)",
+                boxShadow: "3px 4px 0 rgba(35,32,28,0.15)",
               }}
             >
               M
@@ -115,84 +89,122 @@ export function createSocialImage() {
 
           <div
             style={{
-              fontSize: 76,
-              lineHeight: 0.95,
-              fontWeight: 950,
-              letterSpacing: 0,
-              marginBottom: 28,
+              fontSize: 64,
+              lineHeight: 1.04,
+              fontWeight: 800,
+              letterSpacing: -2,
+              marginBottom: 20,
+              display: "flex",
+              flexDirection: "column",
             }}
           >
-            Make custom stickers for iMessage.
+            <span>Apple cuts your</span>
+            <span>stickers in half.</span>
+            <span style={{ color: "#0a84ff" }}>MemePouch doesn&apos;t.</span>
           </div>
 
           <div
             style={{
-              fontSize: 30,
-              lineHeight: 1.28,
-              color: "#475569",
-              maxWidth: 590,
+              fontSize: 24,
+              lineHeight: 1.3,
+              color: "#5c554d",
+              maxWidth: 520,
+              marginBottom: 24,
             }}
           >
-            Turn photos, GIFs, and short videos into a private sticker library on iPhone.
+            Full-frame iMessage stickers from photos, GIFs, and videos. No auto-cutout.
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              alignSelf: "flex-start",
+              background: "#23201c",
+              color: "#faf5ec",
+              borderRadius: 999,
+              padding: "14px 30px",
+              fontSize: 25,
+              fontWeight: 700,
+            }}
+          >
+            $2.99 once · no subscription
+          </div>
+        </div>
+
+        {/* Right: the real before/after */}
+        <div
+          style={{
+            position: "absolute",
+            right: 330,
+            top: 40,
+            width: 280,
+            height: 300,
+            borderRadius: 34,
+            background: "#ffffff",
+            border: "2px solid rgba(35,32,28,0.1)",
+            boxShadow: "0 24px 48px rgba(35,32,28,0.18)",
+            transform: "rotate(3deg)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            padding: 18,
+          }}
+        >
+          <img src={cutout} width={200} height={213} style={{ objectFit: "contain" }} />
+          <div
+            style={{
+              marginTop: 10,
+              background: "rgba(255,92,138,0.14)",
+              color: "#e0436f",
+              borderRadius: 999,
+              padding: "8px 20px",
+              fontSize: 22,
+              fontWeight: 800,
+            }}
+          >
+            ✂️ Apple&apos;s cutout
           </div>
         </div>
 
         <div
           style={{
             position: "absolute",
-            right: 82,
-            top: 74,
-            width: 390,
-            height: 500,
-            borderRadius: 70,
-            background: "#111827",
-            border: "12px solid #ffffff",
-            boxShadow: "0 34px 80px rgba(15, 23, 42, 0.24)",
+            right: 50,
+            top: 252,
+            width: 300,
+            height: 340,
+            borderRadius: 34,
+            background: "#ffffff",
+            boxShadow: "0 28px 56px rgba(35,32,28,0.28)",
+            transform: "rotate(-4deg)",
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
+            padding: 14,
           }}
         >
+          <img
+            src={full}
+            width={272}
+            height={262}
+            style={{ objectFit: "cover", borderRadius: 22 }}
+          />
           <div
             style={{
-              width: 304,
-              height: 360,
-              borderRadius: 48,
-              background: "#f8fafc",
-              display: "flex",
-              flexDirection: "column",
-              gap: 18,
-              padding: 28,
+              marginTop: 10,
+              background: "rgba(46,196,142,0.16)",
+              color: "#1d9c6f",
+              borderRadius: 999,
+              padding: "8px 20px",
+              fontSize: 22,
+              fontWeight: 800,
             }}
           >
-            {["Photos", "GIFs", "Videos", "iMessage"].map((text, index) => (
-              <div
-                key={text}
-                style={{
-                  height: 62,
-                  borderRadius: 20,
-                  background: index === 3 ? "#dbeafe" : "#ffffff",
-                  color: index === 3 ? "#1d4ed8" : "#334155",
-                  border: "2px solid #e2e8f0",
-                  display: "flex",
-                  alignItems: "center",
-                  paddingLeft: 22,
-                  fontSize: 27,
-                  fontWeight: 800,
-                }}
-              >
-                {text}
-              </div>
-            ))}
+            ✓ whole meme intact
           </div>
         </div>
-
-        <StickerBubble label="GIF" color="#8b5cf6" left={690} top={68} rotate={-9} />
-        <StickerBubble label="PNG" color="#0ea5e9" left={948} top={280} rotate={8} />
-        <StickerBubble label="JPG" color="#f97316" left={700} top={404} rotate={7} />
       </div>
     ),
     socialImageSize,
   );
 }
-

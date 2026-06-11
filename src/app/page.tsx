@@ -3,56 +3,90 @@ import { APP_STORE_URL } from "./site";
 
 const tilt = (deg: number) => ({ "--tilt": `${deg}deg` } as React.CSSProperties);
 
+function PhoneFrame({
+  src,
+  alt,
+  className = "",
+  imgClassName = "",
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  imgClassName?: string;
+}) {
+  return (
+    <div
+      className={`relative rounded-[2.8rem] bg-ink p-[10px] shadow-lifted ${className}`}
+    >
+      <div className="relative overflow-hidden rounded-[2.2rem] bg-white">
+        <img src={src} alt={alt} className={`block w-full h-auto ${imgClassName}`} loading="lazy" />
+        {/* Dynamic Island */}
+        <div aria-hidden="true" className="absolute top-2.5 left-1/2 -translate-x-1/2 w-[24%] h-[3.2%] rounded-full bg-ink" />
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <div className="overflow-x-clip">
       {/* ───────────────────────── Hero ───────────────────────── */}
-      <section className="relative pt-32 pb-16 lg:pt-44 lg:pb-24 mx-auto max-w-6xl px-6">
-        {/* Floating die-cut stickers */}
-        <span aria-hidden="true" className="sticker-chip animate-float absolute left-[2%] top-[30%] w-16 h-16 text-4xl hidden lg:flex" style={tilt(-10)}>😂</span>
-        <span aria-hidden="true" className="sticker-chip animate-float-slow absolute left-[10%] top-[62%] w-12 h-12 text-2xl hidden lg:flex" style={tilt(8)}>🐸</span>
-        <span aria-hidden="true" className="sticker-chip animate-float-slow absolute right-[3%] top-[26%] w-14 h-14 text-3xl hidden lg:flex" style={tilt(7)}>💀</span>
-        <span aria-hidden="true" className="sticker-chip animate-float absolute right-[11%] top-[60%] w-16 h-16 text-4xl hidden lg:flex" style={tilt(-6)}>🔥</span>
+      <section className="relative pt-28 pb-16 lg:pt-40 lg:pb-24 mx-auto max-w-6xl px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-14 lg:gap-8 items-center">
+          <div className="text-center lg:text-left">
+            <p className="rise inline-flex items-center gap-2 rounded-full border border-line bg-cream px-4 py-1.5 text-sm font-semibold text-ink-soft mb-8 shadow-sm" style={{ "--rise-delay": "0s" } as React.CSSProperties}>
+              <span className="w-2 h-2 rounded-full bg-mint" />
+              iMessage sticker app · no subscription · $2.99 once
+            </p>
 
-        <div className="text-center max-w-4xl mx-auto">
-          <p className="rise inline-flex items-center gap-2 rounded-full border border-line bg-cream px-4 py-1.5 text-sm font-semibold text-ink-soft mb-8 shadow-sm" style={{ "--rise-delay": "0s" } as React.CSSProperties}>
-            <span className="w-2 h-2 rounded-full bg-mint" />
-            iMessage sticker app · no subscription · $2.99 once
-          </p>
+            <h1 className="rise text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight text-ink mb-8 text-balance leading-[1.05]" style={{ "--rise-delay": "0.08s" } as React.CSSProperties}>
+              Apple cuts your stickers in half.{" "}
+              <span className="relative inline-block text-pouch">
+                MemePouch doesn&apos;t.
+                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none" aria-hidden="true" preserveAspectRatio="none">
+                  <path d="M3 9c60-6 180-6 294-3" stroke="currentColor" strokeWidth="5" strokeLinecap="round" className="text-sun" />
+                </svg>
+              </span>
+            </h1>
 
-          <h1 className="rise text-5xl md:text-7xl font-bold tracking-tight text-ink mb-8 text-balance leading-[1.05]" style={{ "--rise-delay": "0.08s" } as React.CSSProperties}>
-            Apple cuts your stickers in half.{" "}
-            <span className="relative inline-block text-pouch">
-              MemePouch doesn&apos;t.
-              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none" aria-hidden="true" preserveAspectRatio="none">
-                <path d="M3 9c60-6 180-6 294-3" stroke="currentColor" strokeWidth="5" strokeLinecap="round" className="text-sun" />
-              </svg>
-            </span>
-          </h1>
+            <p className="rise text-xl md:text-2xl text-ink-soft font-medium mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed" style={{ "--rise-delay": "0.16s" } as React.CSSProperties}>
+              Custom iMessage stickers that keep the whole frame — text, background, hands, reaction context, all intact. No auto-cutout, no background removal. Free to try, $2.99 one-time unlock.
+            </p>
 
-          <p className="rise text-xl md:text-2xl text-ink-soft font-medium mb-10 max-w-2xl mx-auto leading-relaxed" style={{ "--rise-delay": "0.16s" } as React.CSSProperties}>
-            Custom iMessage stickers that keep the whole frame — text, background, hands, reaction context, all intact. No auto-cutout, no background removal. Free to try, $2.99 one-time unlock.
-          </p>
+            <div className="rise flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4" style={{ "--rise-delay": "0.24s" } as React.CSSProperties}>
+              <a
+                href={APP_STORE_URL}
+                aria-label="Download MemePouch on the App Store"
+                className="flex items-center gap-2 rounded-full bg-ink px-8 py-4 text-base font-bold text-paper shadow-lg hover:bg-pouch hover:scale-105 transition-all active:scale-95"
+              >
+                <svg className="w-6 h-6" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true">
+                  <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+                </svg>
+                Download on the App Store
+              </a>
+              <a href="#cutout-demo" className="text-base font-semibold text-ink-soft hover:text-ink transition-colors px-4 py-4">
+                See the difference ↓
+              </a>
+            </div>
 
-          <div className="rise flex flex-col sm:flex-row items-center justify-center gap-4" style={{ "--rise-delay": "0.24s" } as React.CSSProperties}>
-            <a
-              href={APP_STORE_URL}
-              aria-label="Download MemePouch on the App Store"
-              className="flex items-center gap-2 rounded-full bg-ink px-8 py-4 text-base font-bold text-paper shadow-lg hover:bg-pouch hover:scale-105 transition-all active:scale-95"
-            >
-              <svg className="w-6 h-6" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true">
-                <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
-              </svg>
-              Download on the App Store
-            </a>
-            <a href="#cutout-demo" className="text-base font-semibold text-ink-soft hover:text-ink transition-colors px-4 py-4">
-              See the difference ↓
-            </a>
+            <p className="rise mt-8 text-sm font-medium text-ink-faint" style={{ "--rise-delay": "0.32s" } as React.CSSProperties}>
+              No account · No ads · Everything stays on your iPhone
+            </p>
           </div>
 
-          <p className="rise mt-8 text-sm font-medium text-ink-faint" style={{ "--rise-delay": "0.32s" } as React.CSSProperties}>
-            No account · No ads · Everything stays on your iPhone
-          </p>
+          {/* Real product, real phone */}
+          <div className="rise relative mx-auto w-full max-w-[320px] lg:max-w-[340px]" style={{ "--rise-delay": "0.2s" } as React.CSSProperties}>
+            <div aria-hidden="true" className="absolute -inset-10 rounded-full bg-sun/25 blur-3xl" />
+            <PhoneFrame
+              src="/img/app-home.webp"
+              alt="MemePouch home screen — import from Photos, turn a video or Live Photo into a GIF, paste from clipboard"
+              className="rotate-2 hover:rotate-0 transition-transform"
+            />
+            <span aria-hidden="true" className="sticker-chip animate-float absolute -left-8 top-12 w-16 h-16 text-4xl" style={tilt(-10)}>😂</span>
+            <span aria-hidden="true" className="sticker-chip animate-float-slow absolute -right-7 top-1/3 w-14 h-14 text-3xl" style={tilt(8)}>🔥</span>
+            <span aria-hidden="true" className="sticker-chip animate-float-slow absolute -left-6 bottom-24 w-12 h-12 text-2xl" style={tilt(6)}>🐸</span>
+            <span aria-hidden="true" className="sticker-chip animate-float absolute -right-9 bottom-8 w-16 h-16 text-4xl" style={tilt(-7)}>💀</span>
+          </div>
         </div>
       </section>
 
@@ -67,16 +101,19 @@ export default function Home() {
                   ✂️ Apple&apos;s &quot;Add Sticker&quot;
                 </span>
               </div>
-              <div className="relative flex-1 rounded-3xl checkerboard border border-line min-h-[280px] flex items-center justify-center overflow-hidden">
-                {/* the lonely cut-out subject */}
-                <span className="text-[7rem] leading-none drop-shadow-lg rotate-[-4deg]" aria-hidden="true">😹</span>
-                {/* what got destroyed */}
-                <span className="absolute top-5 left-5 rounded-lg bg-cream/95 border border-line px-3 py-1.5 text-xs font-bold text-ink-soft rotate-[-3deg] shadow-sm">caption: gone</span>
-                <span className="absolute top-5 right-5 rounded-lg bg-cream/95 border border-line px-3 py-1.5 text-xs font-bold text-ink-soft rotate-[2deg] shadow-sm">background: gone</span>
-                <span className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-lg bg-cream/95 border border-line px-3 py-1.5 text-xs font-bold text-ink-soft rotate-[1deg] shadow-sm whitespace-nowrap">the joke: gone</span>
+              <div className="relative flex-1 rounded-3xl checkerboard border border-line min-h-[280px] flex items-center justify-center overflow-hidden p-8">
+                {/* the real thing: Apple's cutout even ate the first letter of the caption */}
+                <img
+                  src="/img/apple-cutout.webp"
+                  alt="The same cat meme after Apple's Add Sticker: background deleted and the caption clipped to 'lways at your service'"
+                  className="max-h-[300px] w-auto drop-shadow-lg rotate-[-2deg]"
+                  loading="lazy"
+                />
+                <span className="absolute top-5 left-5 rounded-lg bg-cream/95 border border-line px-3 py-1.5 text-xs font-bold text-ink-soft rotate-[-3deg] shadow-sm">background: gone</span>
+                <span className="absolute bottom-5 right-5 rounded-lg bg-cream/95 border border-line px-3 py-1.5 text-xs font-bold text-berry rotate-[2deg] shadow-sm">even the caption got clipped</span>
               </div>
               <p className="mt-5 text-ink-soft leading-relaxed">
-                iOS auto-detects &quot;the subject&quot; and deletes everything else. For memes, everything else <em>was</em> the joke.
+                iOS auto-detects &quot;the subject&quot; and deletes everything else. Same meme, real result — it even ate the first letter of the caption.
               </p>
             </div>
 
@@ -87,18 +124,13 @@ export default function Home() {
                   ✓ MemePouch
                 </span>
               </div>
-              <div className="relative flex-1 rounded-3xl bg-white border border-line shadow-lifted min-h-[280px] overflow-hidden rotate-[1.5deg] hover:rotate-0 transition-transform">
-                {/* full-frame meme mock */}
-                <div className="absolute inset-0 flex flex-col">
-                  <div className="flex-1 bg-gradient-to-br from-sun/70 via-berry/30 to-grape/40 flex items-center justify-center gap-3">
-                    <span className="text-6xl" aria-hidden="true">🙌</span>
-                    <span className="text-[6rem] leading-none" aria-hidden="true">😹</span>
-                    <span className="text-6xl" aria-hidden="true">✨</span>
-                  </div>
-                  <div className="bg-ink text-paper text-center py-4 px-4">
-                    <p className="font-display font-bold tracking-wide text-lg uppercase">When the wifi comes back</p>
-                  </div>
-                </div>
+              <div className="relative flex-1 rounded-3xl bg-white border-[6px] border-white shadow-lifted min-h-[280px] overflow-hidden rotate-[1.5deg] hover:rotate-0 transition-transform">
+                <img
+                  src="/img/full-meme.webp"
+                  alt="The same cat meme imported with MemePouch: full frame kept, caption 'Always at your service' intact"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
                 <span className="absolute top-4 right-4 rounded-lg bg-mint text-white px-3 py-1.5 text-xs font-bold rotate-[2deg] shadow-md">everything intact</span>
               </div>
               <p className="mt-5 text-ink-soft leading-relaxed">
@@ -113,33 +145,45 @@ export default function Home() {
       <section className="max-w-6xl mx-auto px-6 pb-24">
         <Link
           href="/blog/save-sticker-someone-sent-imessage"
-          className="block group relative overflow-hidden rounded-[2.5rem] bg-ink text-paper p-10 md:p-14 shadow-lifted hover:scale-[1.01] transition-transform"
+          className="block group relative overflow-hidden rounded-[2.5rem] bg-ink text-paper p-10 md:p-14 shadow-lifted hover:scale-[1.005] transition-transform"
         >
-          {/* iMessage bubbles backdrop */}
-          <div aria-hidden="true" className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-3 items-end opacity-90">
-            <div className="rounded-3xl rounded-br-md bg-pouch px-5 py-3 text-sm font-medium text-white">LMAO where did you get that 😭</div>
-            <div className="rounded-3xl rounded-br-md bg-pouch px-5 py-3 text-sm font-medium text-white">I need it</div>
-            <div className="sticker-chip w-20 h-20 text-5xl mt-1" style={tilt(-7)}>🤣</div>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 items-center">
+            <div className="relative">
+              <p className="text-sm font-bold uppercase tracking-wide text-sun mb-3">
+                New · iMessage&apos;s Save to Stickers button hangs on third-party stickers
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-4">
+                Save the stickers your friends send you in iMessage.
+              </h2>
+              <p className="text-paper/70 text-lg leading-relaxed mb-6">
+                iOS shows the button, but tapping it stalls — Apple&apos;s system sticker daemon
+                drops the connection. The path that actually works: drag the sticker into MemePouch.
+                Animated GIFs and static stickers, real-device tested.
+              </p>
+              <span className="inline-flex items-center gap-2 text-base font-bold text-paper group-hover:gap-3.5 transition-all">
+                See how it works
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </div>
 
-          <div className="max-w-2xl relative">
-            <p className="text-sm font-bold uppercase tracking-wide text-sun mb-3">
-              New · iMessage&apos;s Save to Stickers button hangs on third-party stickers
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-4">
-              Save the stickers your friends send you in iMessage.
-            </h2>
-            <p className="text-paper/70 text-lg leading-relaxed mb-6">
-              iOS shows the button, but tapping it stalls — Apple&apos;s system sticker daemon
-              drops the connection. The path that actually works: drag the sticker into MemePouch.
-              Animated GIFs and static stickers, real-device tested.
-            </p>
-            <span className="inline-flex items-center gap-2 text-base font-bold text-paper group-hover:gap-3.5 transition-all">
-              See how it works
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </span>
+            {/* The real flow, shot on a real device */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-5 items-start">
+              {[
+                { src: "/img/step-menu.webp", n: "1", caption: "iOS shows Save — it hangs", alt: "iMessage long-press menu on a sticker showing the Save option that hangs" },
+                { src: "/img/step-drawer.webp", n: "2", caption: "Open MemePouch in the drawer", alt: "iMessage app drawer with MemePouch next to Camera, Photos and GIPHY" },
+                { src: "/img/step-saved.webp", n: "3", caption: "Drag in — saved, animated", alt: "Sticker saved into the MemePouch grid inside iMessage" },
+              ].map((s) => (
+                <figure key={s.n} className="text-center">
+                  <div className="relative rounded-[1.4rem] bg-paper/15 p-[5px]">
+                    <img src={s.src} alt={s.alt} className="block w-full h-auto rounded-[1.1rem]" loading="lazy" />
+                    <span className="absolute -top-2.5 -left-2.5 w-7 h-7 rounded-full bg-sun text-ink text-sm font-bold flex items-center justify-center shadow-md">{s.n}</span>
+                  </div>
+                  <figcaption className="mt-3 text-xs sm:text-sm font-semibold text-paper/70 leading-snug">{s.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
         </Link>
       </section>
