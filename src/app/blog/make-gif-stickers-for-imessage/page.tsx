@@ -133,7 +133,7 @@ export default function ArticlePage() {
           unlocks unlimited.
         </p>
 
-        <div className="my-10 p-6 bg-slate-50 border border-slate-200 rounded-2xl">
+        <div className="my-10 p-6 bg-cream border border-slate-200 rounded-2xl">
           <div className="text-sm uppercase tracking-wider text-slate-500 font-semibold mb-2">Get it</div>
           <h2 className="text-2xl font-semibold text-slate-900 mb-2">MemePouch on the App Store</h2>
           <p className="text-slate-600 mb-4">iPhone only · iOS 16+ · Free for 5 stickers · $2.99 one-time unlock</p>

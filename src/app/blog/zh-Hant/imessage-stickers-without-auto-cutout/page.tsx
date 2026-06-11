@@ -282,7 +282,7 @@ export default function ArticlePage() {
         </h2>
         <div className="overflow-x-auto my-4">
           <table className="w-full text-sm text-left border border-slate-200">
-            <thead className="bg-slate-50">
+            <thead className="bg-cream">
               <tr>
                 <th className="px-3 py-2 border-b border-slate-200"></th>
                 <th className="px-3 py-2 border-b border-slate-200">Apple「加入貼圖」</th>

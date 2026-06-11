@@ -114,7 +114,7 @@ export default function ComparePage() {
         better fit, and what MemePouch deliberately doesn&apos;t do.
       </p>
 
-      <aside className="my-10 p-6 bg-slate-50 border border-slate-200 rounded-2xl text-slate-700">
+      <aside className="my-10 p-6 bg-cream border border-slate-200 rounded-2xl text-slate-700">
         <p className="text-sm uppercase tracking-wider text-slate-500 font-semibold mb-2">In one line</p>
         <p className="text-base leading-relaxed">
           <strong>MemePouch is iMessage-only and library-first.</strong> One shared sticker
@@ -136,7 +136,7 @@ export default function ComparePage() {
         <table className="w-full text-left border-collapse text-sm min-w-[920px]">
           <thead>
             <tr className="border-b-2 border-slate-300">
-              <th className="py-3 px-3 font-semibold text-slate-900 bg-slate-50">Feature</th>
+              <th className="py-3 px-3 font-semibold text-slate-900 bg-cream">Feature</th>
               <th className="py-3 px-3 font-bold text-blue-700 bg-blue-50 border-x border-slate-200">MemePouch</th>
               <th className="py-3 px-3 font-semibold text-slate-700">Apple built-in<sup className="text-slate-400 text-[10px] font-normal ml-0.5">[1]</sup></th>
               <th className="py-3 px-3 font-semibold text-slate-700">Sticker.ly<sup className="text-slate-400 text-[10px] font-normal ml-0.5">[1]</sup></th>
