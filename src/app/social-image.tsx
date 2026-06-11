@@ -150,7 +150,7 @@ export function createSocialImage() {
             padding: 18,
           }}
         >
-          <img src={cutout} width={200} height={213} style={{ objectFit: "contain" }} />
+          <img alt="" src={cutout} width={200} height={213} style={{ objectFit: "contain" }} />
           <div
             style={{
               marginTop: 10,
@@ -184,6 +184,7 @@ export function createSocialImage() {
           }}
         >
           <img
+            alt=""
             src={full}
             width={272}
             height={262}
