@@ -23,7 +23,7 @@ export default function ComparePage() {
         applicationCategory: "UtilitiesApplication",
         offers: {
           "@type": "Offer",
-          price: "2.99",
+          price: "0",
           priceCurrency: "USD",
           description: "One-time unlock, no subscription",
         },
@@ -92,7 +92,7 @@ export default function ComparePage() {
         name: "Why is MemePouch one-time price instead of subscription?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "MemePouch is built by a solo developer who chose a $2.99 one-time unlock instead of a subscription. There's no recurring fee, no ads, and no tier upsell. Sticker.ly subscription-bills the features it considers premium (smart search, exclusive stickers, AI creation, watermark removal) — MemePouch's whole-image library-first approach doesn't need any of those, so there's nothing to gate.",
+          text: "MemePouch is built by a solo developer who chose a one-time unlock instead of a subscription. There's no recurring fee, no ads, and no tier upsell. Sticker.ly subscription-bills the features it considers premium (smart search, exclusive stickers, AI creation, watermark removal) — MemePouch's whole-image library-first approach doesn't need any of those, so there's nothing to gate.",
         },
       },
     ],
@@ -118,7 +118,7 @@ export default function ComparePage() {
         <p className="text-sm uppercase tracking-wider text-ink-faint font-semibold mb-2">In one line</p>
         <p className="text-base leading-relaxed">
           <strong>MemePouch is iMessage-only and library-first.</strong> One shared sticker
-          grid (no pack ceremony), private library (no community feed), one-time $2.99 (no
+          grid (no pack ceremony), private library (no community feed), one-time unlock (no
           subscription), and one of the few iMessage sticker apps that wires up both drag
           flows for saving the stickers your friends send you. The whole-frame import (no
           auto-cutout) sets MemePouch apart from Apple&apos;s built-in tool; against other
@@ -211,7 +211,7 @@ export default function ComparePage() {
             </tr>
             <tr>
               <td className="py-3 px-3 text-ink font-medium">Pricing</td>
-              <td className="py-3 px-3 text-emerald-700 bg-pouch/8 border-x border-line font-semibold">$2.99 one-time, no ads</td>
+              <td className="py-3 px-3 text-emerald-700 bg-pouch/8 border-x border-line font-semibold">One-time unlock, no ads</td>
               <td className="py-3 px-3 text-emerald-600">Free</td>
               <td className="py-3 px-3 text-berry">Subscription (~$0.80/wk or $41.99/yr; 3-day trial requires card)</td>
               <td className="py-3 px-3 text-emerald-600">Free (App Store shows Free)</td>
@@ -219,7 +219,7 @@ export default function ComparePage() {
             </tr>
             <tr>
               <td className="py-3 px-3 text-ink font-medium">Free tier</td>
-              <td className="py-3 px-3 text-emerald-700 bg-pouch/8 border-x border-line font-semibold">5 stickers free</td>
+              <td className="py-3 px-3 text-emerald-700 bg-pouch/8 border-x border-line font-semibold">Free to try</td>
               <td className="py-3 px-3 text-emerald-600">Unlimited (free)</td>
               <td className="py-3 px-3 text-berry">Free tier limited; core features behind PLUS</td>
               <td className="py-3 px-3 text-emerald-600">Free</td>
@@ -397,7 +397,7 @@ export default function ComparePage() {
               to your device.
             </li>
             <li>
-              <strong>No subscription tier.</strong> $2.99 one-time, that&apos;s it.
+              <strong>No subscription tier.</strong> One-time unlock, that&apos;s it.
             </li>
             <li>
               <strong>No cloud sync.</strong> Everything stays on your iPhone. No accounts, no
@@ -410,7 +410,7 @@ export default function ComparePage() {
       <div className="not-prose mt-16 rounded-3xl bg-slate-900 text-white p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
         <div>
           <p className="text-xl font-bold mb-1">If you primarily chat in iMessage, give MemePouch a try.</p>
-          <p className="text-ink-faint text-sm">Free for the first 5 stickers. $2.99 one-time unlock for unlimited. No subscription.</p>
+          <p className="text-ink-faint text-sm">Free to try. One-time unlock for unlimited — no subscription.</p>
         </div>
         <a
           href={APP_STORE_URL}

@@ -146,8 +146,8 @@ export default function ArticlePage() {
         <p className="text-lg text-slate-600 mb-8 leading-relaxed">
           MemePouch is a free-to-try iPhone app (iOS 16+) that turns your photos, GIFs, and Live
           Photos into reusable iMessage stickers, and gives you two reliable drag flows for
-          saving stickers other people send you in iMessage. The first 5 stickers are free; a
-          one-time $2.99 unlock removes the cap. No subscription.
+          saving stickers other people send you in iMessage. It&apos;s free to try; a
+          one-time unlock removes the cap. No subscription.
         </p>
 
         <aside className="not-prose mb-12 rounded-3xl border border-slate-200 bg-gradient-to-br from-blue-50 via-white to-purple-50 p-6 sm:p-8 shadow-sm">
@@ -411,7 +411,7 @@ export default function ArticlePage() {
         <div className="not-prose mt-10 rounded-3xl bg-slate-900 text-white p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
           <div>
             <p className="text-xl font-bold mb-1">Save the next sticker your friend sends you.</p>
-            <p className="text-slate-400 text-sm">Free with a 5-sticker tier. One-time $2.99 unlock for unlimited. No subscription.</p>
+            <p className="text-slate-400 text-sm">Free to try. One-time unlock for unlimited — no subscription.</p>
           </div>
           <a
             href={APP_STORE_URL}

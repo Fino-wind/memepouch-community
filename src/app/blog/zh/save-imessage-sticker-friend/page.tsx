@@ -170,7 +170,7 @@ export default function ArticlePage() {
             >
               在 App Store 下载 MemePouch
             </a>
-            <span className="text-sm text-slate-500">iPhone · iOS 16+ · 一次性 $2.99 解锁,无订阅</span>
+            <span className="text-sm text-slate-500">iPhone · iOS 16+ · 一次性解锁,无订阅</span>
           </div>
         </aside>
 
@@ -311,7 +311,7 @@ export default function ArticlePage() {
           <div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">MemePouch 多少钱?</h3>
             <p className="text-slate-700 leading-relaxed">
-              前 10 张贴纸免费。无限解锁是一次性 $2.99(约 ¥21),买一次永久使用——没有订阅、没有广告。
+              可以免费试用。无限解锁是一次性买断,买一次永久使用——没有订阅、没有广告。
             </p>
           </div>
           <div>
@@ -335,7 +335,7 @@ export default function ArticlePage() {
         <div className="not-prose mt-12 rounded-3xl bg-slate-900 text-white p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
           <div>
             <p className="text-xl font-bold mb-1">下次再收到好玩的贴纸,试试拖拽流程。</p>
-            <p className="text-slate-400 text-sm">前 10 张免费 · 一次性 $2.99 解锁无限 · 无订阅无广告</p>
+            <p className="text-slate-400 text-sm">免费试用 · 一次性解锁无限 · 无订阅无广告</p>
           </div>
           <a
             href={APP_STORE_URL}

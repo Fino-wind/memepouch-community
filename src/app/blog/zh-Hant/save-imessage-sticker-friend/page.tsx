@@ -170,7 +170,7 @@ export default function ArticlePage() {
             >
               到 App Store 下載 MemePouch
             </a>
-            <span className="text-sm text-slate-500">iPhone · iOS 16+ · 一次性 $2.99 解鎖,沒有訂閱</span>
+            <span className="text-sm text-slate-500">iPhone · iOS 16+ · 一次性解鎖,沒有訂閱</span>
           </div>
         </aside>
 
@@ -313,7 +313,7 @@ export default function ArticlePage() {
           <div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">MemePouch 多少錢?</h3>
             <p className="text-slate-700 leading-relaxed">
-              前 10 張貼圖免費。無限解鎖是一次性 $2.99 美金(約台幣 90 元、港幣 23 元),買一次永久使用——沒有訂閱、沒有廣告。
+              可以免費試用。無限解鎖是一次性買斷,買一次永久使用——沒有訂閱、沒有廣告。
             </p>
           </div>
           <div>
@@ -337,7 +337,7 @@ export default function ArticlePage() {
         <div className="not-prose mt-12 rounded-3xl bg-slate-900 text-white p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
           <div>
             <p className="text-xl font-bold mb-1">下次再收到好玩的貼圖,試試拖曳流程。</p>
-            <p className="text-slate-400 text-sm">前 10 張免費 · 一次性 $2.99 解鎖無限 · 沒有訂閱、沒有廣告</p>
+            <p className="text-slate-400 text-sm">免費試用 · 一次性解鎖無限 · 沒有訂閱、沒有廣告</p>
           </div>
           <a
             href={APP_STORE_URL}

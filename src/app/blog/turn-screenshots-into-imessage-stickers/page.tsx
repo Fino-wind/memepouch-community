@@ -84,7 +84,7 @@ export default function ArticlePage() {
         name: "Does MemePouch need a subscription?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No. The first 5 stickers are free. A one-time $2.99 unlock removes the limit forever. No ads, no recurring fees.",
+          text: "No. It's free to try. A one-time unlock removes the limit forever. No ads, no recurring fees.",
         },
       },
       {
@@ -120,13 +120,13 @@ export default function ArticlePage() {
         <p className="text-lg text-slate-700 mb-10 leading-relaxed">
           <strong>MemePouch keeps the whole image.</strong> Import a screenshot, get a whole-image
           iMessage sticker. No background removal, no cropping, no &quot;why is half my meme gone.&quot; The
-          first 5 stickers are free, then a one-time $2.99 unlock removes the cap.
+          app is free to try — a one-time unlock removes the cap.
         </p>
 
         <div className="my-10 p-6 bg-cream border border-slate-200 rounded-2xl">
           <div className="text-sm uppercase tracking-wider text-slate-500 font-semibold mb-2">Get it</div>
           <h2 className="text-2xl font-semibold text-slate-900 mb-2">MemePouch on the App Store</h2>
-          <p className="text-slate-600 mb-4">iPhone only · iOS 16+ · Free for 5 stickers · $2.99 one-time unlock</p>
+          <p className="text-slate-600 mb-4">iPhone only · iOS 16+ · free to try · one-time unlock</p>
           <a
             href={APP_STORE_URL}
             className="inline-flex items-center gap-2 bg-slate-900 text-white px-5 py-3 rounded-xl font-semibold hover:bg-slate-700 transition"
@@ -270,7 +270,7 @@ export default function ArticlePage() {
           <div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">Does MemePouch need a subscription?</h3>
             <p className="text-slate-700 leading-relaxed">
-              No. First 5 stickers free. One-time $2.99 unlock removes the cap forever. No ads,
+              No. Free to try. A one-time unlock removes the cap forever. No ads,
               no recurring fees.
             </p>
           </div>
@@ -297,8 +297,8 @@ export default function ArticlePage() {
         <div className="my-12 p-6 bg-blue-50 border border-blue-200 rounded-2xl">
           <h3 className="text-xl font-semibold text-slate-900 mb-2">Ready to keep the whole meme?</h3>
           <p className="text-slate-700 mb-4">
-            Download MemePouch on the App Store. Free for the first 5 stickers, then $2.99
-            one-time to unlock unlimited.
+            Download MemePouch on the App Store. Free to try — a one-time unlock gets
+            unlimited stickers.
           </p>
           <a
             href={APP_STORE_URL}

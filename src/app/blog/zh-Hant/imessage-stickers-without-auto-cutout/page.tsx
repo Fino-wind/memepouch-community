@@ -189,7 +189,7 @@ export default function ArticlePage() {
             >
               到 App Store 下載 MemePouch
             </a>
-            <span className="text-sm text-slate-500">iPhone · iOS 16+ · 一次性 $2.99 解鎖，沒有訂閱</span>
+            <span className="text-sm text-slate-500">iPhone · iOS 16+ · 一次性解鎖，沒有訂閱</span>
           </div>
         </aside>
 
@@ -333,7 +333,7 @@ export default function ArticlePage() {
               <tr>
                 <td className="px-3 py-2 font-medium">費用</td>
                 <td className="px-3 py-2">免費，系統內建</td>
-                <td className="px-3 py-2">免費試用 10 張；$2.99 一次性解鎖無限張</td>
+                <td className="px-3 py-2">免費試用；一次性解鎖無限張</td>
               </tr>
             </tbody>
           </table>
@@ -453,7 +453,7 @@ export default function ArticlePage() {
           </h3>
           <p className="text-slate-700 mb-4">
             MemePouch 保留整張畫面——文字、手、脈絡，全部都在。
-            iMessage 原生，免費 10 張試用後 $2.99 一次性解鎖。
+            iMessage 原生，可免費試用，一次性解鎖無限。
           </p>
           <a
             href={APP_STORE_URL}

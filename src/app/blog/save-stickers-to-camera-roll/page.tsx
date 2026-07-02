@@ -33,7 +33,7 @@ export default function ArticlePage() {
     totalTime: "PT1M",
     tool: [
       { "@type": "HowToTool", name: "iPhone running iOS 16 or later" },
-      { "@type": "HowToTool", name: "MemePouch (free for first 5 stickers)" },
+      { "@type": "HowToTool", name: "MemePouch (free to try)" },
     ],
     step: [
       {
@@ -92,7 +92,7 @@ export default function ArticlePage() {
         name: "Is MemePouch free? Do I need a subscription?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "The first 5 stickers are free. A one-time $2.99 unlock removes the limit forever. No subscription, no ads.",
+          text: "It's free to try. A one-time unlock removes the limit forever. No subscription, no ads.",
         },
       },
       {
@@ -134,7 +134,7 @@ export default function ArticlePage() {
         <div className="my-10 p-6 bg-cream border border-slate-200 rounded-2xl">
           <div className="text-sm uppercase tracking-wider text-slate-500 font-semibold mb-2">Get it</div>
           <h2 className="text-2xl font-semibold text-slate-900 mb-2">MemePouch on the App Store</h2>
-          <p className="text-slate-600 mb-4">iPhone only · iOS 16+ · Free for 5 stickers · $2.99 one-time unlock</p>
+          <p className="text-slate-600 mb-4">iPhone only · iOS 16+ · free to try · one-time unlock</p>
           <a
             href={APP_STORE_URL}
             className="inline-flex items-center gap-2 bg-slate-900 text-white px-5 py-3 rounded-xl font-semibold hover:bg-slate-700 transition"
@@ -266,7 +266,7 @@ export default function ArticlePage() {
           <div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">Is MemePouch free? Do I need a subscription?</h3>
             <p className="text-slate-700 leading-relaxed">
-              First 5 stickers free. One-time $2.99 unlock removes the cap forever. No
+              Free to try. A one-time unlock removes the cap forever. No
               subscription, no ads.
             </p>
           </div>
@@ -293,8 +293,8 @@ export default function ArticlePage() {
             Stickers in your keyboard, not your camera roll
           </h3>
           <p className="text-slate-700 mb-4">
-            Download MemePouch on the App Store. Free for the first 5 stickers, then $2.99
-            one-time to unlock unlimited.
+            Download MemePouch on the App Store. Free to try — a one-time unlock gets
+            unlimited stickers.
           </p>
           <a
             href={APP_STORE_URL}

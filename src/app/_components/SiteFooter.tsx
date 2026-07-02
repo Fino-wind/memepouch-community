@@ -16,7 +16,7 @@ export default function SiteFooter() {
             Your memes deserve the whole frame.
           </h2>
           <p className="text-paper/70 text-lg mb-8 max-w-xl mx-auto">
-            Free to try with 5 stickers. $2.99 unlocks everything, once, forever.
+            Free to try. One unlock gets everything, once, forever.
           </p>
           <a
             href={APP_STORE_URL}

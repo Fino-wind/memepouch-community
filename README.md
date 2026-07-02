@@ -1,6 +1,6 @@
 # MemePouch 🦦
 
-**Keep the whole meme.** MemePouch is an iMessage sticker app for iPhone that turns your photos, GIFs, and short videos into reusable stickers — without Apple's auto-cutout chopping the frame in half. It also lets you save the stickers your friends send you in iMessage. One-time **$2.99** unlock, **no subscription**, everything stays on your device.
+**Keep the whole meme.** MemePouch is an iMessage sticker app for iPhone that turns your photos, GIFs, and short videos into reusable stickers — without Apple's auto-cutout chopping the frame in half. It also lets you save the stickers your friends send you in iMessage. One-time unlock, **no subscription**, everything stays on your device.
 
 ➡️ **[Download on the App Store](https://apps.apple.com/us/app/memepouch/id6763726992)** · 🌐 **[memepouch.tetherme.app](https://memepouch.tetherme.app)**
 

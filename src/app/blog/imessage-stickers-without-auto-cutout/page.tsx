@@ -318,7 +318,7 @@ export default function ArticlePage() {
               <tr>
                 <td className="px-3 py-2 font-medium">Cost</td>
                 <td className="px-3 py-2">Free, built in</td>
-                <td className="px-3 py-2">Free for 5 stickers; $2.99 one-time unlock for unlimited</td>
+                <td className="px-3 py-2">Free to try; one-time unlock for unlimited</td>
               </tr>
             </tbody>
           </table>
@@ -445,7 +445,7 @@ export default function ArticlePage() {
           </h3>
           <p className="text-slate-700 mb-4">
             MemePouch keeps the whole image — text, hands, context, everything. iMessage-native,
-            $2.99 one-time unlock after the free 5-sticker tier.
+            One-time unlock after the free tier.
           </p>
           <a
             href={APP_STORE_URL}
