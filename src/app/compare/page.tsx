@@ -76,7 +76,7 @@ export default function ComparePage() {
         name: "Should I use MemePouch or Sticker.ly?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Sticker.ly is a subscription app (~$0.80/week or $41.99/year, with a 3-day trial that requires a card on file) built around social discovery, verified profiles, AI sticker generation, and WhatsApp pack publishing. It does claim iMessage sticker support on its PLUS page, but it's not built around the 'save the sticker a friend sent you in iMessage' workflow. Pick Sticker.ly if you want a sticker community, AI-assisted creation, and cross-platform pack sharing — and don't mind a subscription. Pick MemePouch if you want a private library on iMessage with no subscription, no community feed, and the drag-import flow for saving friends' stickers.",
+          text: "Sticker.ly is a subscription app (with a trial that requires a card on file) built around social discovery, verified profiles, AI sticker generation, and WhatsApp pack publishing. It does claim iMessage sticker support on its PLUS page, but it's not built around the 'save the sticker a friend sent you in iMessage' workflow. Pick Sticker.ly if you want a sticker community, AI-assisted creation, and cross-platform pack sharing — and don't mind a subscription. Pick MemePouch if you want a private library on iMessage with no subscription, no community feed, and the drag-import flow for saving friends' stickers.",
         },
       },
       {
@@ -213,7 +213,7 @@ export default function ComparePage() {
               <td className="py-3 px-3 text-ink font-medium">Pricing</td>
               <td className="py-3 px-3 text-emerald-700 bg-pouch/8 border-x border-line font-semibold">One-time unlock, no ads</td>
               <td className="py-3 px-3 text-emerald-600">Free</td>
-              <td className="py-3 px-3 text-berry">Subscription (~$0.80/wk or $41.99/yr; 3-day trial requires card)</td>
+              <td className="py-3 px-3 text-berry">Subscription (trial requires card)</td>
               <td className="py-3 px-3 text-emerald-600">Free (App Store shows Free)</td>
               <td className="py-3 px-3 text-ink-faint">Varies</td>
             </tr>
@@ -283,8 +283,8 @@ export default function ComparePage() {
             >
               Sticker.ly
             </a>{" "}
-            (by NAVER Z Corporation) is a <strong>subscription</strong> sticker app — roughly
-            $0.80/week or $41.99/year, with a 3-day trial that requires a card on file. The
+            (by NAVER Z Corporation) is a <strong>subscription</strong> sticker app,
+            with a trial that requires a card on file. The
             product is built around social discovery: search, verified profiles, exclusive
             sticker packs, GIPHY integration, AI sticker generation, and WhatsApp pack
             publishing. Sticker creation runs through an <strong>Auto Cut</strong> pipeline
