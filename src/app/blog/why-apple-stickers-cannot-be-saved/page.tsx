@@ -330,7 +330,7 @@ export default function ArticlePage() {
             Save the next sticker your friend sends
           </h3>
           <p className="text-slate-700 mb-4">
-            MemePouch supports the drag-import workaround. iMessage-only, $2.99 one-time.
+            MemePouch supports the drag-import workaround. iMessage-only, one-time unlock.
           </p>
           <a
             href={APP_STORE_URL}

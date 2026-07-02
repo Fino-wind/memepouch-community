@@ -127,7 +127,7 @@ export function createSocialImage() {
               fontWeight: 700,
             }}
           >
-            $2.99 once · no subscription
+            pay once · no subscription
           </div>
         </div>
 

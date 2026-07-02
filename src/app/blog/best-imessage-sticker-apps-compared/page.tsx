@@ -57,7 +57,7 @@ export default function ArticlePage() {
         name: "Are any sticker apps free?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Apple's built-in tool is free. Most third-party apps run a free tier with limits and either a subscription or one-time unlock above that. MemePouch is free for the first 5 stickers and $2.99 one-time for unlimited (no subscription). Cross-platform sticker apps vary: Sticker.ly subscription-bills its premium features (smart search, AI creation, watermark removal, ~$0.80/wk or $41.99/yr with a 3-day trial that requires a card on file); Sticker Maker Studio is free on the App Store.",
+          text: "Apple's built-in tool is free. Most third-party apps run a free tier with limits and either a subscription or one-time unlock above that. MemePouch is free to try with a one-time unlock for unlimited (no subscription). Cross-platform sticker apps vary: Sticker.ly subscription-bills its premium features (smart search, AI creation, watermark removal, ~$0.80/wk or $41.99/yr with a 3-day trial that requires a card on file); Sticker Maker Studio is free on the App Store.",
         },
       },
       {
@@ -94,7 +94,7 @@ export default function ArticlePage() {
           <ul className="list-disc pl-5 space-y-1 leading-relaxed">
             <li>Apple Photos cutout — free, fast, but breaks memes</li>
             <li>Cross-platform sticker apps (Sticker.ly et al.) — best for WhatsApp/Telegram, subscription-heavy</li>
-            <li>iMessage-native apps (MemePouch) — best for iMessage-only users, whole-image stickers, save friends&apos; stickers, $2.99 one-time</li>
+            <li>iMessage-native apps (MemePouch) — best for iMessage-only users, whole-image stickers, save friends&apos; stickers, one-time unlock</li>
           </ul>
         </aside>
 
@@ -266,7 +266,7 @@ export default function ArticlePage() {
             second one is rejected with a notice instead of cluttering the library.
           </li>
           <li>
-            <strong>$2.99 one-time</strong> after the 5-sticker free tier. No subscription, no
+            <strong>One-time unlock</strong> after the free tier. No subscription, no
             ads.
           </li>
         </ul>
@@ -350,7 +350,7 @@ export default function ArticlePage() {
           <div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">Any free sticker apps?</h3>
             <p className="text-slate-700 leading-relaxed">
-              Apple Photos is free. MemePouch is free for the first 5 stickers, $2.99 one-time
+              Apple Photos is free. MemePouch is free to try, one-time unlock
               for unlimited. Among Category 2: Sticker Maker Studio is free; Sticker.ly is
               subscription-billed for its premium features (~$0.80/wk or $41.99/yr after a
               3-day card-on-file trial).
@@ -372,7 +372,7 @@ export default function ArticlePage() {
             Try MemePouch
           </h3>
           <p className="text-slate-700 mb-4">
-            iMessage-native, whole-image stickers, saves friends&apos; stickers, one-time $2.99.
+            iMessage-native, whole-image stickers, saves friends&apos; stickers, one-time unlock.
           </p>
           <a
             href={APP_STORE_URL}

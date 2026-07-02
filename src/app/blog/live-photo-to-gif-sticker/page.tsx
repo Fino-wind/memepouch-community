@@ -32,7 +32,7 @@ export default function ArticlePage() {
     tool: [
       { "@type": "HowToTool", name: "iPhone running iOS 16 or later" },
       { "@type": "HowToTool", name: "A Live Photo in your Photos library" },
-      { "@type": "HowToTool", name: "MemePouch (free for first 5 stickers)" },
+      { "@type": "HowToTool", name: "MemePouch (free to try)" },
     ],
     step: [
       {
@@ -237,7 +237,7 @@ export default function ArticlePage() {
       <div className="not-prose mt-16 rounded-3xl bg-slate-900 text-white p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
         <div>
           <p className="text-xl font-bold mb-1">Turn your Live Photos into iMessage GIF stickers.</p>
-          <p className="text-slate-400 text-sm">Free for the first 5 stickers. $2.99 one-time unlock for unlimited. No subscription.</p>
+          <p className="text-slate-400 text-sm">Free to try. One-time unlock for unlimited — no subscription.</p>
         </div>
         <a
           href={APP_STORE_URL}

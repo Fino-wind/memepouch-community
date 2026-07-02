@@ -36,7 +36,7 @@ export default function Home() {
           <div className="text-center lg:text-left">
             <p className="rise inline-flex items-center gap-2 rounded-full border border-line bg-cream px-4 py-1.5 text-sm font-semibold text-ink-soft mb-8 shadow-sm" style={{ "--rise-delay": "0s" } as React.CSSProperties}>
               <span className="w-2 h-2 rounded-full bg-mint" />
-              iMessage sticker app · no subscription · $2.99 once
+              iMessage sticker app · pay once · no subscription
             </p>
 
             <h1 className="rise text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight text-ink mb-8 text-balance leading-[1.05]" style={{ "--rise-delay": "0.08s" } as React.CSSProperties}>
@@ -50,7 +50,7 @@ export default function Home() {
             </h1>
 
             <p className="rise text-xl md:text-2xl text-ink-soft font-medium mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed" style={{ "--rise-delay": "0.16s" } as React.CSSProperties}>
-              Custom iMessage stickers that keep the whole frame — text, background, hands, reaction context, all intact. No auto-cutout, no background removal. Free to try, $2.99 one-time unlock.
+              Custom iMessage stickers that keep the whole frame — text, background, hands, reaction context, all intact. No auto-cutout, no background removal. Free to try — one-time unlock, no subscription.
             </p>
 
             <div className="rise flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4" style={{ "--rise-delay": "0.24s" } as React.CSSProperties}>
@@ -296,38 +296,24 @@ export default function Home() {
       {/* ───────────────────── Pricing ───────────────────── */}
       <section className="max-w-6xl mx-auto px-6 pb-24">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ink">One price. No subscription.</h2>
-          <p className="mt-4 text-lg text-ink-soft">Try everything free with 5 stickers. Pay once if it earns its place.</p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ink">Pay once. Keep it forever.</h2>
+          <p className="mt-4 text-lg text-ink-soft">Free to try. One unlock — not per month, not per year.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto items-stretch">
-          <div data-reveal className="pouch-card p-10 flex flex-col">
-            <p className="text-sm font-bold uppercase tracking-wide text-ink-faint mb-2">Free</p>
-            <p className="text-5xl font-bold font-display text-ink mb-6">$0</p>
-            <ul className="space-y-3 text-ink-soft mb-8 flex-1">
-              <li className="flex gap-2.5"><span className="text-mint font-bold">✓</span> 5 stickers in your library</li>
-              <li className="flex gap-2.5"><span className="text-mint font-bold">✓</span> All import paths — Photos, paste, share, drag</li>
-              <li className="flex gap-2.5"><span className="text-mint font-bold">✓</span> Video &amp; Live Photo → GIF maker</li>
-              <li className="flex gap-2.5"><span className="text-mint font-bold">✓</span> No ads, no account, no watermark</li>
-            </ul>
-            <a href={APP_STORE_URL} className="rounded-full border-2 border-ink text-ink text-center font-bold py-3.5 hover:bg-ink hover:text-paper transition-colors">
-              Try it free
-            </a>
-          </div>
-
-          <div data-reveal style={{ "--reveal-delay": "0.08s" } as React.CSSProperties} className="relative rounded-[1.75rem] bg-ink text-paper p-10 flex flex-col shadow-lifted">
+        <div className="max-w-xl mx-auto">
+          <div data-reveal className="relative rounded-[1.75rem] bg-ink text-paper p-10 flex flex-col shadow-lifted">
             <span className="absolute -top-3.5 right-8 rounded-full bg-sun text-ink px-4 py-1.5 text-sm font-bold rotate-2 shadow-md">pay once, keep forever</span>
-            <p className="text-sm font-bold uppercase tracking-wide text-paper/50 mb-2">Full unlock</p>
-            <p className="text-5xl font-bold font-display mb-1">$2.99</p>
-            <p className="text-paper/50 text-sm font-semibold mb-6">one time · not per month, not per year</p>
+            <p className="text-sm font-bold uppercase tracking-wide text-paper/50 mb-6">What you get</p>
             <ul className="space-y-3 text-paper/80 mb-8 flex-1">
               <li className="flex gap-2.5"><span className="text-sun font-bold">✓</span> Unlimited stickers</li>
-              <li className="flex gap-2.5"><span className="text-sun font-bold">✓</span> Everything in Free</li>
+              <li className="flex gap-2.5"><span className="text-sun font-bold">✓</span> All import paths — Photos, paste, share, drag</li>
+              <li className="flex gap-2.5"><span className="text-sun font-bold">✓</span> Video &amp; Live Photo → GIF maker</li>
+              <li className="flex gap-2.5"><span className="text-sun font-bold">✓</span> No ads, no account, no watermark</li>
               <li className="flex gap-2.5"><span className="text-sun font-bold">✓</span> Restores on any iPhone with your Apple ID</li>
               <li className="flex gap-2.5"><span className="text-sun font-bold">✓</span> Supports a solo indie developer 💛</li>
             </ul>
             <a href={APP_STORE_URL} className="rounded-full bg-paper text-ink text-center font-bold py-3.5 hover:bg-sun transition-colors">
-              Download &amp; unlock
+              Download on the App Store
             </a>
           </div>
         </div>
