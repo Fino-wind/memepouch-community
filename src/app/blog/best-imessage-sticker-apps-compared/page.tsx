@@ -57,7 +57,7 @@ export default function ArticlePage() {
         name: "Are any sticker apps free?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Apple's built-in tool is free. Most third-party apps run a free tier with limits and either a subscription or one-time unlock above that. MemePouch is free to try with a one-time unlock for unlimited (no subscription). Cross-platform sticker apps vary: Sticker.ly subscription-bills its premium features (smart search, AI creation, watermark removal, ~$0.80/wk or $41.99/yr with a 3-day trial that requires a card on file); Sticker Maker Studio is free on the App Store.",
+          text: "Apple's built-in tool is free. Most third-party apps run a free tier with limits and either a subscription or one-time unlock above that. MemePouch is free to try with a one-time unlock for unlimited (no subscription). Cross-platform sticker apps vary: Sticker.ly subscription-bills its premium features (smart search, AI creation, watermark removal — with a trial that requires a card on file); Sticker Maker Studio is free on the App Store.",
         },
       },
       {
@@ -152,7 +152,7 @@ export default function ArticlePage() {
         <ul className="list-disc pl-6 space-y-3 mb-4 text-slate-700 leading-relaxed">
           <li>
             <strong>Sticker.ly</strong> (by NAVER Z Corporation) — community-and-AI-first.
-            Subscription billing: roughly $0.80/week or $41.99/year, with a 3-day trial that
+            Subscription-billed, with a trial that
             requires a card on file. The PLUS tier unlocks smart search, exclusive sticker
             packs, AI sticker / video / image generation, watermark removal, GIPHY library
             access, and iMessage sticker support. Built around a social feed with verified
@@ -352,8 +352,8 @@ export default function ArticlePage() {
             <p className="text-slate-700 leading-relaxed">
               Apple Photos is free. MemePouch is free to try, one-time unlock
               for unlimited. Among Category 2: Sticker Maker Studio is free; Sticker.ly is
-              subscription-billed for its premium features (~$0.80/wk or $41.99/yr after a
-              3-day card-on-file trial).
+              subscription-billed for its premium features (after a
+              card-on-file trial).
             </p>
           </div>
           <div>
