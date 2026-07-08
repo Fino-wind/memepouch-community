@@ -54,6 +54,13 @@ const POSTS: Post[] = [
     cta: "阅读文章",
   },
   {
+    href: "/blog/save-tiktok-gifs-to-imessage",
+    title: "How to save TikTok GIFs and stickers to iMessage",
+    description:
+      "Import your TikTok GIFs and memes to iMessage as reusable stickers: save the video (or screen-record for a watermark-free clip), share it into MemePouch, trim up to 10 seconds, send from any chat forever. Comment stickers work too via screenshot.",
+    badge: "New · 2026-07-09",
+  },
+  {
     href: "/blog/save-stickers-to-camera-roll",
     title: "How to save stickers to your camera roll on iPhone (and a cleaner way)",
     description:
