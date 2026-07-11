@@ -25,6 +25,10 @@ const QA = [
     a: "Yes. Tap Turn a video into a GIF, pick a clip, trim up to 10 seconds, and MemePouch saves it as a GIF sticker. GIFs send as full-quality iMessage attachments (no 500 KB cap).",
   },
   {
+    q: "Can I use my MemePouch stickers in WhatsApp?",
+    a: "Yes. In My Stickers, tap the WhatsApp button, pick the stickers you want (3 to 30 — that's WhatsApp's required pack size), and tap Add. MemePouch converts everything to WhatsApp's sticker format (512×512 WebP) automatically and hands the pack to WhatsApp, which shows an add-pack confirmation. Static and animated stickers go in separate packs (a WhatsApp rule), and your GIF stickers become animated WhatsApp stickers. The export is completely free — import a meme once, send it in both iMessage and WhatsApp.",
+  },
+  {
     q: "Does MemePouch work on iPad?",
     a: "MemePouch is iPhone-first. The iMessage extension itself runs on iPad, but the main app UI is designed for portrait iPhone.",
   },
@@ -70,7 +74,7 @@ const QA = [
   },
   {
     q: "Can I change MemePouch's language? Does it support Chinese?",
-    a: "Yes. Open Settings → Language and choose System (follow iOS), English, 简体中文, or 繁體中文. The choice is written into the App Group container so both the main app and the iMessage extension switch together — no relaunch needed.",
+    a: "Yes. Open Settings → Language and choose System (follow iOS), English, Español, 简体中文, or 繁體中文. The choice is written into the App Group container so both the main app and the iMessage extension switch together — no relaunch needed.",
   },
   {
     q: "Does MemePouch support dark mode?",

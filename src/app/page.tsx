@@ -291,6 +291,30 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* Feature: WhatsApp Export */}
+        <div data-reveal className="mt-6 pouch-card p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10 overflow-hidden relative">
+          <div aria-hidden="true" className="absolute -bottom-16 -right-16 w-64 h-64 rounded-full bg-mint/10" />
+          <div className="max-w-xl relative">
+            <div className="sticker-chip w-16 h-16 text-3xl mb-6" style={tilt(6)}>💬</div>
+            <h3 className="text-3xl font-bold text-ink mb-4">Same Stickers, Now in WhatsApp Too</h3>
+            <p className="text-ink-soft text-lg leading-relaxed">Import a meme once, send it everywhere. Tap the <strong className="text-ink">WhatsApp</strong> button in your library, pick the stickers you want, and MemePouch converts them to WhatsApp&apos;s sticker format and hands the pack over — GIFs become animated WhatsApp stickers. Completely free, no unlock needed.</p>
+          </div>
+          <div className="w-full md:w-auto relative">
+            <div className="bg-white border border-line shadow-lifted rounded-3xl p-6 w-full md:w-80 flex flex-col gap-4 rotate-2 hover:rotate-1 transition-transform">
+              <div className="flex items-center gap-3">
+                <div className="sticker-chip w-12 h-12 text-2xl" style={tilt(5)}>🐸</div>
+                <div className="sticker-chip w-12 h-12 text-2xl" style={tilt(-4)}>😹</div>
+                <div className="sticker-chip w-12 h-12 text-2xl" style={tilt(3)}>🔥</div>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="font-semibold text-ink">3 selected</span>
+                <span className="inline-flex items-center rounded-full bg-mint px-4 py-1.5 text-sm font-bold text-ink">Add to WhatsApp</span>
+              </div>
+              <p className="text-sm text-ink-faint">Pick 3–30 stickers, tap Add, confirm in WhatsApp. Done.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* ───────────────────── Pricing ───────────────────── */}

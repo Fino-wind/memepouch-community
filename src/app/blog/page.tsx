@@ -18,6 +18,31 @@ type Post = {
 
 const POSTS: Post[] = [
   {
+    href: "/blog/make-whatsapp-stickers-iphone",
+    title: "How to make WhatsApp stickers on iPhone from your own memes",
+    description:
+      "WhatsApp has no built-in way to turn your own photos and GIFs into stickers. Import your memes into MemePouch once, pick 3–30, tap Add — full frame, no watermark, GIFs become animated WhatsApp stickers, and the same library works in iMessage too.",
+    badge: "New · 2026-07-11",
+  },
+  {
+    href: "/blog/zh-Hant/make-whatsapp-stickers-iphone",
+    title: "iPhone 怎麼自製 WhatsApp 貼圖?用自己的迷因做貼圖包",
+    description:
+      "WhatsApp 沒有內建自製貼圖功能。把迷因匯入 MemePouch 一次,選 3-30 張按加入——完整畫面、無浮水印、GIF 變動態貼圖,同一批貼圖 iMessage 也能用。",
+    badge: "繁體中文 · New",
+    lang: "zh-Hant",
+    cta: "閱讀文章",
+  },
+  {
+    href: "/blog/zh/make-whatsapp-stickers-iphone",
+    title: "iPhone 怎么自制 WhatsApp 贴纸?用自己的表情包做贴纸包",
+    description:
+      "WhatsApp 没有内置自制贴纸功能。把表情包导入 MemePouch 一次,选 3-30 张点添加——完整画面、无水印、GIF 变动态贴纸,同一批贴纸 iMessage 也能用。",
+    badge: "简体中文 · New",
+    lang: "zh-Hans",
+    cta: "阅读文章",
+  },
+  {
     href: "/blog/zh-Hant/save-imessage-sticker-friend",
     title: "朋友傳的 iMessage 貼圖怎麼存?",
     description:
