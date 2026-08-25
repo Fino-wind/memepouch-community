@@ -3,9 +3,9 @@ import Link from "next/link";
 import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
 
 export const metadata: Metadata = {
-  title: "Trim a video into a perfectly looping GIF sticker for iMessage (Smart loop walkthrough)",
+  title: "How to turn a screen recording into a GIF on iPhone (with a clean loop)",
   description:
-    "Turn a screen recording, video clip, or Live Photo into a clean-looping GIF sticker for iMessage with MemePouch's Smart loop (perceptual frame matching via dHash). Up to 10 seconds, auto-sized to fit iMessage's 10 MB attachment limit.",
+    "Turn any screen recording or video clip into a smooth, perfectly looping GIF right on your iPhone — no watermark, free to try. Works as an iMessage sticker too. Smart loop finds the seamless cut for you.",
   alternates: { canonical: "/blog/trim-video-into-looping-gif-sticker" },
 };
 
@@ -13,7 +13,7 @@ export default function ArticlePage() {
   const ARTICLE_LD = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "Trim a video into a perfectly looping GIF sticker for iMessage",
+    headline: "How to turn a screen recording into a looping GIF on iPhone",
     description:
       "Walkthrough of MemePouch's video trim view, Smart loop endpoint detection (dHash), Boomerang fallback, and the encoder cascade that keeps the file under iMessage's 10 MB limit.",
     datePublished: "2026-05-20",
@@ -118,7 +118,7 @@ export default function ArticlePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
 
       <h1 className="text-4xl font-bold mb-3 text-slate-900 not-prose">
-        Trim a video into a perfectly looping GIF sticker for iMessage
+        Turn a screen recording into a looping GIF on iPhone
       </h1>
       <p className="text-sm text-slate-500 mb-8 not-prose">Last updated 2026-05-20 · iOS 16+ · 3 min read</p>
 

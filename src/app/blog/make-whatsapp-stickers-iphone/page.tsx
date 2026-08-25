@@ -85,7 +85,7 @@ export default function ArticlePage() {
         name: "Does the WhatsApp export cost anything?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No — exporting to WhatsApp is completely free in MemePouch, with no unlock required. The one-time unlock only covers the sticker-library size.",
+          text: "No — exporting to WhatsApp is completely free in MemePouch, with no unlock required. Paid plans only affect how many stickers your library can hold.",
         },
       },
       {

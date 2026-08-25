@@ -3,9 +3,9 @@ import Link from "next/link";
 import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
 
 export const metadata: Metadata = {
-  title: "Why iMessage Save to Stickers hangs on third-party stickers (and the real workaround)",
+  title: "Why can't I save stickers in iMessage? The 2026 fix that actually works",
   description:
-    "iOS shows a Save to Stickers button on third-party iMessage stickers but tapping it stalls. This is what's actually happening inside iOS, why Apple can't easily fix it, and the drag-import workaround that bypasses the broken system flow.",
+    "Tapping Save to Stickers on a friend's sticker does nothing — or bounces you to the App Store. Here's why iOS can't save third-party stickers, and the 10-second drag trick that gets around it.",
   alternates: { canonical: "/blog/why-apple-stickers-cannot-be-saved" },
 };
 
@@ -13,7 +13,7 @@ export default function ArticlePage() {
   const ARTICLE_LD = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "Why iMessage Save to Stickers hangs on third-party stickers",
+    headline: "Why you can't save stickers in iMessage (and what works instead)",
     description:
       "Explainer: iOS shows a Save to Stickers button on third-party iMessage stickers but tapping it stalls because Apple's StickersUltraExtension and stickersd daemon drop the XPC connection. Drag-import into a sticker keyboard app is the only working alternative.",
     datePublished: "2026-05-15",
@@ -78,7 +78,7 @@ export default function ArticlePage() {
 
       <article>
         <h1 className="text-4xl font-bold mb-6 text-slate-900">
-          Why iMessage&apos;s Save to Stickers hangs on third-party stickers
+          Why you can&apos;t save stickers in iMessage (and what works instead)
         </h1>
         <p className="text-sm text-slate-500 mb-8">Last updated 2026-05-15 · iOS 16+</p>
 

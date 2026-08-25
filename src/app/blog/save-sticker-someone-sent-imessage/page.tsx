@@ -3,9 +3,9 @@ import Link from "next/link";
 import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
 
 export const metadata: Metadata = {
-  title: "How to save an iMessage sticker someone sent you (2026 guide)",
+  title: "Save to Stickers not working? How to save a sticker someone sent you (2026)",
   description:
-    "iOS shows a Save to Stickers button for third-party stickers, but tapping it hangs — the system sticker daemon stalls. Here are the two drag flows in MemePouch that actually work, plus why every screenshot/forward workaround fails.",
+    "Tapped Save to Stickers and nothing happened — or it just sent you to the App Store? That's how iOS handles third-party stickers. Here's the drag method that actually saves them, step by step.",
   alternates: {
     canonical: "/blog/save-sticker-someone-sent-imessage",
     languages: {
@@ -21,7 +21,7 @@ export default function ArticlePage() {
   const ARTICLE_LD = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "How to save an iMessage sticker someone sent you",
+    headline: "Save to Stickers not working? How to save a sticker someone sent you",
     description:
       "iOS's Save to Stickers button hangs on third-party stickers in 2026. The two reliable ways to save a friend's iMessage sticker are both drag flows into MemePouch — two-finger drag if MemePouch isn't open yet, or single-finger drag if it is.",
     datePublished: "2026-05-07",
@@ -122,7 +122,7 @@ export default function ArticlePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
       <article>
         <h1 className="text-4xl font-bold mb-6 text-slate-900">
-          How to save an iMessage sticker someone sent you
+          Save to Stickers not working? Here&apos;s how to actually save it
         </h1>
         <p className="text-sm text-slate-500 mb-8">
           Last updated 2026-05-15 · iOS 16+ ·{" "}

@@ -50,7 +50,7 @@ export default function ArticlePage() {
         name: "导出到 WhatsApp 要收费吗?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "不用——WhatsApp 导出在 MemePouch 完全免费,不需要解锁。一次性解锁只影响贴纸库容量上限。",
+          text: "不用——WhatsApp 导出在 MemePouch 完全免费,不需要解锁。付费方案只影响贴纸库容量上限。",
         },
       },
       {
