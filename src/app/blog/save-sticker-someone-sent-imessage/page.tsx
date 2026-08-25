@@ -25,7 +25,7 @@ export default function ArticlePage() {
     description:
       "iOS's Save to Stickers button hangs on third-party stickers in 2026. The two reliable ways to save a friend's iMessage sticker are both drag flows into MemePouch — two-finger drag if MemePouch isn't open yet, or single-finger drag if it is.",
     datePublished: "2026-05-07",
-    dateModified: "2026-05-15",
+    dateModified: "2026-08-26",
     author: { "@type": "Organization", name: "MemePouch" },
     publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
     image: siteUrl("/opengraph-image"),
@@ -125,7 +125,7 @@ export default function ArticlePage() {
           Save to Stickers not working? Here&apos;s how to actually save it
         </h1>
         <p className="text-sm text-slate-500 mb-8">
-          Last updated 2026-05-15 · iOS 16+ ·{" "}
+          Last updated 2026-08-26 · iOS 16+ ·{" "}
           <Link
             href="/blog/zh/save-imessage-sticker-friend"
             hrefLang="zh-Hans"

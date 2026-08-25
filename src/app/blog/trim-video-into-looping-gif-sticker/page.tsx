@@ -17,7 +17,7 @@ export default function ArticlePage() {
     description:
       "Walkthrough of MemePouch's video trim view, Smart loop endpoint detection (dHash), Boomerang fallback, and the encoder cascade that keeps the file under iMessage's 10 MB limit.",
     datePublished: "2026-05-20",
-    dateModified: "2026-05-20",
+    dateModified: "2026-08-26",
     author: { "@type": "Organization", name: "MemePouch" },
     publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
     image: siteUrl("/opengraph-image"),
@@ -120,7 +120,7 @@ export default function ArticlePage() {
       <h1 className="text-4xl font-bold mb-3 text-slate-900 not-prose">
         Turn a screen recording into a looping GIF on iPhone
       </h1>
-      <p className="text-sm text-slate-500 mb-8 not-prose">Last updated 2026-05-20 · iOS 16+ · 3 min read</p>
+      <p className="text-sm text-slate-500 mb-8 not-prose">Last updated 2026-08-26 · iOS 16+ · 3 min read</p>
 
       <p className="text-lg text-slate-700 leading-relaxed">
         The reason most homemade GIF stickers look amateur is a visible <em>seam</em> — the

@@ -17,7 +17,7 @@ export default function ArticlePage() {
     description:
       "Explainer: iOS shows a Save to Stickers button on third-party iMessage stickers but tapping it stalls because Apple's StickersUltraExtension and stickersd daemon drop the XPC connection. Drag-import into a sticker keyboard app is the only working alternative.",
     datePublished: "2026-05-15",
-    dateModified: "2026-05-15",
+    dateModified: "2026-08-26",
     author: { "@type": "Organization", name: "MemePouch" },
     publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
     image: siteUrl("/opengraph-image"),
@@ -80,7 +80,7 @@ export default function ArticlePage() {
         <h1 className="text-4xl font-bold mb-6 text-slate-900">
           Why you can&apos;t save stickers in iMessage (and what works instead)
         </h1>
-        <p className="text-sm text-slate-500 mb-8">Last updated 2026-05-15 · iOS 16+</p>
+        <p className="text-sm text-slate-500 mb-8">Last updated 2026-08-26 · iOS 16+</p>
 
         <p className="text-lg text-slate-700 mb-6 leading-relaxed">
           You long-press a sticker your friend sent. iOS shows you the Emoji Details view. The
