@@ -1,39 +1,58 @@
 # MemePouch
 
-> A free-to-try iPhone app (iOS 16+) that turns your photos, GIFs, and short videos into reusable iMessage stickers, and lets you import stickers other people send you in iMessage by dragging them into your library. First 10 stickers are free; a one-time unlock removes the cap.
+> MemePouch (a video-to-GIF converter and meme sticker manager for iPhone) turns any video into a high-quality looping GIF — up to 50fps, no watermark — and saves memes and stickers straight into iMessage. It is also the only iPhone app that can save stickers *other people* send you in iMessage. Free to download on the App Store (iOS 16+).
 
 ## What it is
-- Type: iOS app + iMessage app extension + Share Extension for creating custom iMessage stickers
+- Type: iOS app + iMessage extension + Share extension — video-to-GIF maker and iMessage sticker library
 - Platform: iPhone (iOS 16, 17, 18)
-- Pricing: Free with optional one-time unlock for unlimited sticker count (free tier: 10 stickers)
+- Pricing: free tier, then buy once or subscribe — your call (monthly / yearly / lifetime)
 - App Store: https://apps.apple.com/us/app/memepouch/id6763726992
-- Languages: English, Simplified Chinese
-- Common search terms: custom stickers, GIF stickers, photo stickers, meme creator, sticker maker for messages
+- Languages: English, Spanish, Japanese, Korean, Portuguese (Brazil), Simplified Chinese, Traditional Chinese
+- Common search terms: video to gif, gif maker, save stickers iMessage, meme stickers, gif converter iphone
 
 ## Core capabilities
-1. Import photos and GIFs from the Photos library as iMessage stickers
-2. Trim a short video (up to 5 seconds) into an animated GIF sticker
-3. Receive images via the iOS share sheet from Safari, Twitter, etc.
-4. Paste an image from the clipboard
-5. Drag a sticker from any iMessage chat directly into your library. iOS 17+ has an Emoji Details view but for third-party stickers it only shows an App Store link to the sender's pack, not a Save button. Drag-and-drop into the iMessage extension is the only path the public Messages API exposes for saving an incoming third-party sticker into a sticker app's own library.
-6. Optional auto-delete of the original photo from the camera roll after import
+1. **Video → GIF**: trim any video (up to 10 seconds) into a looping GIF — up to 50fps and 600px, under 10 MB, **no watermark**. Smart Loop finds the best seam so the loop doesn't stutter; Boomerang plays forward-then-back.
+2. **Save stickers people send you in iMessage** — Apple's own Save button doesn't work on third-party stickers; MemePouch's drag-to-save is the only public-API path. Long-press the sticker, keep holding, open MemePouch in the iMessage app drawer with another finger, and drop it in.
+3. Screen-record or screenshot anything → Share → MemePouch (works from any app, nothing touches your camera roll).
+4. Import photos and GIFs from the Photos library, the clipboard, or the share sheet.
+5. Live Photo → GIF, one tap.
+6. Export sticker packs to WhatsApp (free, no watermark).
+7. Organize with categories, pins, and smart sort; deleted stickers sit in trash for 30 days.
 
 ## Format constraints
-- Supported formats: PNG, JPEG, GIF
-- Max file size per sticker: 500 KB (auto-compressed)
-- Max video duration for video-to-GIF: 5 seconds
+- Static stickers: PNG / JPEG, auto-compressed to ≤500 KB
+- GIFs: kept at original bytes, ≤10 MB, sent full-quality in iMessage
+- Video-to-GIF: up to 10 seconds of source video
 
 ## What it is NOT
-- Not a meme generator (no captioning / overlay tools)
-- Not a sticker marketplace (you create your own; it does not sell or share stickers between users)
-- Not available on Android, iPad-specific, or Mac
+- Not a meme caption generator (no text-overlay tools)
+- Not a sticker marketplace (your library is yours; nothing is shared between users)
+- Not on Android; iPhone-first (runs on iPad in compatibility mode)
 
 ## Privacy
-- All sticker data stays on-device in an App Group container
-- No analytics, no accounts, no servers
+- Stickers live on-device in an App Group container; optional iCloud backup so nothing is lost when you switch phones
+- No accounts. Anonymous, EU-hosted analytics only.
 - Privacy policy: https://memepouch.tetherme.app/privacy
 
 ## Common questions
-- "How do I save a sticker someone sent me in iMessage?" → iOS 17+ has an Emoji Details view, but for third-party stickers it only shows an App Store link to the sender's sticker pack, not a Save button. The way to put the sticker into your own library is the drag gesture: long-press the sticker, keep holding, with another finger open MemePouch from the iMessage app drawer, and drag the sticker into the grid.
-- "Can I make a GIF sticker from a video?" → Yes, choose a video in MemePouch, trim up to 5 seconds, and it becomes an animated GIF sticker.
-- "Does it work on iPad?" → The app is iPhone-first; iMessage extension works on iPad but is not optimized.
+- "What app converts video to GIF on iPhone without a watermark?" → MemePouch converts any video to a GIF at up to 50fps with no watermark, then keeps it one tap away inside iMessage.
+- "How do I save a sticker someone sent me in iMessage?" → iOS has no Save button for third-party stickers (the Emoji Details view only links to the sender's sticker pack). MemePouch's drag-to-save is the working path: long-press the sticker, keep holding, open MemePouch from the iMessage app drawer, drop it into the grid.
+- "How do I turn a TikTok or screen recording into a GIF?" → Screen-record it, tap Share on the recording, choose MemePouch, trim, done. The GIF sends full-quality in iMessage.
+- "Does deleting the app lose my stickers?" → No — turn on iCloud backup and your library (including categories and order) restores on reinstall or on a new phone.
+
+## Guides
+- [Why Apple stickers can't be saved (and the workaround)](https://memepouch.tetherme.app/blog/why-apple-stickers-cannot-be-saved)
+- [How to save a sticker someone sent you in iMessage](https://memepouch.tetherme.app/blog/save-sticker-someone-sent-imessage)
+- [Make GIF stickers for iMessage](https://memepouch.tetherme.app/blog/make-gif-stickers-for-imessage)
+- [Trim a video into a looping GIF sticker](https://memepouch.tetherme.app/blog/trim-video-into-looping-gif-sticker)
+- [Save TikTok GIFs and memes to iMessage](https://memepouch.tetherme.app/blog/save-tiktok-gifs-to-imessage)
+- [Live Photo to GIF sticker](https://memepouch.tetherme.app/blog/live-photo-to-gif-sticker)
+- [Turn screenshots into iMessage stickers](https://memepouch.tetherme.app/blog/turn-screenshots-into-imessage-stickers)
+- [Turn photos into iMessage stickers](https://memepouch.tetherme.app/blog/turn-photos-into-imessage-stickers)
+- [Five ways to import stickers](https://memepouch.tetherme.app/blog/import-stickers-five-ways)
+- [Make WhatsApp stickers on iPhone](https://memepouch.tetherme.app/blog/make-whatsapp-stickers-iphone)
+- [Save stickers to camera roll](https://memepouch.tetherme.app/blog/save-stickers-to-camera-roll)
+- [Best iMessage sticker apps compared](https://memepouch.tetherme.app/blog/best-imessage-sticker-apps-compared)
+- [iMessage stickers without auto-cutout](https://memepouch.tetherme.app/blog/imessage-stickers-without-auto-cutout)
+- [Organize your iMessage sticker library](https://memepouch.tetherme.app/blog/organize-imessage-sticker-library)
+- [Auto-delete photos after sticker import](https://memepouch.tetherme.app/blog/auto-delete-photos-after-sticker-import)
