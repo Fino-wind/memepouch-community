@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s · MemePouch",
   },
   description:
-    "Apple's built-in sticker tool auto-removes backgrounds and butchers memes. MemePouch keeps the full photo, GIF, or short video as-is — no auto-cutout — and lets you save the third-party stickers friends send you. Free to try — one-time unlock, no subscription.",
+    "Apple's built-in sticker tool auto-removes backgrounds and butchers memes. MemePouch keeps the full photo, GIF, or short video as-is — no auto-cutout — and lets you save the third-party stickers friends send you. Free to try — unlock it once, or subscribe.",
   applicationName: "MemePouch",
   keywords: [
     "iMessage stickers without auto-cutout",
@@ -92,7 +92,7 @@ export default function RootLayout({
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
-      description: "Free with optional one-time unlock for unlimited stickers",
+      description: "Free with an optional unlock for unlimited stickers",
     },
     publisher: {
       "@type": "Organization",

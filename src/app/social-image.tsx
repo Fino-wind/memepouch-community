@@ -127,7 +127,7 @@ export function createSocialImage() {
               fontWeight: 700,
             }}
           >
-            pay once · no subscription
+            free to try · no ads
           </div>
         </div>
 

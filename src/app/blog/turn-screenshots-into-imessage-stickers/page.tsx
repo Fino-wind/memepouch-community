@@ -84,7 +84,7 @@ export default function ArticlePage() {
         name: "Does MemePouch need a subscription?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No. It's free to try. A one-time unlock removes the limit forever. No ads, no recurring fees.",
+          text: "No. It's free to try. A one-time unlock removes the limit forever, or you can subscribe. No ads either way.",
         },
       },
       {
@@ -270,8 +270,8 @@ export default function ArticlePage() {
           <div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">Does MemePouch need a subscription?</h3>
             <p className="text-slate-700 leading-relaxed">
-              No. Free to try. A one-time unlock removes the cap forever. No ads,
-              no recurring fees.
+              No. Free to try. A one-time unlock removes the cap forever, or you can
+              subscribe monthly or yearly. No ads either way.
             </p>
           </div>
           <div>

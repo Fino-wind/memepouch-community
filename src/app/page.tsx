@@ -36,7 +36,7 @@ export default function Home() {
           <div className="text-center lg:text-left">
             <p className="rise inline-flex items-center gap-2 rounded-full border border-line bg-cream px-4 py-1.5 text-sm font-semibold text-ink-soft mb-8 shadow-sm" style={{ "--rise-delay": "0s" } as React.CSSProperties}>
               <span className="w-2 h-2 rounded-full bg-mint" />
-              iMessage sticker app · pay once · no subscription
+              iMessage sticker app · free to try · no ads
             </p>
 
             <h1 className="rise text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight text-ink mb-8 text-balance leading-[1.05]" style={{ "--rise-delay": "0.08s" } as React.CSSProperties}>
@@ -50,7 +50,7 @@ export default function Home() {
             </h1>
 
             <p className="rise text-xl md:text-2xl text-ink-soft font-medium mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed" style={{ "--rise-delay": "0.16s" } as React.CSSProperties}>
-              Custom iMessage stickers that keep the whole frame — text, background, hands, reaction context, all intact. No auto-cutout, no background removal. Free to try — one-time unlock, no subscription.
+              Custom iMessage stickers that keep the whole frame — text, background, hands, reaction context, all intact. No auto-cutout, no background removal. Free to try — then unlock it once, or subscribe. Your call.
             </p>
 
             <div className="rise flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4" style={{ "--rise-delay": "0.24s" } as React.CSSProperties}>
@@ -320,13 +320,13 @@ export default function Home() {
       {/* ───────────────────── Pricing ───────────────────── */}
       <section className="max-w-6xl mx-auto px-6 pb-24">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ink">Pay once. Keep it forever.</h2>
-          <p className="mt-4 text-lg text-ink-soft">Free to try. One unlock — not per month, not per year.</p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ink">Free to try. Then it's your call.</h2>
+          <p className="mt-4 text-lg text-ink-soft">One unlock, three ways to pay — buy it outright, or subscribe monthly or yearly. Same app either way.</p>
         </div>
 
         <div className="max-w-xl mx-auto">
           <div data-reveal className="relative rounded-[1.75rem] bg-ink text-paper p-10 flex flex-col shadow-lifted">
-            <span className="absolute -top-3.5 right-8 rounded-full bg-sun text-ink px-4 py-1.5 text-sm font-bold rotate-2 shadow-md">pay once, keep forever</span>
+            <span className="absolute -top-3.5 right-8 rounded-full bg-sun text-ink px-4 py-1.5 text-sm font-bold rotate-2 shadow-md">buy once or subscribe</span>
             <p className="text-sm font-bold uppercase tracking-wide text-paper/50 mb-6">What you get</p>
             <ul className="space-y-3 text-paper/80 mb-8 flex-1">
               <li className="flex gap-2.5"><span className="text-sun font-bold">✓</span> Unlimited stickers</li>

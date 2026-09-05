@@ -92,7 +92,7 @@ export default function ArticlePage() {
         name: "Is MemePouch free? Do I need a subscription?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "It's free to try. A one-time unlock removes the limit forever. No subscription, no ads.",
+          text: "It's free to try. A one-time unlock removes the limit forever, or you can subscribe. No ads either way.",
         },
       },
       {

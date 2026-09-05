@@ -57,7 +57,7 @@ export default function ArticlePage() {
         name: "Are any sticker apps free?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Apple's built-in tool is free. Most third-party apps run a free tier with limits and either a subscription or one-time unlock above that. MemePouch is free to try with a one-time unlock for unlimited (no subscription). Cross-platform sticker apps vary: Sticker.ly subscription-bills its premium features (smart search, AI creation, watermark removal — with a trial that requires a card on file); Sticker Maker Studio is free on the App Store.",
+          text: "Apple's built-in tool is free. Most third-party apps run a free tier with limits and either a subscription or one-time unlock above that. MemePouch is free to try, with a one-time unlock for unlimited or a monthly/yearly subscription — all three unlock the same app. Cross-platform sticker apps vary: Sticker.ly subscription-bills its premium features (smart search, AI creation, watermark removal — with a trial that requires a card on file); Sticker Maker Studio is free on the App Store.",
         },
       },
       {
@@ -266,8 +266,8 @@ export default function ArticlePage() {
             second one is rejected with a notice instead of cluttering the library.
           </li>
           <li>
-            <strong>One-time unlock</strong> after the free tier. No subscription, no
-            ads.
+            <strong>One-time unlock or subscription</strong> after the free tier — same
+            app either way. No ads.
           </li>
         </ul>
 
@@ -287,7 +287,8 @@ export default function ArticlePage() {
             your device.
           </li>
           <li>
-            <strong>No subscription tier.</strong> One-time unlock, that&apos;s it.
+            <strong>No premium tier.</strong> The cheapest option unlocks the same app as the
+              most expensive.
           </li>
         </ul>
 

@@ -34,7 +34,7 @@ const QA = [
   },
   {
     q: "Is MemePouch free?",
-    a: "Yes — it's free to try. A one-time in-app purchase unlocks unlimited stickers permanently — no subscription.",
+    a: "Yes — it's free to try. Unlock unlimited stickers with a one-time purchase that never expires, or with a monthly or yearly subscription. Same app either way.",
   },
   {
     q: "Does MemePouch upload my photos anywhere?",

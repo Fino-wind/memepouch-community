@@ -25,7 +25,7 @@ export default function ComparePage() {
           "@type": "Offer",
           price: "0",
           priceCurrency: "USD",
-          description: "One-time unlock, no subscription",
+          description: "One-time unlock or subscription",
         },
       },
       {
@@ -76,7 +76,7 @@ export default function ComparePage() {
         name: "Should I use MemePouch or Sticker.ly?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Sticker.ly is a subscription app (with a trial that requires a card on file) built around social discovery, verified profiles, AI sticker generation, and WhatsApp pack publishing. It does claim iMessage sticker support on its PLUS page, but it's not built around the 'save the sticker a friend sent you in iMessage' workflow. Pick Sticker.ly if you want a sticker community, AI-assisted creation, and cross-platform pack sharing — and don't mind a subscription. Pick MemePouch if you want a private library on iMessage with no subscription, no community feed, and the drag-import flow for saving friends' stickers.",
+          text: "Sticker.ly is a subscription app (with a trial that requires a card on file) built around social discovery, verified profiles, AI sticker generation, and WhatsApp pack publishing. It does claim iMessage sticker support on its PLUS page, but it's not built around the 'save the sticker a friend sent you in iMessage' workflow. Pick Sticker.ly if you want a sticker community, AI-assisted creation, and cross-platform pack sharing — and don't mind a subscription-only app. Pick MemePouch if you want a private library on iMessage, no community feed, and the drag-import flow for saving friends' stickers.",
         },
       },
       {
@@ -89,10 +89,10 @@ export default function ComparePage() {
       },
       {
         "@type": "Question",
-        name: "Why is MemePouch one-time price instead of subscription?",
+        name: "Does MemePouch charge a subscription?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "MemePouch is built by a solo developer who chose a one-time unlock instead of a subscription. There's no recurring fee, no ads, and no tier upsell. Sticker.ly subscription-bills the features it considers premium (smart search, exclusive stickers, AI creation, watermark removal) — MemePouch's whole-image library-first approach doesn't need any of those, so there's nothing to gate.",
+          text: "You choose. MemePouch is free to try; unlocking unlimited stickers is either a one-time purchase that never expires, or a monthly or yearly subscription. All three unlock exactly the same app — there is no premium tier, no ads, and no feature held back from the cheaper option. It is built by a solo developer, and the one-time option exists because some people would rather never think about it again.",
         },
       },
     ],
@@ -397,7 +397,8 @@ export default function ComparePage() {
               to your device.
             </li>
             <li>
-              <strong>No subscription tier.</strong> One-time unlock, that&apos;s it.
+              <strong>No premium tier.</strong> One unlock, three ways to pay — the cheapest one gets
+              you the same app as the most expensive.
             </li>
             <li>
               <strong>No cloud sync.</strong> Everything stays on your iPhone. No accounts, no
@@ -410,7 +411,7 @@ export default function ComparePage() {
       <div className="not-prose mt-16 rounded-3xl bg-slate-900 text-white p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
         <div>
           <p className="text-xl font-bold mb-1">If you primarily chat in iMessage, give MemePouch a try.</p>
-          <p className="text-ink-faint text-sm">Free to try. One-time unlock for unlimited — no subscription.</p>
+          <p className="text-ink-faint text-sm">Free to try. Unlock unlimited — once, or by subscription.</p>
         </div>
         <a
           href={APP_STORE_URL}

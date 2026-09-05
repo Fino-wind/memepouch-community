@@ -100,7 +100,7 @@ export default function ArticlePage() {
         name: "How much does it cost?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "It's free to try. A one-time unlock removes the limit forever. No ads, no recurring subscription.",
+          text: "It's free to try. A one-time unlock removes the limit forever, or you can subscribe. No ads either way.",
         },
       },
     ],

@@ -101,7 +101,7 @@ export default function ArticlePage() {
         name: "How much does it cost?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "MemePouch is free to try. A one-time unlock removes the sticker limit forever — no subscription, no ads.",
+          text: "MemePouch is free to try. A one-time unlock removes the sticker limit forever, or you can subscribe monthly or yearly. No ads either way.",
         },
       },
     ],
