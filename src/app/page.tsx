@@ -1,6 +1,66 @@
 import Link from "next/link";
 import { APP_STORE_URL } from "./site";
 
+const HOME_FAQ = [
+
+  {
+    q: "Does MemePouch remove backgrounds like Apple's tool?",
+    a: "No — that's the whole point. MemePouch keeps the framing and content exactly as you import it. No subject detection, no cutout.",
+  },
+  {
+    q: "Does MemePouch upload my photos anywhere?",
+    a: "No. Your stickers live in an on-device container shared between the app and the iMessage extension, and sync through your own iCloud if you leave that on — never through a server of ours. No accounts.",
+  },
+  {
+    q: "Can I make an animated sticker from a video?",
+    a: "Yes — pick a clip, trim up to 10 seconds, and MemePouch turns it into a looping GIF sticker that sends at full quality.",
+  }
+] as const;
+
+/** 首页此前【没有任何结构化数据】——而它是权重最高的一页，还挂着 3 条问答白白浪费。
+ *  SoftwareApplication 告诉 AI「这是什么」，FAQPage 直接从 HOME_FAQ 生成，
+ *  所以问答只有一份，改文案不会漏掉 schema。 */
+const HOME_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      name: "MemePouch",
+      description:
+        "MemePouch is a video-to-GIF converter and iMessage sticker manager for iPhone. It turns videos and Live Photos into looping GIFs at up to 50 fps with no watermark, and it is the only iPhone app that can save the stickers other people send you in iMessage.",
+      applicationCategory: "UtilitiesApplication",
+      applicationSubCategory: "Video to GIF converter, iMessage sticker manager",
+      operatingSystem: "iOS 16.0 or later",
+      url: "https://memepouch.tetherme.app",
+      downloadUrl: APP_STORE_URL,
+      inLanguage: ["en", "es", "ja", "ko", "pt-BR", "zh-Hans", "zh-Hant"],
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+        description: "Free to try; unlock unlimited stickers with a one-time purchase or a subscription",
+      },
+      featureList: [
+        "Video to GIF at up to 50 fps, no watermark",
+        "Smart loop seam detection and Boomerang mode",
+        "Save third-party stickers people send you in iMessage by drag-and-drop",
+        "Live Photo to GIF",
+        "Custom categories and pinned stickers",
+        "Export sticker packs to WhatsApp",
+        "iCloud backup across your own devices",
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: HOME_FAQ.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ],
+};
+
 const tilt = (deg: number) => ({ "--tilt": `${deg}deg` } as React.CSSProperties);
 
 function PhoneFrame({
@@ -29,6 +89,8 @@ function PhoneFrame({
 
 export default function Home() {
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(HOME_LD) }} />
     <div className="overflow-x-clip">
       {/* ───────────────────────── Hero ───────────────────────── */}
       <section className="relative pt-28 pb-16 lg:pt-40 lg:pb-24 mx-auto max-w-6xl px-6">
@@ -50,7 +112,7 @@ export default function Home() {
             </h1>
 
             <p className="rise text-xl md:text-2xl text-ink-soft font-medium mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed" style={{ "--rise-delay": "0.16s" } as React.CSSProperties}>
-              Custom iMessage stickers that keep the whole frame — text, background, hands, reaction context, all intact. No auto-cutout, no background removal. Free to try — then unlock it once, or subscribe. Your call.
+              MemePouch is a video-to-GIF converter and iMessage sticker manager for iPhone. Turn any video or Live Photo into a looping GIF at up to 50fps — no watermark — and keep the whole frame on every sticker: text, background, hands, reaction context, all intact. No auto-cutout, no background removal. Free to try — then unlock it once, or subscribe. Your call.
             </p>
 
             <div className="rise flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4" style={{ "--rise-delay": "0.24s" } as React.CSSProperties}>
@@ -416,20 +478,7 @@ export default function Home() {
       <section className="max-w-3xl mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-ink text-center mb-10">Quick answers</h2>
         <div className="space-y-4">
-          {[
-            {
-              q: "Does MemePouch remove backgrounds like Apple's tool?",
-              a: "No — that's the whole point. MemePouch keeps the framing and content exactly as you import it. No subject detection, no cutout.",
-            },
-            {
-              q: "Does MemePouch upload my photos anywhere?",
-              a: "No. Your stickers live in an on-device container shared between the app and the iMessage extension, and sync through your own iCloud if you leave that on — never through a server of ours. No accounts.",
-            },
-            {
-              q: "Can I make an animated sticker from a video?",
-              a: "Yes — pick a clip, trim up to 10 seconds, and MemePouch turns it into a looping GIF sticker that sends at full quality.",
-            },
-          ].map((item) => (
+          {HOME_FAQ.map((item) => (
             <details key={item.q} data-reveal className="pouch-card group px-7 py-5 open:shadow-lifted transition-shadow">
               <summary className="list-none [&::-webkit-details-marker]:hidden cursor-pointer flex items-center justify-between gap-4 font-bold text-ink text-lg">
                 {item.q}
@@ -446,5 +495,6 @@ export default function Home() {
         </p>
       </section>
     </div>
+    </>
   );
 }
