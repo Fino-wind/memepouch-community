@@ -19,9 +19,13 @@
 - 👀 **Preview before you send.** Long-press any GIF in your library for a full-screen animated preview.
 - 🧠 **Smart sorting.** Your library quietly floats the stickers you use most to the top, and keeps a freshly imported one up front for 24 hours. No settings to fiddle with.
 - 📌 **Pin to Top.** Long-press a sticker and pin your go-to reactions to the very front; drag the pinned ones into the exact order you want.
+- 🗂️ **Group them your way.** Make your own categories — cats, reactions, one per group chat — and long-press a sticker to file it. The tabs show up in the iMessage drawer too. Delete a category and the stickers stay.
+- ♻️ **Recently Deleted.** Deleted something by mistake? It waits 30 days — and survives reinstalling the app or switching phones.
+- ☁️ **Backs up to your own iCloud.** Delete the app, get a new iPhone, sign in — the stickers, categories and pinned order come back. It's your Apple ID's private storage, not a server of mine. On by default, switchable off in Settings.
+- 💬 **Send them in WhatsApp too.** Export any stickers as a WhatsApp pack — GIFs become animated WhatsApp stickers. Free, no unlock needed.
 - 🧹 **Clean up your camera roll.** Optional auto-delete moves the original photo to Trash after you've safely imported it.
-- 🌏 **Speaks your language.** English, 简体中文, and 繁體中文 (Hong Kong & Taiwan), following your iOS region or set manually.
-- 🔒 **Private by design.** No accounts, no servers holding your stickers — your library lives on your iPhone.
+- 🌏 **Speaks your language.** English, Español, 日本語, 한국어, Português (Brasil), 简体中文, and 繁體中文 — following your iOS region, or set it manually.
+- 🔒 **Private by design.** No accounts. Your library lives on your iPhone and, if you leave iCloud sync on, in *your own* iCloud — never on a server of ours. The app sends anonymous usage analytics (which features get used), never the stickers themselves.
 
 Want the full walkthroughs? The [website](https://memepouch.tetherme.app) has step-by-step guides for each of these.
 

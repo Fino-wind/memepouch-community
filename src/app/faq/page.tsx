@@ -37,8 +37,12 @@ const QA = [
     a: "Yes — it's free to try. Unlock unlimited stickers with a one-time purchase that never expires, or with a monthly or yearly subscription. Same app either way.",
   },
   {
+    q: "If I get a new iPhone, do I lose my stickers?",
+    a: "No. Your library backs up to your own iCloud (the private storage on your Apple ID, not a server of ours). Sign in on the new iPhone, open MemePouch, and the stickers, categories, pinned order and Recently Deleted all come back. It is on by default and can be switched off in Settings.",
+  },
+  {
     q: "Does MemePouch upload my photos anywhere?",
-    a: "No. Everything stays on your device in an App Group container shared between the main app and the iMessage extension. There are no servers and no accounts.",
+    a: "No. Your stickers live in an on-device container shared between the main app and the iMessage extension, and sync through your own iCloud if you leave that switched on — never through a server of ours. No accounts. The app does send anonymous usage analytics (which features get used, whether something failed) — never the stickers themselves.",
   },
   {
     q: "What image formats does MemePouch support?",

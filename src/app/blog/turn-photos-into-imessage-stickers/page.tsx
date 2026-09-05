@@ -181,8 +181,10 @@ export default function ArticlePage() {
           focused sticker collection that doesn&apos;t get mixed up with vacation pictures.
         </p>
         <p className="text-slate-700 leading-relaxed mb-6">
-          Because the entire library is stored locally on your iPhone, nothing leaves your
-          device. There are no servers, no analytics, and no accounts.
+          The library is stored locally on your iPhone, and syncs through your own iCloud if
+          you leave that switched on. There are no accounts, and no server of ours ever holds
+          your stickers. The app sends anonymous usage analytics — which features get used,
+          never the stickers themselves.
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">Wrapping up</h2>

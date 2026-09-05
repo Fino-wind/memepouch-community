@@ -401,8 +401,9 @@ export default function ComparePage() {
               you the same app as the most expensive.
             </li>
             <li>
-              <strong>No cloud sync.</strong> Everything stays on your iPhone. No accounts, no
-              servers, no analytics.
+              <strong>No account, ever.</strong> Your library lives on your iPhone and syncs through
+              your own iCloud — switch that off in Settings if you'd rather it didn't. No server
+              of ours ever holds your stickers.
             </li>
           </ul>
         </section>

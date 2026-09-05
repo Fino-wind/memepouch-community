@@ -91,7 +91,7 @@ export default function ArticlePage() {
         name: "Does MemePouch process my photo with AI before saving?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No. MemePouch imports the raw image bytes. Static stickers go through Apple's MSSticker API which has a 500 KB cap, so MemePouch auto-compresses the file if it's larger — but it never crops, never runs subject detection, never alters the framing. Everything happens on-device with no network round-trip and no analytics.",
+          text: "No. MemePouch imports the raw image bytes. Static stickers go through Apple's MSSticker API which has a 500 KB cap, so MemePouch auto-compresses the file if it's larger — but it never crops, never runs subject detection, never alters the framing. Everything happens on-device with no network round-trip — your image is never uploaded to be processed.",
         },
       },
       {
@@ -393,7 +393,7 @@ export default function ArticlePage() {
             <p className="text-slate-700 leading-relaxed">
               No. The import path is: read the file → if it&apos;s over the MSSticker 500 KB cap,
               compress (preserving aspect ratio and frame) → write to the app&apos;s on-device
-              library. No subject detection, no upscaling, no cloud calls, no analytics.
+              library. No subject detection, no upscaling, no cloud calls.
             </p>
           </div>
           <div>

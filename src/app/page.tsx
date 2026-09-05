@@ -292,6 +292,28 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Feature: Categories + Recently Deleted */}
+        <div data-reveal className="mt-6 pouch-card p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10 overflow-hidden relative">
+          <div aria-hidden="true" className="absolute -top-16 -left-16 w-64 h-64 rounded-full bg-mint/10" />
+          <div className="max-w-xl relative">
+            <div className="sticker-chip w-16 h-16 text-3xl mb-6" style={tilt(-4)}>🗂️</div>
+            <h3 className="text-3xl font-bold text-ink mb-4">Group Them Your Way</h3>
+            <p className="text-ink-soft text-lg leading-relaxed">Make your own categories — cats, reactions, one per group chat — and long-press any sticker to file it. The tabs show up in the iMessage drawer too, so the right set is one tap away mid-conversation. Delete a category and the stickers stay; they just go back to All.</p>
+            <p className="text-ink-soft text-lg leading-relaxed mt-4">Deleted something by mistake? It sits in <strong className="text-ink">Recently Deleted</strong> for 30 days — and it survives reinstalling the app or moving to a new iPhone.</p>
+          </div>
+          <div className="w-full md:w-auto relative">
+            <div className="bg-white border border-line shadow-lifted rounded-3xl p-6 w-full md:w-80 flex flex-col gap-4 -rotate-2 hover:-rotate-1 transition-transform">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="rounded-full bg-ink text-paper px-3 py-1 text-sm font-bold">All</span>
+                <span className="rounded-full bg-sun/25 text-ink px-3 py-1 text-sm font-semibold">Cats</span>
+                <span className="rounded-full bg-sun/25 text-ink px-3 py-1 text-sm font-semibold">Reactions</span>
+                <span className="rounded-full bg-line/60 text-ink-soft px-3 py-1 text-sm font-semibold">Unsorted</span>
+              </div>
+              <p className="text-sm text-ink-faint">Up to 30 categories. Long-press a sticker → Move to Category.</p>
+            </div>
+          </div>
+        </div>
+
         {/* Feature: WhatsApp Export */}
         <div data-reveal className="mt-6 pouch-card p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10 overflow-hidden relative">
           <div aria-hidden="true" className="absolute -bottom-16 -right-16 w-64 h-64 rounded-full bg-mint/10" />
@@ -312,6 +334,27 @@ export default function Home() {
                 <span className="inline-flex items-center rounded-full bg-mint px-4 py-1.5 text-sm font-bold text-ink">Add to WhatsApp</span>
               </div>
               <p className="text-sm text-ink-faint">Pick 3–30 stickers, tap Add, confirm in WhatsApp. Done.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Feature: iCloud Backup */}
+        <div data-reveal className="mt-6 pouch-card p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10 overflow-hidden relative">
+          <div aria-hidden="true" className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-sun/15" />
+          <div className="max-w-xl relative">
+            <div className="sticker-chip w-16 h-16 text-3xl mb-6" style={tilt(5)}>☁️</div>
+            <h3 className="text-3xl font-bold text-ink mb-4">Delete the App. Get a New iPhone. They Come Back.</h3>
+            <p className="text-ink-soft text-lg leading-relaxed">Your library backs up to <strong className="text-ink">your own iCloud</strong> — the private part of your Apple ID, not a server of ours. Sign in on a new iPhone and the stickers, the categories, the pinned order and even Recently Deleted are all waiting. It&apos;s on by default; switch it off in Settings if you&apos;d rather keep everything strictly on one device.</p>
+          </div>
+          <div className="w-full md:w-auto relative">
+            <div className="bg-white border border-line shadow-lifted rounded-3xl p-6 w-full md:w-80 flex flex-col gap-4 rotate-2 hover:rotate-1 transition-transform">
+              <div className="flex items-center justify-between">
+                <span className="font-semibold text-ink">iCloud Backup</span>
+                <div className="w-12 h-7 bg-mint rounded-full flex items-center px-1 justify-end">
+                  <div className="w-5 h-5 bg-white rounded-full shadow-sm" />
+                </div>
+              </div>
+              <p className="text-sm text-ink-faint">Saved to your own iCloud. We can&apos;t see it, and it never passes through a server of ours.</p>
             </div>
           </div>
         </div>
@@ -354,7 +397,7 @@ export default function Home() {
             },
             {
               q: "Does MemePouch upload my photos anywhere?",
-              a: "No. Everything stays on your device in a container shared between the app and the iMessage extension. No servers, no accounts.",
+              a: "No. Your stickers live in an on-device container shared between the app and the iMessage extension, and sync through your own iCloud if you leave that on — never through a server of ours. No accounts.",
             },
             {
               q: "Can I make an animated sticker from a video?",
