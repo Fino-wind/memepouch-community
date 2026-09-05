@@ -1,0 +1,8 @@
+#!/bin/sh
+# 网站事实守卫。装法（换机器 / 重新 clone 后要再跑一次）：
+#   ln -sf ../../scripts/ci/pre-commit .git/hooks/pre-commit
+#
+# 只在改到文案/页面时跑（脚本本身是亚秒级的，但没必要在改配置时打扰）。
+if git diff --cached --name-only | grep -qE '\.(tsx|ts|md)$'; then
+    python3 "$(git rev-parse --show-toplevel)/scripts/ci/check_site_facts.py" || exit 1
+fi
