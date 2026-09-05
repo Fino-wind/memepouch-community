@@ -59,7 +59,7 @@ export default function ArticlePage() {
       {
         "@type": "HowToStep",
         name: "Save as GIF sticker",
-        text: "Tap Create GIF Sticker. The encoder tries four recipes (15 → 8 fps, 300 → 180 px max dim) and ships the first one that fits iMessage's 10 MB attachment limit.",
+        text: "Tap Create GIF Sticker. The encoder tries seven recipes (50 → 10 fps, 600 → 200 px max dim) and ships the first one that fits iMessage's 10 MB attachment limit.",
       },
     ],
   };
@@ -222,14 +222,17 @@ export default function ArticlePage() {
       </h2>
       <p className="text-slate-700 leading-relaxed">
         iMessage attachments cap at roughly 10 MB. To send a sharp GIF at that ceiling,
-        MemePouch tries four recipes in order, stepping down both framerate and resolution
+        MemePouch tries seven recipes in order, stepping down both framerate and resolution
         in tandem so quality degrades smoothly instead of falling off a cliff:
       </p>
       <ol className="list-decimal pl-6 space-y-1 text-slate-700 leading-relaxed">
-        <li><strong>15 fps</strong>, max 300 px on the longest edge — sharp, smooth motion</li>
-        <li><strong>12 fps</strong>, max 260 px — small step down for slightly heavier clips</li>
-        <li><strong>10 fps</strong>, max 220 px — for longer / more visually complex clips</li>
-        <li><strong>8 fps</strong>, max 180 px — last resort, still sends, still recognizable</li>
+        <li><strong>50 fps</strong>, max 600 px on the longest edge — the GIF format&apos;s own ceiling</li>
+        <li><strong>33.3 fps</strong>, max 520 px</li>
+        <li><strong>25 fps</strong>, max 440 px</li>
+        <li><strong>20 fps</strong>, max 360 px</li>
+        <li><strong>16.7 fps</strong>, max 300 px</li>
+        <li><strong>12.5 fps</strong>, max 240 px</li>
+        <li><strong>10 fps</strong>, max 200 px — last resort, still sends, still recognizable</li>
       </ol>
       <p className="text-slate-700 leading-relaxed">
         The first recipe that produces a file under 10 MB ships. Most 1–3 second clips fit
