@@ -118,6 +118,13 @@ export default function ArticlePage() {
         </h1>
         <p className="text-sm text-slate-500 mb-8">Last updated 2026-05-14 · iOS 16+</p>
 
+        <p className="text-lg text-slate-700 mb-6 leading-relaxed font-medium">
+          <strong>Short answer:</strong> iOS can&apos;t turn an arbitrary video into a GIF sticker on
+          its own. With MemePouch you share the video (or Live Photo) into the app, trim up to
+          10 seconds, and it becomes an animated GIF sticker in your iMessage keyboard — full frame,
+          no auto-cutout, no watermark, up to 50 fps. Free to try on iPhone, iOS 16+.
+        </p>
+
         <p className="text-lg text-slate-700 mb-6 leading-relaxed">
           iMessage doesn&apos;t have a built-in way to turn an arbitrary video into a GIF sticker. iOS
           17 added &quot;Live Stickers&quot; from Live Photos, but it auto-cuts out the subject (often

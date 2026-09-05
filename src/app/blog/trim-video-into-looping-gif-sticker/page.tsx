@@ -122,6 +122,14 @@ export default function ArticlePage() {
       </h1>
       <p className="text-sm text-slate-500 mb-8 not-prose">Last updated 2026-08-26 · iOS 16+ · 3 min read</p>
 
+      <p className="text-lg text-slate-700 leading-relaxed font-medium">
+        <strong>Short answer:</strong> record or pick the clip, share it into MemePouch, drag the
+        two trim handles to the moment you want (up to 10 seconds), leave the loop mode on
+        <strong> Smart</strong>, and tap Create GIF Sticker. You get a looping GIF at up to
+        <strong> 50 frames per second and 600 px</strong> with no watermark, ready to send in
+        iMessage. Free to try on iPhone, iOS 16+.
+      </p>
+
       <p className="text-lg text-slate-700 leading-relaxed">
         The reason most homemade GIF stickers look amateur is a visible <em>seam</em> — the
         moment the GIF loops, the last frame jumps to the first and the cut shows. Even a
