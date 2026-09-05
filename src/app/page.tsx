@@ -158,8 +158,9 @@ export default function Home() {
               </h2>
               <p className="text-paper/70 text-lg leading-relaxed mb-6">
                 iOS shows the button, but tapping it stalls — Apple&apos;s system sticker daemon
-                drops the connection. The path that actually works: drag the sticker into MemePouch.
-                Animated GIFs and static stickers, real-device tested.
+                drops the connection. The path that actually works: drag it into MemePouch. And it
+                doesn&apos;t care what they sent — Apple&apos;s own stickers, packs from other sticker
+                apps, animated GIFs, plain photos. All real-device tested.
               </p>
               <span className="inline-flex items-center gap-2 text-base font-bold text-paper group-hover:gap-3.5 transition-all">
                 See how it works
@@ -244,7 +245,7 @@ export default function Home() {
             <div className="sticker-chip w-16 h-16 text-3xl mb-6" style={tilt(-7)}>👆</div>
             <div>
               <h3 className="text-xl font-bold text-ink mb-2">Drag &amp; Drop</h3>
-              <p className="text-ink-soft leading-relaxed">Long-press a sticker someone sent, keep holding, open MemePouch in the iMessage drawer with another finger, and drop it into the grid.</p>
+              <p className="text-ink-soft leading-relaxed">Long-press anything someone sent — a sticker, a GIF, a photo — keep holding, open MemePouch in the iMessage drawer with another finger, and drop it into the grid.</p>
             </div>
           </div>
         </div>
@@ -288,6 +289,31 @@ export default function Home() {
                 </span>
               </div>
               <p className="text-sm text-ink-faint">Long-press any sticker and choose Pin to Top. Drag the pinned ones to reorder.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Feature: GIF loop modes */}
+        <div data-reveal className="mt-6 pouch-card p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10 overflow-hidden relative">
+          <div aria-hidden="true" className="absolute -bottom-16 -right-16 w-64 h-64 rounded-full bg-grape/10" />
+          <div className="max-w-xl relative">
+            <div className="sticker-chip w-16 h-16 text-3xl mb-6" style={tilt(-6)}>🔁</div>
+            <h3 className="text-3xl font-bold text-ink mb-4">Loops That Don&apos;t Jump</h3>
+            <p className="text-ink-soft text-lg leading-relaxed">Most GIFs snap back to the first frame — you see the cut every time it repeats. <strong className="text-ink">Smart</strong> hunts for the end frame that best matches the start, so the loop closes on itself. <strong className="text-ink">Boomerang</strong> plays forward then back, which always loops cleanly. <strong className="text-ink">Off</strong> keeps the clip exactly as shot, and the file smallest.</p>
+            <p className="text-ink-soft text-lg leading-relaxed mt-4">Everything renders at up to <strong className="text-ink">50 frames per second</strong> — the format&apos;s ceiling — and if a clip won&apos;t fit iMessage&apos;s 10 MB limit, MemePouch steps the frame rate and size down on its own until it does. You never see a size error you have to solve yourself.</p>
+          </div>
+          <div className="w-full md:w-auto relative">
+            <div className="bg-white border border-line shadow-lifted rounded-3xl p-6 w-full md:w-80 flex flex-col gap-3 rotate-2 hover:rotate-1 transition-transform">
+              <div className="flex items-center justify-between">
+                <span className="font-semibold text-ink">Loop</span>
+                <span className="text-sm text-ink-faint">Trim 3.0 s</span>
+              </div>
+              <div className="flex gap-2">
+                <span className="flex-1 text-center rounded-xl bg-ink text-paper px-3 py-2 text-sm font-bold">Smart</span>
+                <span className="flex-1 text-center rounded-xl bg-line/50 text-ink-soft px-3 py-2 text-sm font-semibold">Boomerang</span>
+                <span className="flex-1 text-center rounded-xl bg-line/50 text-ink-soft px-3 py-2 text-sm font-semibold">Off</span>
+              </div>
+              <p className="text-sm text-ink-faint">Finds the end frame that best matches the start, so the loop is seamless.</p>
             </div>
           </div>
         </div>

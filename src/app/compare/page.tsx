@@ -9,6 +9,29 @@ export const metadata: Metadata = {
   alternates: { canonical: "/compare" },
 };
 
+
+/**
+ * 单一真相源：这四句「该选谁」的判断，JSON-LD（进 Google rich result 与 AI 语料）
+ * 和页面正文共用同一份文字。
+ *
+ * 为什么提出来：2026-09-06 修「no subscription」时，同一句话在结构化数据和正文
+ * 各写了一遍，改了前者漏了后者——本地 grep 报「全站零命中」，线上才抓到。
+ * 现在改这里，两处一起变。
+ *
+ * ⚠️ vsStickerMaker 在正文里另有一份带内嵌 <strong> 的富文本版本（搜
+ * "single library-first grid"）。那一份没法直接复用这个字符串，改事实时两处都要动。
+ */
+const PICK = {
+  stickerly:
+    "you want a sticker community, AI-assisted creation, GIPHY browsing, and cross-platform pack sharing — and you're comfortable with a subscription and a card-on-file 3-day trial",
+  vsStickerly:
+    "you want a private iMessage-only library, no community feed, and the drag-import flow to save the stickers your friends send you in iMessage",
+  stickerMaker:
+    "you want a free way to build named sticker packs for WhatsApp; you like browsing community packs other people built; and you don't mind naming and organizing each pack before adding stickers to it",
+  vsStickerMaker:
+    "you want a single library-first grid instead of named packs, a private library (no community feed), and the drag-import flow for saving stickers your friends send you in iMessage — something Sticker Maker Studio doesn't document",
+} as const;
+
 export default function ComparePage() {
   const COMPARE_LD = {
     "@context": "https://schema.org",
@@ -76,7 +99,7 @@ export default function ComparePage() {
         name: "Should I use MemePouch or Sticker.ly?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Sticker.ly is a subscription app (with a trial that requires a card on file) built around social discovery, verified profiles, AI sticker generation, and WhatsApp pack publishing. It does claim iMessage sticker support on its PLUS page, but it's not built around the 'save the sticker a friend sent you in iMessage' workflow. Pick Sticker.ly if you want a sticker community, AI-assisted creation, and cross-platform pack sharing — and don't mind a subscription-only app. Pick MemePouch if you want a private library on iMessage, no community feed, and the drag-import flow for saving friends' stickers.",
+          text: `Sticker.ly is a subscription app (with a trial that requires a card on file) built around social discovery, verified profiles, AI sticker generation, and WhatsApp pack publishing. It does claim iMessage sticker support on its PLUS page, but it's not built around the 'save the sticker a friend sent you in iMessage' workflow. Pick Sticker.ly if ${PICK.stickerly}. Pick MemePouch if ${PICK.vsStickerly}.`,
         },
       },
       {
@@ -84,7 +107,7 @@ export default function ComparePage() {
         name: "Should I use MemePouch or Sticker Maker Studio?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Sticker Maker Studio (by Tamara Vardanyan) is free and built around a pack-based workflow: name a pack, add stickers, then add the pack to WhatsApp or iMessage. It supports community pack sharing and has background removal built in. Pick Sticker Maker Studio if you want free pack export to WhatsApp and don't mind organizing stickers into named packs. Pick MemePouch if you want a single library-first grid (no pack ceremony), no community feed, and the drag-import flow for saving friends' iMessage stickers — Sticker Maker Studio doesn't document that workflow.",
+          text: `Sticker Maker Studio (by Tamara Vardanyan) is free and built around a pack-based workflow: name a pack, add stickers, then add the pack to WhatsApp or iMessage. It supports community pack sharing and has background removal built in. Pick Sticker Maker Studio if ${PICK.stickerMaker}. Pick MemePouch if ${PICK.vsStickerMaker}.`,
         },
       },
       {
@@ -295,14 +318,10 @@ export default function ComparePage() {
             you in iMessage&quot; workflow.
           </p>
           <p className="text-ink-soft leading-relaxed mb-4">
-            <strong>Pick Sticker.ly if:</strong> you want a sticker community, AI-assisted
-            creation, GIPHY browsing, and cross-platform pack sharing — and you&apos;re comfortable
-            with a subscription and a card-on-file 3-day trial.
+            <strong>Pick Sticker.ly if:</strong> {PICK.stickerly}.
           </p>
           <p className="text-ink-soft leading-relaxed">
-            <strong>Pick MemePouch if:</strong> you want a private iMessage-only library,
-            no community feed, and the drag-import flow to save the stickers your
-            friends send you in iMessage.
+            <strong>Pick MemePouch if:</strong> {PICK.vsStickerly}.
           </p>
         </section>
 
@@ -328,9 +347,7 @@ export default function ComparePage() {
             shape</strong> and <strong>what each app is built around</strong>.
           </p>
           <p className="text-ink-soft leading-relaxed mb-4">
-            <strong>Pick Sticker Maker Studio if:</strong> you want a free way to build named
-            sticker packs for WhatsApp; you like browsing community packs other people built;
-            and you don&apos;t mind naming and organizing each pack before adding stickers to it.
+            <strong>Pick Sticker Maker Studio if:</strong> {PICK.stickerMaker}.
           </p>
           <p className="text-ink-soft leading-relaxed">
             <strong>Pick MemePouch if:</strong> you want a{" "}
