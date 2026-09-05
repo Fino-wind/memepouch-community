@@ -288,8 +288,8 @@ export default function ArticlePage() {
           <div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">How much does it cost?</h3>
             <p className="text-slate-700 leading-relaxed">
-              Free to try. A one-time unlock removes the limit forever. No ads, no
-              subscription.
+              Free to try. A one-time unlock removes the limit forever, or you can
+              subscribe. No ads either way.
             </p>
           </div>
         </div>

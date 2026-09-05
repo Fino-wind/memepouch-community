@@ -266,8 +266,8 @@ export default function ArticlePage() {
           <div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">Is MemePouch free? Do I need a subscription?</h3>
             <p className="text-slate-700 leading-relaxed">
-              Free to try. A one-time unlock removes the cap forever. No
-              subscription, no ads.
+              Free to try. A one-time unlock removes the cap forever, or you can
+              subscribe. No ads either way.
             </p>
           </div>
           <div>

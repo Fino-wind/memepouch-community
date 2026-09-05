@@ -118,8 +118,8 @@ export default function ComparePage() {
         <p className="text-sm uppercase tracking-wider text-ink-faint font-semibold mb-2">In one line</p>
         <p className="text-base leading-relaxed">
           <strong>MemePouch is iMessage-only and library-first.</strong> One shared sticker
-          grid (no pack ceremony), private library (no community feed), one-time unlock (no
-          subscription), and one of the few iMessage sticker apps that wires up both drag
+          grid (no pack ceremony), private library (no community feed), one unlock that's
+          either a one-time purchase or a subscription, and one of the few iMessage sticker apps that wires up both drag
           flows for saving the stickers your friends send you. The whole-frame import (no
           auto-cutout) sets MemePouch apart from Apple&apos;s built-in tool; against other
           sticker apps the bigger differences are <em>workflow shape</em> and{" "}
@@ -300,8 +300,8 @@ export default function ComparePage() {
             with a subscription and a card-on-file 3-day trial.
           </p>
           <p className="text-ink-soft leading-relaxed">
-            <strong>Pick MemePouch if:</strong> you want a private iMessage-only library, no
-            subscription, no community feed, and the drag-import flow to save the stickers your
+            <strong>Pick MemePouch if:</strong> you want a private iMessage-only library,
+            no community feed, and the drag-import flow to save the stickers your
             friends send you in iMessage.
           </p>
         </section>
