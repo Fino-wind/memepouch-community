@@ -117,6 +117,21 @@ export default function RootLayout({
       className={`${bricolage.variable} ${instrument.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col grain">
+        {/* PostHog（project 269900「Websites」· 2026-09-09 接入）
+            不进 MemePouch 那个 project：mp-now / mp-detail 的 DAU 查询没有 app 过滤，
+            网页访客会被算成 app 用户。营销站单独一个 project，两边都干净。
+            内部流量：访问一次 ?ph_internal=1 即永久打标（localStorage），此后事件带 internal:true。 */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var s=document.createElement('script');
+s.src='https://eu-assets.i.posthog.com/static/array.js';s.async=true;
+s.onload=function(){posthog.init('phc_xEgkGFfkrWRpvur6C8v4U7KyDgFoGTdVDRt7bj5TMGFB',{api_host:'https://eu.i.posthog.com',defaults:'2025-05-24',person_profiles:'identified_only'});
+posthog.register({app:'memepouch-web'});
+try{if(new URLSearchParams(location.search).has('ph_internal'))localStorage.setItem('ph_internal','1');
+if(localStorage.getItem('ph_internal')==='1')posthog.register({internal:true});}catch(e){}};
+document.head.appendChild(s);})();`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(APP_LD) }}
