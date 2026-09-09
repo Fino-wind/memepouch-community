@@ -117,7 +117,7 @@ export default function RootLayout({
       className={`${bricolage.variable} ${instrument.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col grain">
-        {/* PostHog（project 269900「Websites」· 2026-09-09 接入）
+        {/* PostHog（project 269900「memepouch.tetherme.app」· 2026-09-09 接入）
             不进 MemePouch 那个 project：mp-now / mp-detail 的 DAU 查询没有 app 过滤，
             网页访客会被算成 app 用户。营销站单独一个 project，两边都干净。
             内部流量：访问一次 ?ph_internal=1 即永久打标（localStorage），此后事件带 internal:true。 */}
