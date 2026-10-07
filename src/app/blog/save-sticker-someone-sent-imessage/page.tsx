@@ -150,14 +150,16 @@ export default function ArticlePage() {
           one-time unlock removes the cap — or subscribe, if that suits you better.
         </p>
 
-        <aside className="not-prose mb-12 rounded-3xl border border-slate-200 bg-gradient-to-br from-blue-50 via-white to-purple-50 p-6 sm:p-8 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-wide text-slate-500 mb-3">
-            The short version
+        <aside className="not-prose mb-12 rounded-3xl border border-blue-200 bg-gradient-to-br from-blue-50 via-white to-purple-50 p-6 sm:p-8 shadow-sm">
+          <p className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-2">
+            Direct Answer / The Working Fix
           </p>
-          <p className="text-lg sm:text-xl font-medium text-slate-900 leading-snug mb-6">
-            iOS&apos;s Save to Stickers button hangs when you tap it on a third-party sticker. The
-            two reliable ways are both drag flows into MemePouch — two fingers if MemePouch
-            isn&apos;t open yet, one finger if it is.
+          <p className="text-lg sm:text-xl font-medium text-slate-900 leading-snug mb-4">
+            Apple&apos;s built-in <strong>Save to Stickers</strong> button hangs indefinitely on third-party stickers due to an iOS daemon bug. 
+            The only working workaround to save a friend&apos;s sticker into your keyboard is dragging it directly into <strong>MemePouch</strong>.
+          </p>
+          <p className="text-slate-600 mb-6 text-sm sm:text-base leading-relaxed">
+            Long-press the sticker in iMessage, use a second finger to open MemePouch in the app drawer, and drop it on the grid. It saves the sticker permanently with full animation intact.
           </p>
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             <a

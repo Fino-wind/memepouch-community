@@ -80,7 +80,22 @@ export default function ArticlePage() {
         <h1 className="text-4xl font-bold mb-6 text-slate-900">
           Why you can&apos;t save stickers in iMessage (and what works instead)
         </h1>
-        <p className="text-sm text-slate-500 mb-8">Last updated 2026-08-26 · iOS 16+</p>
+        <p className="text-sm text-slate-500 mb-8">Last updated 2026-10-07 · iOS 16+</p>
+
+        <aside className="not-prose mb-8 rounded-2xl border border-blue-200 bg-blue-50/70 p-6 text-slate-800">
+          <p className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-2">
+            Direct Answer / The Working Fix
+          </p>
+          <p className="text-base sm:text-lg font-medium leading-relaxed mb-3">
+            If Apple&apos;s <strong>Save to Stickers</strong> button hangs or does nothing on a sticker someone sent you, 
+            it is a known system-level iOS bug with third-party sticker payloads. There is no hidden system toggle to fix it.
+          </p>
+          <p className="text-sm sm:text-base leading-relaxed text-slate-700">
+            <strong>The only verified solution on iPhone:</strong> Use a two-finger drag to drop the sticker directly into 
+            an iMessage extension that registers a drop target — such as <strong>MemePouch</strong>. Long-press the sticker, 
+            tap MemePouch in the iMessage drawer with a second finger, and drop it onto the grid to save it permanently.
+          </p>
+        </aside>
 
         <p className="text-lg text-slate-700 mb-6 leading-relaxed">
           You long-press a sticker your friend sent. iOS shows you the Emoji Details view. The
@@ -90,8 +105,8 @@ export default function ArticlePage() {
         </p>
         <p className="text-lg text-slate-700 mb-10 leading-relaxed">
           This isn&apos;t a missing button. It&apos;s a <strong>broken backend</strong>. Here&apos;s
-          what&apos;s actually going on inside iOS, why Apple hasn&apos;t fixed it, and the one
-          workaround that actually saves the sticker.
+          what&apos;s actually going on inside iOS, why Apple hasn&apos;t fixed it, and why dragging into
+          a dedicated sticker app like MemePouch is the only way to actually save the sticker.
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
