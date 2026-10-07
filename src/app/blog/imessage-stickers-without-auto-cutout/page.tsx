@@ -140,7 +140,7 @@ export default function ArticlePage() {
           iMessage stickers without auto-cutout: keep the whole image
         </h1>
         <p className="text-sm text-slate-500 mb-8">
-          Last updated 2026-05-16 · iOS 16+ ·{" "}
+          Last updated 2026-10-07 · iOS 16+ ·{" "}
           <Link
             href="/blog/zh-Hant/imessage-stickers-without-auto-cutout"
             hrefLang="zh-Hant"
@@ -158,6 +158,20 @@ export default function ArticlePage() {
           </Link>
         </p>
 
+        <aside className="not-prose mb-8 rounded-2xl border border-blue-200 bg-blue-50/70 p-6 text-slate-800">
+          <p className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-2">
+            Direct Answer / How to Keep the Whole Image
+          </p>
+          <p className="text-base sm:text-lg font-medium leading-relaxed mb-3">
+            Apple&apos;s built-in <strong>Add Sticker</strong> feature forces automatic subject cutout using the Vision framework. 
+            There is <strong>no system setting</strong> in iOS to disable auto-cutout or save a full rectangular image as a native sticker.
+          </p>
+          <p className="text-sm sm:text-base leading-relaxed text-slate-700">
+            <strong>The working solution:</strong> Use a dedicated sticker app that bypasses Apple&apos;s cutout pipeline — such as <strong>MemePouch</strong>. 
+            MemePouch uses the public Messages sticker framework to import raw images, GIFs, and videos directly without subject detection, preserving all meme text, borders, and reaction context.
+          </p>
+        </aside>
+
         <p className="text-lg text-slate-700 mb-6 leading-relaxed">
           You long-press a meme in Photos. You tap Add Sticker. iOS does its little subject-detection
           animation. The result drops the punchline. The reaction face is gone. The text overlay is
@@ -168,7 +182,7 @@ export default function ArticlePage() {
           This is not a bug. Apple&apos;s <strong>Add Sticker</strong> always runs the cutout, and
           there is <strong>no setting to turn it off</strong>. Here&apos;s why iOS does it, why
           third-party apps can&apos;t turn it off either, and the path that actually keeps the full
-          image: a sticker pack app that imports stickers without going anywhere near the system
+          image: using MemePouch to import stickers without going anywhere near the system
           cutout pipeline.
         </p>
 
