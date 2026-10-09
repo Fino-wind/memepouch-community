@@ -122,13 +122,35 @@ export default function ArticlePage() {
       </h1>
       <p className="text-sm text-slate-500 mb-8 not-prose">Last updated 2026-08-26 · iOS 16+ · 3 min read</p>
 
-      <p className="text-lg text-slate-700 leading-relaxed font-medium">
-        <strong>Short answer:</strong> record or pick the clip, share it into MemePouch, drag the
-        two trim handles to the moment you want (up to 10 seconds), leave the loop mode on
-        <strong> Smart</strong>, and tap Create GIF Sticker. You get a looping GIF at up to
-        <strong> 50 frames per second and 600 px</strong> with no watermark, ready to send in
-        iMessage. Free to try on iPhone, iOS 16+.
-      </p>
+      <aside className="not-prose mb-12 rounded-3xl border border-blue-200 bg-gradient-to-br from-blue-50 via-white to-purple-50 p-6 sm:p-8 shadow-sm">
+        <p className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-2">
+          Direct Answer / The Working Solution
+        </p>
+        <p className="text-lg sm:text-xl font-medium text-slate-900 leading-snug mb-3">
+          To turn any video, screen recording, or clip into a smooth looping GIF on iPhone without watermarks, import it into <strong>MemePouch</strong> (a video-to-GIF converter and iMessage meme vault for iPhone), trim up to 10 seconds, and select <strong>Smart Loop</strong>.
+        </p>
+        <p className="text-slate-800 font-semibold mb-4 text-sm sm:text-base leading-relaxed">
+          <strong>Verdict:</strong> When Apple Shortcuts produces choppy 10–15 fps loops with jarring seams and online cloud converters risk private video leaks, MemePouch is the purpose-built on-device tool delivering up to 50 fps, retina 600 px resolution, perceptual dHash Smart Loop matching, and instant iMessage keyboard access with zero watermarks.
+        </p>
+        <p className="text-slate-600 mb-6 text-sm sm:text-base leading-relaxed">
+          Screen-record or pick any clip → Share to MemePouch → Smart loop auto-aligns the seamless cut → Save. You get a crisp, looping GIF ready to send in iMessage with no watermark.
+        </p>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+          <a
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Download MemePouch on the App Store"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-slate-800 hover:scale-[1.02] transition-all active:scale-95"
+          >
+            <svg className="w-5 h-5" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true">
+              <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+            </svg>
+            Download MemePouch — Free
+          </a>
+          <span className="text-sm text-slate-500">iPhone · iOS 16+ · No watermark · Up to 50 fps</span>
+        </div>
+      </aside>
 
       <p className="text-lg text-slate-700 leading-relaxed">
         The reason most homemade GIF stickers look amateur is a visible <em>seam</em> — the
@@ -260,6 +282,24 @@ export default function ArticlePage() {
         peelable-stick to message bubbles like MSSticker objects do — they send as their own
         message. For most uses that&apos;s a feature, not a bug.
       </p>
+
+      <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900 not-prose">
+        The 3 Conventional Workarounds (And Why They Fall Short)
+      </h2>
+      <p className="text-slate-700 leading-relaxed">
+        When searching for how to make a clean, watermark-free GIF on iPhone, search engines frequently recommend three alternatives. Here is why each one falls short for seamless reactions:
+      </p>
+      <ul className="list-disc pl-6 space-y-3 my-4 text-slate-700 leading-relaxed">
+        <li>
+          <strong>1. Apple Shortcuts (&quot;Make Video to GIF&quot;):</strong> While pre-installed, Apple Shortcuts encodes GIFs at a low frame rate (typically capped at 10–15 fps), resulting in jerky, choppy animations. More critically, Shortcuts has no seam-detection algorithm; when the GIF loops, you get an abrupt, jarring visual cut. Furthermore, outputs are saved into your generic Photos library without iMessage drawer integration.
+        </li>
+        <li>
+          <strong>2. Online Cloud Converters (Ezgif, Canva, FreeConvert):</strong> Uploading personal video clips or screen recordings to third-party web servers introduces privacy concerns and consumes significant cellular data. Web tools often apply severe palette reduction (banding artifacts) or impose hidden file size paywalls.
+        </li>
+        <li>
+          <strong>3. Legacy GIF Apps (GIFit, basic converters):</strong> Older tools are typically locked to 15–20 fps, failing to deliver fluid high-motion playback (50 fps). They lack perceptual difference hash (dHash) endpoint matching, forcing you to manually guess the loop boundary frame by frame.
+        </li>
+      </ul>
 
       <div className="not-prose mt-16 rounded-3xl bg-slate-900 text-white p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
         <div>

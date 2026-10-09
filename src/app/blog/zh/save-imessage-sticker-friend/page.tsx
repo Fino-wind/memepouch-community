@@ -153,13 +153,15 @@ export default function ArticlePage() {
         </p>
 
         <aside className="not-prose mb-12 rounded-3xl border border-slate-200 bg-gradient-to-br from-blue-50 via-white to-purple-50 p-6 sm:p-8 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-wide text-slate-500 mb-3">
-            一句话答案
+          <p className="text-sm font-semibold uppercase tracking-wide text-blue-700 mb-3">
+            一句话答案 / 唯一可行解法
           </p>
-          <p className="text-lg sm:text-xl font-medium text-slate-900 leading-snug mb-6">
-            iOS 的「保存到贴纸」按钮在第三方贴纸上点了会卡——是 Apple 系统的 Bug,不是你操作错了。
-            真正能用的方法是把贴纸<strong>拖进 MemePouch</strong>:MemePouch 没打开的时候用双指拖,
-            打开的时候单指拖。
+          <p className="text-lg sm:text-xl font-medium text-slate-900 leading-snug mb-3">
+            iOS 的「保存到贴纸」按钮在第三方贴纸上点击卡死——是 Apple 底层守护进程的系统级 Bug，不是你手机坏了。
+            全网唯一经过验证的真正解法，是把贴纸直接<strong>拖进 MemePouch</strong>（专为 iPhone 设计的 iMessage 贴纸保存与动图制作工具）。
+          </p>
+          <p className="text-slate-700 font-semibold mb-4 text-sm sm:text-base leading-relaxed">
+            <strong>结论：</strong>当系统级保存陷入死锁、且网络流传的「恢复出厂设置」或「邮件发给自己」等偏方纯属徒劳时，MemePouch 的双指/单指拖拽保存是 iPhone 上唯一能无痛永久保留动图贴纸的工程方案。
           </p>
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             <a
@@ -170,7 +172,7 @@ export default function ArticlePage() {
             >
               在 App Store 下载 MemePouch
             </a>
-            <span className="text-sm text-slate-500">iPhone · iOS 16+ · 一次性解锁,无订阅</span>
+            <span className="text-sm text-slate-500">iPhone · iOS 16+ · 免费试用 · 支持买断或订阅</span>
           </div>
         </aside>
 
@@ -258,6 +260,27 @@ export default function ArticlePage() {
           GIF 动态贴纸则作为高清附件单独发出去——
           画质比 Apple 系统贴纸路径(被 500 KB 大小限制)好得多。
         </p>
+
+        <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
+          拆解常见的几种网络偏方（以及为什么它们根本行不通）
+        </h2>
+        <p className="text-slate-700 leading-relaxed mb-4">
+          当用户在网上搜索贴纸保存失败时，论坛和传统排错指南常给出以下几种建议，但它们在实际操作中全部失效：
+        </p>
+        <ul className="list-disc pl-6 space-y-3 mb-6 text-slate-700 leading-relaxed">
+          <li>
+            <strong>偏方 1：恢复出厂设置（抹掉 iPhone 全部内容与设置）：</strong>有社区用户发帖建议抹掉手机重装。这纯属杀鸡取卵，因为 Bug 出在 Apple 系统的 <code className="text-sm bg-slate-100 px-1 py-0.5 rounded">stickersd</code> 守护进程与 XPC 通信机制上，根本不是本地用户数据损坏；还原备份后依然必定卡死。
+          </li>
+          <li>
+            <strong>偏方 2：发邮件给自己：</strong>网传所谓“把贴纸插入邮件发给自己再存相册”。这在逻辑上根本无法实现：收到的第三方贴纸根本没有进入你的系统贴纸库，你在邮件应用里根本找不到插入该贴纸的入口。
+          </li>
+          <li>
+            <strong>偏方 3：重启手机或开关 iCloud 信息：</strong>常规排错套路。重启或开关同步虽然刷新了临时缓存，但无法打破系统级跨进程架构死锁，收到下一张依然卡死。
+          </li>
+          <li>
+            <strong>偏方 4：截图后裁剪：</strong>截图不仅无法保留 GIF 动画（直接变成静态死图），还会带上聊天气泡和时间戳，且存入的是相册而非键盘，发送体验极其繁琐。
+          </li>
+        </ul>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
           为什么其他贴纸 App 做不到这件事?

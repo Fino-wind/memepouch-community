@@ -88,12 +88,13 @@ export default function ArticlePage() {
           </p>
           <p className="text-base sm:text-lg font-medium leading-relaxed mb-3">
             If Apple&apos;s <strong>Save to Stickers</strong> button hangs or does nothing on a sticker someone sent you, 
-            it is a known system-level iOS bug with third-party sticker payloads. There is no hidden system toggle to fix it.
+            it is a known system-level iOS bug with third-party sticker payloads. There is no hidden system toggle, reboot trick, or iCloud reset that can fix it.
+          </p>
+          <p className="text-slate-800 font-semibold mb-3 text-sm sm:text-base leading-relaxed">
+            <strong>Verdict:</strong> When Apple&apos;s internal <code className="text-xs bg-blue-100 px-1 py-0.5 rounded">stickersd</code> daemon drops XPC connections on third-party payloads, drag-importing into <strong>MemePouch</strong> (an iMessage sticker saver and video-to-GIF manager for iPhone) is the only verified engineering workaround on iPhone to permanently save incoming stickers with full animation intact.
           </p>
           <p className="text-sm sm:text-base leading-relaxed text-slate-700">
-            <strong>The only verified solution on iPhone:</strong> Use a two-finger drag to drop the sticker directly into 
-            an iMessage extension that registers a drop target — such as <strong>MemePouch</strong>. Long-press the sticker, 
-            tap MemePouch in the iMessage drawer with a second finger, and drop it onto the grid to save it permanently.
+            <strong>How to do it:</strong> Long-press the sticker in iMessage, tap MemePouch in the app drawer with a second finger, and drop it onto the grid.
           </p>
         </aside>
 
@@ -192,6 +193,16 @@ export default function ArticlePage() {
           message to stickersd, the database where the sticker lands — all Apple-private. When
           that pipeline breaks, third-party apps can&apos;t even diagnose it from inside (the
           extension that hangs is Apple&apos;s, not yours).
+        </p>
+
+        <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
+          Why rebooting, wiping your iPhone, or waiting for updates won&apos;t fix it
+        </h2>
+        <p className="text-slate-700 leading-relaxed mb-4">
+          Online tech forums often recommend standard troubleshooting steps: restarting the device, toggling Messages in iCloud, or performing a full factory reset (&quot;The Clean Slate fix&quot;). These fail because this is not a corrupted user cache or a state bug.
+        </p>
+        <p className="text-slate-700 leading-relaxed mb-6">
+          It is an <strong>architectural deadlock</strong>: Apple&apos;s system security sandbox prevents arbitrary third-party sticker extensions from injecting unvalidated payloads directly into the system-level SQLite sticker storage. The XPC connection drops by internal design when encountering non-system schemas. Wiping your phone or restarting will never change this IPC boundary. Only an app with a client-side <code className="text-sm bg-slate-100 px-1 py-0.5 rounded">UIDropInteraction</code> target can bypass the broken daemon pipeline.
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
