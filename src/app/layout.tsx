@@ -145,7 +145,13 @@ if(utm.indexOf('claudecode')!==-1){ct='ai_claudecode';}
 else if(utm.indexOf('agy')!==-1||utm.indexOf('antigravity')!==-1){ct='ai_agy';}
 else if(utm.indexOf('codex')!==-1){ct='ai_codex';}
 else if(utm.indexOf('cursor')!==-1){ct='ai_cursor';}
-else if(utm.indexOf('agent')!==-1||utm.indexOf('llmstxt')!==-1||utm.indexOf('llms')!==-1){ct='ai_agent';}
+else if(utm.indexOf('windsurf')!==-1){ct='ai_windsurf';}
+else if(utm.indexOf('hermes')!==-1){ct='ai_hermes';}
+else if(utm.indexOf('openclaw')!==-1){ct='ai_openclaw';}
+else if(utm.indexOf('muse')!==-1){ct='ai_muse';}
+else if(utm.indexOf('aider')!==-1){ct='ai_aider';}
+else if(utm.indexOf('cline')!==-1||utm.indexOf('roocode')!==-1||utm.indexOf('roo')!==-1){ct='ai_cline';}
+else if(utm.indexOf('agent')!==-1||utm.indexOf('llmstxt')!==-1||utm.indexOf('llms')!==-1||utm.indexOf('mcp')!==-1||utm.indexOf('bot')!==-1){ct='ai_agent';}
 else if(ref.indexOf('chatgpt.com')!==-1||ref.indexOf('chat.openai.com')!==-1||utm.indexOf('chatgpt')!==-1){ct='ai_chatgpt';}
 else if(ref.indexOf('perplexity.ai')!==-1||utm.indexOf('perplexity')!==-1){ct='ai_perplexity';}
 else if(ref.indexOf('claude.ai')!==-1||utm.indexOf('claude')!==-1){ct='ai_claude';}
