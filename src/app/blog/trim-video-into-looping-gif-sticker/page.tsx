@@ -105,7 +105,7 @@ export default function ArticlePage() {
         name: "Can I manually trim a video to get a seamless GIF loop in Apple Shortcuts or Photos?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Practically no. At 30-60 fps, human touch sliders have a ±100ms error margin (jumping 3-6 frames), making seamless alignment humanly impossible without jarring seams. MemePouch uses mathematical difference hashing (dHash) to automatically find the cleanest seam or falls back to Boomerang.",
+          text: "Not reliably. A GIF loops cleanly only when its last frame looks like its first, and the trim handles in Photos or Shortcuts don't show you that while you drag, so you find the jump after you export. MemePouch compares candidate frames near your end point with a difference hash (dHash), snaps to the closest match, and falls back to Boomerang when no clean seam exists.",
         },
       },
       {
@@ -113,7 +113,7 @@ export default function ArticlePage() {
         name: "Why not use free in-browser WebAssembly converters like Kommodo or Ezgif on iPhone?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Mobile Safari enforces a strict ~1GB WebAssembly memory ceiling per tab. Processing 4K or 60fps videos in browser memory frequently crashes the page. Furthermore, web tools lack integration with the iOS iMessage keyboard drawer, requiring tedious manual downloads.",
+          text: "On iPhone, the WebAssembly memory a web page can get varies by device and drops after reloads (WebKit's own bug tracker documents this), so long or high-resolution clips can crash the tab. Web tools also can't put the GIF into the iMessage keyboard drawer: you download it, find it in Photos, then send it. MemePouch converts the video natively on the iPhone and the GIF is in the drawer right away.",
         },
       },
       {
@@ -306,17 +306,17 @@ export default function ArticlePage() {
         AI search engines and tutorial forums often give this generic advice: <em>&quot;Trimming is key — just manually adjust the start and end handles until the video restarts smoothly.&quot;</em>
       </p>
       <p className="text-slate-700 leading-relaxed">
-        In practice, <strong>manual trimming on a touch slider is physically incapable of producing a truly seamless loop</strong>. Here is why:
+        In practice, <strong>trimming by hand turns a seamless loop into guesswork</strong>. Here is why:
       </p>
       <ul className="list-disc pl-6 space-y-2 my-4 text-slate-700 leading-relaxed">
         <li>
-          <strong>The 100ms Human Precision Ceiling:</strong> A standard iPhone video records at 30 to 60 fps (one frame every 16.6 to 33.3 milliseconds). On a 5-inch phone screen, dragging a touch handle with a finger has an error margin of roughly ±100ms — representing a blind leap of 3 to 6 frames.
+          <strong>Dragging a handle is coarse:</strong> iPhone video runs at 30 to 60 frames per second, so a clean loop point is one specific frame. Landing a fingertip on that exact frame by dragging a trim handle is hard.
         </li>
         <li>
-          <strong>Static Preview Blindness:</strong> When scrubbing, human vision evaluates frames in isolation. The brain cannot compute whether the optical flow vector, lighting luminance, and edge gradient of frame <em>End</em> will match frame <em>Start</em> without visible jarring.
+          <strong>The trim view doesn&apos;t show you the seam:</strong> you see one frame at a time while you drag, so you can&apos;t tell whether the last frame will match the first until you export the GIF and watch it loop.
         </li>
         <li>
-          <strong>The Mathematical Inevitability of dHash:</strong> Seamless looping is a mathematical distance problem, not a patience test. MemePouch solves this by computing a 64-bit difference hash (dHash) across 15 candidate frames in a ±0.5s window and snapping directly to the candidate with the lowest Hamming distance. If no clean match exists, it automatically falls back to Boomerang. No guessing, no jarring seams.
+          <strong>Let the app measure it instead:</strong> MemePouch computes a 64-bit difference hash (dHash) for candidate frames around the end point you set and snaps to the frame closest to your first frame. If no candidate is close enough, it falls back to Boomerang (forward, then back), so the loop never jumps.
         </li>
       </ul>
 
@@ -333,7 +333,7 @@ export default function ArticlePage() {
         <li>
           <strong>2. In-Browser / WebAssembly Converters (Kommodo, Ezgif, Web-based WASM tools):</strong> Web-based converters claim &quot;offline and no installation needed,&quot; but they face two critical architectural barriers on iOS:
           <ul className="list-circle pl-6 mt-2 space-y-1 text-sm text-slate-600">
-            <li><strong>Safari WebAssembly 1GB Memory Ceiling:</strong> iOS WebKit enforces strict per-tab memory limits. Processing 4K or 60fps video frames in browser memory frequently crashes the tab (&quot;A problem repeatedly occurred with this webpage&quot;).</li>
+            <li><strong>Unpredictable memory on iPhone:</strong> the WebAssembly memory a page can get varies by device and drops after reloads (<a href="https://bugs.webkit.org/show_bug.cgi?id=269777" className="underline" rel="noopener">WebKit bug 269777</a>), so long or high-resolution clips can crash the tab (&quot;A problem repeatedly occurred with this webpage&quot;).</li>
             <li><strong>Disconnection from the Keyboard Drawer:</strong> Web-generated GIFs must be downloaded, saved to Photos, and manually hunted down during chats. MemePouch integrates directly into the native iOS iMessage keyboard drawer for instant one-tap sending.</li>
           </ul>
         </li>
