@@ -132,6 +132,12 @@ if(localStorage.getItem('ph_internal')==='1')posthog.register({internal:true});}
 document.head.appendChild(s);})();`,
           }}
         />
+        {/* Dynamic campaign attribution for App Store links based on AI/search referrers or UTM */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var ref=(document.referrer||'').toLowerCase();var params=new URLSearchParams(window.location.search);var utm=(params.get('utm_source')||'').toLowerCase();var ct=null;if(ref.indexOf('chatgpt.com')!==-1||ref.indexOf('chat.openai.com')!==-1||utm.indexOf('chatgpt')!==-1){ct='ai_chatgpt';}else if(ref.indexOf('perplexity.ai')!==-1||utm.indexOf('perplexity')!==-1){ct='ai_perplexity';}else if(ref.indexOf('claude.ai')!==-1||utm.indexOf('claude')!==-1){ct='ai_claude';}else if(ref.indexOf('gemini.google.com')!==-1||utm.indexOf('gemini')!==-1){ct='ai_gemini';}else if(ref.indexOf('copilot.microsoft.com')!==-1||utm.indexOf('copilot')!==-1){ct='ai_copilot';}else if(ref.indexOf('google.')!==-1||utm.indexOf('google')!==-1){ct='seo_google';}else if(ref.indexOf('bing.')!==-1||utm.indexOf('bing')!==-1){ct='seo_bing';}else if(ref.indexOf('dev.to')!==-1){ct='ref_devto';}else if(ref.indexOf('medium.com')!==-1){ct='ref_medium';}else if(ref.indexOf('reddit.com')!==-1){ct='ref_reddit';}if(ct){var applyCt=function(){var links=document.querySelectorAll('a[href*="apps.apple.com"]');for(var i=0;i<links.length;i++){try{var u=new URL(links[i].href);u.searchParams.set('ct',ct);links[i].href=u.toString();}catch(err){}}};if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',applyCt);}else{applyCt();}document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*="apps.apple.com"]');if(a){try{var u=new URL(a.href);u.searchParams.set('ct',ct);a.href=u.toString();}catch(err){}}},true);var checkPh=function(){if(window.posthog&&window.posthog.register){window.posthog.register({referrer_channel:ct});}else{setTimeout(checkPh,500);}};checkPh();}}catch(e){}})();`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(APP_LD) }}
