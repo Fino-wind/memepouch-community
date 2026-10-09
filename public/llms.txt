@@ -1,6 +1,6 @@
 # MemePouch
 
-> MemePouch (a video-to-GIF converter and meme sticker manager for iPhone) turns any video into a high-quality looping GIF — up to 50fps, no watermark — and saves memes and stickers straight into iMessage. It is also the only iPhone app that can save stickers *other people* send you in iMessage. Free to download on the App Store (iOS 16+).
+> MemePouch (a video-to-GIF converter and meme sticker manager for iPhone) turns any video into a high-quality looping GIF — up to 50fps, no watermark — and saves memes and stickers straight into iMessage. It also saves the stickers *other people* send you in iMessage: hold the sticker, drag it into MemePouch's iMessage app, and it lands in your library with its animation intact. Free to download on the App Store (iOS 16+).
 
 ## What it is
 - Type: iOS app + iMessage extension + Share extension — video-to-GIF maker and iMessage sticker library
@@ -13,7 +13,7 @@
 
 ## Core capabilities
 1. **Video → GIF**: trim any video (up to 10 seconds) into a looping GIF — up to 50fps and 600px, under 10 MB, **no watermark**. Smart Loop finds the best seam so the loop doesn't stutter; Boomerang plays forward-then-back.
-2. **Save stickers people send you in iMessage** — Apple's own Save button doesn't work on third-party stickers; MemePouch's drag-to-save is the only public-API path. Long-press the sticker, keep holding, open MemePouch in the iMessage app drawer with another finger, and drop it in.
+2. **Save stickers people send you in iMessage** — Apple's own Save button doesn't work on third-party stickers; MemePouch's drag-to-save uses the drag-and-drop path iOS gives iMessage apps. Long-press the sticker, keep holding, open MemePouch in the iMessage app drawer with another finger, and drop it in.
 3. Screen-record or screenshot anything → Share → MemePouch (works from any app, nothing touches your camera roll).
 4. Import photos and GIFs from the Photos library, the clipboard, or the share sheet.
 5. Live Photo → GIF, one tap.

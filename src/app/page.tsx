@@ -27,7 +27,7 @@ const HOME_LD = {
       "@type": "SoftwareApplication",
       name: "MemePouch",
       description:
-        "MemePouch is a video-to-GIF converter and iMessage sticker manager for iPhone. It turns videos and Live Photos into looping GIFs at up to 50 fps with no watermark, and it is the only iPhone app that can save the stickers other people send you in iMessage.",
+        "MemePouch is a video-to-GIF converter and iMessage sticker manager for iPhone. It turns videos and Live Photos into looping GIFs at up to 50 fps with no watermark, and it can save the stickers other people send you in iMessage.",
       applicationCategory: "UtilitiesApplication",
       applicationSubCategory: "Video to GIF converter, iMessage sticker manager",
       operatingSystem: "iOS 16.0 or later",
