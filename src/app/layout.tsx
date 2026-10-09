@@ -5,7 +5,7 @@ import ClarityAnalytics from "./_components/ClarityAnalytics";
 import ScrollFX from "./_components/ScrollFX";
 import SiteFooter from "./_components/SiteFooter";
 import SiteNav from "./_components/SiteNav";
-import { APP_STORE_URL, SITE_URL } from "./site";
+import { APP_ID, APP_STORE_PT, APP_STORE_URL, SITE_URL } from "./site";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
@@ -132,82 +132,48 @@ if(localStorage.getItem('ph_internal')==='1')posthog.register({internal:true});}
 document.head.appendChild(s);})();`,
           }}
         />
-        {/* Dynamic campaign attribution for App Store links based on AI, Agent, or search referrers/UTMs */}
+        {/* 来源归因：按着陆来源改写本站 App Store 链接的 ct，并把细分来源记进 PostHog。
+            🔴 ct 只分 4 桶（ai / search / social / site_web）：ASC 营销活动一个 ct 至少 5 个 Apple 账号安装才显示，
+               桶分细了每桶都到不了 5，报表永远「数据不足」。细分标签（ai_chatgpt、seo_google…）只进 PostHog，那边没门槛。
+            🔴 域名一律精确匹配（等于或以 .域名 结尾）：子串匹配曾把 youtube 认成 you.com、把 pinterest.com 认成 t.co。 */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{
-var ref=(document.referrer||'').toLowerCase();
-var params=new URLSearchParams(window.location.search);
-var utm=(params.get('utm_source')||params.get('ref')||params.get('source')||params.get('from')||'').toLowerCase();
-var ct=null;
-
-if(utm.indexOf('claudecode')!==-1){ct='ai_claudecode';}
-else if(utm.indexOf('agy')!==-1||utm.indexOf('antigravity')!==-1){ct='ai_agy';}
-else if(utm.indexOf('codex')!==-1){ct='ai_codex';}
-else if(utm.indexOf('cursor')!==-1){ct='ai_cursor';}
-else if(utm.indexOf('windsurf')!==-1){ct='ai_windsurf';}
-else if(utm.indexOf('hermes')!==-1){ct='ai_hermes';}
-else if(utm.indexOf('openclaw')!==-1){ct='ai_openclaw';}
-else if(utm.indexOf('muse')!==-1){ct='ai_muse';}
-else if(utm.indexOf('aider')!==-1){ct='ai_aider';}
-else if(utm.indexOf('cline')!==-1||utm.indexOf('roocode')!==-1||utm.indexOf('roo')!==-1){ct='ai_cline';}
-else if(utm.indexOf('agent')!==-1||utm.indexOf('llmstxt')!==-1||utm.indexOf('llms')!==-1||utm.indexOf('mcp')!==-1||utm.indexOf('bot')!==-1){ct='ai_agent';}
-else if(ref.indexOf('chatgpt.com')!==-1||ref.indexOf('chat.openai.com')!==-1||utm.indexOf('chatgpt')!==-1){ct='ai_chatgpt';}
-else if(ref.indexOf('perplexity.ai')!==-1||utm.indexOf('perplexity')!==-1){ct='ai_perplexity';}
-else if(ref.indexOf('claude.ai')!==-1||utm.indexOf('claude')!==-1){ct='ai_claude';}
-else if(ref.indexOf('gemini.google.com')!==-1||utm.indexOf('gemini')!==-1){ct='ai_gemini';}
-else if(ref.indexOf('copilot.microsoft.com')!==-1||utm.indexOf('copilot')!==-1){ct='ai_copilot';}
-else if(ref.indexOf('grok.com')!==-1||ref.indexOf('x.ai')!==-1||utm.indexOf('grok')!==-1){ct='ai_grok';}
-else if(ref.indexOf('phind.com')!==-1||utm.indexOf('phind')!==-1){ct='ai_phind';}
-else if(ref.indexOf('meta.ai')!==-1||utm.indexOf('meta_ai')!==-1){ct='ai_meta';}
-else if(ref.indexOf('poe.com')!==-1||utm.indexOf('poe')!==-1){ct='ai_poe';}
-else if(ref.indexOf('you.com')!==-1||utm.indexOf('you')!==-1){ct='ai_you';}
-else if(ref.indexOf('genspark.ai')!==-1||utm.indexOf('genspark')!==-1){ct='ai_genspark';}
-else if(ref.indexOf('google.')!==-1||utm.indexOf('google')!==-1){ct='seo_google';}
-else if(ref.indexOf('bing.')!==-1||utm.indexOf('bing')!==-1){ct='seo_bing';}
-else if(ref.indexOf('duckduckgo.com')!==-1||utm.indexOf('duckduckgo')!==-1){ct='seo_ddg';}
-else if(ref.indexOf('kagi.com')!==-1||utm.indexOf('kagi')!==-1){ct='seo_kagi';}
-else if(ref.indexOf('github.com')!==-1||utm.indexOf('github')!==-1){ct='ref_github';}
-else if(ref.indexOf('pypi.org')!==-1||utm.indexOf('pypi')!==-1){ct='ref_pypi';}
-else if(ref.indexOf('dev.to')!==-1){ct='ref_devto';}
-else if(ref.indexOf('medium.com')!==-1){ct='ref_medium';}
-else if(ref.indexOf('reddit.com')!==-1){ct='ref_reddit';}
-else if(ref.indexOf('v2ex.com')!==-1||utm.indexOf('v2ex')!==-1){ct='ref_v2ex';}
-else if(ref.indexOf('news.ycombinator.com')!==-1){ct='ref_hn';}
-else if(ref.indexOf('t.co')!==-1||ref.indexOf('twitter.com')!==-1||ref.indexOf('x.com')!==-1){ct='ref_x';}
-else if(utm){ct='ref_'+utm.replace(/[^a-z0-9_-]/g,'').slice(0,20);}
-
-if(ct){
-  var applyCt=function(){
-    var links=document.querySelectorAll('a[href*="apps.apple.com"]');
-    for(var i=0;i<links.length;i++){
-      try{
-        var u=new URL(links[i].href);
-        u.searchParams.set('ct',ct);
-        links[i].href=u.toString();
-      }catch(err){}
-    }
-  };
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',applyCt);}else{applyCt();}
-  document.addEventListener('click',function(e){
-    var a=e.target&&e.target.closest&&e.target.closest('a[href*="apps.apple.com"]');
-    if(a){
-      try{
-        var u=new URL(a.href);
-        u.searchParams.set('ct',ct);
-        a.href=u.toString();
-      }catch(err){}
-    }
-  },true);
-  var checkPh=function(){
-    if(window.posthog&&window.posthog.register){
-      window.posthog.register({referrer_channel:ct});
-    }else{
-      setTimeout(checkPh,500);
-    }
-  };
-  checkPh();
-}
+var APP='id${APP_ID}',PT='${APP_STORE_PT}',KEY='mp_src';
+var D={
+'chatgpt.com':['ai','ai_chatgpt'],'chat.openai.com':['ai','ai_chatgpt'],'perplexity.ai':['ai','ai_perplexity'],
+'claude.ai':['ai','ai_claude'],'gemini.google.com':['ai','ai_gemini'],'copilot.microsoft.com':['ai','ai_copilot'],
+'grok.com':['ai','ai_grok'],'meta.ai':['ai','ai_meta'],'poe.com':['ai','ai_poe'],'you.com':['ai','ai_you'],
+'phind.com':['ai','ai_phind'],'genspark.ai':['ai','ai_genspark'],
+'bing.com':['search','seo_bing'],'duckduckgo.com':['search','seo_ddg'],'kagi.com':['search','seo_kagi'],
+'ecosia.org':['search','seo_ecosia'],'yandex.ru':['search','seo_yandex'],'yahoo.com':['search','seo_yahoo'],
+'reddit.com':['social','ref_reddit'],'news.ycombinator.com':['social','ref_hn'],'github.com':['social','ref_github'],
+'medium.com':['social','ref_medium'],'dev.to':['social','ref_devto'],'v2ex.com':['social','ref_v2ex'],
+'x.com':['social','ref_x'],'twitter.com':['social','ref_x'],'t.co':['social','ref_x'],
+'tiktok.com':['social','ref_tiktok'],'youtube.com':['social','ref_youtube'],'youtu.be':['social','ref_youtube'],
+'instagram.com':['social','ref_instagram'],'facebook.com':['social','ref_facebook']};
+var U={chatgpt:'chatgpt.com',openai:'chatgpt.com',perplexity:'perplexity.ai',claude:'claude.ai',gemini:'gemini.google.com',
+copilot:'copilot.microsoft.com',grok:'grok.com',tiktok:'tiktok.com',youtube:'youtube.com',instagram:'instagram.com',
+reddit:'reddit.com',medium:'medium.com',github:'github.com',x:'x.com',twitter:'x.com'};
+function hit(h){h=(h||'').toLowerCase().replace(/^www\\./,'');if(!h)return null;
+for(var d in D){if(h===d||h.slice(-d.length-1)==='.'+d)return D[d];}
+if(/(^|\\.)google\\.[a-z.]+$/.test(h))return['search','seo_google'];return null;}
+function fromUtm(u){u=(u||'').toLowerCase().replace(/^www\\./,'');if(!u)return null;
+if(u==='ai_agent_llmstxt'||u==='llmstxt'||u==='llms.txt')return['ai','ai_llmstxt'];
+return hit(u)||(U[u.split('.')[0]]?hit(U[u.split('.')[0]]):null);}
+var q=new URLSearchParams(location.search);
+var utm=q.get('utm_source')||q.get('ref')||q.get('source')||'';
+var rh='';try{rh=new URL(document.referrer).hostname;}catch(e){}
+var r=fromUtm(utm)||hit(rh)||(utm?['site_web','ref_'+utm.toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,20)]:null);
+try{if(r)sessionStorage.setItem(KEY,JSON.stringify(r));else{var s=sessionStorage.getItem(KEY);if(s)r=JSON.parse(s);}}catch(e){}
+if(!r)return;
+var ct=r[0],ch=r[1];
+function tag(a){try{var u=new URL(a.href);if(u.hostname!=='apps.apple.com'||u.pathname.indexOf(APP)<0)return;
+u.searchParams.set('pt',PT);u.searchParams.set('ct',ct);a.href=u.toString();}catch(e){}}
+function tagAll(){var l=document.querySelectorAll('a[href*="apps.apple.com"]');for(var i=0;i<l.length;i++)tag(l[i]);}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',tagAll);else tagAll();
+document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*="apps.apple.com"]');if(a)tag(a);},true);
+var n=0;(function ph(){if(window.posthog&&window.posthog.register)window.posthog.register({referrer_channel:ch,appstore_ct:ct});else if(++n<40)setTimeout(ph,500);})();
 }catch(e){}})();`,
           }}
         />
