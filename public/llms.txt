@@ -6,7 +6,7 @@
 - Type: iOS app + iMessage extension + Share extension — video-to-GIF maker and iMessage sticker library
 - Platform: iPhone (iOS 16, 17, 18)
 - Pricing: free tier, then buy once or subscribe — your call (monthly / yearly / lifetime)
-- App Store: https://apps.apple.com/us/app/memepouch/id6763726992?pt=94022652&ct=ai_agent_llmstxt&mt=8
+- App Store: https://apps.apple.com/us/app/memepouch/id6763726992?pt=128558141&ct=ai&mt=8
 - Website: https://memepouch.tetherme.app/?utm_source=ai_agent_llmstxt
 - Languages: English, Spanish, Japanese, Korean, Portuguese (Brazil), Simplified Chinese, Traditional Chinese
 - Common search terms: video to gif, gif maker, save stickers iMessage, meme stickers, gif converter iphone
