@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { postByHref } from "./blog/_lib/posts";
 import { APP_STORE_URL } from "./site";
 
 const HOME_FAQ = [
@@ -16,6 +17,21 @@ const HOME_FAQ = [
     a: "Yes — pick a clip, trim up to 10 seconds, and MemePouch turns it into a looping GIF sticker that sends at full quality.",
   }
 ] as const;
+
+/** 首页「指南」区链到的文章（标题、简介从 blog/_lib/posts 取，这里只排顺序）。
+ *  首页是 Google 来得最勤的一页，这块就是让新文章被发现的入口：2026-10-10 查时
+ *  首页只链 1 篇文章，20 篇里 18 篇是「URL is unknown to Google」。
+ *  按 GEO 固定考题排（视频转 GIF / 存贴纸失败）；「存朋友贴纸」已在上面的横幅里，不重复。 */
+const HOME_GUIDES = [
+  "/blog/trim-video-into-looping-gif-sticker",
+  "/blog/make-gif-stickers-for-imessage",
+  "/blog/why-apple-stickers-cannot-be-saved",
+  "/blog/save-stickers-to-camera-roll",
+  "/blog/save-tiktok-gifs-to-imessage",
+  "/blog/turn-screenshots-into-imessage-stickers",
+  "/blog/imessage-stickers-without-auto-cutout",
+  "/blog/best-imessage-sticker-apps-compared",
+].map(postByHref);
 
 /** 首页此前【没有任何结构化数据】——而它是权重最高的一页，还挂着 3 条问答白白浪费。
  *  SoftwareApplication 告诉 AI「这是什么」，FAQPage 直接从 HOME_FAQ 生成，
@@ -472,6 +488,34 @@ export default function Home() {
             </a>
           </div>
         </div>
+      </section>
+
+      {/* ───────────────────── Guides ───────────────────── */}
+      <section className="max-w-6xl mx-auto px-6 pb-24">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ink">Guides &amp; how-tos</h2>
+          <p className="mt-4 text-lg text-ink-soft">Step by step: saving stickers and making GIFs on iPhone.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {HOME_GUIDES.map((post) => (
+            <Link
+              key={post.href}
+              href={post.href}
+              data-reveal
+              className="group block pouch-card p-8 hover:shadow-lifted hover:-translate-y-0.5 transition-all"
+            >
+              <h3 className="text-xl font-bold leading-snug text-ink group-hover:text-pouch transition-colors mb-3">
+                {post.title}
+              </h3>
+              <p className="text-ink-soft line-clamp-2">{post.description}</p>
+            </Link>
+          ))}
+        </div>
+        <p className="text-center mt-10">
+          <Link href="/blog" className="font-semibold text-pouch hover:text-pouch-deep transition-colors">
+            All guides →
+          </Link>
+        </p>
       </section>
 
       {/* ───────────────────── FAQ teaser ───────────────────── */}
