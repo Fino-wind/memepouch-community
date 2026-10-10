@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # sitemap.ts dates each page from git history; a shallow clone fails the build
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
