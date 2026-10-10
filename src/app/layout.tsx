@@ -141,38 +141,33 @@ document.head.appendChild(s);})();`,
             网页上的细分来源不在这里记：PostHog Web analytics 自己按来路分渠道（2026-07-28 起有原生「AI」渠道，
                历史数据也会重新归类）。这里原先还往 PostHog 写 referrer_channel，但写在首个 $pageview 之后，
                从没落到页面浏览上（10-10 查：100 条里 0 条有值），2026-10-10 删掉。
-            🔴 域名一律精确匹配（等于或以 .域名 结尾）：子串匹配曾把 youtube 认成 you.com、把 pinterest.com 认成 t.co。 */}
+            🔑 哪个来源算哪个桶，查的是构建时从 PostHog 官方渠道定义生成的 /ref-channels.json（ref-channels.json/route.ts），
+               跟看板的「渠道」是同一张表；查法也照抄 PostHog：先 utm_source、再 utm_medium、再来路域名，
+               每一项先按原值查，查不到再去掉子域名查（www.google.com → google.com，alice.yandex.ru → yandex.ru）。
+               只有带来路或 utm 的访客才去取这个文件；直接打开的访客一个字节都不多下。 */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{
 var APP='id${APP_ID}',PT='${APP_STORE_PT}',KEY='mp_ct';
-var D={
-'chatgpt.com':'ai','chat.openai.com':'ai','perplexity.ai':'ai','claude.ai':'ai','gemini.google.com':'ai',
-'copilot.microsoft.com':'ai','grok.com':'ai','meta.ai':'ai','poe.com':'ai','you.com':'ai','phind.com':'ai','genspark.ai':'ai',
-'bing.com':'search','duckduckgo.com':'search','kagi.com':'search','ecosia.org':'search','yandex.ru':'search','yahoo.com':'search',
-'reddit.com':'social','news.ycombinator.com':'social','github.com':'social','medium.com':'social','dev.to':'social',
-'v2ex.com':'social','x.com':'social','twitter.com':'social','t.co':'social','tiktok.com':'social','youtube.com':'social',
-'youtu.be':'social','instagram.com':'social','facebook.com':'social'};
-var U={chatgpt:'chatgpt.com',openai:'chatgpt.com',perplexity:'perplexity.ai',claude:'claude.ai',gemini:'gemini.google.com',
-copilot:'copilot.microsoft.com',grok:'grok.com',tiktok:'tiktok.com',youtube:'youtube.com',instagram:'instagram.com',
-reddit:'reddit.com',medium:'medium.com',github:'github.com',x:'x.com',twitter:'x.com'};
-function hit(h){h=(h||'').toLowerCase().replace(/^www\\./,'');if(!h)return null;
-for(var d in D){if(h===d||h.slice(-d.length-1)==='.'+d)return D[d];}
-if(/(^|\\.)google\\.[a-z.]+$/.test(h))return 'search';return null;}
-function fromUtm(u){u=(u||'').toLowerCase().replace(/^www\\./,'');if(!u)return null;
-if(u==='ai_agent_llmstxt'||u==='llmstxt'||u==='llms.txt')return 'ai';
-return hit(u)||(U[u.split('.')[0]]?hit(U[u.split('.')[0]]):null);}
-var q=new URLSearchParams(location.search);
-var utm=q.get('utm_source')||q.get('ref')||q.get('source')||'';
-var rh='';try{rh=new URL(document.referrer).hostname;}catch(e){}
-var ct=fromUtm(utm)||hit(rh)||(utm?'site_web':null);
-try{if(ct)sessionStorage.setItem(KEY,ct);else ct=sessionStorage.getItem(KEY);}catch(e){}
-if(!ct)return;
-function tag(a){try{var u=new URL(a.href);if(u.hostname!=='apps.apple.com'||u.pathname.indexOf(APP)<0)return;
+function tag(a,ct){try{var u=new URL(a.href);if(u.hostname!=='apps.apple.com'||u.pathname.indexOf(APP)<0)return;
 u.searchParams.set('pt',PT);u.searchParams.set('ct',ct);a.href=u.toString();}catch(e){}}
-function tagAll(){var l=document.querySelectorAll('a[href*="apps.apple.com"]');for(var i=0;i<l.length;i++)tag(l[i]);}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',tagAll);else tagAll();
-document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*="apps.apple.com"]');if(a)tag(a);},true);
+function apply(ct){
+function all(){var l=document.querySelectorAll('a[href*="apps.apple.com"]');for(var i=0;i<l.length;i++)tag(l[i],ct);}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',all);else all();
+document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*="apps.apple.com"]');if(a)tag(a,ct);},true);}
+function stored(){try{return sessionStorage.getItem(KEY);}catch(e){return null;}}
+var q=new URLSearchParams(location.search);
+var src=(q.get('utm_source')||'').toLowerCase(),med=(q.get('utm_medium')||'').toLowerCase();
+var rh='';try{rh=new URL(document.referrer).hostname.toLowerCase();}catch(e){}
+if(rh===location.hostname)rh='';
+if(!src&&!med&&!rh){var s=stored();if(s)apply(s);return;}
+function look(m,v){if(!v)return null;if(m[v])return m[v];var p=v.split('.');
+for(var i=1;i<p.length-1;i++){var d=p.slice(i).join('.');if(m[d])return m[d];}return null;}
+fetch('/ref-channels.json').then(function(r){return r.json();}).then(function(t){
+var ct=look(t.source,src)||look(t.medium,med)||look(t.source,rh)||(src?'site_web':null);
+if(ct){try{sessionStorage.setItem(KEY,ct);}catch(e){}}else ct=stored();
+if(ct)apply(ct);
+}).catch(function(){var s=stored();if(s)apply(s);});
 }catch(e){}})();`,
           }}
         />
