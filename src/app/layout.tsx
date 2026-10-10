@@ -120,10 +120,13 @@ export default function RootLayout({
         {/* PostHog（project 269900「memepouch.tetherme.app」· 2026-09-09 接入）
             不进 MemePouch 那个 project：mp-now / mp-detail 的 DAU 查询没有 app 过滤，
             网页访客会被算成 app 用户。营销站单独一个 project，两边都干净。
-            内部流量：访问一次 ?ph_internal=1 即永久打标（localStorage），此后事件带 internal:true。 */}
+            内部流量：访问一次 ?ph_internal=1 即永久打标（localStorage），此后事件带 internal:true。
+            🔴 只在正式域名上启动：本地预览、开发服务器的访问一律不发（2026-10-10 本地预览带着
+               utm_source=chatgpt.com 发了 8 条，差点被 Web analytics 算成 AI 渠道访客）。项目的
+               test_account_filters 另外只认 $host = 正式域名，两层各管一半：这里管以后，过滤管已经发出去的。 */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var s=document.createElement('script');
+            __html: `(function(){if(location.hostname!=='${new URL(SITE_URL).hostname}')return;var s=document.createElement('script');
 s.src='https://eu-assets.i.posthog.com/static/array.js';s.async=true;
 s.onload=function(){posthog.init('phc_xEgkGFfkrWRpvur6C8v4U7KyDgFoGTdVDRt7bj5TMGFB',{api_host:'https://eu.i.posthog.com',defaults:'2025-05-24',person_profiles:'identified_only'});
 posthog.register({app:'memepouch-web'});
@@ -132,48 +135,44 @@ if(localStorage.getItem('ph_internal')==='1')posthog.register({internal:true});}
 document.head.appendChild(s);})();`,
           }}
         />
-        {/* 来源归因：按着陆来源改写本站 App Store 链接的 ct，并把细分来源记进 PostHog。
+        {/* 来源归因：按着陆来源改写本站 App Store 链接的 ct，让 ASC「营销活动」按来源分装机。
             🔴 ct 只分 4 桶（ai / search / social / site_web）：ASC 营销活动一个 ct 至少 5 个 Apple 账号安装才显示，
-               桶分细了每桶都到不了 5，报表永远「数据不足」。细分标签（ai_chatgpt、seo_google…）只进 PostHog，那边没门槛。
+               桶分细了每桶都到不了 5，报表永远「数据不足」。
+            网页上的细分来源不在这里记：PostHog Web analytics 自己按来路分渠道（2026-07-28 起有原生「AI」渠道，
+               历史数据也会重新归类）。这里原先还往 PostHog 写 referrer_channel，但写在首个 $pageview 之后，
+               从没落到页面浏览上（10-10 查：100 条里 0 条有值），2026-10-10 删掉。
             🔴 域名一律精确匹配（等于或以 .域名 结尾）：子串匹配曾把 youtube 认成 you.com、把 pinterest.com 认成 t.co。 */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{
-var APP='id${APP_ID}',PT='${APP_STORE_PT}',KEY='mp_src';
+var APP='id${APP_ID}',PT='${APP_STORE_PT}',KEY='mp_ct';
 var D={
-'chatgpt.com':['ai','ai_chatgpt'],'chat.openai.com':['ai','ai_chatgpt'],'perplexity.ai':['ai','ai_perplexity'],
-'claude.ai':['ai','ai_claude'],'gemini.google.com':['ai','ai_gemini'],'copilot.microsoft.com':['ai','ai_copilot'],
-'grok.com':['ai','ai_grok'],'meta.ai':['ai','ai_meta'],'poe.com':['ai','ai_poe'],'you.com':['ai','ai_you'],
-'phind.com':['ai','ai_phind'],'genspark.ai':['ai','ai_genspark'],
-'bing.com':['search','seo_bing'],'duckduckgo.com':['search','seo_ddg'],'kagi.com':['search','seo_kagi'],
-'ecosia.org':['search','seo_ecosia'],'yandex.ru':['search','seo_yandex'],'yahoo.com':['search','seo_yahoo'],
-'reddit.com':['social','ref_reddit'],'news.ycombinator.com':['social','ref_hn'],'github.com':['social','ref_github'],
-'medium.com':['social','ref_medium'],'dev.to':['social','ref_devto'],'v2ex.com':['social','ref_v2ex'],
-'x.com':['social','ref_x'],'twitter.com':['social','ref_x'],'t.co':['social','ref_x'],
-'tiktok.com':['social','ref_tiktok'],'youtube.com':['social','ref_youtube'],'youtu.be':['social','ref_youtube'],
-'instagram.com':['social','ref_instagram'],'facebook.com':['social','ref_facebook']};
+'chatgpt.com':'ai','chat.openai.com':'ai','perplexity.ai':'ai','claude.ai':'ai','gemini.google.com':'ai',
+'copilot.microsoft.com':'ai','grok.com':'ai','meta.ai':'ai','poe.com':'ai','you.com':'ai','phind.com':'ai','genspark.ai':'ai',
+'bing.com':'search','duckduckgo.com':'search','kagi.com':'search','ecosia.org':'search','yandex.ru':'search','yahoo.com':'search',
+'reddit.com':'social','news.ycombinator.com':'social','github.com':'social','medium.com':'social','dev.to':'social',
+'v2ex.com':'social','x.com':'social','twitter.com':'social','t.co':'social','tiktok.com':'social','youtube.com':'social',
+'youtu.be':'social','instagram.com':'social','facebook.com':'social'};
 var U={chatgpt:'chatgpt.com',openai:'chatgpt.com',perplexity:'perplexity.ai',claude:'claude.ai',gemini:'gemini.google.com',
 copilot:'copilot.microsoft.com',grok:'grok.com',tiktok:'tiktok.com',youtube:'youtube.com',instagram:'instagram.com',
 reddit:'reddit.com',medium:'medium.com',github:'github.com',x:'x.com',twitter:'x.com'};
 function hit(h){h=(h||'').toLowerCase().replace(/^www\\./,'');if(!h)return null;
 for(var d in D){if(h===d||h.slice(-d.length-1)==='.'+d)return D[d];}
-if(/(^|\\.)google\\.[a-z.]+$/.test(h))return['search','seo_google'];return null;}
+if(/(^|\\.)google\\.[a-z.]+$/.test(h))return 'search';return null;}
 function fromUtm(u){u=(u||'').toLowerCase().replace(/^www\\./,'');if(!u)return null;
-if(u==='ai_agent_llmstxt'||u==='llmstxt'||u==='llms.txt')return['ai','ai_llmstxt'];
+if(u==='ai_agent_llmstxt'||u==='llmstxt'||u==='llms.txt')return 'ai';
 return hit(u)||(U[u.split('.')[0]]?hit(U[u.split('.')[0]]):null);}
 var q=new URLSearchParams(location.search);
 var utm=q.get('utm_source')||q.get('ref')||q.get('source')||'';
 var rh='';try{rh=new URL(document.referrer).hostname;}catch(e){}
-var r=fromUtm(utm)||hit(rh)||(utm?['site_web','ref_'+utm.toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,20)]:null);
-try{if(r)sessionStorage.setItem(KEY,JSON.stringify(r));else{var s=sessionStorage.getItem(KEY);if(s)r=JSON.parse(s);}}catch(e){}
-if(!r)return;
-var ct=r[0],ch=r[1];
+var ct=fromUtm(utm)||hit(rh)||(utm?'site_web':null);
+try{if(ct)sessionStorage.setItem(KEY,ct);else ct=sessionStorage.getItem(KEY);}catch(e){}
+if(!ct)return;
 function tag(a){try{var u=new URL(a.href);if(u.hostname!=='apps.apple.com'||u.pathname.indexOf(APP)<0)return;
 u.searchParams.set('pt',PT);u.searchParams.set('ct',ct);a.href=u.toString();}catch(e){}}
 function tagAll(){var l=document.querySelectorAll('a[href*="apps.apple.com"]');for(var i=0;i<l.length;i++)tag(l[i]);}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',tagAll);else tagAll();
 document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*="apps.apple.com"]');if(a)tag(a);},true);
-var n=0;(function ph(){if(window.posthog&&window.posthog.register)window.posthog.register({referrer_channel:ch,appstore_ct:ct});else if(++n<40)setTimeout(ph,500);})();
 }catch(e){}})();`,
           }}
         />
