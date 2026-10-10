@@ -10,13 +10,20 @@ export const dynamic = "force-static";
 // indexed through it) and newer posts sat "unknown to Google". It needs full git
 // history — a shallow clone would stamp every page with the one commit it has, so the
 // build refuses to run on one (deploy.yml checks out with fetch-depth: 0).
+
+// Pages whose content also comes from a shared file: that file's commits count as their changes.
+const ALSO_FROM: Record<string, string[]> = {
+  "/": ["src/app/blog/_lib/posts.ts"], // homepage "Guides" cards
+  "/blog": ["src/app/blog/_lib/posts.ts"], // the list itself
+};
+
 function lastModified(path: string): string | undefined {
-  const file = `src/app${path === "/" ? "" : path}/page.tsx`;
+  const files = [`src/app${path === "/" ? "" : path}/page.tsx`, ...(ALSO_FROM[path] ?? [])];
   const shallow = execFileSync("git", ["rev-parse", "--is-shallow-repository"], { encoding: "utf8" }).trim();
   if (shallow === "true") {
     throw new Error("sitemap: shallow git clone, so page dates would be wrong — check out with fetch-depth: 0");
   }
-  const date = execFileSync("git", ["log", "-1", "--format=%cI", "--", file], { encoding: "utf8" }).trim();
+  const date = execFileSync("git", ["log", "-1", "--format=%cI", "--", ...files], { encoding: "utf8" }).trim();
   return date || undefined; // not committed yet: claim nothing rather than "now"
 }
 
