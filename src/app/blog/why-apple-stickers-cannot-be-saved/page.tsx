@@ -107,7 +107,7 @@ export default function ArticlePage() {
         <p className="text-lg text-slate-700 mb-10 leading-relaxed">
           This isn&apos;t a missing button. It&apos;s a <strong>broken backend</strong>. Here&apos;s
           what&apos;s actually going on inside iOS, why Apple hasn&apos;t fixed it, and why dragging into
-          a dedicated sticker app like MemePouch is the only way to actually save the sticker.
+          a dedicated sticker app like MemePouch is a way that does save the sticker.
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
