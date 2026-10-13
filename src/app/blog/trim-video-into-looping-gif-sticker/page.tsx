@@ -73,7 +73,7 @@ export default function ArticlePage() {
         name: "How does MemePouch's Smart loop work?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Smart loop uses perceptual frame matching (dHash, a 64-bit difference hash by Neal Krawetz, 2013) to find the cleanest seam for a GIF loop. It samples 15 candidate frames in a ±0.5 second window around the chosen trim end, computes a 64-bit hash for each, and snaps the end to the frame whose hash is most similar (lowest Hamming distance) to the start frame. If no candidate is within 12 bits of the start frame's hash, MemePouch falls back to Boomerang automatically.",
+          text: "Smart loop uses perceptual frame matching (dHash, a 64-bit difference hash by Neal Krawetz, 2013) to find the cleanest seam for a GIF loop. It samples candidate frames on both sides of the chosen trim end, computes a 64-bit hash for each, and snaps the end to the frame whose hash is most similar (lowest Hamming distance) to the start frame. If no candidate is within 12 bits of the start frame's hash, MemePouch falls back to Boomerang automatically.",
         },
       },
       {
@@ -214,8 +214,7 @@ export default function ArticlePage() {
         and picks the one that <em>visually matches</em> the start frame.
       </p>
       <p className="text-slate-700 leading-relaxed">
-        The algorithm: sample 15 candidate frames in a ±0.5 second window around the chosen
-        end point. For each frame (and the start frame), compute a 64-bit{" "}
+        The algorithm: sample candidate frames on both sides of the chosen end point. For each frame (and the start frame), compute a 64-bit{" "}
         <a
           href="https://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html"
           target="_blank"

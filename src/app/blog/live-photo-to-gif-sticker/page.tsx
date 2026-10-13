@@ -182,8 +182,8 @@ export default function ArticlePage() {
       </h2>
       <p className="text-slate-700 leading-relaxed">
         Once the motion video is extracted, MemePouch hands it to the same trim + Smart loop
-        pipeline that videos use. Smart loop samples 15 candidate frames in a ±0.5 second
-        window around the trim end, computes a 64-bit perceptual hash (dHash) for each, and
+        pipeline that videos use. Smart loop samples candidate frames on both sides of the
+        trim end, computes a 64-bit perceptual hash (dHash) for each, and
         snaps the end to the frame that visually matches the start frame closest. Many Live
         Photos loop naturally because the subject returns to roughly the same position by the
         end — Smart loop captures that exactly. See the{" "}
