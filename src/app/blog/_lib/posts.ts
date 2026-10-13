@@ -132,7 +132,7 @@ export const POSTS: Post[] = [
     href: "/blog/save-sticker-someone-sent-imessage",
     title: "How to save an iMessage sticker someone sent you",
     description:
-      "iOS hides the Save button on third-party iMessage stickers. Here is the one supported gesture for keeping a sticker your friend sent you, animation and all, plus why every common workaround fails.",
+      "iOS shows a Save to Stickers button on third-party iMessage stickers, but tapping it hangs. Here is the one supported gesture for keeping a sticker your friend sent you, animation and all, plus why every common workaround fails.",
   },
   {
     href: "/blog/best-imessage-sticker-apps-compared",
