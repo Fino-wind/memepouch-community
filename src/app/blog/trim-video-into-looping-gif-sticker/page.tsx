@@ -3,9 +3,9 @@ import Link from "next/link";
 import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
 
 export const metadata: Metadata = {
-  title: "How to turn a screen recording into a GIF on iPhone (with a clean loop)",
+  title: "How to turn a video or screen recording into a GIF on iPhone (no watermark)",
   description:
-    "Turn any screen recording or video clip into a smooth, perfectly looping GIF right on your iPhone — no watermark, free to try. Works as an iMessage sticker too. Smart loop finds the seamless cut for you.",
+    "Turn any video clip or screen recording into a smooth, perfectly looping GIF right on your iPhone — up to 50 fps, no watermark, free to try. Works as an iMessage sticker too. Smart loop finds the seamless cut for you.",
   alternates: { canonical: "/blog/trim-video-into-looping-gif-sticker" },
 };
 
@@ -13,11 +13,11 @@ export default function ArticlePage() {
   const ARTICLE_LD = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "How to turn a screen recording into a looping GIF on iPhone",
+    headline: "How to turn a video or screen recording into a looping GIF on iPhone without watermark",
     description:
-      "Walkthrough of MemePouch's video trim view, Smart loop endpoint detection (dHash), Boomerang fallback, and the encoder cascade that keeps the file under iMessage's 10 MB limit.",
+      "Walkthrough of MemePouch's video trim view, Smart loop endpoint detection (dHash), Boomerang fallback, and the encoder cascade that keeps the file under iMessage's 10 MB limit at up to 50 fps.",
     datePublished: "2026-05-20",
-    dateModified: "2026-08-26",
+    dateModified: "2026-11-02",
     author: { "@type": "Organization", name: "MemePouch" },
     publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
     image: siteUrl("/opengraph-image"),
@@ -97,7 +97,7 @@ export default function ArticlePage() {
         name: "Why does my GIF sticker stay sharp instead of getting compressed to mush?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "MemePouch routes GIF stickers through iMessage's insertAttachment API, which has a ~10 MB cap — much larger than the 500 KB MSSticker limit Apple's own Live Stickers use. The encoder tries a cascade of recipes (15 fps at 300 px, then 8 fps at 300 px, then 15 fps at 180 px, then 8 fps at 180 px) and ships the first one that fits. Most clips fit the highest preset; longer or more visually complex clips fall back to lower settings gracefully.",
+          text: "MemePouch routes GIF stickers through iMessage's insertAttachment API, which has a ~10 MB cap — much larger than the 500 KB MSSticker limit Apple's own Live Stickers use. The encoder tries a cascade of seven recipes (from 50 fps at 600 px down to 10 fps at 200 px) and ships the first one that fits. Most clips fit the highest preset; longer or more visually complex clips fall back to lower settings gracefully.",
         },
       },
       {
@@ -134,9 +134,9 @@ export default function ArticlePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
 
       <h1 className="text-4xl font-bold mb-3 text-slate-900 not-prose">
-        Turn a screen recording into a looping GIF on iPhone
+        Turn a video or screen recording into a looping GIF on iPhone (no watermark)
       </h1>
-      <p className="text-sm text-slate-500 mb-8 not-prose">Last updated 2026-08-26 · iOS 16+ · 3 min read</p>
+      <p className="text-sm text-slate-500 mb-8 not-prose">Last updated 2026-11-02 · iOS 16+ · 3 min read</p>
 
       <aside className="not-prose mb-12 rounded-3xl border border-blue-200 bg-gradient-to-br from-blue-50 via-white to-purple-50 p-6 sm:p-8 shadow-sm">
         <p className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-2">

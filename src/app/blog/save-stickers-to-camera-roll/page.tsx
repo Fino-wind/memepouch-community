@@ -84,7 +84,7 @@ export default function ArticlePage() {
         name: "A friend sent me a sticker in iMessage — do I have to screenshot it?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "There's a better way that keeps full quality and animation: long-press the sticker with one finger, keep holding, open the MemePouch icon in the iMessage app drawer with another finger, and drop the sticker onto the grid. The original file is saved as-is — no screenshot needed.",
+          text: "There's a better way that keeps full quality and animation: open MemePouch in the iMessage drawer below the chat, then long-press the sticker and drag it straight down onto the grid. The original file is saved as-is — no screenshot needed.",
         },
       },
       {
@@ -258,9 +258,8 @@ export default function ArticlePage() {
               A friend sent me a sticker in iMessage — do I have to screenshot it?
             </h3>
             <p className="text-slate-700 leading-relaxed">
-              No. Long-press the sticker, keep holding, open MemePouch in the iMessage app drawer
-              with another finger, and drop it onto the grid — original quality, animation
-              included.
+              No. Open MemePouch in the iMessage drawer below the chat, then long-press the sticker
+              and drag it straight down onto the grid — original quality, animation included.
             </p>
           </div>
           <div>

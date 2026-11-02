@@ -18,7 +18,7 @@ const QA = [
   },
   {
     q: "How do I save a sticker someone sent me in iMessage?",
-    a: "iOS 17+ shows a Save to Stickers button in the Emoji Details view, but tapping it on third-party stickers hangs — Apple's system sticker daemon drops the connection and the sticker never lands in your sticker drawer. The reliable path is a drag gesture into MemePouch: long-press the sticker in the chat and keep your finger held down. With another finger, tap the MemePouch icon in the iMessage app drawer to open it, then drag the sticker into the MemePouch grid and release. If MemePouch is already open in the drawer below the chat, you can drag straight down with one finger.",
+    a: "iOS 17+ shows a Save to Stickers button in the Emoji Details view, but tapping it on third-party stickers hangs — Apple's system sticker daemon drops the connection and the sticker never lands in your sticker drawer. The reliable path is dragging into MemePouch: open MemePouch in the iMessage app drawer below the chat, long-press the sticker in the conversation, and drag it straight down into the MemePouch grid and release.",
   },
   {
     q: "Can I make an animated sticker from a video?",

@@ -92,7 +92,7 @@ export default function ArticlePage() {
         name: "Does this work for screenshots of stickers other people sent me?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "It works, but there's a better way for that specific case. Instead of screenshotting and re-importing (which loses animation for GIF stickers), long-press the sticker in iMessage with one finger, keep holding, and with another finger swipe up the iMessage app drawer and drop the sticker directly onto the MemePouch grid. MemePouch keeps it intact — animation included.",
+          text: "It works, but there's a better way for that specific case. Instead of screenshotting and re-importing (which loses animation for GIF stickers), open MemePouch in the iMessage drawer below the chat, then long-press the sticker and drag it straight down onto the grid. MemePouch keeps it intact — animation included.",
         },
       },
     ],
@@ -211,8 +211,8 @@ export default function ArticlePage() {
             .
           </li>
           <li>
-            <strong>Save stickers friends send you in iMessage</strong>. Long-press + two-finger
-            drag works for animated stickers and stickers stuck onto message bubbles too. See the{" "}
+            <strong>Save stickers friends send you in iMessage</strong>. Open the drawer and drag
+            straight down — works for animated stickers and stickers stuck onto message bubbles too. See the{" "}
             <Link href="/blog/save-sticker-someone-sent-imessage" className="text-blue-600 hover:underline">
               save-sticker guide
             </Link>
@@ -280,9 +280,8 @@ export default function ArticlePage() {
             </h3>
             <p className="text-slate-700 leading-relaxed">
               It works, but there&apos;s a better way for that specific case. Instead of
-              screenshotting (which loses animation), long-press the sticker in iMessage with one
-              finger, keep holding, swipe up the iMessage app drawer with another finger, and drop
-              the sticker directly onto MemePouch. See the{" "}
+              screenshotting (which loses animation), open MemePouch in the iMessage drawer
+              below the chat, then long-press the sticker and drag it straight down onto the grid. See the{" "}
               <Link
                 href="/blog/save-sticker-someone-sent-imessage"
                 className="text-blue-600 hover:underline"

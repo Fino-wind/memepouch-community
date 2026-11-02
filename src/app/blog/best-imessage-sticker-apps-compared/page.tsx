@@ -233,8 +233,8 @@ export default function ArticlePage() {
           </li>
           <li>
             <strong>Save stickers friends send you.</strong> MemePouch&apos;s iMessage extension
-            registers as a drop target. Drag a sticker from any chat onto the MemePouch grid (two
-            fingers if MemePouch isn&apos;t open, one finger if it is) — the sticker lands in
+            registers as a drop target. Drag a sticker from any chat onto the MemePouch grid (simply
+            open the drawer below the chat and drag straight down) — the sticker lands in
             your library with animation intact. (
             <Link href="/blog/save-sticker-someone-sent-imessage" className="text-blue-600 hover:underline">
               save-sticker guide

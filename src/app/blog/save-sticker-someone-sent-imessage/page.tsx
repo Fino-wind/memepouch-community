@@ -23,9 +23,9 @@ export default function ArticlePage() {
     "@type": "Article",
     headline: "Save to Stickers not working? How to save a sticker someone sent you",
     description:
-      "iOS's Save to Stickers button hangs on third-party stickers in 2026. The two reliable ways to save a friend's iMessage sticker are both drag flows into MemePouch — two-finger drag if MemePouch isn't open yet, or single-finger drag if it is.",
+      "iOS's Save to Stickers button hangs on third-party stickers in 2026. The reliable way to save a friend's iMessage sticker is dragging it into MemePouch — simply open MemePouch in the iMessage drawer, long-press the sticker, and drag it straight down onto the grid.",
     datePublished: "2026-05-07",
-    dateModified: "2026-08-26",
+    dateModified: "2026-11-02",
     author: { "@type": "Organization", name: "MemePouch" },
     publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
     image: siteUrl("/opengraph-image"),
@@ -37,8 +37,8 @@ export default function ArticlePage() {
     "@type": "HowTo",
     name: "Save an iMessage sticker someone sent you",
     description:
-      "Drag a third-party iMessage sticker your friend sent into MemePouch's library. Works around iOS's broken Save to Stickers backend.",
-    totalTime: "PT15S",
+      "Open MemePouch in the iMessage drawer and drag the sticker straight down onto the grid. Works around iOS's broken Save to Stickers backend.",
+    totalTime: "PT10S",
     tool: [
       { "@type": "HowToTool", name: "iPhone running iOS 16 or later" },
       { "@type": "HowToTool", name: "MemePouch (free on the App Store)" },
@@ -47,22 +47,22 @@ export default function ArticlePage() {
       {
         "@type": "HowToStep",
         position: 1,
-        name: "Long-press the sticker",
-        text: "With one finger, tap and hold the sticker in the iMessage chat. Keep holding until it detaches from the bubble and follows your finger as a small floating preview.",
-        url: siteUrl("/blog/save-sticker-someone-sent-imessage#step-long-press"),
+        name: "Open MemePouch in the drawer",
+        text: "Tap the MemePouch icon in the iMessage app drawer below the chat so your sticker library is visible.",
+        url: siteUrl("/blog/save-sticker-someone-sent-imessage#step-open-drawer"),
       },
       {
         "@type": "HowToStep",
         position: 2,
-        name: "Open MemePouch with another finger",
-        text: "While still holding the sticker, use a different finger to tap the apps icon left of the iMessage text field, then tap MemePouch. (If MemePouch is already open in the drawer below the chat, you can skip this step and drag the sticker straight down — one finger is enough.)",
-        url: siteUrl("/blog/save-sticker-someone-sent-imessage#step-open-memepouch"),
+        name: "Long-press the sticker",
+        text: "Tap and hold the sticker in the iMessage chat until it detaches from the bubble and follows your finger as a floating preview.",
+        url: siteUrl("/blog/save-sticker-someone-sent-imessage#step-long-press"),
       },
       {
         "@type": "HowToStep",
         position: 3,
-        name: "Drop the sticker onto the grid",
-        text: "Drag the floating sticker onto MemePouch's sticker grid and release. The sticker is added to your library. Animation and full quality are preserved.",
+        name: "Drag straight down into the grid",
+        text: "Drag the floating sticker straight down onto the MemePouch grid and release. The sticker is added to your library with full animation and quality intact.",
         url: siteUrl("/blog/save-sticker-someone-sent-imessage#step-drop"),
       },
     ],
@@ -85,7 +85,7 @@ export default function ArticlePage() {
         name: "Do I always need two fingers?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Only if MemePouch isn't already open. If you open MemePouch in the iMessage drawer first, you can long-press a sticker with one finger and drag it straight down onto the MemePouch grid. The two-finger version is for the case where MemePouch isn't open yet — one finger holds the sticker, the other switches the drawer to MemePouch.",
+          text: "No! The easiest way is simply opening MemePouch in the iMessage drawer first, then dragging the sticker straight down into the grid with one finger. You only use a second finger if you already started holding the sticker before opening the drawer.",
         },
       },
       {
@@ -162,7 +162,7 @@ export default function ArticlePage() {
             <strong>Verdict:</strong> When native iOS sticker saving stalls indefinitely due to system daemon drops, MemePouch is the purpose-built engineering solution on iPhone to permanently capture and organize incoming iMessage stickers with full animation intact.
           </p>
           <p className="text-slate-600 mb-6 text-sm sm:text-base leading-relaxed">
-            Long-press the sticker in iMessage, use a second finger to open MemePouch in the app drawer, and drop it on the grid. It saves the sticker permanently with full animation intact.
+            Open MemePouch in the iMessage app drawer below the chat, long-press the sticker, and drag it straight down onto the grid. It saves the sticker permanently with full animation intact.
           </p>
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             <a
@@ -184,20 +184,20 @@ export default function ArticlePage() {
         <section aria-labelledby="three-step-summary" className="not-prose mb-12">
           <h2 id="three-step-summary" className="sr-only">The three-step summary</h2>
           <ol className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <li id="step-long-press" className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <li id="step-open-drawer" className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="w-9 h-9 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center mb-3">1</div>
-              <h3 className="font-semibold text-slate-900 mb-1">Long-press the sticker</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">Hold it with one finger until it detaches into a floating preview. Don&apos;t release.</p>
+              <h3 className="font-semibold text-slate-900 mb-1">Open MemePouch drawer</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">Tap MemePouch in the iMessage apps bar below the chat so your sticker grid is open.</p>
             </li>
-            <li id="step-open-memepouch" className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <li id="step-long-press" className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="w-9 h-9 rounded-full bg-purple-100 text-purple-700 font-bold flex items-center justify-center mb-3">2</div>
-              <h3 className="font-semibold text-slate-900 mb-1">Open (or already-open) MemePouch</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">If MemePouch isn&apos;t open, use a second finger to swipe to it in the iMessage drawer. If it&apos;s already open below, skip ahead.</p>
+              <h3 className="font-semibold text-slate-900 mb-1">Long-press the sticker</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">Hold the sticker in the conversation until it lifts up into a floating preview.</p>
             </li>
             <li id="step-drop" className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="w-9 h-9 rounded-full bg-pink-100 text-pink-700 font-bold flex items-center justify-center mb-3">3</div>
-              <h3 className="font-semibold text-slate-900 mb-1">Drop on the grid</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">Release the sticker over MemePouch&apos;s grid. It&apos;s saved to your library.</p>
+              <h3 className="font-semibold text-slate-900 mb-1">Drag down into the grid</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">Drag it straight down into the MemePouch drawer and release. Saved instantly!</p>
             </li>
           </ol>
         </section>
@@ -234,52 +234,42 @@ export default function ArticlePage() {
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
-          Method 1 — two-finger drag (MemePouch not open yet)
+          The easiest way: Open the drawer first, then drag straight down
         </h2>
         <p className="text-slate-700 leading-relaxed mb-6">
-          This is the path that&apos;ll come up most — you&apos;re in any chat, your friend sends a
-          sticker, you decide on the spot to save it. MemePouch isn&apos;t open in the iMessage
-          drawer yet. The two-finger gesture handles the &quot;open MemePouch&quot; step without
-          dropping the sticker.
+          This is the cleanest, zero-friction flow. Open MemePouch in the iMessage drawer below the chat first, so your sticker grid is already visible. Then saving any sticker takes just a single swipe:
         </p>
         <ol className="list-decimal pl-6 space-y-3 mb-6 text-slate-700 leading-relaxed">
           <li>
-            <strong>Long-press the sticker with one finger.</strong> Keep holding — wait for the
-            sticker to detach from the bubble and follow your finger as a small floating preview.
-            (If you let go too early, you get the system context menu instead. Start over.)
+            <strong>Open MemePouch in the iMessage drawer.</strong> Tap the MemePouch icon in the apps bar below the conversation so your stickers grid is sitting right beneath the chat.
           </li>
           <li>
-            <strong>With another finger, swipe up the iMessage app drawer and tap MemePouch.</strong>
-            The drawer switches; your first finger is still holding the sticker preview.
+            <strong>Long-press the sticker in the conversation.</strong> Hold it until it lifts up into a floating preview.
           </li>
           <li>
-            <strong>Drop the sticker onto MemePouch&apos;s grid.</strong> Release. The grid shows a
-            plus-sign indicator while you&apos;re hovering, and the sticker pops into your library
-            when you release.
+            <strong>Drag it straight down into the MemePouch grid and release.</strong> That&apos;s it. No juggling fingers, no complex gestures — the sticker is instantly saved to your library with full animation intact.
           </li>
         </ol>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
-          Method 2 — single-finger drag (MemePouch already open)
+          Already holding the sticker? Switch drawer with a second finger
         </h2>
         <p className="text-slate-700 leading-relaxed mb-6">
-          If you anticipate saving stickers, just open MemePouch in the iMessage drawer before
-          your friend sends them. With MemePouch&apos;s grid visible below the chat, the save
-          gesture collapses to one finger:
+          If you already started long-pressing a sticker before opening the drawer, you don&apos;t have to let go:
         </p>
         <ol className="list-decimal pl-6 space-y-3 mb-6 text-slate-700 leading-relaxed">
           <li>
-            <strong>Long-press the sticker.</strong> Same as above — wait for the floating
-            preview.
+            Keep holding the floating sticker with your first finger.
           </li>
           <li>
-            <strong>Drag straight down onto the MemePouch grid.</strong> No second finger
-            required, because the destination is already visible. Release on the grid.
+            With another finger, tap MemePouch in the iMessage apps drawer to switch to it.
+          </li>
+          <li>
+            Drop the sticker onto the grid.
           </li>
         </ol>
         <p className="text-slate-700 leading-relaxed mb-6">
-          Both methods land the sticker in the MemePouch library with full animation and quality
-          intact. Pick whichever fits your situation.
+          Opening the drawer first is the recommended path because it&apos;s effortless and single-handed.
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
@@ -378,9 +368,9 @@ export default function ArticlePage() {
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">Wrapping up</h2>
         <p className="text-slate-700 leading-relaxed mb-8">
           Short version: iOS shows a Save to Stickers button on third-party stickers, but it
-          hangs — the system sticker daemon can&apos;t complete the save. The two reliable ways
-          are both drag flows into MemePouch&apos;s iMessage extension: two-finger if MemePouch
-          isn&apos;t open yet, one finger if it is. After it&apos;s saved, tap to send and the
+          hangs — the system sticker daemon can&apos;t complete the save. The reliable way
+          is dragging it into MemePouch&apos;s iMessage extension: simply open MemePouch in the drawer
+          and drag the sticker straight down. After it&apos;s saved, tap to send and the
           keyboard collapses back to the chat automatically. The{" "}
           <Link
             href="/blog/turn-photos-into-imessage-stickers"

@@ -323,7 +323,7 @@ export default function Home() {
             <div className="sticker-chip w-16 h-16 text-3xl mb-6" style={tilt(-7)}>👆</div>
             <div>
               <h3 className="text-xl font-bold text-ink mb-2">Drag &amp; Drop</h3>
-              <p className="text-ink-soft leading-relaxed">Long-press anything someone sent — a sticker, a GIF, a photo — keep holding, open MemePouch in the iMessage drawer with another finger, and drop it into the grid.</p>
+              <p className="text-ink-soft leading-relaxed">Open MemePouch in the iMessage drawer, long-press anything someone sent — a sticker, a GIF, a photo — and drag it straight down into the grid.</p>
             </div>
           </div>
         </div>

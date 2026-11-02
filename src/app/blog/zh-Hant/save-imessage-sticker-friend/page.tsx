@@ -5,7 +5,7 @@ import { APP_STORE_URL, SITE_URL, siteUrl } from "../../../site";
 export const metadata: Metadata = {
   title: "朋友傳的 iMessage 貼圖怎麼存？(2026 完整教學)",
   description:
-    "iMessage 收到一張超好笑的貼圖,想存下來自己用?長按貼圖點「儲存至貼圖」會卡住沒反應。這是為什麼,以及真正能用的「雙指拖曳」步驟——iOS 唯一開放給第三方貼圖 App 的儲存路徑。",
+    "iMessage 收到一張超好笑的貼圖，想存下來自己用？長按貼圖點「儲存至貼圖」會卡住沒反應。這是為什麼，以及真正能用的「先點開抽屜，直接拖入」步驟——iOS 唯一開放給第三方貼圖 App 的儲存路徑。",
   alternates: {
     canonical: "/blog/zh-Hant/save-imessage-sticker-friend",
     languages: {
@@ -24,9 +24,9 @@ export default function ArticlePage() {
     inLanguage: "zh-Hant",
     headline: "朋友傳的 iMessage 貼圖怎麼存到自己的貼圖庫?",
     description:
-      "iOS 顯示「儲存至貼圖」按鈕但點了卡住——這是 Apple 系統貼圖常駐程序的已知問題。真正可用的方法是把貼圖拖到 MemePouch 的 iMessage 擴充功能裡。本文說明背後原理與操作步驟。",
+      "iOS 顯示「儲存至貼圖」按鈕但點了卡住——這是 Apple 系統貼圖常駐程序的已知問題。真正可用的方法是先點開 MemePouch 抽屜，把貼圖直接拖入抽屜網格。本文說明背後原理與操作步驟。",
     datePublished: "2026-05-15",
-    dateModified: "2026-05-15",
+    dateModified: "2026-11-02",
     author: { "@type": "Organization", name: "MemePouch" },
     publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
     image: siteUrl("/opengraph-image"),
@@ -39,8 +39,8 @@ export default function ArticlePage() {
     inLanguage: "zh-Hant",
     name: "把朋友在 iMessage 傳的貼圖存起來",
     description:
-      "用「雙指拖曳」把貼圖拖到 MemePouch 的 iMessage 擴充功能,繞過 Apple 系統「儲存至貼圖」卡住的問題。",
-    totalTime: "PT15S",
+      "先點開聊天下方的 MemePouch 抽屜，把貼圖直接拖入抽屜網格，繞過 Apple 系統「儲存至貼圖」卡住的問題。",
+    totalTime: "PT10S",
     tool: [
       { "@type": "HowToTool", name: "iPhone(iOS 16 或以上)" },
       { "@type": "HowToTool", name: "MemePouch(App Store 免費下載)" },
@@ -49,20 +49,20 @@ export default function ArticlePage() {
       {
         "@type": "HowToStep",
         position: 1,
-        name: "長按貼圖",
-        text: "用一根手指長按朋友傳來的貼圖,不要放開。貼圖會從訊息泡泡裡「浮起來」,跟著你的手指動——這時候你才進入拖曳狀態。",
+        name: "點開 MemePouch 抽屜",
+        text: "在 iMessage 輸入欄下方點開 MemePouch 圖示，貼圖庫網格就會顯示在聊天下方。",
       },
       {
         "@type": "HowToStep",
         position: 2,
-        name: "切換到 MemePouch",
-        text: "另一根手指點 iMessage 輸入欄左邊的 App 圖示,選 MemePouch 打開。第一根手指繼續按住貼圖。(如果 MemePouch 已經在抽屜裡打開了,這一步可以跳過——一根手指就夠了。)",
+        name: "長按貼圖",
+        text: "長按聊天裡朋友傳來的貼圖，貼圖會從訊息泡泡裡浮起來，跟著你的手指動。",
       },
       {
         "@type": "HowToStep",
         position: 3,
-        name: "把貼圖放到 MemePouch 網格上",
-        text: "把貼圖拖到 MemePouch 的貼圖網格上放開。貼圖就存到你的貼圖庫了——動態 GIF 也會保留完整動畫。",
+        name: "直接往下拖入抽屜網格",
+        text: "直接把貼圖往下拖到 MemePouch 的網格上放手，秒存入庫，完整保留動態貼圖動畫！",
       },
     ],
   };
@@ -82,10 +82,10 @@ export default function ArticlePage() {
       },
       {
         "@type": "Question",
-        name: "一定要用兩根手指嗎?",
+        name: "一定要用兩根手指操作嗎?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "只有當 MemePouch 還沒打開的時候才需要兩根手指——一根按住貼圖,另一根切換到 MemePouch。如果你已經在 iMessage 抽屜裡打開了 MemePouch,貼圖網格已經顯示在聊天下方,那一根手指就夠——長按貼圖直接往下拖到網格上就行。",
+          text: "完全不需要！最順手的方式是直接先點開 iMessage 下方的 MemePouch 抽屜，然後長按聊天裡的貼圖，直接一根手指往下一拉拖進網格放手就存好了，全程單指單手即可完成。",
         },
       },
       {
@@ -158,8 +158,7 @@ export default function ArticlePage() {
           </p>
           <p className="text-lg sm:text-xl font-medium text-slate-900 leading-snug mb-6">
             iOS 的「儲存至貼圖」按鈕在第三方貼圖上點了會卡——是 Apple 系統 Bug,不是你操作錯。
-            真正能用的方式是把貼圖<strong>拖到 MemePouch</strong>:MemePouch 沒打開的時候用雙指拖,
-            打開的時候單指拖。
+            真正能用的方式是把貼圖<strong>拖到 MemePouch</strong>：先點開抽屜直接拖入，秒存入庫。
           </p>
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             <a
@@ -170,7 +169,7 @@ export default function ArticlePage() {
             >
               到 App Store 下載 MemePouch
             </a>
-            <span className="text-sm text-slate-500">iPhone · iOS 16+ · 一次性解鎖,沒有訂閱</span>
+            <span className="text-sm text-slate-500">iPhone · iOS 16+ · 免費試用 · 支援買斷或訂閱</span>
           </div>
         </aside>
 
@@ -198,44 +197,41 @@ export default function ArticlePage() {
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
-          方法一:雙指拖曳(MemePouch 還沒打開時)
+          最簡單順手的方式：先點開抽屜，直接拖進去
         </h2>
         <p className="text-slate-700 leading-relaxed mb-6">
-          這是最常用的情境——你正在聊天,朋友突然傳來一張貼圖,
-          你當下決定要存。MemePouch 還沒在 iMessage 抽屜裡打開。
-          雙指操作可以一次完成「打開 MemePouch」加「把貼圖拖進去」這兩步,
-          中間不會讓貼圖掉下來。
+          這是最推薦、最直覺的操作方式。直接在 iMessage 輸入欄下方先點開 MemePouch，讓貼圖網格在螢幕下方候著，然後儲存貼圖只需要一滑：
         </p>
         <ol className="list-decimal pl-6 space-y-3 mb-6 text-slate-700 leading-relaxed">
           <li>
-            <strong>一根手指長按貼圖,不要放開。</strong>
-            等個幾秒,貼圖會「浮起來」,跟著你的手指動——這時候你才真正進入拖曳狀態。
-            如果你太早放手,會跑出來一般的長按選單(回覆 / 貼 / Emoji 詳細資訊……),要重來一次。
+            <strong>在輸入欄下方點開 MemePouch 抽屜：</strong>
+            點 iMessage 輸入欄左邊的「+」或 App 圖示，點開 MemePouch，你的貼圖庫網格就直接展示在聊天下方。
           </li>
           <li>
-            <strong>另一根手指點 iMessage 輸入欄左邊的 App 圖示,選 MemePouch 打開。</strong>
-            iMessage 抽屜會切換到 MemePouch,但第一根手指還按著貼圖。
+            <strong>長按聊天泡泡裡的貼圖：</strong>
+            按住朋友傳來的貼圖，等它「浮起來」跟著手指動。
           </li>
           <li>
-            <strong>把貼圖拖到 MemePouch 網格上,放手。</strong>
-            網格上會出現「+」提示,貼圖就存進貼圖庫了。
+            <strong>直接往下一拉，拖到 MemePouch 網格裡放手：</strong>
+            貼圖網格亮起「+」提示，瞬間儲存完畢！動態貼圖原始資料與動畫完好無損。
           </li>
         </ol>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
-          方法二:單指拖曳(MemePouch 已經打開時)
+          備用方式：如果已經長按浮起了貼圖
         </h2>
         <p className="text-slate-700 leading-relaxed mb-6">
-          如果你事先就在 iMessage 抽屜裡打開了 MemePouch,貼圖網格已經顯示在聊天下方,
-          那就可以簡化成單指——目標已經在螢幕上,不用切換抽屜了:
+          如果你沒提前打開抽屜、已經有一根手指按住貼圖浮起來了，也不用放手重來：
         </p>
         <ol className="list-decimal pl-6 space-y-3 mb-6 text-slate-700 leading-relaxed">
           <li>
-            <strong>長按貼圖</strong>(同上,等它浮起來)。
+            第一根手指繼續按住浮起的貼圖不要放。
           </li>
           <li>
-            <strong>直接往下拖到 MemePouch 網格上,放手。</strong>
-            第二根手指用不到。
+            用另一根手指點一下輸入欄左側的 App 圖示切換到 MemePouch。
+          </li>
+          <li>
+            拖進打開的網格放手即可。
           </li>
         </ol>
         <p className="text-slate-700 leading-relaxed mb-6">

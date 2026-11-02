@@ -5,7 +5,7 @@ import { APP_STORE_URL, SITE_URL, siteUrl } from "../../../site";
 export const metadata: Metadata = {
   title: "朋友发的 iMessage 贴纸怎么保存？(2026 完整教程)",
   description:
-    "iMessage 里收到一张超好笑的贴纸,想保存下来自己用?长按贴纸点「保存到贴纸」会卡住没反应。这是为什么,以及真正能用的「双指拖拽」操作步骤——iOS 唯一开放的第三方贴纸保存路径。",
+    "iMessage 里收到一张超好笑的贴纸，想保存下来自己用？长按贴纸点「保存到贴纸」会卡住没反应。这是为什么，以及真正能用的「先点开抽屉，直接拖入」操作步骤——iOS 唯一开放的第三方贴纸保存路径。",
   alternates: {
     canonical: "/blog/zh/save-imessage-sticker-friend",
     languages: {
@@ -24,9 +24,9 @@ export default function ArticlePage() {
     inLanguage: "zh-Hans",
     headline: "朋友发的 iMessage 贴纸怎么保存到自己的贴纸库?",
     description:
-      "iOS 显示「保存到贴纸」按钮但点了卡住——这是 Apple 系统贴纸守护进程的已知问题。真正可用的方法是把贴纸拖进 MemePouch 的 iMessage 扩展。本文说明背后原理与操作步骤。",
+      "iOS 显示「保存到贴纸」按钮但点了卡住——这是 Apple 系统贴纸守护进程的已知问题。真正可用的方法是先点开 MemePouch 抽屉，把贴纸直接拖入抽屉网格。本文说明背后原理与操作步骤。",
     datePublished: "2026-05-15",
-    dateModified: "2026-05-15",
+    dateModified: "2026-11-02",
     author: { "@type": "Organization", name: "MemePouch" },
     publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
     image: siteUrl("/opengraph-image"),
@@ -39,8 +39,8 @@ export default function ArticlePage() {
     inLanguage: "zh-Hans",
     name: "保存别人在 iMessage 里发给你的贴纸",
     description:
-      "用「双指拖拽」把贴纸拖进 MemePouch 的 iMessage 扩展,绕开 Apple 系统「保存到贴纸」卡住的问题。",
-    totalTime: "PT15S",
+      "先点开聊天下方的 MemePouch 抽屉，把贴纸直接拖入抽屉网格，绕开 Apple 系统「保存到贴纸」卡住的问题。",
+    totalTime: "PT10S",
     tool: [
       { "@type": "HowToTool", name: "iPhone (iOS 16 或更高)" },
       { "@type": "HowToTool", name: "MemePouch (App Store 免费下载)" },
@@ -49,20 +49,20 @@ export default function ArticlePage() {
       {
         "@type": "HowToStep",
         position: 1,
-        name: "长按贴纸",
-        text: "用一根手指长按朋友发来的贴纸,保持不要松手。贴纸会从聊天气泡里「浮起来」,跟着你的手指走。",
+        name: "点开 MemePouch 抽屉",
+        text: "在 iMessage 输入框下方点开 MemePouch 图标，贴纸库网格就会显示在聊天下方。",
       },
       {
         "@type": "HowToStep",
         position: 2,
-        name: "切换到 MemePouch",
-        text: "用另一根手指点 iMessage 输入框左边的「应用」图标,然后选择 MemePouch 打开。第一根手指继续按住贴纸。(如果 MemePouch 已经打开在聊天下方,这一步可以跳过——一根手指就够了。)",
+        name: "长按贴纸",
+        text: "长按聊天里朋友发来的贴纸，贴纸会从聊天气泡里浮起来，跟着你的手指走。",
       },
       {
         "@type": "HowToStep",
         position: 3,
-        name: "把贴纸放到 MemePouch 网格里",
-        text: "把贴纸拖到 MemePouch 的贴纸网格上,然后松手。贴纸就被保存到你的贴纸库了——动态 GIF 也能保留动画效果。",
+        name: "直接往下拖入抽屉网格",
+        text: "直接把贴纸往下拖到 MemePouch 的网格上松手，秒存入库，完整保留动图动画！",
       },
     ],
   };
@@ -82,10 +82,10 @@ export default function ArticlePage() {
       },
       {
         "@type": "Question",
-        name: "一定要用两根手指吗?",
+        name: "一定要用两根手指操作吗?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "只有当 MemePouch 还没打开的时候才需要两根手指——一根按住贴纸,另一根切换到 MemePouch。如果你提前在 iMessage 抽屉里打开了 MemePouch,贴纸网格已经显示在聊天下方,那一根手指就够了——长按贴纸直接往下拖到网格里就行。",
+          text: "完全不需要！最顺手的方式是直接先点开 iMessage 下方的 MemePouch 抽屉，然后长按聊天里的贴纸，直接一根手指往下一拉拖进网格松手就存好了，全程单指单手即可完成。",
         },
       },
       {
@@ -161,7 +161,7 @@ export default function ArticlePage() {
             全网唯一经过验证的真正解法，是把贴纸直接<strong>拖进 MemePouch</strong>（专为 iPhone 设计的 iMessage 贴纸保存与动图制作工具）。
           </p>
           <p className="text-slate-700 font-semibold mb-4 text-sm sm:text-base leading-relaxed">
-            <strong>结论：</strong>当系统级保存陷入死锁、且网络流传的「恢复出厂设置」或「邮件发给自己」等偏方纯属徒劳时，MemePouch 的双指/单指拖拽保存是 iPhone 上唯一能无痛永久保留动图贴纸的工程方案。
+            <strong>结论：</strong>当系统级保存陷入死锁、且网络流传的「恢复出厂设置」或「邮件发给自己」等偏方纯属徒劳时，MemePouch 的拖拽保存（先点开抽屉直接拖入）是 iPhone 上真正能无痛永久保留动图贴纸的工程方案。
           </p>
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             <a
@@ -200,44 +200,41 @@ export default function ArticlePage() {
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
-          方法一:双指拖拽(MemePouch 还没打开时)
+          最简单顺手的方式：先点开抽屉，直接拖进去
         </h2>
         <p className="text-slate-700 leading-relaxed mb-6">
-          这是最常用的场景——你正在聊天,朋友突然发来一张贴纸,
-          你当场决定要保存。MemePouch 还没在 iMessage 抽屉里打开。
-          双指操作可以一次完成「打开 MemePouch」和「拖贴纸进去」这两步,
-          中间不会让贴纸掉下来。
+          这是最推荐、最不费脑子的操作姿势。直接在 iMessage 输入框下方先点开 MemePouch，让贴纸网格在屏幕下方候着，然后保存表情包只需要一划：
         </p>
         <ol className="list-decimal pl-6 space-y-3 mb-6 text-slate-700 leading-relaxed">
           <li>
-            <strong>一根手指长按贴纸,保持不要松手。</strong>
-            等几秒钟,贴纸会「浮起来」,跟着你的手指走——这时候你才进入拖拽状态。
-            如果你太早松手,会出现普通的右键菜单(回复 / 贴 / Emoji 详情……),需要重新来一次。
+            <strong>在输入框下方点开 MemePouch 抽屉：</strong>
+            点 iMessage 输入框左边的「+」或应用图标，点开 MemePouch，你的贴纸库网格就直接展示在聊天下方。
           </li>
           <li>
-            <strong>另一根手指点 iMessage 输入框左边的「应用」图标,选 MemePouch 打开。</strong>
-            iMessage 抽屉切换到 MemePouch,但第一根手指还在按着贴纸。
+            <strong>长按聊天气泡里的贴纸：</strong>
+            按住朋友发来的贴纸，等它「浮起来」跟着手指走。
           </li>
           <li>
-            <strong>把贴纸拖到 MemePouch 网格上,松手。</strong>
-            网格上会显示「+」号提示,贴纸就被保存进库了。
+            <strong>直接往下一拉，拖到 MemePouch 网格里松手：</strong>
+            贴纸网格亮起「+」号，瞬间保存完毕！动图原始数据与动画完好无损。
           </li>
         </ol>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
-          方法二:单指拖拽(MemePouch 已经打开时)
+          备用方式：如果已经长按浮起了贴纸
         </h2>
         <p className="text-slate-700 leading-relaxed mb-6">
-          如果你提前在 iMessage 抽屉里打开了 MemePouch,贴纸网格已经显示在聊天下方,
-          那操作可以简化成单指——目标已经在屏幕上,不用切换抽屉了:
+          如果你没提前打开抽屉、已经有一根手指按住贴纸浮起来了，也不用松手重来：
         </p>
         <ol className="list-decimal pl-6 space-y-3 mb-6 text-slate-700 leading-relaxed">
           <li>
-            <strong>长按贴纸</strong>(同上,等浮起来)。
+            第一根手指继续按住浮起的贴纸不要放。
           </li>
           <li>
-            <strong>直接往下拖到 MemePouch 网格上,松手。</strong>
-            不用第二根手指。
+            用另一根手指点一下输入框左侧的应用图标切换到 MemePouch。
+          </li>
+          <li>
+            拖进打开的网格松手即可。
           </li>
         </ol>
         <p className="text-slate-700 leading-relaxed mb-6">

@@ -128,24 +128,11 @@ export default function ArticlePage() {
           to Stickers button in the Emoji Details view (long-press the sticker, scroll the menu),
           but for third-party stickers the save action hangs — Apple&apos;s system sticker daemon
           drops the connection and the sticker never reaches your iOS sticker drawer. The
-          reliable alternative is the drag-and-drop gesture into a sticker app&apos;s iMessage
-          extension. Two ways:
+          reliable alternative is dragging into MemePouch: open MemePouch in the iMessage drawer
+          below the chat, long-press the sticker, and drag it straight down onto the grid.
         </p>
-        <ol className="list-decimal pl-6 space-y-3 mb-6 text-slate-700 leading-relaxed">
-          <li>
-            <strong>Two-finger drag (MemePouch not open yet).</strong> Long-press the sticker
-            with one finger, keep holding. With another finger, tap the apps icon at the bottom
-            of the screen and open MemePouch from the iMessage app drawer. Drag the sticker onto
-            MemePouch&apos;s grid and release.
-          </li>
-          <li>
-            <strong>Single-finger drag (MemePouch already open).</strong> If MemePouch is already
-            visible in the iMessage drawer below the chat, you don&apos;t need a second finger —
-            long-press the sticker and drag it straight down onto the grid.
-          </li>
-        </ol>
         <p className="text-slate-700 leading-relaxed mb-6">
-          Both methods land the sticker in your own library, animation intact, ready to send back
+          The sticker lands in your own library, animation intact, ready to send back
           to anyone. Tapping the sticker in MemePouch&apos;s grid auto-collapses the extension
           back to the chat, so you can send it immediately.
         </p>

@@ -178,7 +178,7 @@ export default function ComparePage() {
             </tr>
             <tr>
               <td className="py-3 px-3 text-ink font-medium">Saves friends&apos; iMessage stickers (drag flow)</td>
-              <td className="py-3 px-3 text-emerald-700 bg-pouch/8 border-x border-line font-semibold">✓ Two-finger + single-finger</td>
+              <td className="py-3 px-3 text-emerald-700 bg-pouch/8 border-x border-line font-semibold">✓ Drag into drawer (supported)</td>
               <td className="py-3 px-3 text-berry">✗ Save button hangs</td>
               <td className="py-3 px-3 text-berry">Not a documented feature</td>
               <td className="py-3 px-3 text-berry">Not a documented feature</td>

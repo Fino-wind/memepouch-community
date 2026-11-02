@@ -57,7 +57,7 @@ export default function ArticlePage() {
         name: "Can I drag and drop images into MemePouch?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes — in two different places. (1) Drop into the main app's home screen grid: drag an image from Files, Photos, or Safari onto the MemePouch window (works in Stage Manager on iPad, multi-touch on iPhone), and it imports. (2) Drop into the iMessage extension drawer: when a friend sends you a sticker, long-press it in the chat, keep your finger down, and with another finger tap MemePouch in the app drawer; then drag the sticker into the MemePouch grid.",
+          text: "Yes — in two different places. (1) Drop into the main app's home screen grid: drag an image from Files, Photos, or Safari onto the MemePouch window (works in Stage Manager on iPad, multi-touch on iPhone), and it imports. (2) Drop into the iMessage extension drawer: open MemePouch in the iMessage drawer below the chat, then long-press the sticker in the conversation and drag it straight down onto the grid.",
         },
       },
       {
@@ -171,14 +171,13 @@ export default function ArticlePage() {
         ), so MemePouch wires up a drop target inside its iMessage extension instead.
       </p>
       <p className="text-slate-700 leading-relaxed">
-        The gesture: long-press the sticker your friend sent in the chat, keep your finger
-        held down. With another finger, tap the MemePouch icon in the iMessage app drawer to
-        open it. Drag the sticker into the MemePouch grid and release. The sticker imports,
+        The flow: open MemePouch in the iMessage app drawer below the chat first, so your sticker
+        grid is already visible. Then long-press the sticker your friend sent in the chat,
+        drag it straight down into the MemePouch grid, and release. The sticker imports,
         animation intact, ready to send back. Static stickers (PNG/JPEG) and animated GIFs
-        both work — added in 1.8 after early reviewers had trouble with the two-finger gesture
-        on static stickers.{" "}
+        both work.{" "}
         <Link href="/blog/save-sticker-someone-sent-imessage" className="text-blue-600 hover:underline">
-          Full walkthrough with the alternate single-finger variant
+          Full step-by-step walkthrough
         </Link>
         .
       </p>

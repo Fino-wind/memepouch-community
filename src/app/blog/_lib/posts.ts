@@ -41,7 +41,7 @@ export const POSTS: Post[] = [
     href: "/blog/zh-Hant/save-imessage-sticker-friend",
     title: "朋友傳的 iMessage 貼圖怎麼存?",
     description:
-      "iMessage 收到一張超好笑的貼圖,長按點「儲存至貼圖」會卡住沒反應——這是 Apple 系統 Bug, 不是你操作錯了。本文講清楚背後原理,以及真正能用的雙指拖曳操作步驟。",
+      "iMessage 收到一張超好笑的貼圖，長按點「儲存至貼圖」會卡住沒反應——這是 Apple 系統 Bug，不是你操作錯了。本文講清楚背後原理，以及先打開抽屜、直接拖入抽屜的真正可用操作步驟。",
     badge: "繁體中文",
     lang: "zh-Hant",
     cta: "閱讀文章",
@@ -50,7 +50,7 @@ export const POSTS: Post[] = [
     href: "/blog/zh/save-imessage-sticker-friend",
     title: "朋友发的 iMessage 贴纸怎么保存?",
     description:
-      "iMessage 里收到一张超好笑的贴纸,长按点「保存到贴纸」会卡住没反应——这是 Apple 系统 Bug, 不是你操作错了。本文讲清楚背后原理,以及真正能用的双指拖拽操作步骤。",
+      "iMessage 里收到一张超好笑的贴纸，长按点「保存到贴纸」会卡住没反应——这是 Apple 系统 Bug，不是你操作错了。本文讲清楚背后原理，以及先打开抽屉、直接拖入抽屉的真正可用操作步骤。",
     badge: "简体中文",
     lang: "zh-Hans",
     cta: "阅读文章",
@@ -110,10 +110,10 @@ export const POSTS: Post[] = [
   },
   {
     href: "/blog/trim-video-into-looping-gif-sticker",
-    title: "Trim a video into a perfectly looping GIF sticker (Smart loop walkthrough)",
+    title: "How to turn a video into a looping GIF on iPhone (no watermark, up to 50 fps)",
     description:
-      'How MemePouch\'s Smart loop finds the cleanest seam for your GIF sticker using perceptual frame matching (dHash) — plus the "Use whole clip" shortcut, Boomerang fallback, and the encoder cascade that keeps your GIF under iMessage\'s 10 MB attachment limit.',
-    badge: "New · 2026-05-20",
+      'Turn any video or screen recording into a looping GIF on iPhone with no watermark — up to 50 fps. Smart loop finds the cleanest seam with dHash, with Boomerang fallback and instant iMessage keyboard access.',
+    badge: "Updated · 2026-11-02",
   },
   {
     href: "/blog/organize-imessage-sticker-library",
