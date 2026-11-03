@@ -141,7 +141,7 @@ export default function ComparePage() {
         <p className="text-sm uppercase tracking-wider text-ink-faint font-semibold mb-2">In one line</p>
         <p className="text-base leading-relaxed">
           <strong>MemePouch is iMessage-only and library-first.</strong> One shared sticker
-          grid (no pack ceremony), private library (no community feed), one unlock that's
+          grid (no pack ceremony), private library (no community feed), one unlock that&apos;s
           either a one-time purchase or a subscription, and one of the few iMessage sticker apps that wires up both drag
           flows for saving the stickers your friends send you. The whole-frame import (no
           auto-cutout) sets MemePouch apart from Apple&apos;s built-in tool; against other
@@ -419,7 +419,7 @@ export default function ComparePage() {
             </li>
             <li>
               <strong>No account, ever.</strong> Your library lives on your iPhone and syncs through
-              your own iCloud — switch that off in Settings if you'd rather it didn't. No server
+              your own iCloud — switch that off in Settings if you&apos;d rather it didn&apos;t. No server
               of ours ever holds your stickers.
             </li>
           </ul>
@@ -433,6 +433,7 @@ export default function ComparePage() {
         </div>
         <a
           href={APP_STORE_URL}
+          data-track-location="compare_cta"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-ink shadow-md hover:bg-slate-100 transition self-start sm:self-auto whitespace-nowrap"

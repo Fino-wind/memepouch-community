@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { APP_STORE_URL } from "../site";
+import { trackNavClick } from "../../lib/analytics";
 
 const LINKS = [
   { href: "/faq", label: "FAQ" },
@@ -35,7 +36,12 @@ export default function SiteNav() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
-        <Link href="/" aria-label="MemePouch home" className="flex items-center gap-2.5 group">
+        <Link
+          href="/"
+          aria-label="MemePouch home"
+          className="flex items-center gap-2.5 group"
+          onClick={() => trackNavClick("Logo", "/")}
+        >
           <img
             src="/icon.png"
             alt=""
@@ -53,6 +59,7 @@ export default function SiteNav() {
             <Link
               key={l.href}
               href={l.href}
+              onClick={() => trackNavClick(l.label, l.href)}
               aria-current={isActive(l.href) ? "page" : undefined}
               className={`relative text-sm font-medium transition-colors ${
                 isActive(l.href)
@@ -68,6 +75,7 @@ export default function SiteNav() {
         <div className="flex items-center gap-3">
           <a
             href={APP_STORE_URL}
+            data-track-location="nav_button"
             className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-ink text-paper px-4 py-2 text-sm font-semibold hover:bg-pouch transition-colors"
           >
             <svg className="w-3.5 h-3.5" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true">
@@ -94,7 +102,10 @@ export default function SiteNav() {
                 <Link
                   key={l.href}
                   href={l.href}
-                  onClick={closeMenu}
+                  onClick={() => {
+                    closeMenu();
+                    trackNavClick(l.label, l.href);
+                  }}
                   aria-current={isActive(l.href) ? "page" : undefined}
                   className={`rounded-xl px-4 py-3 text-sm font-semibold transition-colors ${
                     isActive(l.href) ? "text-ink bg-paper" : "text-ink hover:bg-paper"
@@ -105,13 +116,17 @@ export default function SiteNav() {
               ))}
               <Link
                 href="/privacy"
-                onClick={closeMenu}
+                onClick={() => {
+                  closeMenu();
+                  trackNavClick("Privacy", "/privacy");
+                }}
                 className="rounded-xl px-4 py-3 text-sm font-semibold text-ink hover:bg-paper transition-colors"
               >
                 Privacy
               </Link>
               <a
                 href={APP_STORE_URL}
+                data-track-location="mobile_menu"
                 className="mt-1 rounded-xl px-4 py-3 text-sm font-bold text-paper bg-ink text-center"
               >
                 Download on the App Store

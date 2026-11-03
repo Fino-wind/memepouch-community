@@ -134,6 +134,7 @@ export default function Home() {
             <div className="rise flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4" style={{ "--rise-delay": "0.24s" } as React.CSSProperties}>
               <a
                 href={APP_STORE_URL}
+                data-track-location="hero_primary"
                 aria-label="Download MemePouch on the App Store"
                 className="flex items-center gap-2 rounded-full bg-ink px-8 py-4 text-base font-bold text-paper shadow-lg hover:bg-pouch hover:scale-105 transition-all active:scale-95"
               >
@@ -467,7 +468,7 @@ export default function Home() {
       {/* ───────────────────── Pricing ───────────────────── */}
       <section className="max-w-6xl mx-auto px-6 pb-24">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ink">Free to try. Then it's your call.</h2>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-ink">Free to try. Then it&apos;s your call.</h2>
           <p className="mt-4 text-lg text-ink-soft">One unlock, three ways to pay — buy it outright, or subscribe monthly or yearly. Same app either way.</p>
         </div>
 
@@ -483,7 +484,7 @@ export default function Home() {
               <li className="flex gap-2.5"><span className="text-sun font-bold">✓</span> Restores on any iPhone with your Apple ID</li>
               <li className="flex gap-2.5"><span className="text-sun font-bold">✓</span> Supports a solo indie developer 💛</li>
             </ul>
-            <a href={APP_STORE_URL} className="rounded-full bg-paper text-ink text-center font-bold py-3.5 hover:bg-sun transition-colors">
+            <a href={APP_STORE_URL} data-track-location="bottom_banner" className="rounded-full bg-paper text-ink text-center font-bold py-3.5 hover:bg-sun transition-colors">
               Download on the App Store
             </a>
           </div>
