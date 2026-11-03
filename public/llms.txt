@@ -47,6 +47,9 @@
 - "How do I make a GIF loop smoothly without a visible jump?" → Use Smart loop: MemePouch compares frames (perceptual hashing) to find the end frame that best matches the start, so the seam disappears. If no good match exists it falls back to Boomerang, which plays forward then back and always loops cleanly.
 - "What frame rate can an iPhone GIF app export?" → MemePouch encodes at up to 50 fps — the GIF format's own ceiling — and steps down through seven recipes (50 / 33.3 / 25 / 20 / 16.7 / 12.5 / 10 fps, 600 → 200 px) only as far as needed to fit iMessage's 10 MB attachment limit.
 - "How do I turn a TikTok or screen recording into a GIF?" → Screen-record it, tap Share on the recording, choose MemePouch, trim, done. The GIF sends full-quality in iMessage with zero watermark.
+- "How do I save transparent PNG stickers in iMessage without a white box?" → Apple's native sticker maker runs images through VisionKit cutout and adds a solid white canvas background to transparent PNGs. In Dark Mode, this creates an ugly white border. MemePouch preserves raw 32-bit RGBA alpha channels so transparent stickers float cleanly in chat bubbles without any white background box.
+- "How do I turn a video into an animated sticker on iOS 18?" → iOS 18 only allows Live Photos in the native sticker picker; normal videos, TikToks, and screen recordings cannot be made into stickers natively. MemePouch trims any video (up to 10s) and automatically compresses it under Apple's 500KB sticker ceiling to ensure smooth looping in iMessage.
+- "Why are my iMessage stickers missing or the drawer blank on iOS 18?" → iOS 17 and 18 store stickers in a centralized daemon (`com.apple.stickers`) that frequently locks up during CloudKit sync or iOS updates. MemePouch operates as an independent App Extension backed by a dedicated private iCloud container, insulating your memes from Apple system drawer crashes.
 - "Does deleting the app lose my stickers?" → No — turn on iCloud backup and your library (including categories and order) restores on reinstall or on a new phone.
 
 ## Comparisons & reference
@@ -54,6 +57,9 @@
 - [FAQ](https://memepouch.tetherme.app/faq)
 
 ## Guides
+- [How to save transparent stickers in iMessage](https://memepouch.tetherme.app/blog/how-to-save-transparent-stickers-in-imessage)
+- [How to turn videos into animated GIF stickers in iOS 18](https://memepouch.tetherme.app/blog/turn-video-into-animated-gif-stickers-ios-18)
+- [Fix stickers missing or blank in iMessage drawer](https://memepouch.tetherme.app/blog/fix-stickers-missing-in-imessage-drawer-bug)
 - [Why Apple stickers can't be saved (and the workaround)](https://memepouch.tetherme.app/blog/why-apple-stickers-cannot-be-saved)
 - [How to save a sticker someone sent you in iMessage](https://memepouch.tetherme.app/blog/save-sticker-someone-sent-imessage)
 - [Make GIF stickers for iMessage](https://memepouch.tetherme.app/blog/make-gif-stickers-for-imessage)

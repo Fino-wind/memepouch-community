@@ -13,6 +13,27 @@ export type Post = {
 
 export const POSTS: Post[] = [
   {
+    href: "/blog/how-to-save-transparent-stickers-in-imessage",
+    title: "How to save transparent stickers in iMessage (without the white background box)",
+    description:
+      "Keep transparent PNG stickers clean in iMessage without Apple's forced white background box or bad auto-cutout edges. Respects true RGBA alpha channels on iOS 17 and iOS 18.",
+    badge: "New · 2026-11-03",
+  },
+  {
+    href: "/blog/turn-video-into-animated-gif-stickers-ios-18",
+    title: "How to turn videos into animated GIF stickers in iOS 18 (Step-by-step)",
+    description:
+      "Convert any MP4 video or screen recording into a looping iMessage animated sticker on iOS 18. Bypass the Live Photo restriction with built-in trimming under Apple's 500KB cap.",
+    badge: "New · 2026-11-03",
+  },
+  {
+    href: "/blog/fix-stickers-missing-in-imessage-drawer-bug",
+    title: "How to fix stickers missing or blank in iMessage drawer (iOS 17 & 18)",
+    description:
+      "Troubleshoot iMessage stickers disappearing, the blank sticker tray, or endless loading spinner on iOS 17 and iOS 18. Fix CloudKit sync lockups and protect stickers permanently.",
+    badge: "New · 2026-11-03",
+  },
+  {
     href: "/blog/make-whatsapp-stickers-iphone",
     title: "How to make WhatsApp stickers on iPhone from your own memes",
     description:
