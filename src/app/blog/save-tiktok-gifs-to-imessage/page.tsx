@@ -199,7 +199,7 @@ export default function ArticlePage() {
           the caption text and background that make the meme funny survive intact. (More on
           that in{" "}
           <Link href="/blog/imessage-stickers-without-auto-cutout" className="text-blue-600 underline">
-            our no-auto-cutout guide
+            our guide to fixing sticker cutoff and stopping Apple cutting off text
           </Link>
           .)
         </p>

@@ -293,6 +293,13 @@ export default function ArticlePage() {
           </div>
         </div>
 
+        <p className="text-slate-700 leading-relaxed mb-6">
+          To learn more about the underlying VisionKit mechanism and how to prevent caption loss across all images, read our deep-dive on{" "}
+          <Link href="/blog/imessage-stickers-without-auto-cutout" className="text-blue-600 underline font-medium">
+            how to fix sticker cutoff and stop Apple cutting off text
+          </Link>.
+        </p>
+
         <div className="my-12 p-6 bg-blue-50 border border-blue-200 rounded-2xl">
           <h3 className="text-xl font-semibold text-slate-900 mb-2">Ready to keep the whole meme?</h3>
           <p className="text-slate-700 mb-4">

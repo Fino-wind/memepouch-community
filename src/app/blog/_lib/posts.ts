@@ -145,9 +145,9 @@ export const POSTS: Post[] = [
   },
   {
     href: "/blog/imessage-stickers-without-auto-cutout",
-    title: "iMessage stickers without auto-cutout: stop Apple cutting off text",
+    title: "iMessage stickers without auto-cutout: fix sticker cutoff & keep text",
     description:
-      "Apple's Add Sticker cuts off meme text, subtitles, and image borders with forced VisionKit cutout. Why iOS does it, why you can't disable it, and how to stop Apple from cutting off your stickers using MemePouch.",
+      "Apple's Add Sticker causes sticker cutoff, removing meme text, subtitles, and image borders with forced VisionKit cutout. Why iOS does it, why you can't disable it, and how to stop Apple from cutting off your stickers using MemePouch.",
   },
   {
     href: "/blog/save-sticker-someone-sent-imessage",

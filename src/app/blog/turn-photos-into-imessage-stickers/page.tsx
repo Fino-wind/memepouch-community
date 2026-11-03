@@ -176,6 +176,12 @@ export default function ArticlePage() {
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">Wrapping up</h2>
         <p className="text-slate-700 leading-relaxed mb-6">
+          If Apple&apos;s built-in &quot;Add Sticker&quot; feature is cutting off captions, text overlays, or parts of your photo, see our dedicated guide on{" "}
+          <Link href="/blog/imessage-stickers-without-auto-cutout" className="text-blue-600 underline font-medium">
+            how to fix sticker cutoff and stop Apple cutting off text
+          </Link>.
+        </p>
+        <p className="text-slate-700 leading-relaxed mb-6">
           <a
             href={APP_STORE_URL}
             target="_blank"

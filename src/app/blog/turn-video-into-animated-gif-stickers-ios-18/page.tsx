@@ -88,6 +88,14 @@ export default function VideoToGifStickerPage() {
           text: "MemePouch allows video trimming up to 10 seconds. For optimal visual clarity and chat responsiveness, 2 to 4 seconds is recommended.",
         },
       },
+      {
+        "@type": "Question",
+        name: "Why does Apple's sticker tool cut off subtitles in my videos?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "When converting Live Photos natively, Apple's VisionKit forces subject detection on every single frame, causing video sticker cutoff and slicing burned-in video captions. MemePouch preserves the entire video frame without running subject cut-off, ensuring all video subtitles and meme captions loop intact.",
+        },
+      },
     ],
   };
 

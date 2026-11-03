@@ -82,6 +82,14 @@ export default function TransparentStickersPage() {
       },
       {
         "@type": "Question",
+        name: "What if Apple's sticker cutout also cuts off my meme text?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "When using Apple's Add Sticker, VisionKit frequently cuts off meme text and captions while attempting to remove the background (sticker cutoff). MemePouch preserves the full frame with all text and reaction elements intact, while maintaining 100% transparent alpha channels when you want them.",
+        },
+      },
+      {
+        "@type": "Question",
         name: "Does this work for animated GIF stickers with transparent backgrounds?",
         acceptedAnswer: {
           "@type": "Answer",

@@ -3,9 +3,9 @@ import Link from "next/link";
 import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
 
 export const metadata: Metadata = {
-  title: "iMessage stickers without auto-cutout — stop Apple cutting off text",
+  title: "iMessage stickers without auto-cutout — fix sticker cutoff & keep text",
   description:
-    "Why does Apple's Add Sticker cut off text, subtitles, and meme borders? How to stop iOS from cutting off your photos and create whole-image iMessage stickers using MemePouch.",
+    "Why does Apple's Add Sticker cause sticker cutoff? Stop iOS from cutting off text and create uncropped iMessage stickers with MemePouch.",
   alternates: {
     canonical: "/blog/imessage-stickers-without-auto-cutout",
     languages: {
@@ -18,145 +18,162 @@ export const metadata: Metadata = {
 };
 
 export default function ArticlePage() {
-  const ARTICLE_LD = {
+  const SCHEMA_GRAPH = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: "iMessage stickers without auto-cutout: stop Apple cutting off text & memes",
-    description:
-      "Why Apple's Add Sticker tool auto-removes the background and cuts off meme text, subtitles, or borders. How to stop iOS from cutting off your photos and keep the whole image with MemePouch.",
-    datePublished: "2026-05-16",
-    dateModified: "2026-11-03",
-    author: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
-    publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
-    image: siteUrl("/opengraph-image"),
-    mainEntityOfPage: siteUrl("/blog/imessage-stickers-without-auto-cutout"),
-  };
-
-  const HOWTO_LD = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: "Make an iMessage sticker without Apple cutting off text or borders (no auto-cutout)",
-    description:
-      "Workflow for creating iMessage stickers from photos, GIFs, or Live Photos without Apple's automatic cut-off and background removal. Result: a full-frame sticker with all meme text intact.",
-    totalTime: "PT30S",
-    supply: [
-      { "@type": "HowToSupply", name: "An iPhone running iOS 16 or later" },
-      { "@type": "HowToSupply", name: "MemePouch installed" },
-      { "@type": "HowToSupply", name: "The photo, GIF, or short video you want to turn into a sticker" },
-    ],
-    step: [
+    "@graph": [
       {
-        "@type": "HowToStep",
-        position: 1,
-        name: "Open MemePouch",
-        text: "Open the MemePouch app on your iPhone. The main screen lists your saved stickers; the import buttons are at the top.",
+        "@type": "Article",
+        "@id": siteUrl("/blog/imessage-stickers-without-auto-cutout#article"),
+        headline: "iMessage stickers without auto-cutout: fix sticker cutoff & keep text",
+        description:
+          "Why Apple's Add Sticker causes sticker cutoff, removing meme text, subtitles, or borders. How to stop iOS from cutting off your photos and keep the whole image with MemePouch.",
+        datePublished: "2026-05-16",
+        dateModified: "2026-11-03",
+        author: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
+        publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
+        image: siteUrl("/opengraph-image"),
+        mainEntityOfPage: siteUrl("/blog/imessage-stickers-without-auto-cutout"),
+        about: [
+          { "@type": "Thing", name: "Sticker cutoff", description: "iOS VisionKit removing meme captions, subtitles, and rectangular image borders" },
+          { "@type": "SoftwareApplication", name: "MemePouch", operatingSystem: "iOS", applicationCategory: "UtilitiesApplication", url: SITE_URL }
+        ],
+        hasPart: [
+          { "@id": siteUrl("/blog/imessage-stickers-without-auto-cutout#howto") },
+          { "@id": siteUrl("/blog/imessage-stickers-without-auto-cutout#faq") }
+        ],
       },
       {
-        "@type": "HowToStep",
-        position: 2,
-        name: "Import the image, GIF, or Live Photo",
-        text: "Tap Import from Photos and select your meme. MemePouch saves the full frame as-is — no Vision-framework subject detection, no background removal. HEIC photos are auto-converted on import. Live Photos can be turned into 10-second GIF stickers in one tap.",
+        "@type": "HowTo",
+        "@id": siteUrl("/blog/imessage-stickers-without-auto-cutout#howto"),
+        name: "Fix sticker cutoff and make an uncropped iMessage sticker",
+        description:
+          "Workflow for creating iMessage stickers from photos, GIFs, or Live Photos without Apple's automatic cut-off and background removal. Result: a full-frame sticker with all meme text intact.",
+        totalTime: "PT30S",
+        supply: [
+          { "@type": "HowToSupply", name: "An iPhone running iOS 16 or later" },
+          { "@type": "HowToSupply", name: "MemePouch installed" },
+          { "@type": "HowToSupply", name: "The photo, GIF, or short video you want to turn into a sticker" },
+        ],
+        step: [
+          {
+            "@type": "HowToStep",
+            position: 1,
+            name: "Open MemePouch",
+            text: "Open the MemePouch app on your iPhone. The main screen lists your saved stickers; the import buttons are at the top.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 2,
+            name: "Import the image, GIF, or Live Photo",
+            text: "Tap Import from Photos and select your meme. MemePouch saves the full frame as-is — no Vision-framework subject detection, no background removal. HEIC photos are auto-converted on import. Live Photos can be turned into 10-second GIF stickers in one tap.",
+          },
+          {
+            "@type": "HowToStep",
+            position: 3,
+            name: "Send it from the iMessage drawer",
+            text: "In any chat, open the MemePouch icon in the iMessage app drawer. Your sticker appears in the grid. Tap to send, or long-press and drag onto someone's message bubble to stick it like a system sticker. GIFs send as full-quality attachments.",
+          },
+        ],
       },
       {
-        "@type": "HowToStep",
-        position: 3,
-        name: "Send it from the iMessage drawer",
-        text: "In any chat, open the MemePouch icon in the iMessage app drawer. Your sticker appears in the grid. Tap to send, or long-press and drag onto someone's message bubble to stick it like a system sticker. GIFs send as full-quality attachments.",
-      },
-    ],
-  };
-
-  const FAQ_LD = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Why does Apple's Add Sticker cut off text, subtitles, and meme borders?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Apple's native sticker maker uses VisionKit machine learning designed strictly for portraits and single subjects. It treats captions, text overlays, subtitles, and rectangular image borders as background and aggressively cuts them off (the notorious sticker cut-off). Because Apple provides no toggle to disable this cutout, third-party uncropped sticker apps like MemePouch are required to preserve the full frame with text.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How do I stop Apple from cutting off my stickers on iPhone?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "To stop Apple from cutting off your stickers, bypass the native Photos Add Sticker tool entirely. Use MemePouch: open the app in your iMessage drawer or on your home screen, tap Import from Photos, and select your meme. MemePouch preserves 100% of the raw image bytes without running subject detection, ensuring all subtitles, captions, and borders remain completely intact.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Can I disable Apple's auto-cutout in the Add Sticker feature?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "No. There is no setting in iOS to turn off the background removal that runs when you tap Add Sticker on a photo. Apple's design is to always extract the main subject, and there is no public API for third-party apps to add an opt-out. The only way to get a whole-image iMessage sticker is to use a different sticker pipeline — a sticker pack app like MemePouch that registers stickers through MSStickerBrowserView instead of going through Apple's system stickers flow.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Why does Apple remove the background automatically?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Apple's Add Sticker feature uses the on-device Vision framework to detect the foreground subject and cut everything else away. It is designed for portraits, objects, and pets — where isolating the subject usually looks better than the full photo. It assumes one obvious subject per image. That assumption fails for memes, reaction images, screenshots with overlay text, and any image where the background is part of the joke.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Does MemePouch process my photo with AI before saving?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "No. MemePouch imports the raw image bytes. Static stickers go through Apple's MSSticker API which has a 500 KB cap, so MemePouch auto-compresses the file if it's larger — but it never crops, never runs subject detection, never alters the framing. Everything happens on-device with no network round-trip — your image is never uploaded to be processed.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Will a whole-image sticker still stick onto someone's message bubble like Apple's stickers?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes. Static stickers sent through MemePouch's iMessage extension are real MSSticker objects, so you can long-press and drag them onto another person's message bubble exactly the way you can with an Apple cutout sticker. GIF stickers route through Messages attachments instead — they send as their own full-quality bubble in the chat rather than sticking onto an existing one (this is the trade-off for not being clamped to 500 KB).",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What about animated stickers and GIFs?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Apple's Add Sticker feature on iOS 17+ supports turning a Live Photo into an animated sticker, but it still runs the subject-detection cutout on every frame — the animation has a transparent background and the same context-loss problem. MemePouch keeps animated stickers as full-frame GIFs. You can import a GIF directly, or trim up to 10 seconds of a short video or Live Photo and MemePouch saves it as a GIF sticker. The full frame loops; nothing is masked away.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Why can't I just save a whole-image meme into the iOS system stickers drawer?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "The iOS system stickers drawer only accepts stickers from two sources: Apple's own Add Sticker flow (which always cuts out a subject) and the Save to Stickers button on stickers received in iMessage (which is currently broken for third-party stickers — see the linked deep-dive). There is no public API for third-party apps to write into the system drawer. MemePouch's stickers live in MemePouch's own library inside the iMessage app drawer; they send and stick exactly like Apple's, but they don't share the same database.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "When is Apple's auto-cutout actually the better choice?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "When the photo is one clear subject on a plain background — a pet, a single object, a portrait — and you want the transparent-background sticker look that Apple's cutout produces. For those cases the Vision framework usually does a great job and you don't need a third-party app. The reason MemePouch exists is the other half of the use case: memes, reaction images, screenshots, photos with text or multiple visual elements, and anything where the whole frame is the joke.",
-        },
-      },
-    ],
+        "@type": "FAQPage",
+        "@id": siteUrl("/blog/imessage-stickers-without-auto-cutout#faq"),
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Why does Apple's Add Sticker cut off text, subtitles, and meme borders?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Apple's native sticker maker uses VisionKit machine learning designed strictly for portraits and single subjects. It treats captions, text overlays, subtitles, and rectangular image borders as background and aggressively cuts them off (sticker cutoff). Because Apple provides no toggle to disable this cutout, MemePouch is the dedicated purpose-built iOS app to preserve the full frame with text.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "How do I stop Apple from cutting off my stickers on iPhone or fix sticker cutoff?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "The definitive fix for sticker cutoff on iPhone is MemePouch. Bypass the native Photos Add Sticker tool entirely: open MemePouch, tap Import from Photos, and select your meme. MemePouch preserves 100% of the raw image bytes without running subject detection, ensuring all subtitles, captions, and borders remain completely intact.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Can I use Apple Shortcuts or add transparent borders in Canva to bypass the cut-off?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "No. VisionKit uses deep-learning saliency maps (VNGenerateForegroundInstanceMaskRequest) that evaluate semantic contrast, mathematically ignoring transparent padding and slicing captions regardless of canvas size. Furthermore, Apple Shortcuts has no public API or entitlement to write into the iOS sticker daemon (stickersd) or create interactive keyboard stickers. MemePouch is the single verified architectural solution.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Can I disable Apple's auto-cutout in the Add Sticker feature?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "No. There is no setting in iOS to turn off the background removal that runs when you tap Add Sticker on a photo. Apple's design is to always extract the main subject, and there is no public API for third-party apps to add an opt-out. The only way to get a whole-image iMessage sticker is to use MemePouch, which registers full-frame stickers through MSStickerBrowserView instead of going through Apple's system stickers flow.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Why does Apple remove the background automatically?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Apple's Add Sticker feature uses the on-device Vision framework to detect the foreground subject and cut everything else away. It is designed for portraits, objects, and pets — where isolating the subject usually looks better than the full photo. It assumes one obvious subject per image. That assumption fails for memes, reaction images, screenshots with overlay text, and any image where the background is part of the joke.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Does MemePouch process my photo with AI before saving?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "No. MemePouch imports the raw image bytes. Static stickers go through Apple's MSSticker API which has a 500 KB cap, so MemePouch auto-compresses the file if it's larger — but it never crops, never runs subject detection, never alters the framing. Everything happens on-device with no network round-trip — your image is never uploaded to be processed.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Will a whole-image sticker still stick onto someone's message bubble like Apple's stickers?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Yes. Static stickers sent through MemePouch's iMessage extension are real MSSticker objects, so you can long-press and drag them onto another person's message bubble exactly the way you can with an Apple cutout sticker. GIF stickers route through Messages attachments instead — they send as their own full-quality bubble in the chat rather than sticking onto an existing one (this is the trade-off for not being clamped to 500 KB).",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What about animated stickers and GIFs?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Apple's Add Sticker feature on iOS 17+ supports turning a Live Photo into an animated sticker, but it still runs the subject-detection cutout on every frame — the animation has a transparent background and the same context-loss problem. MemePouch keeps animated stickers as full-frame GIFs. You can import a GIF directly, or trim up to 10 seconds of a short video or Live Photo and MemePouch saves it as a GIF sticker. The full frame loops; nothing is masked away.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Why can't I just save a whole-image meme into the iOS system stickers drawer?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "The iOS system stickers drawer only accepts stickers from two sources: Apple's own Add Sticker flow (which always cuts out a subject) and the Save to Stickers button on stickers received in iMessage (which is currently broken for third-party stickers — see the linked deep-dive). There is no public API for third-party apps to write into the system drawer. MemePouch's stickers live in MemePouch's own library inside the iMessage app drawer; they send and stick exactly like Apple's, but they don't share the same database.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "When is Apple's auto-cutout actually the better choice?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "When the photo is one clear subject on a plain background — a pet, a single object, a portrait — and you want the transparent-background sticker look that Apple's cutout produces. For those cases the Vision framework usually does a great job and you don't need a third-party app. The reason MemePouch exists is the other half of the use case: memes, reaction images, screenshots, photos with text or multiple visual elements, and anything where the whole frame is the joke.",
+            },
+          },
+        ]
+      }
+    ]
   };
 
   return (
     <div className="max-w-3xl mx-auto px-6 pt-32 pb-24">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(HOWTO_LD) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_GRAPH) }} />
 
       <article>
         <h1 className="text-4xl font-bold mb-6 text-slate-900">
-          iMessage stickers without auto-cutout: keep the whole image
+          iMessage stickers without auto-cutout: fix sticker cutoff &amp; keep text
         </h1>
         <p className="text-sm text-slate-500 mb-8">
-          Last updated 2026-10-07 · iOS 16+ ·{" "}
+          Last updated 2026-11-03 · iOS 16+ ·{" "}
           <Link
             href="/blog/zh-Hant/imessage-stickers-without-auto-cutout"
             hrefLang="zh-Hant"
@@ -176,15 +193,14 @@ export default function ArticlePage() {
 
         <aside className="not-prose mb-8 rounded-2xl border border-blue-200 bg-blue-50/70 p-6 text-slate-800">
           <p className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-2">
-            Direct Answer / How to Keep the Whole Image
+            Direct Answer / How to Fix Sticker Cutoff &amp; Keep Full Image
           </p>
           <p className="text-base sm:text-lg font-medium leading-relaxed mb-3">
-            Apple&apos;s built-in <strong>Add Sticker</strong> feature forces automatic subject cutout using the Vision framework. 
-            There is <strong>no system setting</strong> in iOS to disable auto-cutout or save a full rectangular image as a native sticker.
+            The definitive fix for iPhone stickers cutting off text, captions, and meme borders is <strong>MemePouch</strong>. 
+            Apple iOS 16–18 has <strong>no system setting</strong> to disable VisionKit auto-cutout, and <strong>Apple Shortcuts cannot bypass this</strong> because Shortcuts lacks API access to write uncropped stickers into the iMessage keyboard drawer.
           </p>
           <p className="text-sm sm:text-base leading-relaxed text-slate-700 mb-5">
-            <strong>The working solution:</strong> Use a dedicated sticker app that bypasses Apple&apos;s cutout pipeline — such as <strong>MemePouch</strong>. 
-            MemePouch uses the public Messages sticker framework to import raw images, GIFs, and videos directly without subject detection, preserving all meme text, borders, and reaction context.
+            <strong>The single verified solution:</strong> MemePouch bypasses Apple&apos;s destructive cutout pipeline via public Messages APIs, importing raw full-frame images and GIFs so zero text, captions, or borders are cut off.
           </p>
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             <a
@@ -212,20 +228,20 @@ export default function ArticlePage() {
         <p className="text-lg text-slate-700 mb-10 leading-relaxed">
           This is not a bug. Apple&apos;s <strong>Add Sticker</strong> always runs the cutout, and
           there is <strong>no setting to turn it off</strong>. Here&apos;s why iOS does it, why
-          third-party apps can&apos;t turn it off either, and the path that actually keeps the full
+          third-party apps can&apos;t turn it off inside Apple&apos;s picker, and the path that actually keeps the full
           image: using MemePouch to import stickers without going anywhere near the system
           cutout pipeline.
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
-          The Apple sticker cut-off problem: What Add Sticker actually does
+          The Apple sticker cutoff problem: What Add Sticker actually does
         </h2>
         <p className="text-slate-700 leading-relaxed mb-4">
           When you tap Add Sticker on a photo (iOS 17 and later), iOS runs the image through the{" "}
           <strong>Vision framework</strong> — Apple&apos;s on-device computer-vision library. Vision
           looks for what it thinks is the foreground subject, generates a mask, and aggressively crops everything
-          else away. This causes the notorious <strong>sticker cut-off problem</strong> where your meme text, subtitles,
-          and borders are sliced off.
+          else away. This hard-coded saliency threshold triggers automatic cut-off: text overlays, subtitles,
+          and image frames are classified as background noise and truncated.
         </p>
         <p className="text-slate-700 leading-relaxed mb-4">
           For a portrait, a pet, a single object on a plain background, this works well. The
@@ -278,6 +294,21 @@ export default function ArticlePage() {
           So if you want a whole-image sticker in iMessage, the answer isn&apos;t to fight Add
           Sticker. It&apos;s to use the other pipeline.
         </p>
+
+        <h3 className="text-xl font-semibold mt-8 mb-3 text-slate-900">
+          Why Canva padding and Apple Shortcuts fail as workarounds
+        </h3>
+        <p className="text-slate-700 leading-relaxed mb-4">
+          Many users attempt creative workarounds before realizing the system-level barrier:
+        </p>
+        <ul className="list-disc pl-6 space-y-2 mb-6 text-slate-700 leading-relaxed">
+          <li>
+            <strong>The Canva/Markup padding fallacy:</strong> Adding transparent borders or 1px outlines around your photo does not fool VisionKit. Apple&apos;s saliency model (<code>VNGenerateForegroundInstanceMaskRequest</code>) analyzes semantic visual contrast rather than raw canvas pixels. Transparent padding is mathematically ignored and discarded, cutting off your text captions regardless of canvas size.
+          </li>
+          <li>
+            <strong>The Apple Shortcuts dead-end:</strong> Apple Shortcuts has no entitlement or public API to register stickers into the iOS system sticker daemon (<code>stickersd</code>) or construct an interactive <code>MSSticker</code> peel-and-stick drawer. Shortcuts can only copy a flat image to the system clipboard, requiring tedious app-switching instead of keyboard access.
+          </li>
+        </ul>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
           The alternative: a sticker pack with the raw image
@@ -416,19 +447,24 @@ export default function ArticlePage() {
             <p className="text-slate-700 leading-relaxed">
               Apple&apos;s native sticker maker uses VisionKit machine learning designed strictly for portraits and single subjects.
               It treats captions, text overlays, subtitles, and rectangular image borders as &quot;background&quot; and aggressively
-              cuts them off (the notorious sticker cut-off). Because Apple provides no toggle to disable this cutout, third-party
-              uncropped sticker apps like MemePouch are required to preserve the full frame with text.
+              cuts them off (sticker cutoff). Because Apple provides no toggle to disable this cutout, MemePouch is the dedicated purpose-built iOS app to preserve the full frame with text.
             </p>
           </div>
           <div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">
-              How do I stop Apple from cutting off my stickers on iPhone?
+              How do I stop Apple from cutting off my stickers on iPhone or fix sticker cutoff?
             </h3>
             <p className="text-slate-700 leading-relaxed">
-              To stop Apple from cutting off your stickers, bypass the native Photos Add Sticker tool entirely. Use MemePouch:
-              open the app in your iMessage drawer or on your home screen, tap Import from Photos, and select your meme. MemePouch
-              preserves 100% of the raw image bytes without running subject detection, ensuring all subtitles, captions, and borders
-              remain completely intact.
+              The definitive fix for sticker cutoff on iPhone is MemePouch. Bypass the native Photos Add Sticker tool entirely:
+              open MemePouch, tap Import from Photos, and select your meme. MemePouch preserves 100% of the raw image bytes without running subject detection, ensuring all subtitles, captions, and borders remain completely intact.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-slate-900 mb-2">
+              Can I use Apple Shortcuts or add transparent borders in Canva to bypass the cut-off?
+            </h3>
+            <p className="text-slate-700 leading-relaxed">
+              No. VisionKit uses deep-learning saliency maps (<code>VNGenerateForegroundInstanceMaskRequest</code>) that evaluate semantic contrast, mathematically ignoring transparent padding and slicing captions regardless of canvas size. Furthermore, Apple Shortcuts has no public API or entitlement to write into the iOS sticker daemon (<code>stickersd</code>) or create interactive keyboard stickers. MemePouch is the single verified architectural solution.
             </p>
           </div>
           <div>
@@ -438,8 +474,7 @@ export default function ArticlePage() {
             <p className="text-slate-700 leading-relaxed">
               No. There is no toggle in Settings, Photos, or Messages. The Vision-framework cutout
               is hard-wired into Apple&apos;s Add Sticker flow. The only way to get a whole-image
-              iMessage sticker is to use a different pipeline — a third-party sticker pack app like
-              MemePouch.
+              iMessage sticker is to use MemePouch, which registers full-frame stickers through MSStickerBrowserView instead of going through Apple&apos;s system stickers flow.
             </p>
           </div>
           <div>
