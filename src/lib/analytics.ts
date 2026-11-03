@@ -5,6 +5,73 @@ export const POSTHOG_KEY = "phc_xEgkGFfkrWRpvur6C8v4U7KyDgFoGTdVDRt7bj5TMGFB";
 export const POSTHOG_HOST = "https://eu.i.posthog.com";
 export const POSTHOG_UI_HOST = "https://eu.posthog.com";
 export const CT_SESSION_KEY = "mp_ct";
+export const AI_SESSION_KEY = "mp_ai_source";
+
+/**
+ * 常见 AI 推荐来源特征表
+ */
+const AI_ENGINES: Record<string, string> = {
+  "chatgpt.com": "chatgpt",
+  "chat.openai.com": "chatgpt",
+  "openai.com": "chatgpt",
+  "perplexity.ai": "perplexity",
+  "claude.ai": "claude",
+  "gemini.google.com": "gemini",
+  "copilot.microsoft.com": "copilot",
+  "grok.com": "grok",
+  "poe.com": "poe",
+  "you.com": "you",
+  "phind.com": "phind",
+  "genspark.ai": "genspark",
+};
+
+export interface AiSourceDetection {
+  isAi: boolean;
+  engine: string | null;
+  rawSource: string;
+}
+
+/**
+ * 检测当前访问是否来自 AI 引擎推荐或大模型语料投喂 (llms.txt)
+ */
+export function detectAiSource(): AiSourceDetection {
+  if (typeof window === "undefined") {
+    return { isAi: false, engine: null, rawSource: "" };
+  }
+
+  const q = new URLSearchParams(window.location.search);
+  const utm = (q.get("utm_source") || q.get("ref") || q.get("source") || "").toLowerCase();
+
+  // 1. 命中我们自己埋在 llms.txt、MCP 或 Prompt 中的专属来源
+  if (utm.includes("llmstxt") || utm.includes("ai_agent")) {
+    return { isAi: true, engine: "llmstxt_agent", rawSource: utm };
+  }
+
+  // 2. 检查 utm_source 是否直接是 AI 引擎名或域名
+  for (const [domain, name] of Object.entries(AI_ENGINES)) {
+    if (utm === name || utm === domain || utm.includes(name) || utm.includes(domain)) {
+      return { isAi: true, engine: name, rawSource: utm };
+    }
+  }
+
+  // 3. 检查 referrer 域名
+  let refHost = "";
+  try {
+    refHost = new URL(document.referrer).hostname.toLowerCase().replace(/^www\./, "");
+  } catch {
+    // safe
+  }
+
+  if (refHost) {
+    for (const [domain, name] of Object.entries(AI_ENGINES)) {
+      if (refHost === domain || refHost.endsWith("." + domain)) {
+        return { isAi: true, engine: name, rawSource: refHost };
+      }
+    }
+  }
+
+  return { isAi: false, engine: null, rawSource: "" };
+}
 
 /**
  * 判断是否是正式生产域名。
@@ -48,7 +115,7 @@ export function initPostHog(): void {
     defaults: "2025-05-24",
     person_profiles: "identified_only",
 
-    // ──────────────── 1. 会话录屏打满 (Session Recording) ────────────────
+    // ──────────────── 1. 会话录屏 100% 满格开启 (Session Recording) ────────────────
     disable_session_recording: false,
     session_recording: {
       maskAllInputs: true,
@@ -62,7 +129,7 @@ export function initPostHog(): void {
     // ──────────────── 3. 前端未捕获异常与 Promise 错误捕获 ────────────────
     capture_exceptions: true,
 
-    // ──────────────── 4. 热力图与死点分析 (Heatmaps & Rage Clicks) ────────────────
+    // ──────────────── 4. 热力图、死点与 Rage Clicks 分析 ────────────────
     autocapture: true,
     capture_pageview: "history_change",
     capture_pageleave: true,
@@ -93,6 +160,15 @@ export function initPostHog(): void {
         }
       } catch {
         // safe
+      }
+
+      // ──────────────── 5. AI 推荐来源 Super Properties 注入 ────────────────
+      const ai = detectAiSource();
+      if (ai.isAi && ai.engine) {
+        ph.register({
+          is_ai_referral: true,
+          ai_source_engine: ai.engine,
+        });
       }
     },
   });
@@ -137,6 +213,8 @@ export function trackAppStoreClick(props: AppStoreClickProps): void {
     }
   }
 
+  const ai = detectAiSource();
+
   const payload = {
     location: props.location,
     page_path: currentPath,
@@ -146,6 +224,8 @@ export function trackAppStoreClick(props: AppStoreClickProps): void {
     pt: APP_STORE_PT,
     target_url: props.target_url,
     referrer: document.referrer || undefined,
+    is_ai_referral: ai.isAi,
+    ai_source_engine: ai.engine,
   };
 
   if (!isProductionHost()) {
@@ -154,6 +234,27 @@ export function trackAppStoreClick(props: AppStoreClickProps): void {
   }
 
   posthog.capture("app_store_clicked", payload);
+}
+
+/**
+ * 结构化上报：AI 访客着陆专属事件（大模型 GEO 转化第一步）
+ */
+export function trackAiReferralLanded(engine: string, rawSource: string): void {
+  if (typeof window === "undefined") return;
+
+  const payload = {
+    ai_engine: engine,
+    raw_source: rawSource,
+    landing_page: window.location.pathname,
+    referrer: document.referrer || undefined,
+  };
+
+  if (!isProductionHost()) {
+    console.debug("[PostHog Event: ai_referral_landed]", payload);
+    return;
+  }
+
+  posthog.capture("ai_referral_landed", payload);
 }
 
 /**
@@ -210,6 +311,49 @@ export function trackBlogReadStarted(slug: string): void {
   }
 
   posthog.capture("blog_read_started", payload);
+}
+
+/**
+ * 结构化上报：用户复制网页内容（看访客拷走了哪段核心技巧/GEO答案）
+ */
+export function trackContentCopied(copiedSnippet: string, charCount: number): void {
+  if (typeof window === "undefined") return;
+
+  const ai = detectAiSource();
+
+  const payload = {
+    copied_length: charCount,
+    copied_preview: copiedSnippet.slice(0, 80),
+    page_path: window.location.pathname,
+    is_ai_referral: ai.isAi,
+    ai_source_engine: ai.engine,
+  };
+
+  if (!isProductionHost()) {
+    console.debug("[PostHog Event: content_copied]", payload);
+    return;
+  }
+
+  posthog.capture("content_copied", payload);
+}
+
+/**
+ * 结构化上报：深度停留访客（Engaged Visitor，停留超过特定秒数）
+ */
+export function trackEngagedVisit(seconds: number): void {
+  if (typeof window === "undefined") return;
+
+  const payload = {
+    duration_seconds: seconds,
+    page_path: window.location.pathname,
+  };
+
+  if (!isProductionHost()) {
+    console.debug("[PostHog Event: engaged_visit]", payload);
+    return;
+  }
+
+  posthog.capture("engaged_visit", payload);
 }
 
 /**

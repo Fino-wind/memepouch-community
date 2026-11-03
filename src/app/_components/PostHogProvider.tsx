@@ -5,10 +5,14 @@ import { useEffect, useRef } from "react";
 import { APP_ID, APP_STORE_PT } from "../site";
 import {
   CT_SESSION_KEY,
+  detectAiSource,
   initPostHog,
   isProductionHost,
   posthog,
+  trackAiReferralLanded,
   trackAppStoreClick,
+  trackContentCopied,
+  trackEngagedVisit,
   trackExternalLink,
   trackFaqToggle,
 } from "../../lib/analytics";
@@ -29,7 +33,6 @@ function inferButtonLocation(
   // 2. 页面路径检测
   const path = window.location.pathname;
   if (path.startsWith("/blog/")) {
-    // 博客底部的黑色大卡片
     if (anchor.closest(".not-prose") || anchor.closest(".rounded-3xl")) {
       return "blog_banner";
     }
@@ -66,11 +69,25 @@ export default function PostHogProvider() {
   const pathname = usePathname();
   const initialPathRef = useRef<string | null>(null);
 
-  // 1. 初始化 PostHog 与来源归因
+  // 1. 初始化 PostHog 与多维归因
   useEffect(() => {
     initPostHog();
 
-    // ── 来源归因改写 App Store 链接与注入 Super Property ──
+    // ── 1. 深度 AI 来源检测与专属着陆事件 ──
+    const ai = detectAiSource();
+    if (ai.isAi && ai.engine) {
+      try {
+        const AI_LANDED_KEY = "mp_ai_landed";
+        if (!sessionStorage.getItem(AI_LANDED_KEY)) {
+          sessionStorage.setItem(AI_LANDED_KEY, ai.engine);
+          trackAiReferralLanded(ai.engine, ai.rawSource);
+        }
+      } catch {
+        // safe
+      }
+    }
+
+    // ── 2. 来源归因改写 App Store 链接与注入 Super Property ──
     const applyCt = (ct: string) => {
       try {
         sessionStorage.setItem(CT_SESSION_KEY, ct);
@@ -109,7 +126,6 @@ export default function PostHogProvider() {
     if (!src && !med && !rh) {
       if (storedCt) applyCt(storedCt);
     } else {
-      // 请求渠道定义映射
       fetch("/ref-channels.json")
         .then((r) => r.json())
         .then((t) => {
@@ -130,7 +146,7 @@ export default function PostHogProvider() {
             look(t.source, rh) ||
             (src ? "site_web" : null);
 
-          const finalCt = matchedCt || storedCt || "site_web";
+          const finalCt = matchedCt || storedCt || (ai.isAi ? "ai" : "site_web");
           applyCt(finalCt);
         })
         .catch(() => {
@@ -138,7 +154,7 @@ export default function PostHogProvider() {
         });
     }
 
-    // ── 全局 Click 监听：捕获 App Store 转化与外链 ──
+    // ── 3. 全局 Click 监听：捕获 App Store 转化与外链 ──
     const handleClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
       if (!target) return;
@@ -148,7 +164,7 @@ export default function PostHogProvider() {
 
       // 1. App Store 下载点击拦截
       if (anchor.href.includes("apps.apple.com")) {
-        const ct = storedCt || "direct";
+        const ct = storedCt || (ai.isAi ? "ai" : "direct");
         tagAnchor(anchor, ct);
         const location = inferButtonLocation(anchor);
         trackAppStoreClick({
@@ -158,7 +174,7 @@ export default function PostHogProvider() {
         return;
       }
 
-      // 2. 外部链接点击（排除当前域、锚点和内部路由）
+      // 2. 外部链接点击
       try {
         const url = new URL(anchor.href);
         const isExternal =
@@ -170,11 +186,11 @@ export default function PostHogProvider() {
           trackExternalLink(anchor.href, anchor.textContent?.trim() || undefined);
         }
       } catch {
-        // 非法 URL 忽略
+        // safe
       }
     };
 
-    // ── 全局 Toggle 监听：捕获 FAQ 展开/收起 ──
+    // ── 4. 全局 Toggle 监听：捕获 FAQ 展开/收起 ──
     const handleToggle = (e: Event) => {
       const details = e.target as HTMLDetailsElement | null;
       if (!details || details.tagName !== "DETAILS") return;
@@ -186,12 +202,32 @@ export default function PostHogProvider() {
       }
     };
 
+    // ── 5. 全局 Copy 监听：捕获用户复制的内容片段（GEO 核心答疑） ──
+    const handleCopy = () => {
+      try {
+        const selection = window.getSelection()?.toString().trim();
+        if (selection && selection.length >= 8) {
+          trackContentCopied(selection, selection.length);
+        }
+      } catch {
+        // safe
+      }
+    };
+
+    // ── 6. 深度参与访客计时器（Engaged Visitor，停留 30 秒） ──
+    const timer30 = setTimeout(() => {
+      trackEngagedVisit(30);
+    }, 30000);
+
     document.addEventListener("click", handleClick, true);
     document.addEventListener("toggle", handleToggle, true);
+    document.addEventListener("copy", handleCopy, true);
 
     return () => {
+      clearTimeout(timer30);
       document.removeEventListener("click", handleClick, true);
       document.removeEventListener("toggle", handleToggle, true);
+      document.removeEventListener("copy", handleCopy, true);
     };
   }, []);
 
