@@ -3,9 +3,9 @@ import Link from "next/link";
 import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
 
 export const metadata: Metadata = {
-  title: "iMessage stickers without auto-cutout — keep the whole image",
+  title: "iMessage stickers without auto-cutout — stop Apple cutting off text",
   description:
-    "iOS 17+'s Add Sticker tool auto-removes the background and ruins memes with text overlays, reaction faces, or intentional context. Here's why Apple does it, why you can't disable it, and the workflow for making whole-image iMessage stickers — text, hands, and all — using MemePouch.",
+    "Why does Apple's Add Sticker cut off text, subtitles, and meme borders? How to stop iOS from cutting off your photos and create whole-image iMessage stickers using MemePouch.",
   alternates: {
     canonical: "/blog/imessage-stickers-without-auto-cutout",
     languages: {
@@ -21,12 +21,12 @@ export default function ArticlePage() {
   const ARTICLE_LD = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "iMessage stickers without auto-cutout: keep the whole image",
+    headline: "iMessage stickers without auto-cutout: stop Apple cutting off text & memes",
     description:
-      "Apple's Add Sticker tool auto-removes the background and breaks memes with text overlays or intentional context. Explainer on why Apple does the cutout, why third-party apps can't disable it inside iOS's Add Sticker flow, and the workflow that imports the whole photo, GIF, or Live Photo as a real iMessage sticker.",
+      "Why Apple's Add Sticker tool auto-removes the background and cuts off meme text, subtitles, or borders. How to stop iOS from cutting off your photos and keep the whole image with MemePouch.",
     datePublished: "2026-05-16",
-    dateModified: "2026-05-16",
-    author: { "@type": "Organization", name: "MemePouch" },
+    dateModified: "2026-11-03",
+    author: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
     publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
     image: siteUrl("/opengraph-image"),
     mainEntityOfPage: siteUrl("/blog/imessage-stickers-without-auto-cutout"),
@@ -35,9 +35,9 @@ export default function ArticlePage() {
   const HOWTO_LD = {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    name: "Make an iMessage sticker that keeps the whole image (no auto-cutout)",
+    name: "Make an iMessage sticker without Apple cutting off text or borders (no auto-cutout)",
     description:
-      "Workflow for creating iMessage stickers from photos, GIFs, or Live Photos without Apple's automatic background removal. Result: a sticker that sends from the iMessage drawer and sticks onto message bubbles like Apple's, but with the full frame intact.",
+      "Workflow for creating iMessage stickers from photos, GIFs, or Live Photos without Apple's automatic cut-off and background removal. Result: a full-frame sticker with all meme text intact.",
     totalTime: "PT30S",
     supply: [
       { "@type": "HowToSupply", name: "An iPhone running iOS 16 or later" },
@@ -70,6 +70,22 @@ export default function ArticlePage() {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
+      {
+        "@type": "Question",
+        name: "Why does Apple's Add Sticker cut off text, subtitles, and meme borders?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Apple's native sticker maker uses VisionKit machine learning designed strictly for portraits and single subjects. It treats captions, text overlays, subtitles, and rectangular image borders as background and aggressively cuts them off (the notorious sticker cut-off). Because Apple provides no toggle to disable this cutout, third-party uncropped sticker apps like MemePouch are required to preserve the full frame with text.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How do I stop Apple from cutting off my stickers on iPhone?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "To stop Apple from cutting off your stickers, bypass the native Photos Add Sticker tool entirely. Use MemePouch: open the app in your iMessage drawer or on your home screen, tap Import from Photos, and select your meme. MemePouch preserves 100% of the raw image bytes without running subject detection, ensuring all subtitles, captions, and borders remain completely intact.",
+        },
+      },
       {
         "@type": "Question",
         name: "Can I disable Apple's auto-cutout in the Add Sticker feature?",
@@ -202,13 +218,14 @@ export default function ArticlePage() {
         </p>
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">
-          What Apple&apos;s Add Sticker actually does
+          The Apple sticker cut-off problem: What Add Sticker actually does
         </h2>
         <p className="text-slate-700 leading-relaxed mb-4">
           When you tap Add Sticker on a photo (iOS 17 and later), iOS runs the image through the{" "}
           <strong>Vision framework</strong> — Apple&apos;s on-device computer-vision library. Vision
-          looks for what it thinks is the foreground subject, generates a mask, and crops everything
-          else away. The result is saved as a new system sticker with a transparent background.
+          looks for what it thinks is the foreground subject, generates a mask, and aggressively crops everything
+          else away. This causes the notorious <strong>sticker cut-off problem</strong> where your meme text, subtitles,
+          and borders are sliced off.
         </p>
         <p className="text-slate-700 leading-relaxed mb-4">
           For a portrait, a pet, a single object on a plain background, this works well. The
@@ -221,22 +238,22 @@ export default function ArticlePage() {
         </p>
         <ul className="list-disc pl-6 space-y-2 mb-6 text-slate-700 leading-relaxed">
           <li>
-            <strong>Text overlays get masked away.</strong> The captioned line at the top or bottom
-            of an image macro is, to Vision, background. It gets removed.
+            <strong>Text overlays and captions get cut off.</strong> The captioned line at the top or bottom
+            of an image macro is, to Vision, &quot;background.&quot; It gets cut off and discarded completely.
           </li>
           <li>
-            <strong>Hands and props get cut off.</strong> A reaction image where someone holds a
-            sign, points at the camera, or holds an object — Vision often decides the hand is part
-            of the background and slices it.
+            <strong>Hands, props, and subtitles get cut off.</strong> A reaction image where someone holds a
+            sign, points at the camera, or holds an object — Vision often decides the hand or subtitle is part
+            of the background and slices it off.
           </li>
           <li>
-            <strong>Context disappears.</strong> A screenshot where the meaning is in the whole
-            frame (a tweet, a chat bubble layout, a UI element) is reduced to whatever Vision
+            <strong>Context and image borders disappear.</strong> A screenshot where the meaning is in the whole
+            frame (a tweet, a chat bubble layout, a UI element) has its borders cut off, reduced to whatever Vision
             decided was the most prominent shape.
           </li>
           <li>
-            <strong>Two-subject memes break.</strong> Drake meme, distracted-boyfriend, expanding-brain —
-            Vision picks one subject and masks the other. The joke depends on having both.
+            <strong>Two-subject memes get sliced in half.</strong> Drake meme, distracted-boyfriend, expanding-brain —
+            Vision picks one subject and cuts off the other. The joke depends on having both.
           </li>
         </ul>
 
@@ -392,6 +409,28 @@ export default function ArticlePage() {
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">FAQ</h2>
         <div className="space-y-6">
+          <div>
+            <h3 className="text-lg font-semibold text-slate-900 mb-2">
+              Why does Apple&apos;s Add Sticker cut off text, subtitles, and meme borders?
+            </h3>
+            <p className="text-slate-700 leading-relaxed">
+              Apple&apos;s native sticker maker uses VisionKit machine learning designed strictly for portraits and single subjects.
+              It treats captions, text overlays, subtitles, and rectangular image borders as &quot;background&quot; and aggressively
+              cuts them off (the notorious sticker cut-off). Because Apple provides no toggle to disable this cutout, third-party
+              uncropped sticker apps like MemePouch are required to preserve the full frame with text.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-slate-900 mb-2">
+              How do I stop Apple from cutting off my stickers on iPhone?
+            </h3>
+            <p className="text-slate-700 leading-relaxed">
+              To stop Apple from cutting off your stickers, bypass the native Photos Add Sticker tool entirely. Use MemePouch:
+              open the app in your iMessage drawer or on your home screen, tap Import from Photos, and select your meme. MemePouch
+              preserves 100% of the raw image bytes without running subject detection, ensuring all subtitles, captions, and borders
+              remain completely intact.
+            </p>
+          </div>
           <div>
             <h3 className="text-lg font-semibold text-slate-900 mb-2">
               Can I disable Apple&apos;s auto-cutout?

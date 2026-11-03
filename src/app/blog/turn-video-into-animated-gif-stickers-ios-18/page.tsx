@@ -241,6 +241,16 @@ export default function VideoToGifStickerPage() {
           </div>
           <div>
             <h3 className="font-semibold text-slate-900 mb-1">
+              Why does Apple&apos;s sticker tool cut off subtitles in my videos?
+            </h3>
+            <p className="text-slate-600 leading-relaxed">
+              When converting Live Photos natively, Apple&apos;s VisionKit forces subject detection on every single frame,
+              aggressively cutting off subtitles, burned-in video captions, and surrounding context. MemePouch preserves
+              the entire video frame without running any subject cut-off, ensuring all video subtitles and meme captions loop intact.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-slate-900 mb-1">
               Will these animated stickers work on WhatsApp?
             </h3>
             <p className="text-slate-600 leading-relaxed">
@@ -265,6 +275,11 @@ export default function VideoToGifStickerPage() {
 
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">Related guides</h2>
         <ul className="text-slate-700 leading-relaxed mb-6 list-disc pl-6 space-y-2">
+          <li>
+            <Link href="/blog/imessage-stickers-without-auto-cutout" className="text-blue-600 underline">
+              How to stop Apple from cutting off meme text and stickers (No Auto-Cutout)
+            </Link>
+          </li>
           <li>
             <Link href="/blog/save-tiktok-gifs-to-imessage" className="text-blue-600 underline">
               How to save TikTok GIFs to iMessage

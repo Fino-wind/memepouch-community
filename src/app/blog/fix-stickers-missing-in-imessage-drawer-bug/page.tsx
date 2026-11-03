@@ -273,6 +273,11 @@ export default function FixStickersMissingPage() {
         <h2 className="text-2xl font-semibold mt-12 mb-4 text-slate-900">Related guides</h2>
         <ul className="text-slate-700 leading-relaxed mb-6 list-disc pl-6 space-y-2">
           <li>
+            <Link href="/blog/imessage-stickers-without-auto-cutout" className="text-blue-600 underline">
+              How to stop Apple cutting off text and make iMessage stickers without auto-cutout
+            </Link>
+          </li>
+          <li>
             <Link href="/blog/organize-imessage-sticker-library" className="text-blue-600 underline">
               How to organize your iMessage sticker library
             </Link>

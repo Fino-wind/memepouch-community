@@ -232,6 +232,16 @@ export default function TransparentStickersPage() {
           </div>
           <div>
             <h3 className="font-semibold text-slate-900 mb-1">
+              What if Apple&apos;s sticker cutout also cuts off my meme text?
+            </h3>
+            <p className="text-slate-600 leading-relaxed">
+              When using Apple&apos;s Add Sticker, VisionKit frequently cuts off meme text and captions while attempting to
+              remove the background. MemePouch preserves the full frame with all text and reaction elements intact,
+              while maintaining 100% transparent alpha channels when you want them.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-slate-900 mb-1">
               Does this work on iOS 18.1 and iOS 18.2?
             </h3>
             <p className="text-slate-600 leading-relaxed">
@@ -258,7 +268,7 @@ export default function TransparentStickersPage() {
         <ul className="text-slate-700 leading-relaxed mb-6 list-disc pl-6 space-y-2">
           <li>
             <Link href="/blog/imessage-stickers-without-auto-cutout" className="text-blue-600 underline">
-              How to make iMessage stickers without auto-cutout
+              How to stop Apple cutting off text and make iMessage stickers without auto-cutout
             </Link>
           </li>
           <li>

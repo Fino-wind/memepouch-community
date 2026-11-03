@@ -23,7 +23,7 @@ export const POSTS: Post[] = [
     href: "/blog/turn-video-into-animated-gif-stickers-ios-18",
     title: "How to turn videos into animated GIF stickers in iOS 18 (Step-by-step)",
     description:
-      "Convert any MP4 video or screen recording into a looping iMessage animated sticker on iOS 18. Bypass the Live Photo restriction with built-in trimming under Apple's 500KB cap.",
+      "Convert any MP4 video or screen recording into a looping iMessage animated sticker on iOS 18. Bypass the Live Photo restriction with built-in trimming via Messages' 10MB pipeline.",
     badge: "New · 2026-11-03",
   },
   {
@@ -145,9 +145,9 @@ export const POSTS: Post[] = [
   },
   {
     href: "/blog/imessage-stickers-without-auto-cutout",
-    title: "iMessage stickers without auto-cutout: keep the whole image",
+    title: "iMessage stickers without auto-cutout: stop Apple cutting off text",
     description:
-      "Apple's Add Sticker auto-removes the background and breaks memes with text overlays, hands, and intentional context. Why iOS does the cutout, why you can't disable it, and the workflow that imports the whole frame as a real iMessage sticker.",
+      "Apple's Add Sticker cuts off meme text, subtitles, and image borders with forced VisionKit cutout. Why iOS does it, why you can't disable it, and how to stop Apple from cutting off your stickers using MemePouch.",
   },
   {
     href: "/blog/save-sticker-someone-sent-imessage",
