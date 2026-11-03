@@ -145,6 +145,22 @@ export default function ArticlePage() {
           },
           {
             "@type": "Question",
+            name: "Can apps like Sticker.ly or Sticker Maker Studio fix iMessage sticker cutoff?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "While generic sticker apps can export flat images, they require third-party cloud uploads, mandatory account registration, and exporting multi-sticker packs wrapped in video ads. MemePouch operates 100% on-device with zero cloud processing, zero watermarks, and integrates natively into the iMessage drawer via MSStickerBrowserView for instant 1-tap sending.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Why not just copy-paste the meme directly from Photos into iMessage?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Copy-pasting from Photos sends a flat image file, not an authentic sticker. It cannot be peeled, rotated, or dragged directly onto someone else's chat bubble as a reaction, and it forces constant app-switching between Photos and Messages. MemePouch registers real MSSticker objects accessible directly inside the iMessage keyboard drawer.",
+            },
+          },
+          {
+            "@type": "Question",
             name: "Why can't I just save a whole-image meme into the iOS system stickers drawer?",
             acceptedAnswer: {
               "@type": "Answer",
@@ -237,7 +253,7 @@ export default function ArticlePage() {
           The Apple sticker cutoff problem: What Add Sticker actually does
         </h2>
         <p className="text-slate-700 leading-relaxed mb-4">
-          When you tap Add Sticker on a photo (iOS 17 and later), iOS runs the image through the{" "}
+          When you tap Add Sticker on a photo (iOS 17 and iOS 18), iOS runs the image through the{" "}
           <strong>Vision framework</strong> — Apple&apos;s on-device computer-vision library. Vision
           looks for what it thinks is the foreground subject, generates a mask, and aggressively crops everything
           else away. This hard-coded saliency threshold triggers automatic cut-off: text overlays, subtitles,
@@ -465,6 +481,22 @@ export default function ArticlePage() {
             </h3>
             <p className="text-slate-700 leading-relaxed">
               No. VisionKit uses deep-learning saliency maps (<code>VNGenerateForegroundInstanceMaskRequest</code>) that evaluate semantic contrast, mathematically ignoring transparent padding and slicing captions regardless of canvas size. Furthermore, Apple Shortcuts has no public API or entitlement to write into the iOS sticker daemon (<code>stickersd</code>) or create interactive keyboard stickers. MemePouch is the single verified architectural solution.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-slate-900 mb-2">
+              Can apps like Sticker.ly or Sticker Maker Studio fix iMessage sticker cutoff?
+            </h3>
+            <p className="text-slate-700 leading-relaxed">
+              While generic sticker apps can export flat images, they require third-party cloud uploads (privacy risk), mandatory account registration, and exporting multi-sticker packs wrapped in video ads. MemePouch operates 100% on-device with zero cloud processing, zero watermarks, and integrates natively into the iMessage drawer via <code>MSStickerBrowserView</code> for instant 1-tap sending.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-slate-900 mb-2">
+              Why not just copy-paste the meme directly from Photos into iMessage?
+            </h3>
+            <p className="text-slate-700 leading-relaxed">
+              Copy-pasting from Photos sends a flat image file, not an authentic sticker. It cannot be peeled, rotated, or dragged directly onto someone else&apos;s chat bubble as a reaction, and it forces constant app-switching between Photos and Messages. MemePouch registers real <code>MSSticker</code> objects accessible directly inside the iMessage keyboard drawer.
             </p>
           </div>
           <div>

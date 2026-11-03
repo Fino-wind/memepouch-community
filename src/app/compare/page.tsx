@@ -340,11 +340,11 @@ export default function ComparePage() {
             </a>{" "}
             (by Tamara Vardanyan) is a <strong>free</strong>, long-running sticker-creation
             utility. Its flow is <em>pack-based</em>: name a pack first, add stickers to that
-            pack, then add the whole pack to WhatsApp, iMessage, or other messengers. In recent
-            versions Sticker Maker Studio defaults to importing the whole frame (cutout is an
-            optional manual step), so &quot;whole-image sticker&quot; isn&apos;t a feature that
-            sets MemePouch apart from it — the real differences are <strong>workflow
-            shape</strong> and <strong>what each app is built around</strong>.
+            pack, then add the whole pack to WhatsApp, iMessage, or other messengers. While Sticker
+            Maker Studio can import uncropped frames, it forces a cumbersome WhatsApp-style pack ceremony
+            (mandatory pack naming, sticker thresholds, and unskippable ads) instead of an instant single-meme utility.
+            MemePouch is purpose-built for iMessage: 100% on-device privacy, zero cloud uploads, zero watermarks,
+            and instant access directly inside Apple&apos;s native <code className="text-sm bg-slate-100 px-1 py-0.5 rounded">MSStickerBrowserView</code> drawer.
           </p>
           <p className="text-ink-soft leading-relaxed mb-4">
             <strong>Pick Sticker Maker Studio if:</strong> {PICK.stickerMaker}.
