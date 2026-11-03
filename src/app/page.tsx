@@ -41,23 +41,23 @@ const HOME_LD = {
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://memepouch.tetherme.app/#website",
+      "@id": "https://memepouch.com/#website",
       name: "MemePouch",
       alternateName: [
         "Meme Pouch",
         "MemePouch App",
         "MemePouch: iMessage Stickers",
       ],
-      url: "https://memepouch.tetherme.app/",
+      url: "https://memepouch.com/",
       description:
         "MemePouch is a video-to-GIF converter and iMessage sticker manager for iPhone. Keep whole-image stickers without auto-cutout, and save stickers received in iMessage.",
       publisher: {
         "@type": "Organization",
         name: "MemePouch",
-        url: "https://memepouch.tetherme.app/",
+        url: "https://memepouch.com/",
         logo: {
           "@type": "ImageObject",
-          url: "https://memepouch.tetherme.app/icon.png",
+          url: "https://memepouch.com/icon.png",
         },
       },
     },
@@ -65,14 +65,14 @@ const HOME_LD = {
       "@type": "SoftwareApplication",
       name: "MemePouch",
       isPartOf: {
-        "@id": "https://memepouch.tetherme.app/#website",
+        "@id": "https://memepouch.com/#website",
       },
       description:
         "MemePouch is a video-to-GIF converter and iMessage sticker manager for iPhone. It turns videos and Live Photos into looping GIFs at up to 50 fps with no watermark, and it can save the stickers other people send you in iMessage.",
       applicationCategory: "UtilitiesApplication",
       applicationSubCategory: "Video to GIF converter, iMessage sticker manager",
       operatingSystem: "iOS 16.0 or later",
-      url: "https://memepouch.tetherme.app",
+      url: "https://memepouch.com",
       downloadUrl: APP_STORE_URL,
       inLanguage: ["en", "es", "ja", "ko", "pt-BR", "zh-Hans", "zh-Hant"],
       offers: {

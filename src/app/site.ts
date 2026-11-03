@@ -1,4 +1,4 @@
-export const SITE_URL = "https://memepouch.tetherme.app";
+export const SITE_URL = "https://memepouch.com";
 // App Store 营销活动链接（ASC → Analytics → Campaigns 的统计靠它）。
 // 🔴 pt 是 ASC「生成营销活动链接」给的 provider token，不是销售报表的 vendor 编号 94022652 ——
 //    2026-10-09 前一直填的是后者，Apple 不认，营销活动报表因此是空的。
