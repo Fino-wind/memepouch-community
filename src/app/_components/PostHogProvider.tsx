@@ -179,6 +179,7 @@ export default function PostHogProvider() {
         const url = new URL(anchor.href);
         const isExternal =
           url.hostname !== window.location.hostname &&
+          !url.hostname.includes("memepouch.com") &&
           !url.hostname.includes("tetherme.app") &&
           (url.protocol === "http:" || url.protocol === "https:" || url.protocol === "mailto:");
 

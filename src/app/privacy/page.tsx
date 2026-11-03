@@ -69,7 +69,7 @@ export default function PrivacyPolicy() {
 
           <h2 className="text-2xl font-bold text-ink mt-12 mb-4">7. Contact Us</h2>
           <p className="mb-6">
-            If you have any questions about how we handle user data and personal information, feel free to contact us at <a href="mailto:memepouch@tetherme.app" className="text-pouch hover:text-pouch-deep font-medium">memepouch@tetherme.app</a>.
+            If you have any questions about how we handle user data and personal information, feel free to contact us at <a href="mailto:support@memepouch.com" className="text-pouch hover:text-pouch-deep font-medium">support@memepouch.com</a>.
           </p>
         </div>
 

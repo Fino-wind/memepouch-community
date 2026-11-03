@@ -259,7 +259,7 @@ export default function ComparePage() {
           technology&quot;, &quot;image segmentation by SenseTime&quot;) rather than personal
           hands-on use. Sticker apps update frequently; if a row is wrong or out of date, please
           email{" "}
-          <a href="mailto:memepouch@tetherme.app" className="underline hover:text-ink-soft">memepouch@tetherme.app</a>{" "}
+          <a href="mailto:support@memepouch.com" className="underline hover:text-ink-soft">support@memepouch.com</a>{" "}
           and we&apos;ll fix it.
         </p>
       </div>
@@ -453,7 +453,7 @@ export default function ComparePage() {
           as of 2026-05-19; sticker apps update frequently, so verify pricing and features in
           each app&apos;s App Store listing before deciding. If you believe any statement here
           is inaccurate, please email{" "}
-          <a href="mailto:memepouch@tetherme.app" className="underline hover:text-ink-soft">memepouch@tetherme.app</a>{" "}
+          <a href="mailto:support@memepouch.com" className="underline hover:text-ink-soft">support@memepouch.com</a>{" "}
           and we&apos;ll review and correct it within one business day.
         </p>
       </div>

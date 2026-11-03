@@ -19,10 +19,10 @@ export default function Support() {
                 Issues, feature requests, or just saying hi — replies come from the person who built the app.
               </p>
               <a
-                href="mailto:memepouch@tetherme.app"
+                href="mailto:support@memepouch.com"
                 className="inline-flex items-center gap-2 rounded-full bg-ink text-paper px-5 py-2.5 text-sm font-bold hover:bg-pouch transition-colors"
               >
-                memepouch@tetherme.app
+                support@memepouch.com
               </a>
             </div>
             <div data-reveal style={{ "--reveal-delay": "0.06s" } as React.CSSProperties} className="pouch-card p-8 hover:-translate-y-0.5 hover:shadow-lifted transition-all">

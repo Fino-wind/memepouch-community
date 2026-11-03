@@ -165,7 +165,7 @@ export default function ArticlePage() {
             failure mode; the description above is what the system itself reports in its own
             logs, not a guess at internals. If you reproduce different behavior on a newer iOS
             point release, please email{" "}
-            <a href="mailto:memepouch@tetherme.app" className="underline">memepouch@tetherme.app</a>{" "}
+            <a href="mailto:support@memepouch.com" className="underline">support@memepouch.com</a>{" "}
             so we can update the article.
           </p>
         </aside>
