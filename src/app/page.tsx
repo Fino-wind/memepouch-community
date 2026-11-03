@@ -33,15 +33,40 @@ const HOME_GUIDES = [
   "/blog/best-imessage-sticker-apps-compared",
 ].map(postByHref);
 
-/** 首页此前【没有任何结构化数据】——而它是权重最高的一页，还挂着 3 条问答白白浪费。
- *  SoftwareApplication 告诉 AI「这是什么」，FAQPage 直接从 HOME_FAQ 生成，
- *  所以问答只有一份，改文案不会漏掉 schema。 */
+/** 首页结构化数据：包含 Google 官方 Site Names 要求的 WebSite 结构化数据，
+ *  让 Google SERP 准确显示站点名「MemePouch」（而不是父域名 tetherme.app）。
+ *  同时挂载 SoftwareApplication 和 FAQPage。 */
 const HOME_LD = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebSite",
+      "@id": "https://memepouch.tetherme.app/#website",
+      name: "MemePouch",
+      alternateName: [
+        "Meme Pouch",
+        "MemePouch App",
+        "MemePouch: iMessage Stickers",
+      ],
+      url: "https://memepouch.tetherme.app/",
+      description:
+        "MemePouch is a video-to-GIF converter and iMessage sticker manager for iPhone. Keep whole-image stickers without auto-cutout, and save stickers received in iMessage.",
+      publisher: {
+        "@type": "Organization",
+        name: "MemePouch",
+        url: "https://memepouch.tetherme.app/",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://memepouch.tetherme.app/icon.png",
+        },
+      },
+    },
+    {
       "@type": "SoftwareApplication",
       name: "MemePouch",
+      isPartOf: {
+        "@id": "https://memepouch.tetherme.app/#website",
+      },
       description:
         "MemePouch is a video-to-GIF converter and iMessage sticker manager for iPhone. It turns videos and Live Photos into looping GIFs at up to 50 fps with no watermark, and it can save the stickers other people send you in iMessage.",
       applicationCategory: "UtilitiesApplication",
