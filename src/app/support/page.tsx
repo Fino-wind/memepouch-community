@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Support",
+  description:
+    "Need help with MemePouch? Get in touch with the developer, discover frequently asked questions, or report an issue.",
+  alternates: { canonical: "/support" },
+};
 
 export default function Support() {
   return (

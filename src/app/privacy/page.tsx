@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "MemePouch Privacy Policy. MemePouch processes and stores your imported stickers locally on your device or in your personal iCloud. Zero plain-text cloud exposure.",
+  alternates: { canonical: "/privacy" },
+};
 
 export default function PrivacyPolicy() {
   return (
