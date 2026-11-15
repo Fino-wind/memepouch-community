@@ -1,7 +1,7 @@
 import posthog from "posthog-js";
 import { APP_STORE_PT, SITE_URL } from "../app/site";
 
-export const POSTHOG_KEY = "phc_xEgkGFfkrWRpvur6C8v4U7KyDgFoGTdVDRt7bj5TMGFB";
+export const POSTHOG_KEY = "phc_yjc6B7uRtk747KVsWLnTPieif4dqg8oTfUuDQdJkVdDC";
 export const POSTHOG_HOST = "https://eu.i.posthog.com";
 export const POSTHOG_UI_HOST = "https://eu.posthog.com";
 export const CT_SESSION_KEY = "mp_ct";
