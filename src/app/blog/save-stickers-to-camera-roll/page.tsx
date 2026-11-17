@@ -3,9 +3,9 @@ import Link from "next/link";
 import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
 
 export const metadata: Metadata = {
-  title: "How to save stickers to camera roll on iPhone (and a cleaner way)",
+  title: "How to Save TikTok Stickers to Camera Roll on iPhone (2026)",
   description:
-    "The fastest way to save any sticker to your camera roll: screenshot it. Works for TikTok stickers, iMessage stickers, anything on screen. Plus a cleaner trick that keeps your camera roll meme-free — share the screenshot straight into MemePouch and delete it before it ever lands in Photos.",
+    "Save static or animated TikTok and iMessage stickers to your iPhone camera roll without losing frames or cluttering Photos — step-by-step for iOS 16+.",
   alternates: { canonical: "/blog/save-stickers-to-camera-roll" },
 };
 
@@ -13,11 +13,11 @@ export default function ArticlePage() {
   const ARTICLE_LD = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "How to save stickers to camera roll on iPhone (2026)",
+    headline: "How to Save TikTok Stickers to Camera Roll on iPhone (2026)",
     description:
-      "Screenshot any sticker to save it to your camera roll — TikTok, iMessage, anywhere. And the cleaner route: share the screenshot directly into MemePouch and delete it, so your camera roll never fills up with memes.",
+      "Save static or animated TikTok and iMessage stickers to your camera roll on iPhone, or import straight into MemePouch so Photos stays clean.",
     datePublished: "2026-06-10",
-    dateModified: "2026-06-10",
+    dateModified: "2026-11-18",
     author: { "@type": "Organization", name: "MemePouch" },
     publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
     image: siteUrl("/opengraph-image"),
@@ -114,9 +114,9 @@ export default function ArticlePage() {
 
       <article>
         <h1 className="text-4xl font-bold mb-6 text-slate-900">
-          How to save stickers to your camera roll on iPhone
+          How to save TikTok &amp; iMessage stickers to your camera roll on iPhone
         </h1>
-        <p className="text-sm text-slate-500 mb-8">Last updated 2026-06-10 · iOS 16+</p>
+        <p className="text-sm text-slate-500 mb-8">Last updated 2026-11-18 · iOS 16+</p>
 
         <p className="text-lg text-slate-700 mb-6 leading-relaxed">
           The fastest answer: <strong>screenshot it</strong>. Whatever app the sticker lives in —

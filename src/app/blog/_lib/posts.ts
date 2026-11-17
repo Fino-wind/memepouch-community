@@ -103,10 +103,10 @@ export const POSTS: Post[] = [
   },
   {
     href: "/blog/save-stickers-to-camera-roll",
-    title: "How to save stickers to your camera roll on iPhone (and a cleaner way)",
+    title: "How to Save TikTok Stickers to Camera Roll on iPhone (2026)",
     description:
-      "The fastest answer is a screenshot — works for TikTok stickers, iMessage stickers, anything on screen. Plus the flow most people miss: share the screenshot into MemePouch straight from the preview and delete it, so the sticker lands in your iMessage keyboard and your camera roll stays clean.",
-    badge: "New · 2026-06-10",
+      "Save static or animated TikTok and iMessage stickers to your iPhone camera roll without losing frames or cluttering Photos — step-by-step for iOS 16+.",
+    badge: "Updated · 2026-11-18",
   },
   {
     href: "/blog/import-stickers-five-ways",
