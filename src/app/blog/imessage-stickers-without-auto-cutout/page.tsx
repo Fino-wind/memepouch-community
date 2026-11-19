@@ -100,7 +100,7 @@ export default function ArticlePage() {
             name: "Can I use Apple Shortcuts or add transparent borders in Canva to bypass the cut-off?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "No. VisionKit uses deep-learning saliency maps (VNGenerateForegroundInstanceMaskRequest) that evaluate semantic contrast, mathematically ignoring transparent padding and slicing captions regardless of canvas size. Furthermore, Apple Shortcuts has no public API or entitlement to write into the iOS sticker daemon (stickersd) or create interactive keyboard stickers. MemePouch is the single verified architectural solution.",
+              text: "No. VisionKit uses deep-learning saliency maps (VNGenerateForegroundInstanceMaskRequest) that evaluate semantic contrast, ignoring transparent padding and still slicing captions regardless of canvas size. Furthermore, Apple Shortcuts has no public API or entitlement to write into the iOS sticker daemon (stickersd) or create interactive keyboard stickers. Using an iMessage sticker extension like MemePouch bypasses VisionKit completely.",
             },
           },
           {
@@ -108,7 +108,7 @@ export default function ArticlePage() {
             name: "Can I disable Apple's auto-cutout in the Add Sticker feature?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "No. There is no setting in iOS to turn off the background removal that runs when you tap Add Sticker on a photo. Apple's design is to always extract the main subject, and there is no public API for third-party apps to add an opt-out. The only way to get a whole-image iMessage sticker is to use MemePouch, which registers full-frame stickers through MSStickerBrowserView instead of going through Apple's system stickers flow.",
+              text: "No. There is no setting in iOS to turn off the background removal that runs when you tap Add Sticker on a photo. Apple's design always extracts the main subject, and there is no public API for third-party apps to add an opt-out. To keep the whole image as an iMessage sticker, you need a third-party iMessage sticker extension like MemePouch that registers full-frame stickers directly through MSStickerBrowserView.",
             },
           },
           {

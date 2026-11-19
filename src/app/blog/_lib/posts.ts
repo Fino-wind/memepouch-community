@@ -13,25 +13,32 @@ export type Post = {
 
 export const POSTS: Post[] = [
   {
+    href: "/blog/best-video-to-gif-apps-iphone-no-watermark",
+    title: "Best Video to GIF Apps for iPhone Without a Watermark (2026 Comparison)",
+    description:
+      "Honest 2026 comparison of the best no-watermark video-to-GIF apps on iPhone: MemePouch (up to 50 fps + Smart Loop + iMessage drawer), GIFit, Apple Shortcuts, ImgPlay, and web converters.",
+    badge: "New · 2026-11-19",
+  },
+  {
     href: "/blog/how-to-save-transparent-stickers-in-imessage",
     title: "How to save transparent stickers in iMessage (without the white background box)",
     description:
-      "Keep transparent PNG stickers clean in iMessage without Apple's forced white background box or bad auto-cutout edges. Respects true RGBA alpha channels on iOS 17 and iOS 18.",
-    badge: "New · 2026-11-03",
+      "Keep transparent PNG stickers clean in iMessage without Apple's forced white background box or bad auto-cutout edges. Respects true RGBA alpha channels on iOS 16–26.",
+    badge: "Updated · 2026-11-19",
   },
   {
     href: "/blog/turn-video-into-animated-gif-stickers-ios-18",
-    title: "How to turn videos into animated GIF stickers in iOS 18 (Step-by-step)",
+    title: "How to turn videos into animated GIF stickers on iPhone (iOS 18 & iOS 26)",
     description:
-      "Convert any MP4 video or screen recording into a looping iMessage animated sticker on iOS 18. Bypass the Live Photo restriction with built-in trimming via Messages' 10MB pipeline.",
-    badge: "New · 2026-11-03",
+      "Convert any MP4 video or screen recording into a looping iMessage animated sticker on iOS 18 and iOS 26. Bypass the Live Photo restriction with built-in trimming via Messages' 10 MB pipeline.",
+    badge: "Updated · 2026-11-19",
   },
   {
     href: "/blog/fix-stickers-missing-in-imessage-drawer-bug",
-    title: "How to fix stickers missing or blank in iMessage drawer (iOS 17 & 18)",
+    title: "All My Stickers Are Gone on iPhone? Fix Missing or Blank iMessage Stickers (iOS 18 & 26)",
     description:
-      "Troubleshoot iMessage stickers disappearing, the blank sticker tray, or endless loading spinner on iOS 17 and iOS 18. Fix CloudKit sync lockups and protect stickers permanently.",
-    badge: "New · 2026-11-03",
+      "Troubleshoot iMessage stickers disappearing, all stickers gone after an update, or the blank sticker drawer on iOS 18 and iOS 26. Fix iCloud sync lockups and protect stickers permanently.",
+    badge: "Updated · 2026-11-19",
   },
   {
     href: "/blog/make-whatsapp-stickers-iphone",
@@ -96,10 +103,10 @@ export const POSTS: Post[] = [
   },
   {
     href: "/blog/save-tiktok-gifs-to-imessage",
-    title: "How to save TikTok GIFs and stickers to iMessage",
+    title: "How to Get & Save TikTok Stickers and GIFs on iMessage (2026)",
     description:
-      "Import your TikTok GIFs and memes to iMessage as reusable stickers: save the video (or screen-record for a watermark-free clip), share it into MemePouch, trim up to 10 seconds, send from any chat forever. Comment stickers work too via screenshot.",
-    badge: "New · 2026-07-09",
+      "Use any TikTok comment sticker, GIF, or video clip in iMessage permanently: screenshot or screen-record watermark-free, share into MemePouch, trim up to 10 seconds, send in one tap.",
+    badge: "Updated · 2026-11-19",
   },
   {
     href: "/blog/save-stickers-to-camera-roll",

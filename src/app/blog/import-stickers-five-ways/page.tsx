@@ -3,7 +3,7 @@ import Link from "next/link";
 import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
 
 export const metadata: Metadata = {
-  title: "5 ways to add a sticker to MemePouch (PhotosPicker, paste, Share Sheet, drag, iMessage)",
+  title: "5 Ways to Import iMessage Stickers on iPhone (Photos, Paste, Share, Drag)",
   description:
     "Every way to get an image, GIF, or video into your MemePouch sticker library on iOS — from Photos multi-select, clipboard paste, the iOS Share Sheet from Safari or any app, drag-and-drop into the main app, and drag-import from iMessage chats.",
   alternates: { canonical: "/blog/import-stickers-five-ways" },
@@ -72,9 +72,10 @@ export default function ArticlePage() {
   };
 
   return (
-    <main className="max-w-3xl mx-auto px-6 pt-32 pb-24 prose prose-slate prose-lg">
+    <div className="max-w-3xl mx-auto px-6 pt-32 pb-24 prose prose-slate prose-lg">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
+      <article>
 
       <h1 className="text-4xl font-bold mb-3 text-slate-900 not-prose">
         5 ways to add a sticker to MemePouch
@@ -218,6 +219,7 @@ export default function ArticlePage() {
           <li><Link href="/blog/organize-imessage-sticker-library" className="text-blue-600 hover:underline">How to organize your iMessage sticker library</Link></li>
         </ul>
       </div>
-    </main>
+      </article>
+    </div>
   );
 }

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
+import BlogBreadcrumbs from "../../_components/BlogBreadcrumbs";
+import { APP_ENTITY_ID, ORG_ID } from "../../_lib/schema";
+import { APP_STORE_URL, siteUrl } from "../../site";
 
 export const metadata: Metadata = {
-  title: "How to turn videos into animated GIF stickers in iOS 18 (Step-by-step)",
+  title: "How to Turn a Video into a Moving Sticker on iPhone (iOS 18 & 26)",
   description:
-    "Convert any MP4 video or screen recording into a looping iMessage animated sticker on iOS 18. Bypass the Live Photo restriction without sticker size compression bugs.",
+    "Convert any MP4 video, TikTok clip, or screen recording into a moving animated GIF sticker on iPhone (iOS 18 & iOS 26). Bypass Apple's Live Photo restriction with up to 50 fps and no watermark.",
   alternates: { canonical: "/blog/turn-video-into-animated-gif-stickers-ios-18" },
 };
 
@@ -13,13 +15,14 @@ export default function VideoToGifStickerPage() {
   const ARTICLE_LD = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "How to turn videos into animated GIF stickers in iOS 18",
+    headline: "How to turn videos into animated GIF stickers on iPhone (iOS 18 & iOS 26)",
     description:
-      "A complete guide to turning short videos, screen recordings, and TikTok clips into looping animated stickers on iOS 18 without Live Photo limitations.",
+      "A complete guide to turning short videos, screen recordings, and TikTok clips into looping animated stickers on iPhone (iOS 18 & iOS 26) without Live Photo limitations.",
     datePublished: "2026-11-03",
-    dateModified: "2026-11-03",
-    author: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
-    publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
+    dateModified: "2026-11-19",
+    author: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
+    about: [{ "@id": APP_ENTITY_ID }],
     image: siteUrl("/opengraph-image"),
     mainEntityOfPage: siteUrl("/blog/turn-video-into-animated-gif-stickers-ios-18"),
   };
@@ -100,7 +103,7 @@ export default function VideoToGifStickerPage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-16">
+    <div className="max-w-3xl mx-auto px-6 pt-28 pb-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }}
@@ -114,19 +117,16 @@ export default function VideoToGifStickerPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }}
       />
 
-      <nav className="text-sm text-slate-500 mb-8 flex items-center gap-2">
-        <Link href="/blog" className="hover:text-slate-900 transition">
-          Guides
-        </Link>
-        <span>/</span>
-        <span className="text-slate-900">Video to Animated GIF Stickers (iOS 18)</span>
-      </nav>
+      <BlogBreadcrumbs
+        current="Video to Animated GIF Stickers"
+        currentHref="/blog/turn-video-into-animated-gif-stickers-ios-18"
+      />
 
       <article>
         <h1 className="text-4xl font-bold tracking-tight text-slate-900 mb-4 leading-tight">
-          How to turn videos into animated GIF stickers in iOS 18
+          How to Turn a Video into a Moving GIF Sticker on iPhone (iOS 18 &amp; 26)
         </h1>
-        <p className="text-sm text-slate-500 mb-8">Updated November 2026 · Tested on iOS 18.0, 18.1 & 18.2</p>
+        <p className="text-sm text-slate-500 mb-8">Last updated 2026-11-19 · Works on iOS 16 – iOS 26</p>
 
         <p className="text-lg text-slate-700 mb-6 leading-relaxed">
           iOS 18 brought a refreshed sticker drawer to Messages, but it still lacks

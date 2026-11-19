@@ -6,7 +6,8 @@ import PostHogProvider from "./_components/PostHogProvider";
 import ScrollFX from "./_components/ScrollFX";
 import SiteFooter from "./_components/SiteFooter";
 import SiteNav from "./_components/SiteNav";
-import { APP_STORE_URL, SITE_URL } from "./site";
+import { GLOBAL_SCHEMA_GRAPH } from "./_lib/schema";
+import { SITE_URL, siteUrl } from "./site";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
@@ -21,47 +22,41 @@ const instrument = Instrument_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "MemePouch — iMessage Stickers Without Auto-Cutout",
+    default: "MemePouch — Video to GIF & iMessage Stickers Without Auto-Cutout",
     template: "%s · MemePouch",
   },
   description:
-    "Apple's built-in sticker tool auto-removes backgrounds and butchers memes. MemePouch keeps the full photo, GIF, or short video as-is — no auto-cutout — and lets you save the third-party stickers friends send you. Free to try — unlock it once, or subscribe.",
+    "Turn any video or TikTok clip into a smooth 50fps looping GIF with no watermark, keep full-frame iMessage stickers without Apple's auto-cutout, and save third-party stickers friends send you on iPhone (iOS 16+).",
   applicationName: "MemePouch",
   keywords: [
     "iMessage stickers without auto-cutout",
-    "no background removal stickers",
+    "video to gif iPhone no watermark",
+    "save TikTok stickers to iMessage",
     "save iMessage stickers someone sent",
     "save third-party stickers iMessage",
     "custom iMessage stickers",
     "iMessage sticker app no cutout",
     "gif to sticker iMessage",
     "make iMessage stickers from photos",
-    "iPhone sticker app",
     "MemePouch",
   ],
-  authors: [{ name: "MemePouch" }],
+  authors: [{ name: "MemePouch", url: SITE_URL }],
   creator: "MemePouch",
   publisher: "MemePouch",
-  alternates: {
-    canonical: "/",
-    languages: {
-      "en-US": "/",
-    },
-  },
   openGraph: {
     type: "website",
     url: SITE_URL,
     siteName: "MemePouch",
-    title: "MemePouch — iMessage Stickers Without Auto-Cutout",
+    title: "MemePouch — Video to GIF & iMessage Stickers Without Auto-Cutout",
     description:
-      "Apple's sticker tool removes backgrounds and chops up your memes. MemePouch keeps the full photo, GIF, or video as-is — and lets you save the stickers friends send you.",
+      "Turn videos into 50fps looping GIFs with no watermark, keep full-frame iMessage stickers without auto-cutout, and save third-party stickers friends send you.",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MemePouch — iMessage Stickers Without Auto-Cutout",
+    title: "MemePouch — Video to GIF & iMessage Stickers Without Auto-Cutout",
     description:
-      "Apple's sticker tool butchers memes by auto-removing backgrounds. MemePouch keeps the whole frame, and lets you save the stickers friends send you.",
+      "Turn videos into 50fps looping GIFs with no watermark, keep the whole meme frame intact, and save stickers friends send you in iMessage.",
   },
   category: "utilities",
   appleWebApp: {
@@ -79,50 +74,33 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const APP_LD = {
-    "@context": "https://schema.org",
-    "@type": "MobileApplication",
-    name: "MemePouch",
-    operatingSystem: "iOS 16, iOS 17, iOS 18",
-    applicationCategory: "UtilitiesApplication",
-    description:
-      "Custom iMessage sticker app that keeps the full image as-is — no auto-cutout, no background removal — and lets you save the third-party stickers friends send you in iMessage. Imports from Photos, share sheet, clipboard, or by dragging a sticker straight from a chat.",
-    url: SITE_URL,
-    downloadUrl: APP_STORE_URL,
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-      description: "Free with an optional unlock for unlimited stickers",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "MemePouch",
-      url: SITE_URL,
-    },
-    inLanguage: ["en", "zh-Hans"],
-    featureList: [
-      "Keep full image as-is — no auto-cutout or background removal",
-      "Save third-party iMessage stickers friends send you (drag into MemePouch)",
-      "Import photos and GIFs as iMessage stickers",
-      "Trim short videos into animated GIF stickers",
-      "Auto-clean originals from Photos after import",
-      "Paste from clipboard",
-      "Receive shared images via the iOS share sheet",
-    ],
-  };
-
   return (
     <html
       lang="en"
       className={`${bricolage.variable} ${instrument.variable} h-full antialiased`}
     >
+      <head>
+        <link
+          rel="alternate"
+          type="text/markdown"
+          href={siteUrl("/llms.txt")}
+          title="MemePouch LLM Summary"
+        />
+        <link
+          rel="alternate"
+          type="text/markdown"
+          href={siteUrl("/llms-full.txt")}
+          title="MemePouch Full Technical Documentation for LLMs"
+        />
+      </head>
       <body className="min-h-full flex flex-col grain">
         {/* PostHog 全功能 Provider（会话录屏打满、性能监控打满、异常监控打满、全站漏斗与来源归因） */}
         <PostHogProvider />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(APP_LD) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(GLOBAL_SCHEMA_GRAPH),
+          }}
         />
         <ClarityAnalytics />
         <ScrollFX />

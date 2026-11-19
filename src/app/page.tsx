@@ -1,105 +1,66 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { APP_RATING } from "./_lib/schema";
 import { postByHref } from "./blog/_lib/posts";
 import { APP_STORE_URL } from "./site";
 
-const HOME_FAQ = [
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/",
+    },
+  },
+};
 
+const HOME_FAQ = [
   {
     q: "Does MemePouch remove backgrounds like Apple's tool?",
-    a: "No — that's the whole point. MemePouch keeps the framing and content exactly as you import it. No subject detection, no cutout.",
+    a: "No — that's the whole point. MemePouch keeps the framing and content exactly as you import it. No subject detection, no auto-cutout.",
+  },
+  {
+    q: "How do I save a sticker my friend sent me in iMessage?",
+    a: "If your friend sent an Apple native cutout sticker, long-press and tap Save to Stickers. If it's a third-party or uncropped animated sticker, Apple's Save button hangs — open MemePouch in the iMessage app drawer, long-press the sticker in the chat, and drag it straight down into your MemePouch grid.",
+  },
+  {
+    q: "Can I turn a video or TikTok into a looping GIF sticker with no watermark?",
+    a: "Yes — pick or screen-record any clip, share it to MemePouch, trim up to 10 seconds, and MemePouch encodes it at up to 50 fps with Smart Loop seam matching and zero watermark.",
+  },
+  {
+    q: "Can I use my MemePouch stickers in WhatsApp too?",
+    a: "Yes. Export any 3 to 30 stickers from your library to WhatsApp as a static or animated WebP sticker pack for free — the same library works in both iMessage and WhatsApp.",
   },
   {
     q: "Does MemePouch upload my photos anywhere?",
     a: "No. Your stickers live in an on-device container shared between the app and the iMessage extension, and sync through your own iCloud if you leave that on — never through a server of ours. No accounts.",
   },
-  {
-    q: "Can I make an animated sticker from a video?",
-    a: "Yes — pick a clip, trim up to 10 seconds, and MemePouch turns it into a looping GIF sticker that sends at full quality.",
-  }
 ] as const;
 
-/** 首页「指南」区链到的文章（标题、简介从 blog/_lib/posts 取，这里只排顺序）。
- *  首页是 Google 来得最勤的一页，这块就是让新文章被发现的入口：2026-10-10 查时
- *  首页只链 1 篇文章，20 篇里 18 篇是「URL is unknown to Google」。
- *  按 GEO 固定考题排（视频转 GIF / 存贴纸失败）；「存朋友贴纸」已在上面的横幅里，不重复。 */
+/** 首页「指南」区链到的 12 篇核心文章（消灭孤岛页 + 覆盖全部 SEO/GEO 现金牛与核心考题）。 */
 const HOME_GUIDES = [
-  "/blog/trim-video-into-looping-gif-sticker",
-  "/blog/make-gif-stickers-for-imessage",
-  "/blog/why-apple-stickers-cannot-be-saved",
-  "/blog/save-stickers-to-camera-roll",
   "/blog/save-tiktok-gifs-to-imessage",
-  "/blog/turn-screenshots-into-imessage-stickers",
+  "/blog/save-stickers-to-camera-roll",
+  "/blog/best-video-to-gif-apps-iphone-no-watermark",
+  "/blog/trim-video-into-looping-gif-sticker",
+  "/blog/why-apple-stickers-cannot-be-saved",
   "/blog/imessage-stickers-without-auto-cutout",
   "/blog/best-imessage-sticker-apps-compared",
+  "/blog/make-gif-stickers-for-imessage",
+  "/blog/fix-stickers-missing-in-imessage-drawer-bug",
+  "/blog/how-to-save-transparent-stickers-in-imessage",
+  "/blog/make-whatsapp-stickers-iphone",
+  "/blog/live-photo-to-gif-sticker",
 ].map(postByHref);
 
-/** 首页结构化数据：包含 Google 官方 Site Names 要求的 WebSite 结构化数据，
- *  让 Google SERP 准确显示站点名「MemePouch」（而不是父域名 tetherme.app）。
- *  同时挂载 SoftwareApplication 和 FAQPage。 */
-const HOME_LD = {
+/** 首页 FAQPage 结构化数据（WebSite / Organization / SoftwareApplication 已在 RootLayout 统一输出并靠 @id 互联，避免重复冲突）。 */
+const HOME_FAQ_LD = {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://memepouch.com/#website",
-      name: "MemePouch",
-      alternateName: [
-        "Meme Pouch",
-        "MemePouch App",
-        "MemePouch: iMessage Stickers",
-      ],
-      url: "https://memepouch.com/",
-      description:
-        "MemePouch is a video-to-GIF converter and iMessage sticker manager for iPhone. Keep whole-image stickers without auto-cutout, and save stickers received in iMessage.",
-      publisher: {
-        "@type": "Organization",
-        name: "MemePouch",
-        url: "https://memepouch.com/",
-        logo: {
-          "@type": "ImageObject",
-          url: "https://memepouch.com/icon.png",
-        },
-      },
-    },
-    {
-      "@type": "SoftwareApplication",
-      name: "MemePouch",
-      isPartOf: {
-        "@id": "https://memepouch.com/#website",
-      },
-      description:
-        "MemePouch is a video-to-GIF converter and iMessage sticker manager for iPhone. It turns videos and Live Photos into looping GIFs at up to 50 fps with no watermark, and it can save the stickers other people send you in iMessage.",
-      applicationCategory: "UtilitiesApplication",
-      applicationSubCategory: "Video to GIF converter, iMessage sticker manager",
-      operatingSystem: "iOS 16.0 or later",
-      url: "https://memepouch.com",
-      downloadUrl: APP_STORE_URL,
-      inLanguage: ["en", "es", "ja", "ko", "pt-BR", "zh-Hans", "zh-Hant"],
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
-        description: "Free to try; unlock unlimited stickers with a one-time purchase or a subscription",
-      },
-      featureList: [
-        "Video to GIF at up to 50 fps, no watermark",
-        "Smart loop seam detection and Boomerang mode",
-        "Save third-party stickers people send you in iMessage by drag-and-drop",
-        "Live Photo to GIF",
-        "Custom categories and pinned stickers",
-        "Export sticker packs to WhatsApp",
-        "iCloud backup across your own devices",
-      ],
-    },
-    {
-      "@type": "FAQPage",
-      mainEntity: HOME_FAQ.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
-      })),
-    },
-  ],
+  "@type": "FAQPage",
+  mainEntity: HOME_FAQ.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
 };
 
 const tilt = (deg: number) => ({ "--tilt": `${deg}deg` } as React.CSSProperties);
@@ -109,18 +70,26 @@ function PhoneFrame({
   alt,
   className = "",
   imgClassName = "",
+  priority = false,
 }: {
   src: string;
   alt: string;
   className?: string;
   imgClassName?: string;
+  priority?: boolean;
 }) {
   return (
     <div
       className={`relative rounded-[2.8rem] bg-ink p-[10px] shadow-lifted ${className}`}
     >
       <div className="relative overflow-hidden rounded-[2.2rem] bg-white">
-        <img src={src} alt={alt} className={`block w-full h-auto ${imgClassName}`} loading="lazy" />
+        <img
+          src={src}
+          alt={alt}
+          className={`block w-full h-auto ${imgClassName}`}
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : undefined}
+        />
         {/* Dynamic Island */}
         <div aria-hidden="true" className="absolute top-2.5 left-1/2 -translate-x-1/2 w-[24%] h-[3.2%] rounded-full bg-ink" />
       </div>
@@ -131,7 +100,7 @@ function PhoneFrame({
 export default function Home() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(HOME_LD) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(HOME_FAQ_LD) }} />
     <div className="overflow-x-clip">
       {/* ───────────────────────── Hero ───────────────────────── */}
       <section className="relative pt-28 pb-16 lg:pt-40 lg:pb-24 mx-auto max-w-6xl px-6">
@@ -174,7 +143,7 @@ export default function Home() {
             </div>
 
             <p className="rise mt-8 text-sm font-medium text-ink-faint" style={{ "--rise-delay": "0.32s" } as React.CSSProperties}>
-              No account · No ads · Everything stays on your iPhone
+              ★ {APP_RATING.value} on the App Store ({APP_RATING.count} ratings) · No account · No ads · Everything stays on your iPhone
             </p>
           </div>
 
@@ -185,6 +154,7 @@ export default function Home() {
               src="/img/app-home.webp"
               alt="MemePouch home screen — import from Photos, turn a video or Live Photo into a GIF, paste from clipboard"
               className="rotate-2 hover:rotate-0 transition-transform"
+              priority
             />
             <span aria-hidden="true" className="sticker-chip animate-float absolute -left-8 top-12 w-16 h-16 text-4xl" style={tilt(-10)}>😂</span>
             <span aria-hidden="true" className="sticker-chip animate-float-slow absolute -right-7 top-1/3 w-14 h-14 text-3xl" style={tilt(8)}>🔥</span>

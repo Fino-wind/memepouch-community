@@ -3,10 +3,18 @@ import Link from "next/link";
 import { APP_STORE_URL, SITE_URL, siteUrl } from "../../../site";
 
 export const metadata: Metadata = {
-  title: "iPhone 怎麼自製 WhatsApp 貼圖?用自己的迷因做貼圖包 (2026)",
+  title: "iPhone 怎麼自製 WhatsApp 貼圖？用自己的迷因做貼圖包 (2026)",
   description:
-    "把照片、迷因、GIF 做成 WhatsApp 貼圖包——無浮水印、不強制去背、支援動態 GIF。匯入 MemePouch 一次,同一批貼圖 iMessage 和 WhatsApp 都能用。iOS 16+。",
-  alternates: { canonical: "/blog/zh-Hant/make-whatsapp-stickers-iphone" },
+    "把照片、迷因、GIF 做成 WhatsApp 貼圖包——無浮水印、不強制去背、支援動態 GIF。匯入 MemePouch 一次，同一批貼圖 iMessage 和 WhatsApp 都能用。iOS 16+。",
+  alternates: {
+    canonical: "/blog/zh-Hant/make-whatsapp-stickers-iphone",
+    languages: {
+      en: "/blog/make-whatsapp-stickers-iphone",
+      "zh-Hans": "/blog/zh/make-whatsapp-stickers-iphone",
+      "zh-Hant": "/blog/zh-Hant/make-whatsapp-stickers-iphone",
+      "x-default": "/blog/make-whatsapp-stickers-iphone",
+    },
+  },
 };
 
 export default function ArticlePage() {

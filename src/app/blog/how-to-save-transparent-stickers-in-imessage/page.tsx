@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
+import BlogBreadcrumbs from "../../_components/BlogBreadcrumbs";
+import { APP_ENTITY_ID, ORG_ID } from "../../_lib/schema";
+import { APP_STORE_URL, siteUrl } from "../../site";
 
 export const metadata: Metadata = {
-  title: "How to save transparent stickers in iMessage (without the white background box)",
+  title: "How to Save Transparent Stickers in iMessage (No White Background Box, 2026)",
   description:
-    "Keep transparent PNG stickers clean in iMessage without Apple's forced white background box or bad auto-cutout edges. Works on iPhone and iPad, iOS 17 & iOS 18.",
+    "Keep transparent PNG stickers clean in iMessage without Apple's forced white background box or bad auto-cutout edges. Preserves true RGBA alpha channels on iOS 16–26.",
   alternates: { canonical: "/blog/how-to-save-transparent-stickers-in-imessage" },
 };
 
@@ -15,11 +17,12 @@ export default function TransparentStickersPage() {
     "@type": "Article",
     headline: "How to save transparent stickers in iMessage without a white background box",
     description:
-      "A complete guide to keeping transparent PNG stickers clean in iMessage on iOS 17 and iOS 18 without Apple's forced white canvas fill or bad auto-cutout borders.",
+      "A complete guide to keeping transparent PNG stickers clean in iMessage on iPhone (iOS 16–26) without Apple's forced white canvas fill or bad auto-cutout borders.",
     datePublished: "2026-11-03",
-    dateModified: "2026-11-03",
-    author: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
-    publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
+    dateModified: "2026-11-19",
+    author: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
+    about: [{ "@id": APP_ENTITY_ID }],
     image: siteUrl("/opengraph-image"),
     mainEntityOfPage: siteUrl("/blog/how-to-save-transparent-stickers-in-imessage"),
   };
@@ -100,7 +103,7 @@ export default function TransparentStickersPage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-16">
+    <div className="max-w-3xl mx-auto px-6 pt-28 pb-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }}
@@ -114,19 +117,16 @@ export default function TransparentStickersPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }}
       />
 
-      <nav className="text-sm text-slate-500 mb-8 flex items-center gap-2">
-        <Link href="/blog" className="hover:text-slate-900 transition">
-          Guides
-        </Link>
-        <span>/</span>
-        <span className="text-slate-900">Transparent Stickers in iMessage</span>
-      </nav>
+      <BlogBreadcrumbs
+        current="Transparent Stickers in iMessage"
+        currentHref="/blog/how-to-save-transparent-stickers-in-imessage"
+      />
 
       <article>
         <h1 className="text-4xl font-bold tracking-tight text-slate-900 mb-4 leading-tight">
           How to save transparent stickers in iMessage (without the white background box)
         </h1>
-        <p className="text-sm text-slate-500 mb-8">Updated November 2026 · Tested on iOS 17 & iOS 18</p>
+        <p className="text-sm text-slate-500 mb-8">Last updated 2026-11-19 · Works on iOS 16 – iOS 26</p>
 
         <p className="text-lg text-slate-700 mb-6 leading-relaxed">
           You spent time clipping an image or downloaded a transparent PNG meme from Discord, but

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "MemePouch FAQ - How to make custom stickers for iMessage",
+  title: "FAQ — Custom iMessage Stickers, Video to GIF & Saving Friends' Stickers",
   description:
-    "Frequently asked questions about MemePouch: how to import stickers, how to save stickers others send you, supported formats, and pricing.",
+    "Answers to every question about MemePouch: saving stickers friends send you, converting videos to 50fps GIFs without watermarks, WhatsApp export, iCloud backup, and pricing.",
   alternates: { canonical: "/faq" },
 };
 
@@ -18,7 +18,7 @@ const QA = [
   },
   {
     q: "How do I save a sticker someone sent me in iMessage?",
-    a: "iOS 17+ shows a Save to Stickers button in the Emoji Details view, but tapping it on third-party stickers hangs — Apple's system sticker daemon drops the connection and the sticker never lands in your sticker drawer. The reliable path is dragging into MemePouch: open MemePouch in the iMessage app drawer below the chat, long-press the sticker in the conversation, and drag it straight down into the MemePouch grid and release.",
+    a: "It depends on how the sticker was created. If your friend made it with Apple's native Photos cutout or Memoji, long-press the sticker and tap Save to Stickers — Apple's built-in flow handles those. If it is a third-party, uncropped, or animated sticker where Save to Stickers hangs or jumps to the App Store, open MemePouch in the iMessage app drawer below the chat, long-press the sticker in the conversation, and drag it straight down onto the MemePouch grid.",
   },
   {
     q: "Can I make an animated sticker from a video?",
@@ -77,8 +77,8 @@ const QA = [
     a: "Your library sorts itself by how often you actually use each sticker — the ones you send the most rise to the top automatically, so your go-to reactions stay within thumb's reach. Old favorites you haven't sent in weeks slowly fade down without disappearing. Just imported something new? It stays at the top for 24 hours so it's easy to find. It all happens invisibly — there's no setting to fiddle with and no 'frequently used' tab to switch into. The same order shows up in both the main app and the iMessage drawer. Want a few stickers locked to the very front regardless of usage? Long-press and Pin to Top — pinned stickers always sit above the auto-sorted ones.",
   },
   {
-    q: "Can I change MemePouch's language? Does it support Chinese?",
-    a: "Yes. Open Settings → Language and choose System (follow iOS), English, Español, 简体中文, or 繁體中文. The choice is written into the App Group container so both the main app and the iMessage extension switch together — no relaunch needed.",
+    q: "Can I change MemePouch's language? Which languages are supported?",
+    a: "Yes. MemePouch supports 7 languages: English, Español, 日本語, 한국어, Português (Brasil), 简体中文, and 繁體中文. It follows your iOS language automatically, or you can tap Settings → Change Language in Settings inside MemePouch to pick a dedicated language for the app in iOS Settings.",
   },
   {
     q: "Does MemePouch support dark mode?",
@@ -89,8 +89,8 @@ const QA = [
     a: "No — MemePouch auto-collapses the keyboard back to compact mode the moment you tap a sticker, so the chat field is immediately usable. Most older iMessage sticker apps leave the keyboard expanded, blocking the chat; MemePouch closes itself, which is a small but constant UX win.",
   },
   {
-    q: "Can I drop an image from another app (Safari, Files, etc.) onto MemePouch's home screen?",
-    a: "Yes. In Stage Manager or split view on iPad, or with the iOS multi-touch drag gesture on iPhone, drag any image onto the MemePouch home screen — a dashed-blue highlight appears confirming the drop target. The image imports into your library. This is the main-app drop target, separate from the iMessage extension's drop target (which is for saving stickers your friends send you).",
+    q: "Can I drag and drop an image from another app onto MemePouch's home screen?",
+    a: "Yes. Using iOS's multi-touch drag gesture on iPhone, lift an image from Safari or Files with one finger, switch to MemePouch with another finger, and drop it onto the MemePouch home screen — a dashed highlight confirms the drop target and imports the image into your library. This is separate from the iMessage extension drop target used for saving stickers friends send you.",
   },
 ];
 

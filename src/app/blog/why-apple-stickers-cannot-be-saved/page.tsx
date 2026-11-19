@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
+import BlogBreadcrumbs from "../../_components/BlogBreadcrumbs";
+import { APP_ENTITY_ID, ORG_ID } from "../../_lib/schema";
+import { APP_STORE_URL, siteUrl } from "../../site";
 
 export const metadata: Metadata = {
-  title: "Why can't I save stickers in iMessage? The 2026 fix that actually works",
+  title: "Why Can't I Save Stickers in iMessage? The 2026 Fix (iOS 18 & 26)",
   description:
-    "Tapping Save to Stickers on a friend's sticker does nothing — or bounces you to the App Store. Here's why iOS can't save third-party stickers, and the 10-second drag trick that gets around it.",
+    "Apple's Save to Stickers works on native cutout stickers, but hangs or jumps to the App Store on third-party stickers. Here's why stickersd stalls on iOS 17–26 and the 10-second drag fix.",
   alternates: { canonical: "/blog/why-apple-stickers-cannot-be-saved" },
 };
 
@@ -15,12 +17,13 @@ export default function ArticlePage() {
     "@type": "Article",
     headline: "Why you can't save stickers in iMessage (and what works instead)",
     description:
-      "Explainer: iOS shows a Save to Stickers button on third-party iMessage stickers but tapping it stalls because Apple's StickersUltraExtension and stickersd daemon drop the XPC connection. Drag-import into a sticker keyboard app is the only working alternative.",
+      "Explainer: iOS's Save to Stickers works on Apple native stickers, but stalls on third-party stickers because StickersUltraExtension and stickersd drop their XPC connection. Drag-importing into a sticker keyboard app like MemePouch is a reliable workaround.",
     datePublished: "2026-05-15",
-    dateModified: "2026-08-26",
-    author: { "@type": "Organization", name: "MemePouch" },
-    publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
-    image: siteUrl("/opengraph-image"),
+    dateModified: "2026-11-19",
+    author: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
+    about: [{ "@id": APP_ENTITY_ID }],
+    image: siteUrl("/img/step-menu.webp"),
     mainEntityOfPage: siteUrl("/blog/why-apple-stickers-cannot-be-saved"),
   };
 
@@ -72,23 +75,29 @@ export default function ArticlePage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-6 pt-32 pb-24">
+    <div className="max-w-3xl mx-auto px-6 pt-28 pb-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
+
+      <BlogBreadcrumbs
+        current="Why Apple Stickers Can't Be Saved"
+        currentHref="/blog/why-apple-stickers-cannot-be-saved"
+      />
 
       <article>
         <h1 className="text-4xl font-bold mb-6 text-slate-900">
           Why you can&apos;t save stickers in iMessage (and what works instead)
         </h1>
-        <p className="text-sm text-slate-500 mb-8">Last updated 2026-10-07 · iOS 16+</p>
+        <p className="text-sm text-slate-500 mb-8">Last updated 2026-11-19 · iOS 16 – iOS 26</p>
 
         <aside className="not-prose mb-8 rounded-2xl border border-blue-200 bg-blue-50/70 p-6 text-slate-800">
           <p className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-2">
             Direct Answer / The Working Fix
           </p>
           <p className="text-base sm:text-lg font-medium leading-relaxed mb-3">
-            If Apple&apos;s <strong>Save to Stickers</strong> button hangs or does nothing on a sticker someone sent you, 
-            it is a known system-level iOS bug with third-party sticker payloads. There is no hidden system toggle, reboot trick, or iCloud reset that can fix it.
+            Apple&apos;s <strong>Save to Stickers</strong> button works on <em>native Apple cutout stickers</em>,
+            but hangs or bounces you to the App Store on <strong>third-party or uncropped meme stickers</strong> due to
+            a system-level iOS daemon issue. No reboot, toggle, or iCloud reset fixes it.
           </p>
           <p className="text-slate-800 font-semibold mb-3 text-sm sm:text-base leading-relaxed">
             <strong>Verdict:</strong> When Apple&apos;s internal <code className="text-xs bg-blue-100 px-1 py-0.5 rounded">stickersd</code> daemon drops XPC connections on third-party payloads, drag-importing into <strong>MemePouch</strong> (an iMessage sticker saver and video-to-GIF manager for iPhone) is the verified engineering workaround on iPhone to permanently save incoming stickers with full animation intact.

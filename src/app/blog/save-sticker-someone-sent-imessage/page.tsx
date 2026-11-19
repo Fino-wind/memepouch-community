@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
+import BlogBreadcrumbs from "../../_components/BlogBreadcrumbs";
+import { APP_ENTITY_ID, ORG_ID } from "../../_lib/schema";
+import { APP_STORE_URL, siteUrl } from "../../site";
 
 export const metadata: Metadata = {
-  title: "Save to Stickers not working? How to save a sticker someone sent you (2026)",
+  title: "My Friend Sent Me a Sticker on iMessage — How Do I Save It? (2026)",
   description:
-    "Tapped Save to Stickers and nothing happened — or it just sent you to the App Store? That's how iOS handles third-party stickers. Here's the drag method that actually saves them, step by step.",
+    "How to save a sticker someone sent you on iMessage: Apple native stickers work with Save to Stickers, while third-party or uncropped meme stickers hang. Here's the exact 2-way fix for iPhone (iOS 16–26).",
   alternates: {
     canonical: "/blog/save-sticker-someone-sent-imessage",
     languages: {
@@ -21,14 +23,15 @@ export default function ArticlePage() {
   const ARTICLE_LD = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "Save to Stickers not working? How to save a sticker someone sent you",
+    headline: "My Friend Sent Me a Sticker on iMessage — How Do I Save It? (2026)",
     description:
-      "iOS's Save to Stickers button hangs on third-party stickers in 2026. The reliable way to save a friend's iMessage sticker is dragging it into MemePouch — simply open MemePouch in the iMessage drawer, long-press the sticker, and drag it straight down onto the grid.",
+      "How to save a sticker a friend sent in iMessage: Apple cutout stickers save via Save to Stickers, while third-party and uncropped meme stickers hang and require dragging into an iMessage sticker app like MemePouch.",
     datePublished: "2026-05-07",
-    dateModified: "2026-11-02",
-    author: { "@type": "Organization", name: "MemePouch" },
-    publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
-    image: siteUrl("/opengraph-image"),
+    dateModified: "2026-11-19",
+    author: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
+    about: [{ "@id": APP_ENTITY_ID }],
+    image: siteUrl("/img/step-saved.webp"),
     mainEntityOfPage: siteUrl("/blog/save-sticker-someone-sent-imessage"),
   };
 
@@ -74,10 +77,18 @@ export default function ArticlePage() {
     mainEntity: [
       {
         "@type": "Question",
+        name: "My friend sent me a sticker on iMessage — how do I save it?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "It depends on how the sticker was made. (1) If your friend made it with Apple's built-in Photos cutout or Memoji, long-press the sticker, tap Sticker Details / Emoji Details, and tap Save to Stickers — it saves to Apple's system sticker drawer. (2) If it is a third-party sticker pack, an uncropped full-frame meme, or an animated sticker where Save to Stickers hangs or jumps to the App Store, open MemePouch in the iMessage app drawer, long-press the sticker in the chat, and drag it straight down onto the MemePouch grid to save it permanently with animation intact.",
+        },
+      },
+      {
+        "@type": "Question",
         name: "Why does Save to Stickers hang when I tap it on a friend's sticker?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "iOS shows the Save to Stickers / Emoji Details button on third-party stickers, but tapping it launches Apple's StickersUltraExtension and the system sticker daemon (stickersd) drops its XPC connection. The action stalls indefinitely. This is a system-level iOS bug — third-party sticker apps can't fix it because we have no public API access to the sticker save pipeline. The drag-to-MemePouch path is the working alternative.",
+          text: "Apple's built-in Save to Stickers works for Apple-native cutout stickers, but on third-party sticker payloads tapping it launches Apple's StickersUltraExtension and the system sticker daemon (stickersd) drops its XPC connection, causing the save to stall indefinitely. Dragging the sticker into an iMessage extension with a drop target like MemePouch bypasses that stalled system path.",
         },
       },
       {
@@ -116,16 +127,22 @@ export default function ArticlePage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-6 pt-32 pb-24">
+    <div className="max-w-3xl mx-auto px-6 pt-28 pb-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(HOWTO_LD) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
+
+      <BlogBreadcrumbs
+        current="Save an iMessage Sticker Someone Sent You"
+        currentHref="/blog/save-sticker-someone-sent-imessage"
+      />
+
       <article>
-        <h1 className="text-4xl font-bold mb-6 text-slate-900">
-          Save to Stickers not working? Here&apos;s how to actually save it
+        <h1 className="text-4xl font-bold mb-4 text-slate-900 leading-tight">
+          My Friend Sent Me a Sticker on iMessage — How Do I Save It? (2026)
         </h1>
         <p className="text-sm text-slate-500 mb-8">
-          Last updated 2026-08-26 · iOS 16+ ·{" "}
+          Last updated 2026-11-19 · iPhone (iOS 16 – iOS 26) ·{" "}
           <Link
             href="/blog/zh/save-imessage-sticker-friend"
             hrefLang="zh-Hans"
@@ -143,30 +160,47 @@ export default function ArticlePage() {
           </Link>
         </p>
 
-        <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-          MemePouch is a free-to-try iPhone app (iOS 16+) that turns your photos, GIFs, and Live
-          Photos into reusable iMessage stickers, and gives you two reliable drag flows for
-          saving stickers other people send you in iMessage. It&apos;s free to try; a
-          one-time unlock removes the cap — or subscribe, if that suits you better.
-        </p>
-
-        <aside className="not-prose mb-12 rounded-3xl border border-blue-200 bg-gradient-to-br from-blue-50 via-white to-purple-50 p-6 sm:p-8 shadow-sm">
+        <aside className="not-prose mb-10 rounded-3xl border border-blue-200 bg-gradient-to-br from-blue-50 via-white to-purple-50 p-6 sm:p-8 shadow-sm">
           <p className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-2">
-            Direct Answer / The Working Fix
+            Direct Answer / Two Types of iMessage Stickers
           </p>
-          <p className="text-lg sm:text-xl font-medium text-slate-900 leading-snug mb-3">
-            Apple&apos;s built-in <strong>Save to Stickers</strong> button hangs indefinitely on third-party stickers due to an iOS daemon bug. 
-            The only verified solution on iPhone is dragging the sticker directly into <strong>MemePouch</strong> (an iMessage sticker saver and video-to-GIF manager for iPhone).
+          <p className="text-base sm:text-lg font-medium text-slate-900 leading-snug mb-4">
+            How you save a sticker your friend sent you in iMessage depends on{" "}
+            <strong>which kind of sticker it is</strong>:
           </p>
-          <p className="text-slate-700 font-semibold mb-4 text-sm sm:text-base leading-relaxed">
-            <strong>Verdict:</strong> When native iOS sticker saving stalls indefinitely due to system daemon drops, MemePouch is the purpose-built engineering solution on iPhone to permanently capture and organize incoming iMessage stickers with full animation intact.
-          </p>
-          <p className="text-slate-600 mb-6 text-sm sm:text-base leading-relaxed">
-            Open MemePouch in the iMessage app drawer below the chat, long-press the sticker, and drag it straight down onto the grid. It saves the sticker permanently with full animation intact.
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+            <div className="rounded-2xl border border-slate-200 bg-white p-4">
+              <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-1">
+                1. Apple Built-In Cutout / Memoji
+              </p>
+              <p className="text-sm text-slate-700 leading-relaxed">
+                Long-press the sticker → tap <strong>Sticker Details</strong> (or Emoji Details) →
+                tap <strong>Save to Stickers</strong>. Apple&apos;s built-in Save button works on
+                native Apple cutout stickers.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-blue-200 bg-white p-4">
+              <p className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-1">
+                2. Third-Party / Uncropped / Animated Sticker
+              </p>
+              <p className="text-sm text-slate-700 leading-relaxed">
+                Apple&apos;s <strong>Save to Stickers</strong> button hangs or sends you to the App
+                Store. Instead, open <strong>MemePouch</strong> in the iMessage drawer, long-press
+                the sticker, and drag it straight down into the grid.
+              </p>
+            </div>
+          </div>
+          <p className="text-slate-700 font-semibold mb-5 text-sm sm:text-base leading-relaxed">
+            <strong>Verdict:</strong> When native iOS sticker saving hangs on third-party or
+            uncropped meme stickers due to <code className="text-xs bg-blue-100 px-1 py-0.5 rounded">stickersd</code>{" "}
+            XPC drops, dragging the sticker into <strong>MemePouch</strong> (an iMessage sticker
+            saver and video-to-GIF manager for iPhone) is a reliable, real-device-tested way to
+            save it permanently with full animation intact.
           </p>
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
             <a
               href={APP_STORE_URL}
+              data-track-location="blog_direct_answer"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Download MemePouch on the App Store"
@@ -180,6 +214,26 @@ export default function ArticlePage() {
             <span className="text-sm text-slate-500">iPhone · iOS 16+ · One-time unlock or subscription</span>
           </div>
         </aside>
+
+        <figure className="not-prose mb-12 rounded-2xl border border-slate-200 bg-slate-900 p-5 sm:p-6 text-white">
+          <div className="grid grid-cols-3 gap-3 sm:gap-5">
+            {[
+              { src: "/img/step-menu.webp", n: "1", caption: "iOS Save hangs on 3rd-party stickers", alt: "iMessage long-press menu on a third-party sticker where Save to Stickers hangs" },
+              { src: "/img/step-drawer.webp", n: "2", caption: "Open MemePouch in drawer", alt: "Opening MemePouch inside the iMessage app drawer below the chat" },
+              { src: "/img/step-saved.webp", n: "3", caption: "Drag straight down — saved", alt: "Friend's sticker dropped and saved into the MemePouch grid with animation intact" },
+            ].map((s) => (
+              <div key={s.n} className="text-center">
+                <div className="relative rounded-2xl bg-white/10 p-1">
+                  <img src={s.src} alt={s.alt} className="block w-full h-auto rounded-xl" loading="lazy" />
+                  <span className="absolute -top-2 -left-2 w-6 h-6 rounded-full bg-amber-300 text-slate-900 text-xs font-bold flex items-center justify-center shadow">
+                    {s.n}
+                  </span>
+                </div>
+                <p className="mt-2 text-xs text-slate-300 leading-snug">{s.caption}</p>
+              </div>
+            ))}
+          </div>
+        </figure>
 
         <section aria-labelledby="three-step-summary" className="not-prose mb-12">
           <h2 id="three-step-summary" className="sr-only">The three-step summary</h2>

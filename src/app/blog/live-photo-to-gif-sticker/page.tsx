@@ -106,10 +106,11 @@ export default function ArticlePage() {
   };
 
   return (
-    <main className="max-w-3xl mx-auto px-6 pt-32 pb-24 prose prose-slate prose-lg">
+    <div className="max-w-3xl mx-auto px-6 pt-32 pb-24 prose prose-slate prose-lg">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(HOWTO_LD) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
+      <article>
 
       <h1 className="text-4xl font-bold mb-3 text-slate-900 not-prose">
         Turn a Live Photo into a looping GIF sticker for iMessage
@@ -257,6 +258,7 @@ export default function ArticlePage() {
           <li><Link href="/blog/import-stickers-five-ways" className="text-blue-600 hover:underline">5 ways to add a sticker to MemePouch</Link></li>
         </ul>
       </div>
-    </main>
+      </article>
+    </div>
   );
 }

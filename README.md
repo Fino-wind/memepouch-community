@@ -37,7 +37,7 @@ Want the full walkthroughs? The [website](https://memepouch.com) has step-by-ste
 
 - 🐛 **Found a bug, or something's broken?** → [**Open an Issue**](https://github.com/Fino-wind/memepouch-community/issues/new). Tell me what happened (and your iPhone / iOS version if you know it). I read every one.
 - 💡 **Have an idea, a feature request, or a question about how something works?** → [**Start a Discussion**](https://github.com/Fino-wind/memepouch-community/discussions). Great for "can MemePouch do X?", "it'd be cool if…", or just saying hi.
-- 📧 **Prefer email?** Reach me at **memepouch@tetherme.app** (or in the app: Settings → Send Feedback).
+- 📧 **Prefer email?** Reach me at **support@memepouch.com** (or in the app: Settings → Send Feedback).
 
 No question is too small. If something confused you, it'll confuse the next person too — so telling me genuinely helps. 🙏
 

@@ -3,8 +3,9 @@ import Link from "next/link";
 import { POSTS } from "./_lib/posts";
 
 export const metadata: Metadata = {
-  title: "MemePouch Blog & Tutorials",
-  description: "Guides on how to organize, import, and manage iMessage stickers using MemePouch.",
+  title: "Blog & Tutorials — iMessage Stickers & Video to GIF Guides",
+  description:
+    "Step-by-step iPhone guides on saving TikTok and iMessage stickers, turning videos into 50fps looping GIFs without watermarks, fixing sticker cutoff, and exporting WhatsApp packs.",
   alternates: { canonical: "/blog" },
 };
 

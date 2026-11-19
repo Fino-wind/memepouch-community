@@ -105,10 +105,11 @@ export default function ArticlePage() {
   };
 
   return (
-    <main className="max-w-3xl mx-auto px-6 pt-32 pb-24 prose prose-slate prose-lg">
+    <div className="max-w-3xl mx-auto px-6 pt-32 pb-24 prose prose-slate prose-lg">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(HOWTO_LD) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
+      <article>
 
       <h1 className="text-4xl font-bold mb-3 text-slate-900 not-prose">
         Auto-delete original photos after sticker import
@@ -217,6 +218,7 @@ export default function ArticlePage() {
           <li><Link href="/blog/organize-imessage-sticker-library" className="text-blue-600 hover:underline">How to organize your iMessage sticker library</Link></li>
         </ul>
       </div>
-    </main>
+      </article>
+    </div>
   );
 }

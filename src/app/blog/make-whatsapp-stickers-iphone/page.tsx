@@ -1,12 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
+import BlogBreadcrumbs from "../../_components/BlogBreadcrumbs";
+import { APP_ENTITY_ID, ORG_ID } from "../../_lib/schema";
+import { APP_STORE_URL, siteUrl } from "../../site";
 
 export const metadata: Metadata = {
-  title: "How to make WhatsApp stickers on iPhone from your own memes (2026)",
+  title: "How to Make WhatsApp Stickers on iPhone from Your Own Memes (2026)",
   description:
     "Turn photos, memes, and GIFs into WhatsApp sticker packs on iPhone — no watermark, no cutout, animated GIFs supported. Import into MemePouch once and the same stickers work in both iMessage and WhatsApp. iOS 16+.",
-  alternates: { canonical: "/blog/make-whatsapp-stickers-iphone" },
+  alternates: {
+    canonical: "/blog/make-whatsapp-stickers-iphone",
+    languages: {
+      en: "/blog/make-whatsapp-stickers-iphone",
+      "zh-Hans": "/blog/zh/make-whatsapp-stickers-iphone",
+      "zh-Hant": "/blog/zh-Hant/make-whatsapp-stickers-iphone",
+      "x-default": "/blog/make-whatsapp-stickers-iphone",
+    },
+  },
 };
 
 export default function ArticlePage() {
@@ -17,9 +27,10 @@ export default function ArticlePage() {
     description:
       "Turn photos, memes, and GIFs into WhatsApp sticker packs with MemePouch — pick 3–30 stickers, tap Add, confirm in WhatsApp. GIFs become animated stickers.",
     datePublished: "2026-07-11",
-    dateModified: "2026-07-11",
-    author: { "@type": "Organization", name: "MemePouch" },
-    publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
+    dateModified: "2026-11-19",
+    author: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
+    about: [{ "@id": APP_ENTITY_ID }],
     image: siteUrl("/opengraph-image"),
     mainEntityOfPage: siteUrl("/blog/make-whatsapp-stickers-iphone"),
   };
@@ -108,16 +119,30 @@ export default function ArticlePage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-6 pt-32 pb-24">
+    <div className="max-w-3xl mx-auto px-6 pt-28 pb-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(HOWTO_LD) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
 
+      <BlogBreadcrumbs
+        current="Make WhatsApp Stickers on iPhone"
+        currentHref="/blog/make-whatsapp-stickers-iphone"
+      />
+
       <article>
-        <h1 className="text-4xl font-bold mb-6 text-slate-900">
+        <h1 className="text-4xl font-bold mb-4 text-slate-900">
           How to make WhatsApp stickers on iPhone from your own memes
         </h1>
-        <p className="text-sm text-slate-500 mb-8">Last updated 2026-07-11 · iOS 16+</p>
+        <p className="text-sm text-slate-500 mb-8">
+          Last updated 2026-11-19 · iOS 16+ ·{" "}
+          <Link href="/blog/zh/make-whatsapp-stickers-iphone" hrefLang="zh-Hans" className="text-blue-600 hover:underline">
+            简体中文
+          </Link>{" "}
+          ·{" "}
+          <Link href="/blog/zh-Hant/make-whatsapp-stickers-iphone" hrefLang="zh-Hant" className="text-blue-600 hover:underline">
+            繁體中文
+          </Link>
+        </p>
 
         <p className="text-lg text-slate-700 mb-6 leading-relaxed">
           WhatsApp has no built-in way to turn your own photos and GIFs into stickers on

@@ -3,10 +3,18 @@ import Link from "next/link";
 import { APP_STORE_URL, SITE_URL, siteUrl } from "../../../site";
 
 export const metadata: Metadata = {
-  title: "iPhone 怎么自制 WhatsApp 贴纸?用自己的表情包做贴纸包 (2026)",
+  title: "iPhone 怎么自制 WhatsApp 贴纸？用自己的表情包做贴纸包 (2026)",
   description:
-    "把照片、表情包、GIF 做成 WhatsApp 贴纸包——无水印、不强制抠图、支持动态 GIF。导入 MemePouch 一次,同一批贴纸 iMessage 和 WhatsApp 都能用。iOS 16+。",
-  alternates: { canonical: "/blog/zh/make-whatsapp-stickers-iphone" },
+    "把照片、表情包、GIF 做成 WhatsApp 贴纸包——无水印、不强制抠图、支持动态 GIF。导入 MemePouch 一次，同一批贴纸 iMessage 和 WhatsApp 都能用。iOS 16+。",
+  alternates: {
+    canonical: "/blog/zh/make-whatsapp-stickers-iphone",
+    languages: {
+      en: "/blog/make-whatsapp-stickers-iphone",
+      "zh-Hans": "/blog/zh/make-whatsapp-stickers-iphone",
+      "zh-Hant": "/blog/zh-Hant/make-whatsapp-stickers-iphone",
+      "x-default": "/blog/make-whatsapp-stickers-iphone",
+    },
+  },
 };
 
 export default function ArticlePage() {

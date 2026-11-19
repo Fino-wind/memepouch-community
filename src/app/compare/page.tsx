@@ -3,9 +3,9 @@ import Link from "next/link";
 import { APP_STORE_URL } from "../site";
 
 export const metadata: Metadata = {
-  title: "MemePouch vs other iMessage sticker apps — honest comparison",
+  title: "Compare iMessage Sticker Apps (2026) — Honest Breakdown",
   description:
-    "How MemePouch compares to Apple's built-in cutout, Sticker.ly (subscription, cross-platform), Sticker Maker Studio (free, pack-based), and other iMessage-native sticker apps. Written by the developer — honest about what MemePouch is for and what it isn't.",
+    "How MemePouch compares to Apple's built-in cutout, Sticker.ly, Sticker Maker Studio, and other iMessage sticker apps — covering auto-cutout, saving friends' stickers, 50fps video-to-GIF, WhatsApp export, and pricing.",
   alternates: { canonical: "/compare" },
 };
 
@@ -129,7 +129,7 @@ export default function ComparePage() {
       <h1 className="text-4xl font-bold mb-3 text-ink">
         MemePouch vs other iMessage sticker apps
       </h1>
-      <p className="text-sm text-ink-faint mb-8">Honest comparison · Last updated 2026-05-19</p>
+      <p className="text-sm text-ink-faint mb-8">Honest comparison · Last updated 2026-11-19</p>
 
       <p className="text-lg text-ink-soft mb-6 leading-relaxed">
         Most sticker-app comparison pages exist to sell you something. This one is written by the
@@ -140,15 +140,13 @@ export default function ComparePage() {
       <aside className="my-10 p-6 bg-cream border border-line rounded-2xl text-ink-soft">
         <p className="text-sm uppercase tracking-wider text-ink-faint font-semibold mb-2">In one line</p>
         <p className="text-base leading-relaxed">
-          <strong>MemePouch is iMessage-only and library-first.</strong> One shared sticker
+          <strong>MemePouch is iMessage-first and library-first — with free WhatsApp pack export built in.</strong> One shared sticker
           grid (no pack ceremony), private library (no community feed), one unlock that&apos;s
-          either a one-time purchase or a subscription, and one of the few iMessage sticker apps that wires up both drag
-          flows for saving the stickers your friends send you. The whole-frame import (no
+          either a one-time purchase or a subscription, 50 fps video-to-GIF conversion with Smart Loop, and drag-import for saving third-party stickers your friends send you in iMessage. The whole-frame import (no
           auto-cutout) sets MemePouch apart from Apple&apos;s built-in tool; against other
           sticker apps the bigger differences are <em>workflow shape</em> and{" "}
-          <em>what the app is built around</em>. If you primarily chat on WhatsApp or Telegram,
-          or you want a sticker community, MemePouch is not the right app — pick a
-          cross-platform sticker maker (Sticker.ly or Sticker Maker Studio) instead.
+          <em>what the app is built around</em>. If you primarily want a public sticker community or Telegram pack publishing, pick a
+          cross-platform community app (Sticker.ly or Sticker Maker Studio) instead.
         </p>
       </aside>
 
@@ -226,7 +224,7 @@ export default function ComparePage() {
             </tr>
             <tr>
               <td className="py-3 px-3 text-ink font-medium">WhatsApp / Telegram export</td>
-              <td className="py-3 px-3 text-berry bg-pouch/8 border-x border-line">✗ iMessage-only by design</td>
+              <td className="py-3 px-3 text-emerald-700 bg-pouch/8 border-x border-line font-semibold">✓ Free WhatsApp export (static &amp; animated; no Telegram)</td>
               <td className="py-3 px-3 text-ink-faint">N/A</td>
               <td className="py-3 px-3 text-emerald-600 font-semibold">✓ Core flow</td>
               <td className="py-3 px-3 text-emerald-600 font-semibold">✓ Core flow</td>
@@ -234,7 +232,7 @@ export default function ComparePage() {
             </tr>
             <tr>
               <td className="py-3 px-3 text-ink font-medium">Pricing</td>
-              <td className="py-3 px-3 text-emerald-700 bg-pouch/8 border-x border-line font-semibold">One-time unlock, no ads</td>
+              <td className="py-3 px-3 text-emerald-700 bg-pouch/8 border-x border-line font-semibold">One-time unlock or subscription, no ads</td>
               <td className="py-3 px-3 text-emerald-600">Free</td>
               <td className="py-3 px-3 text-berry">Subscription (trial requires card)</td>
               <td className="py-3 px-3 text-emerald-600">Free (App Store shows Free)</td>
@@ -406,8 +404,7 @@ export default function ComparePage() {
               cutout (free) before importing if you want a transparent subject.
             </li>
             <li>
-              <strong>No cross-platform export.</strong> iMessage-only by design. If you primarily
-              chat on WhatsApp / Telegram, pick a different app.
+              <strong>No Telegram or Android version.</strong> MemePouch is iPhone- and iMessage-first (with free WhatsApp sticker pack export included). If you live on Telegram or Android, pick a cross-platform app.
             </li>
             <li>
               <strong>No social discovery / pack store.</strong> Your sticker library is private

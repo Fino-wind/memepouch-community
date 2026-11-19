@@ -41,6 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/faq", "monthly", 0.8),
     entry("/compare", "monthly", 0.7),
     entry("/blog", "weekly", 0.6),
+    entry("/blog/best-video-to-gif-apps-iphone-no-watermark", "monthly", 0.9),
     entry("/blog/how-to-save-transparent-stickers-in-imessage", "monthly", 0.8),
     entry("/blog/turn-video-into-animated-gif-stickers-ios-18", "monthly", 0.8),
     entry("/blog/fix-stickers-missing-in-imessage-drawer-bug", "monthly", 0.8),

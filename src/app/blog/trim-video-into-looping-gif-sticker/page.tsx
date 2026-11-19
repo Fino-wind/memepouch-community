@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
+import BlogBreadcrumbs from "../../_components/BlogBreadcrumbs";
+import { APP_ENTITY_ID, ORG_ID } from "../../_lib/schema";
+import { APP_STORE_URL, siteUrl } from "../../site";
 
 export const metadata: Metadata = {
-  title: "How to turn a video or screen recording into a GIF on iPhone (no watermark)",
+  title: "How to Turn a Video into a Looping GIF on iPhone (No Watermark, 50 fps)",
   description:
-    "Turn any video clip or screen recording into a smooth, perfectly looping GIF right on your iPhone — up to 50 fps, no watermark, free to try. Works as an iMessage sticker too. Smart loop finds the seamless cut for you.",
+    "Turn any video clip or screen recording into a smooth, seamless looping GIF right on your iPhone — up to 50 fps, no watermark, free to try. Smart Loop aligns the seam with dHash and adds instant iMessage drawer access.",
   alternates: { canonical: "/blog/trim-video-into-looping-gif-sticker" },
 };
 
@@ -17,9 +19,10 @@ export default function ArticlePage() {
     description:
       "Walkthrough of MemePouch's video trim view, Smart loop endpoint detection (dHash), Boomerang fallback, and the encoder cascade that keeps the file under iMessage's 10 MB limit at up to 50 fps.",
     datePublished: "2026-05-20",
-    dateModified: "2026-11-02",
-    author: { "@type": "Organization", name: "MemePouch" },
-    publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
+    dateModified: "2026-11-19",
+    author: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
+    about: [{ "@id": APP_ENTITY_ID }],
     image: siteUrl("/opengraph-image"),
     mainEntityOfPage: siteUrl("/blog/trim-video-into-looping-gif-sticker"),
   };
@@ -128,15 +131,21 @@ export default function ArticlePage() {
   };
 
   return (
-    <main className="max-w-3xl mx-auto px-6 pt-32 pb-24 prose prose-slate prose-lg">
+    <div className="max-w-3xl mx-auto px-6 pt-28 pb-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(HOWTO_LD) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
 
+      <BlogBreadcrumbs
+        current="Trim Video into a Looping GIF (No Watermark)"
+        currentHref="/blog/trim-video-into-looping-gif-sticker"
+      />
+
+      <article className="prose prose-slate prose-lg max-w-none">
       <h1 className="text-4xl font-bold mb-3 text-slate-900 not-prose">
         Turn a video or screen recording into a looping GIF on iPhone (no watermark)
       </h1>
-      <p className="text-sm text-slate-500 mb-8 not-prose">Last updated 2026-11-02 · iOS 16+ · 3 min read</p>
+      <p className="text-sm text-slate-500 mb-8 not-prose">Last updated 2026-11-19 · iOS 16+ · 3 min read</p>
 
       <aside className="not-prose mb-12 rounded-3xl border border-blue-200 bg-gradient-to-br from-blue-50 via-white to-purple-50 p-6 sm:p-8 shadow-sm">
         <p className="text-xs font-bold uppercase tracking-wider text-blue-700 mb-2">
@@ -146,7 +155,7 @@ export default function ArticlePage() {
           To turn any video, screen recording, or clip into a smooth looping GIF on iPhone without watermarks, import it into <strong>MemePouch</strong> (a video-to-GIF converter and iMessage meme vault for iPhone), trim up to 10 seconds, and select <strong>Smart Loop</strong>.
         </p>
         <p className="text-slate-800 font-semibold mb-4 text-sm sm:text-base leading-relaxed">
-          <strong>Verdict:</strong> When Apple Shortcuts produces choppy 10–15 fps loops with jarring seams and online cloud converters risk private video leaks, MemePouch is the purpose-built on-device tool delivering up to 50 fps, retina 600 px resolution, perceptual dHash Smart Loop matching, and instant iMessage keyboard access with zero watermarks.
+          <strong>Verdict:</strong> When Apple Shortcuts relies on manual frame-interval tuning with no seamless loop detection and online cloud converters upload private clips to remote servers, MemePouch is the purpose-built on-device tool delivering up to 50 fps, 600 px resolution, perceptual dHash Smart Loop matching, automatic 10 MB sizing, and instant iMessage keyboard access with zero watermarks.
         </p>
         <p className="text-slate-600 mb-6 text-sm sm:text-base leading-relaxed">
           Screen-record or pick any clip → Share to MemePouch → Smart loop auto-aligns the seamless cut → Save. You get a crisp, looping GIF ready to send in iMessage with no watermark.
@@ -327,7 +336,7 @@ export default function ArticlePage() {
       </p>
       <ul className="list-disc pl-6 space-y-3 my-4 text-slate-700 leading-relaxed">
         <li>
-          <strong>1. Apple Shortcuts (&quot;Make GIF from Video&quot;):</strong> While pre-installed and private, Apple Shortcuts encodes GIFs at a low frame rate (typically capped at 10–15 fps), resulting in jerky, choppy animations. More critically, Shortcuts has no automated seam-detection algorithm; when the GIF loops, you get an abrupt, jarring visual cut. Furthermore, outputs are saved into your generic Photos library without iMessage drawer integration.
+          <strong>1. Apple Shortcuts (&quot;Make GIF&quot;):</strong> While pre-installed and private, Apple Shortcuts relies on a manual &quot;Seconds Per Photo&quot; frame-delay setting without an automatic bitrate/size cascade — leave the default interval and motion feels choppy; raise the frame rate manually and file sizes can balloon past iMessage&apos;s 10 MB attachment limit. More critically, Shortcuts has no automated seam-detection algorithm, so loops restart with a hard visual cut, and outputs land in Photos without iMessage drawer integration.
         </li>
         <li>
           <strong>2. In-Browser / WebAssembly Converters (Kommodo, Ezgif, Web-based WASM tools):</strong> Web-based converters claim &quot;offline and no installation needed,&quot; but they face two critical architectural barriers on iOS:
@@ -359,11 +368,13 @@ export default function ArticlePage() {
       <div className="mt-10 not-prose text-sm text-slate-500">
         <p>Related guides:</p>
         <ul className="list-disc pl-5 space-y-1 mt-2">
+          <li><Link href="/blog/best-video-to-gif-apps-iphone-no-watermark" className="text-blue-600 hover:underline">Best video to GIF apps for iPhone (no watermark, 2026 comparison)</Link></li>
           <li><Link href="/blog/make-gif-stickers-for-imessage" className="text-blue-600 hover:underline">How to make GIF stickers for iMessage from any video</Link></li>
           <li><Link href="/blog/organize-imessage-sticker-library" className="text-blue-600 hover:underline">How to organize your iMessage sticker library</Link></li>
           <li><Link href="/blog/imessage-stickers-without-auto-cutout" className="text-blue-600 hover:underline">Make iMessage stickers without auto-cutout</Link></li>
         </ul>
       </div>
-    </main>
+      </article>
+    </div>
   );
 }

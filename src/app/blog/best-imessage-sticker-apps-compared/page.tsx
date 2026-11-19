@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
+import BlogBreadcrumbs from "../../_components/BlogBreadcrumbs";
+import { APP_ENTITY_ID, ORG_ID } from "../../_lib/schema";
+import { APP_STORE_URL, siteUrl } from "../../site";
 
 export const metadata: Metadata = {
-  title: "Best iMessage sticker apps in 2026 — honest comparison",
+  title: "Best iMessage Sticker Apps in 2026 — Honest Comparison",
   description:
-    "Three categories of iMessage sticker apps cover the actual landscape: Apple's built-in tool, generic cross-platform sticker makers, and iMessage-native sticker apps. Here's what each does well and what each gets wrong — written by a developer who built one of them.",
+    "Three categories of iMessage sticker apps cover the actual landscape: Apple's built-in tool, generic cross-platform sticker makers, and iMessage-native sticker apps. Written by the developer of MemePouch.",
   alternates: { canonical: "/blog/best-imessage-sticker-apps-compared" },
 };
 
@@ -17,9 +19,10 @@ export default function ArticlePage() {
     description:
       "An honest comparison of the three real categories of iMessage sticker apps in 2026: Apple's built-in long-press cutout, generic cross-platform sticker makers, and iMessage-native sticker apps like MemePouch.",
     datePublished: "2026-05-15",
-    dateModified: "2026-05-15",
-    author: { "@type": "Organization", name: "MemePouch" },
-    publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
+    dateModified: "2026-11-19",
+    author: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
+    about: [{ "@id": APP_ENTITY_ID }],
     image: siteUrl("/opengraph-image"),
     mainEntityOfPage: siteUrl("/blog/best-imessage-sticker-apps-compared"),
   };
@@ -72,15 +75,20 @@ export default function ArticlePage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-6 pt-32 pb-24">
+    <div className="max-w-3xl mx-auto px-6 pt-28 pb-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
+
+      <BlogBreadcrumbs
+        current="Best iMessage Sticker Apps Compared"
+        currentHref="/blog/best-imessage-sticker-apps-compared"
+      />
 
       <article>
         <h1 className="text-4xl font-bold mb-6 text-slate-900">
           Best iMessage sticker apps in 2026 — honest comparison
         </h1>
-        <p className="text-sm text-slate-500 mb-8">Last updated 2026-05-15 · iOS 16+</p>
+        <p className="text-sm text-slate-500 mb-8">Last updated 2026-11-19 · iOS 16 – iOS 26</p>
 
         <p className="text-lg text-slate-700 mb-6 leading-relaxed">
           Sticker apps for iPhone fall into three real categories. The right pick depends on
@@ -266,6 +274,14 @@ export default function ArticlePage() {
             second one is rejected with a notice instead of cluttering the library.
           </li>
           <li>
+            <strong>Free WhatsApp sticker pack export.</strong> Export any 3–30 static or animated
+            GIF stickers straight into WhatsApp without leaving your library (
+            <Link href="/blog/make-whatsapp-stickers-iphone" className="text-blue-600 hover:underline">
+              WhatsApp export guide
+            </Link>
+            ).
+          </li>
+          <li>
             <strong>One-time unlock or subscription</strong> after the free tier — same
             app either way. No ads.
           </li>
@@ -274,8 +290,9 @@ export default function ArticlePage() {
         <p className="text-slate-700 leading-relaxed mb-4"><strong>What MemePouch deliberately doesn&apos;t do:</strong></p>
         <ul className="list-disc pl-6 space-y-2 mb-6 text-slate-700 leading-relaxed">
           <li>
-            <strong>No cross-platform export</strong>. MemePouch is iMessage-only by design. If
-            you primarily chat on WhatsApp or Telegram, Category 2 apps are a better fit.
+            <strong>No Telegram or Android version</strong>. MemePouch is iPhone- and iMessage-first
+            (with free WhatsApp export included). If you primarily chat on Telegram or Android,
+            Category 2 apps are a better fit.
           </li>
           <li>
             <strong>No automatic background removal.</strong> Use Apple Photos&apos; long-press

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { APP_STORE_URL, SITE_URL, siteUrl } from "../../site";
+import BlogBreadcrumbs from "../../_components/BlogBreadcrumbs";
+import { APP_ENTITY_ID, ORG_ID } from "../../_lib/schema";
+import { APP_STORE_URL, siteUrl } from "../../site";
 
 export const metadata: Metadata = {
-  title: "How to fix stickers missing or blank in iMessage drawer (iOS 17 & 18)",
+  title: "All My Stickers Are Gone on iPhone? Fix Missing or Blank iMessage Stickers (iOS 18 & 26)",
   description:
-    "Troubleshoot iMessage stickers disappearing, the blank sticker tray, or endless loading spinner on iOS 17 and iOS 18. Fix iCloud cache lockups and prevent sticker loss.",
+    "Troubleshoot iMessage stickers disappearing, all stickers gone after an update, or a blank sticker tray on iOS 18 and iOS 26. Fix iCloud cache lockups and back up stickers safely.",
   alternates: { canonical: "/blog/fix-stickers-missing-in-imessage-drawer-bug" },
 };
 
@@ -13,13 +15,14 @@ export default function FixStickersMissingPage() {
   const ARTICLE_LD = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "How to fix stickers missing or blank in the iMessage drawer on iOS 17 & 18",
+    headline: "All My Stickers Are Gone on iPhone? Fix Missing or Blank iMessage Stickers (iOS 18 & 26)",
     description:
-      "A technical troubleshooting guide for missing iMessage stickers, blank drawer bugs, and endless loading spinners on iOS 17 and iOS 18, plus how to secure your stickers permanently.",
+      "A technical troubleshooting guide for missing iMessage stickers, all stickers disappeared on iPhone, blank drawer bugs, and endless loading spinners on iOS 18 and iOS 26.",
     datePublished: "2026-11-03",
-    dateModified: "2026-11-03",
-    author: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
-    publisher: { "@type": "Organization", name: "MemePouch", url: SITE_URL },
+    dateModified: "2026-11-19",
+    author: { "@id": ORG_ID },
+    publisher: { "@id": ORG_ID },
+    about: [{ "@id": APP_ENTITY_ID }],
     image: siteUrl("/opengraph-image"),
     mainEntityOfPage: siteUrl("/blog/fix-stickers-missing-in-imessage-drawer-bug"),
   };
@@ -91,7 +94,7 @@ export default function FixStickersMissingPage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-16">
+    <div className="max-w-3xl mx-auto px-6 pt-28 pb-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ARTICLE_LD) }}
@@ -105,19 +108,16 @@ export default function FixStickersMissingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }}
       />
 
-      <nav className="text-sm text-slate-500 mb-8 flex items-center gap-2">
-        <Link href="/blog" className="hover:text-slate-900 transition">
-          Guides
-        </Link>
-        <span>/</span>
-        <span className="text-slate-900">Fix Missing iMessage Stickers</span>
-      </nav>
+      <BlogBreadcrumbs
+        current="Fix Missing iMessage Stickers"
+        currentHref="/blog/fix-stickers-missing-in-imessage-drawer-bug"
+      />
 
       <article>
         <h1 className="text-4xl font-bold tracking-tight text-slate-900 mb-4 leading-tight">
-          How to fix stickers missing or blank in iMessage drawer (iOS 17 & 18)
+          All My Stickers Are Gone on iPhone? How to Fix Missing or Blank iMessage Stickers (iOS 18 &amp; 26)
         </h1>
-        <p className="text-sm text-slate-500 mb-8">Updated November 2026 · Diagnostic guide for iOS 17 & iOS 18</p>
+        <p className="text-sm text-slate-500 mb-8">Last updated 2026-11-19 · Diagnostic guide for iOS 17, iOS 18 &amp; iOS 26</p>
 
         <p className="text-lg text-slate-700 mb-6 leading-relaxed">
           When opening an iMessage chat and tapping the <strong>+</strong> button to send a reaction sticker,
